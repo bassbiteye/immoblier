@@ -1,0 +1,27 @@
+@url =http://localhost:8000
+//@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU3ODM4NzU3MCwiZXhwIjoxNTc4MzkxMTcwLCJuYmYiOjE1NzgzODc1NzAsImp0aSI6IlpCYk5UWjg5UVRPWGQwWWciLCJzdWIiOjEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.THM6JhCNmgDELP-Pze6MWZAu1yBHjprBWncSF_8j2lI
+POST  {{url}}/api/login
+content-type: application/json
+
+{
+    "email":"bassbiteye45@gmail.com",
+    "password":"passer@1"
+}
+
+###
+POST  {{url}}/api/register
+Authorization : Bearer {{token}}
+content-type: application/json
+
+{
+    "email":"bassbiteye@ggg.com",
+    "password":"passer@1",
+    "c_password":"passer@1",
+    "nom":"bassirou",
+    "prenom":"biteye"
+}
+###
+GET {{url}}/api/user
+###
+GET {{url}}/api/details
+Authorization : Bearer {{token}}
