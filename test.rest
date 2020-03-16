@@ -10,7 +10,7 @@ content-type: application/json
 
 ###
 POST  {{url}}/api/register
-Authorization : Bearer {{token}}
+Authorization : Bearer {{}}
 content-type: application/json
 
 {
