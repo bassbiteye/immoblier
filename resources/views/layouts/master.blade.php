@@ -76,41 +76,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         </li>
                         <li class="nav-item">
-                            <router-link to="/selected" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt blue"></i>
+                            <router-link to="/biens" class="nav-link">
+                                <i class="nav-icon fas fa-building green"></i>
                                 <p>
-                                    Select
+                                    Biens
                             </router-link>
 
                         </li>
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link ">
-                                <i class="nav-icon fas fa-cog green"></i>
+                        <li class="nav-item">
+                            <router-link to="/bailleurs" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie red"></i>
                                 <p>
-                                    Management
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            @can('isAdmin')
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <router-link to="/users" class="nav-link ">
-                                        <i class="fas fa-users nav-icon"></i>
-                                        <p>users</p>
-                                    </router-link>
-                                </li>
-                            </ul>
+                                    Bailleurs
+                            </router-link>
+
+                        </li>                        <li class="nav-item">
+                            <router-link to="/clients" class="nav-link">
+                                <i class="nav-icon fas fa-user blue"></i>
+                                <p>
+                                    Clients
+                            </router-link>
+
                         </li>
+                 
                        
                         <li class="nav-item">
-                            <router-link to="/developper" class="nav-link">
-                                <i class="nav-icon fas fa-cogs"></i>
+                            <router-link to="/users" class="nav-link">
+                                <i class="fas fa-users nav-icon"></i>
                                 <p>
-                                    developper
+                                    utilisateurs
                                 </p>
                             </router-link>
                         </li>
-                        @endcan
                         <li class="nav-item">
                             <router-link to="/profile" class="nav-link">
                                 <i class="nav-icon fas fa-user orange"></i>
