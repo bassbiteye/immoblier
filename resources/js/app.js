@@ -60,6 +60,7 @@ let routes = [
     { path: '/not-found', component: require('./components/notFoundComponent.vue').default },
     { path: '/selected', component: require('./components/SelectComponent.vue').default },
     { path: '/biens', component: require('./components/BiensComponent.vue').default },
+    { path: '/typebiens', component: require('./components/TypeBiensComponent.vue').default },
     { path: '/bailleurs', component: require('./components/BailleursComponent.vue').default },
     { path: '/clients', component: require('./components/ClientsComponent.vue').default },
 

@@ -152,4 +152,7 @@ class UserController extends Controller
         $user->delete();
         return ['message' => 'User has been deleted'];
     }
+    public function countuser(){
+        return User::count();
+    }
 }

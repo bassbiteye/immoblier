@@ -20,7 +20,8 @@
                   <th>nom</th>
                   <th>prenom</th>
                   <th>adresse</th>
-                  <th> telephone</th>
+                  <th>telephone</th>
+                  <th>sexe</th>
                   <th>profession</th>
                   <th>nationalité</th>
                 </tr>
@@ -31,6 +32,7 @@
                   <td>{{client.prenom}}</td>
                   <td>{{client.adresse}}</td>
                   <td>{{client.tel}}</td>
+                  <td>{{client.sexe}}</td>
                   <td>{{client.profession}}</td>
                   <td>{{client.nationalite}}</td>
                   <td>
@@ -99,47 +101,61 @@
                 />
                 <has-error :form="form" field="prenom"></has-error>
               </div>
-           
+
               <div class="form-group">
-                <label>adresse</label>
                 <input
                   v-model="form.adresse"
                   type="text"
                   name="adresse"
+                  placeholder="adresse"
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('adresse') }"
                 />
                 <has-error :form="form" field="adresse"></has-error>
               </div>
-                 <div class="form-group">
-                <label>telephone</label>
+              <div class="form-group">
                 <input
                   v-model="form.tel"
                   type="number"
                   name="tel"
+                  placeholder="telephone"
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('tel') }"
                 />
                 <has-error :form="form" field="tel"></has-error>
               </div>
                  <div class="form-group">
-                <label>profession</label>
+                <select
+                  v-model="form.sexe"
+                  id="type"
+                  name="sexe"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('sexe') }"
+                >
+                  <option value>selectionner un sexe</option>
+                  <option value="masculin">masculin</option>
+                  <option value="féminin">féminin</option>
+                </select>
+                <has-error :form="form" field="sexe"></has-error>
+              </div>
+              <div class="form-group">
                 <input
                   v-model="form.profession"
                   type="text"
                   name="profession"
+                  placeholder="profession"
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('profession') }"
                 />
                 <has-error :form="form" field="profession"></has-error>
               </div>
-                   <div class="form-group">
-                <label>nationalité</label>
+              <div class="form-group">
                 <input
                   v-model="form.nationalite"
                   type="text"
                   name="nationalite"
                   class="form-control"
+                  placeholder="nationalité"
                   :class="{ 'is-invalid': form.errors.has('nationalite') }"
                 />
                 <has-error :form="form" field="nationalite"></has-error>
@@ -174,6 +190,8 @@ export default {
         prenom: "",
         adresse: "",
         tel: "",
+        sexe: "",
+        profession: "",
         nationalite: ""
       })
     };
@@ -265,7 +283,6 @@ export default {
     }
   },
   created() {
-
     this.loadclients();
     Fire.$on("AfterCreate", () => {
       this.loadclients();

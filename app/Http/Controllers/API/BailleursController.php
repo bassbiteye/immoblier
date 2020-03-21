@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Biens;
-use App\Typebiens;
+use App\Bailleurs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class BiensController extends Controller
+class BailleursController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -25,8 +25,9 @@ class BiensController extends Controller
      */
     public function index()
     {
-        if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
-            return Biens::latest()->paginate(10);
+      //  $this->authorize('isAdmin');
+        if(\Gate::allows('isAdmin')||\Gate::allows('isAuthor')){
+        return Bailleurs::latest()->paginate(10);
         }
     }
 
@@ -40,29 +41,21 @@ class BiensController extends Controller
     {
 
         $this->validate($request, [
-            'details' => 'required|string|max:191',
-            'prix' => 'required|string|max:191',
-            'bailleur' => 'required|string|max:191',
-            'type' => 'required|string|max:191',
+            'nomComplet' => 'required|string|max:191',
             'adresse' => 'required|string|max:191',
-            'etat' => 'required|string|max:191'
+            'telephone' => 'required|string|max:191'
 
         ]);
-        // $Typebiens = Typebiens::findOrFail($request->type);
-
-        return Biens::create([
-            'details' => $request['details'],
-            'prix' => $request['prix'],
-            'bailleur' => $request['bailleur'],
-            'etat' => $request['etat'],
+      
+        return Bailleurs::create([
+            'nomComplet' => $request['nomComplet'],
             'adresse' => $request['adresse'],
-            'type' => $request['type']
-
+            'telephone' => $request['telephone'],
+    
 
         ]);
     }
-
-
+   
     /**
      * Display the specified resource.
      *
@@ -83,17 +76,14 @@ class BiensController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Biens = Biens::findOrFail($id);
+        $bailleur = Bailleurs::findOrFail($id);
         $this->validate($request, [
-            'details' => 'required|string|max:191',
-            'prix' => 'required|string|max:191',
-            'bailleur' => 'required|string|max:191',
-            'etat' => 'required|string|max:191',
+            'nomComplet' => 'required|string|max:191',
             'adresse' => 'required|string|max:191',
-            'type' => 'required|string|max:191'
+            'telephone' => 'required|string|max:191'
         ]);
-        $Biens->update($request->all());
-        return ['message' => 'Biens has been updated'];
+        $bailleur->update($request->all());
+        return ['message' => 'bailleur has been updated'];
     }
 
     /**
@@ -104,11 +94,11 @@ class BiensController extends Controller
      */
     public function destroy($id)
     {
-        $Biens = Biens::findOrFail($id);
-        $Biens->delete();
-        return ['message' => 'Biens has been deleted'];
+        $bailleur = Bailleurs::findOrFail($id);
+        $bailleur->delete();
+        return ['message' => 'bailleur has been deleted'];
     }
-    public function countbiens(){
-        return Biens::count();
+    public function countbailleurs(){
+        return Bailleurs::count();
     }
 }
