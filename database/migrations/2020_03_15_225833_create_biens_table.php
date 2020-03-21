@@ -18,9 +18,10 @@ class CreateBiensTable extends Migration
             $table->bigIncrements('id');
             $table->string('details');
             $table->string('prix');
-            $table->string('proprietaire');
-            $table->string('type');
-
+            $table->string('etat');
+            $table->string('adresse');
+            $table->string('bailleur');
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

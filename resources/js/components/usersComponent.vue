@@ -17,21 +17,17 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Name</th>
+                  <th>nom complet</th>
                   <th>Email</th>
-                  <th>Type</th>
-                  <th>Registed At</th>
-                  <th>Modify</th>
+                  <th>role</th>
+                  <th>action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="user in users.data" :key="user.id">
-                  <td>{{user.id}}</td>
                   <td>{{user.name}}</td>
                   <td>{{user.email}}</td>
                   <td>{{user.type | upText}}</td>
-                  <td>{{user.created_at | myDate}}</td>
                   <td>
                     <a href="#" @click="editModal(user)">
                       <i class="fa fa-edit blue"></i>
@@ -99,16 +95,6 @@
                 <has-error :form="form" field="email"></has-error>
               </div>
               <div class="form-group">
-                <textarea
-                  v-model="form.bio"
-                  name="bio"
-                  placeholder="short bio for user (optional)"
-                  class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('bio') }"
-                ></textarea>
-                <has-error :form="form" field="bio"></has-error>
-              </div>
-              <div class="form-group">
                 <select
                   v-model="form.type"
                   id="type"
@@ -116,10 +102,10 @@
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('email') }"
                 >
-                  <option value>select user role</option>
+                  <option value>selectionner un role</option>
                   <option value="admin">Admin</option>
-                  <option value="user">Standard user</option>
-                  <option value="author">Author</option>
+                  <option value="user">user</option>
+                  <option value="bailleur">bailleur</option>
                 </select>
                 <has-error :form="form" field="email"></has-error>
               </div>
@@ -163,7 +149,6 @@ export default {
         name: "",
         email: "",
         type: "",
-        bio: "",
         password: "",
         photo: ""
       })

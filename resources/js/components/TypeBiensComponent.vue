@@ -4,35 +4,33 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Responsive Hover Table</h3>
+            <h3 class="card-title">liste des Typebiens</h3>
 
             <div class="card-tools">
               <button class="btn btn-success" @click="newModal">
-                <i class="fas fa-user-plus fa fw"></i> Add new
+                <i class="fas fa-user-plus fa fw"></i> Ajouter
               </button>
             </div>
           </div>
           <!-- /.card-header -->
           <div class="card-body table-responsive p-0">
-            <table class="table table-hover">
+            <table id="table" class="table table-hover">
               <thead>
                 <tr>
-                  <th>nom Complet</th>
-                  <th>telephone</th>
-                  <th>adresse</th>
+                  <th> type</th>
+               
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="bailleur in bailleurs.data" :key="bailleur.id">
-                  <td>{{bailleur.nomComplet}}</td>
-                  <td>{{bailleur.telephone}}</td>
-                  <td>{{bailleur.adresse}}</td>
+                <tr v-for="typebiens in Typebiens.data" :key="typebiens.id">
+                  <td>{{typebiens.libelle}}</td>
+                
                   <td>
-                    <a href="#" @click="editModal(bailleur)">
+                    <a href="#" @click="editModal(typebiens)">
                       <i class="fa fa-edit blue"></i>
                     </a>
                     /
-                    <a href="#" @click="deletebailleur(bailleur.id)">
+                    <a href="#" @click="deleteTypebiens(typebiens.id)">
                       <i class="fa fa-trash red"></i>
                     </a>
                   </td>
@@ -42,7 +40,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <pagination :data="bailleurs" @pagination-change-page="getResults"></pagination>
+            <pagination :data="Typebiens" @pagination-change-page="getResults"></pagination>
           </div>
         </div>
         <!-- /.card -->
@@ -64,52 +62,31 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Add new</h5>
-            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Update bailleur</h5>
+            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Update Typebiens</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form @submit.prevent="editmode ? updateBailleur() : createBailleur()">
+          <form @submit.prevent="editmode ? updateTypebiens() : createTypebiens()">
             <div class="modal-body">
               <div class="form-group">
                 <input
-                  v-model="form.nomComplet"
+                  v-model="form.libelle"
                   type="text"
-                  name="nomComplet"
-                  placeholder="nom Complet"
+                  name="libelle"
+                  placeholder="libelle"
                   class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('nomComplet') }"
+                  :class="{ 'is-invalid': form.errors.has('libelle') }"
                 />
-                <has-error :form="form" field="nomComplet"></has-error>
+                <has-error :form="form" field="details"></has-error>
               </div>
-              <div class="form-group">
-                <input
-                  v-model="form.telephone"
-                  type="number"
-                  name="telephone"
-                  placeholder="telephone"
-                  class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('telephone') }"
-                />
-                <has-error :form="form" field="telephone"></has-error>
-              </div>
-                 <div class="form-group">
-                <input
-                  v-model="form.adresse"
-                  type="text"
-                  name="adresse"
-                  placeholder="adresse"
-                  class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('adresse') }"
-                />
-                <has-error :form="form" field="adresse"></has-error>
-              </div>
-             
+         
+          
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              <button v-show="editmode" type="submit" class="btn btn-success">update</button>
-              <button v-show="!editmode" type="submit" class="btn btn-primary">Create</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
+              <button v-show="editmode" type="submit" class="btn btn-success">Modifier</button>
+              <button v-show="!editmode" type="submit" class="btn btn-primary">Ajouter</button>
             </div>
           </form>
         </div>
@@ -123,38 +100,42 @@ export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
+        setTimeout(function() {
+      $("#table").DataTable({
+            language: {
+            url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
   },
   data() {
     return {
       editmode: false,
-      bailleurs: {},
+      Typebiens: {},
       // Create a new form instance
       form: new Form({
-        id: "",
-        nomComplet: "",
-        telephone: "",
-        adresse: "",
-       
+        id:'',
+        libelle: ""
       })
     };
   },
   methods: {
     // Our method to GET results from a Laravel endpoint
     getResults(page = 1) {
-      axios.get("api/bailleurs?page=" + page).then(response => {
-        this.bailleurs = response.data;
+      axios.get("api/typebiens?page=" + page).then(response => {
+        this.Typebiens = response.data;
       });
     },
-    updateBailleur(id) {
+    updateTypebiens(id) {
       this.$Progress.start();
       // Submit the form via a POST request
       this.form
-        .put("/api/bailleurs/" + this.form.id)
+        .put("/api/typebiens/" + this.form.id)
         .then(() => {
           //this will update dom automatically
-          //this.loadBailleurs();
+          //this.loadTypebiens();
           $("#addNew").modal("hide");
-          Swal.fire("Deleted!", "Your file has been updated.", "success");
+          Swal.fire("Deleted!", "le typebiens bien été modifié.", "success");
           Fire.$emit("AfterCreate");
           this.$Progress.finish();
         })
@@ -162,21 +143,21 @@ export default {
           this.$Progress.fail();
         });
     },
-    editModal(bailleur) {
+    editModal(typebiens) {
       this.editmode = true;
       this.form.reset();
       $("#addNew").modal("show");
-      this.form.fill(bailleur);
+      this.form.fill(typebiens);
     },
     newModal() {
       this.editmode = false;
       this.form.reset();
       $("#addNew").modal("show");
     },
-    deleteBailleur(id) {
+    deleteTypebiens(id) {
       Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: "etes vous sur?",
+        text: "Vous ne pourrez pas revenir en arrière!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -186,9 +167,9 @@ export default {
         //send ajax request to the server
         if (result.value) {
           this.form
-            .delete("api/bailleurs/" + id)
+            .delete("api/typebiens/" + id)
             .then(() => {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Suppression!", "le typebiens bien été supprimé.", "success");
               Fire.$emit("AfterCreate");
             })
             .catch(() => {
@@ -197,25 +178,25 @@ export default {
         }
       });
     },
-    loadBailleurs() {
+    loadTypebiens() {
       if (this.$gate.isAdminOrAuthor()) {
-        axios.get("/api/bailleurs").then(({ data }) => (this.bailleurs = data));
+        axios.get("/api/typebiens").then(({ data }) => (this.Typebiens = data));
       }
     },
-    createBailleur() {
+    createTypebiens() {
       this.$Progress.start();
       // Submit the form via a POST request
       this.form
-        .post("/api/bailleurs")
+        .post("/api/typebiens")
         .then(() => {
           //this will update dom automatically
-          //this.loadBailleurs();
+          //this.loadTypebiens();
           Fire.$emit("AfterCreate");
           $("#addNew").modal("hide");
 
           Toast.fire({
             icon: "success",
-            title: "Bailleur created successfully"
+            title: "Typebiens a été créé avec succes"
           });
           this.$Progress.finish();
         })
@@ -225,12 +206,12 @@ export default {
     }
   },
   created() {
-  
-    this.loadBailleurs();
+
+    this.loadTypebiens();
     Fire.$on("AfterCreate", () => {
-      this.loadBailleurs();
+      this.loadTypebiens();
     });
-    //setInterval(()=>this.loadBailleurs(),10000)
+    //setInterval(()=>this.loadTypebiens(),10000)
   }
 };
 </script>

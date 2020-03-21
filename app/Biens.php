@@ -12,6 +12,22 @@ class Biens extends Model
      * @var array
      */
     protected $fillable = [
-        'details', 'prix', 'proprietaire','type'
+        'details', 'prix', 'bailleur','type','etat','adresse'
     ];
+        /**
+     * Get the Typebiens for the blog post.
+     */
+    public function type()
+    {
+        return $this->hasMany('App\Typebiens');
+    }
+       /**
+     * Get the Bailleurs for the blog post.
+     */
+    public function bailleur()
+    {
+        return $this->hasMany('App\Bailleurs');
+    }
 }
+
+

@@ -46,6 +46,7 @@ class ClientsController extends Controller
             'nom' => 'required|string|max:191',
             'prenom' => 'required|string|max:191',
             'tel' => 'required|string|max:191',
+            'sexe' => 'required|string|max:10',
             'nationalite' => 'required|string|max:191',
             'profession' => 'required|string|max:191',
             'tel' => 'required|string|tel|max:191|unique:clients',
@@ -61,6 +62,7 @@ class ClientsController extends Controller
             'prenom' => $request['prenom'],
             'adresse' => $request['adresse'],
             'tel' => $request['tel'],
+            'sexe' => $request['sexe'],
             'profession' => $request['profession'],
             'nationalite' => $request['nationalite']
 
@@ -97,7 +99,9 @@ class ClientsController extends Controller
             'nationalite' => 'required|string|max:191',
             'profession' => 'required|string|max:191',
             'tel' => 'required|string|tel|max:191|unique:clients',
-            'tel' => 'required|string|min:6'
+            'tel' => 'required|string|min:6',
+            'sexe' => 'required|string|max:10',
+
         ]);
         $client->update($request->all());
         return ['message' => 'client has been updated'];
@@ -114,5 +118,8 @@ class ClientsController extends Controller
         $client = clients::findOrFail($id);
         $client->delete();
         return ['message' => 'client has been deleted'];
+    }
+    public function countclients(){
+        return clients::count();
     }
 }

@@ -17,20 +17,23 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>details</th>
+                  <th>description</th>
+                  <th>etat</th>
+                  <th>type</th>
                   <th>prix</th>
-                  <th>proprietaire</th>
-                  <th> type</th>
-               
+                  <th>adresse</th>
+                  <th>bailleur</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="biens in Biens.data" :key="biens.id">
                   <td>{{biens.details}}</td>
-                  <td>{{biens.prix}}</td>
-                  <td>{{biens.proprietaire}}</td>
+                  <td>{{biens.etat}}</td>
                   <td>{{biens.type}}</td>
-                
+                  <td>{{biens.prix}}</td>
+                  <td>{{biens.adresse}}</td>
+                  <td>{{biens.bailleur}}</td>
+
                   <td>
                     <a href="#" @click="editModal(biens)">
                       <i class="fa fa-edit blue"></i>
@@ -77,17 +80,6 @@
             <div class="modal-body">
               <div class="form-group">
                 <input
-                  v-model="form.details"
-                  type="text"
-                  name="details"
-                  placeholder="details"
-                  class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('details') }"
-                />
-                <has-error :form="form" field="details"></has-error>
-              </div>
-              <div class="form-group">
-                <input
                   v-model="form.prix"
                   type="text"
                   name="prix"
@@ -97,30 +89,71 @@
                 />
                 <has-error :form="form" field="prix"></has-error>
               </div>
-           
               <div class="form-group">
-                <label>proprietaire</label>
                 <input
-                  v-model="form.proprietaire"
+                  v-model="form.etat"
                   type="text"
-                  name="proprietaire"
+                  name="etat"
+                  placeholder="etat"
                   class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('proprietaire') }"
+                  :class="{ 'is-invalid': form.errors.has('etat') }"
                 />
-                <has-error :form="form" field="proprietaire"></has-error>
+                <has-error :form="form" field="etat"></has-error>
               </div>
-                 <div class="form-group">
-                <label>type</label>
+              <div class="form-group">
                 <input
-                  v-model="form.type"
+                  v-model="form.details"
                   type="text"
+                  name="details"
+                  placeholder="description"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('details') }"
+                />
+                <has-error :form="form" field="details"></has-error>
+              </div>
+              <div class="form-group">
+                <input
+                  v-model="form.adresse"
+                  type="text"
+                  name="adresse"
+                  placeholder="adresse"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('adresse') }"
+                />
+                <has-error :form="form" field="adresse"></has-error>
+              </div>
+              <div class="form-group">
+                <select
+                  v-model="form.bailleur"
+                  name="bailleur"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('bailleur') }"
+                >
+                  <option value>selectionner un bailleur</option>
+                  <option
+                    v-for="bailleur in Bailleurs.data"
+                    :key="bailleur.nomComplet"
+                    :value="bailleur.nomComplet"
+                  >{{bailleur.nomComplet}}</option>
+                </select>
+                <has-error :form="form" field="bailleur"></has-error>
+              </div>
+              <div class="form-group">
+                <select
+                  v-model="form.type"
                   name="type"
                   class="form-control"
                   :class="{ 'is-invalid': form.errors.has('type') }"
-                />
+                >
+                  <option value>selectionner un type</option>
+                  <option
+                    v-for="types in Typebiens.data"
+                    :key="types.libelle"
+                    :value="types.libelle"
+                  >{{types.libelle}}</option>
+                </select>
                 <has-error :form="form" field="type"></has-error>
               </div>
-           
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
@@ -139,6 +172,8 @@ export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
+    this.type();
+    this.bailleur();
   },
   data() {
     return {
@@ -146,12 +181,16 @@ export default {
       Biens: {},
       // Create a new form instance
       form: new Form({
-        id:'',
+        id: "",
         details: "",
         prix: "",
-        proprietaire: "",
+        bailleur: "",
+        etat: "",
+        adresse: "",
         type: ""
-      })
+      }),
+      Typebiens: {},
+      Bailleurs: {}
     };
   },
   methods: {
@@ -159,6 +198,16 @@ export default {
     getResults(page = 1) {
       axios.get("api/biens?page=" + page).then(response => {
         this.Biens = response.data;
+      });
+    },
+    bailleur(page = 1) {
+      axios.get("api/bailleurs?page=" + page).then(response => {
+        this.Bailleurs = response.data;
+      });
+    },
+    type(page = 1) {
+      axios.get("api/typebiens?page=" + page).then(response => {
+        this.Typebiens = response.data;
       });
     },
     updateBiens(id) {
@@ -241,7 +290,6 @@ export default {
     }
   },
   created() {
-
     this.loadbiens();
     Fire.$on("AfterCreate", () => {
       this.loadbiens();

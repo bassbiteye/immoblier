@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Biens;
 use App\Typebiens;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class BiensController extends Controller
+class TypebiensController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,7 +25,7 @@ class BiensController extends Controller
     public function index()
     {
         if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
-            return Biens::latest()->paginate(10);
+            return Typebiens::latest()->paginate(5);
         }
     }
 
@@ -40,25 +39,12 @@ class BiensController extends Controller
     {
 
         $this->validate($request, [
-            'details' => 'required|string|max:191',
-            'prix' => 'required|string|max:191',
-            'bailleur' => 'required|string|max:191',
-            'type' => 'required|string|max:191',
-            'adresse' => 'required|string|max:191',
-            'etat' => 'required|string|max:191'
+            'libelle' => 'required|string|max:191'
 
         ]);
-        // $Typebiens = Typebiens::findOrFail($request->type);
 
-        return Biens::create([
-            'details' => $request['details'],
-            'prix' => $request['prix'],
-            'bailleur' => $request['bailleur'],
-            'etat' => $request['etat'],
-            'adresse' => $request['adresse'],
-            'type' => $request['type']
-
-
+        return Typebiens::create([
+            'libelle' => $request['libelle']
         ]);
     }
 
@@ -83,17 +69,12 @@ class BiensController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Biens = Biens::findOrFail($id);
+        $Typebiens = Typebiens::findOrFail($id);
         $this->validate($request, [
-            'details' => 'required|string|max:191',
-            'prix' => 'required|string|max:191',
-            'bailleur' => 'required|string|max:191',
-            'etat' => 'required|string|max:191',
-            'adresse' => 'required|string|max:191',
-            'type' => 'required|string|max:191'
+            'libelle' => 'required|string|max:191',
         ]);
-        $Biens->update($request->all());
-        return ['message' => 'Biens has been updated'];
+        $Typebiens->update($request->all());
+        return ['message' => 'Type de Biens has been updated'];
     }
 
     /**
@@ -104,11 +85,8 @@ class BiensController extends Controller
      */
     public function destroy($id)
     {
-        $Biens = Biens::findOrFail($id);
-        $Biens->delete();
-        return ['message' => 'Biens has been deleted'];
-    }
-    public function countbiens(){
-        return Biens::count();
+        $Typebiens = Typebiens::findOrFail($id);
+        $Typebiens->delete();
+        return ['message' => 'Type de Biens has been deleted'];
     }
 }
