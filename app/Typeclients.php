@@ -4,22 +4,21 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bailleurs extends Model
+class Typeclients extends Model
 {
-  
       /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'nomComplet', 'adresse', 'telephone','telephone'
+        'typeclients_id','libelle'
     ];
-        /**
+       /**
      * Get the biens that owns the comment.
      */
     public function biens()
     {
-        return $this->belongsTo('App\Biens', 'foreign_key');
+        return $this->belongsTo('App\Clients', 'foreign_key');
     }
 }

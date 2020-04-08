@@ -14,7 +14,7 @@ class CreateBailleursTable extends Migration
     public function up()
     {
         Schema::create('bailleurs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('bailleur_id');
             $table->string('nomComplet');
             $table->string('adresse');
             $table->string('telephone');

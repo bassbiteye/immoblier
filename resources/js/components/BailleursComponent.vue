@@ -1,6 +1,6 @@
 <template>
   <div class="conteiner">
-    <div class="row mt-5" v-if="$gate.isAdminOrAuthor()">
+    <div class="row mt-5" v-if="$gate.isAdmin()">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -18,13 +18,15 @@
               <thead>
                 <tr>
                   <th>nom Complet</th>
+                  <th>email</th>
                   <th>telephone</th>
                   <th>adresse</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="bailleur in bailleurs.data" :key="bailleur.id">
-                  <td>{{bailleur.nomComplet}}</td>
+                  <td>{{bailleur.name}}</td>
+                  <td>{{bailleur.email}}</td>
                   <td>{{bailleur.telephone}}</td>
                   <td>{{bailleur.adresse}}</td>
                   <td>
@@ -32,7 +34,7 @@
                       <i class="fa fa-edit blue"></i>
                     </a>
                     /
-                    <a href="#" @click="deletebailleur(bailleur.id)">
+                    <a href="#" @click="deleteBailleur(bailleur.id)">
                       <i class="fa fa-trash red"></i>
                     </a>
                   </td>
@@ -48,7 +50,7 @@
         <!-- /.card -->
       </div>
     </div>
-    <div v-if="!$gate.isAdminOrAuthor()">
+    <div v-if="!$gate.isAdmin()">
       <not-found></not-found>
     </div>
     <!-- Modal -->
@@ -73,14 +75,25 @@
             <div class="modal-body">
               <div class="form-group">
                 <input
-                  v-model="form.nomComplet"
+                  v-model="form.name"
                   type="text"
-                  name="nomComplet"
+                  name="name"
                   placeholder="nom Complet"
                   class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('nomComplet') }"
+                  :class="{ 'is-invalid': form.errors.has('name') }"
                 />
-                <has-error :form="form" field="nomComplet"></has-error>
+                <has-error :form="form" field="name"></has-error>
+              </div>
+              <div class="form-group">
+                <input
+                  v-model="form.email"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('email') }"
+                />
+                <has-error :form="form" field="email"></has-error>
               </div>
               <div class="form-group">
                 <input
@@ -93,7 +106,7 @@
                 />
                 <has-error :form="form" field="telephone"></has-error>
               </div>
-                 <div class="form-group">
+              <div class="form-group">
                 <input
                   v-model="form.adresse"
                   type="text"
@@ -104,7 +117,18 @@
                 />
                 <has-error :form="form" field="adresse"></has-error>
               </div>
-             
+
+              <div class="form-group">
+                <label>Password</label>
+                <input
+                  v-model="form.password"
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('password') }"
+                />
+                <has-error :form="form" field="password"></has-error>
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -119,10 +143,15 @@
 </template>
 
 <script>
+import notFoundComponentVue from "./notFoundComponent.vue";
+
 export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
+  },
+  components: {
+    "not-found": notFoundComponentVue
   },
   data() {
     return {
@@ -131,10 +160,13 @@ export default {
       // Create a new form instance
       form: new Form({
         id: "",
-        nomComplet: "",
+        name: "",
         telephone: "",
         adresse: "",
-       
+        email: "",
+        type: "bailleurs",
+        password: "",
+        photo: ""
       })
     };
   },
@@ -198,7 +230,7 @@ export default {
       });
     },
     loadBailleurs() {
-      if (this.$gate.isAdminOrAuthor()) {
+      if (this.$gate.isAdmin()) {
         axios.get("/api/bailleurs").then(({ data }) => (this.bailleurs = data));
       }
     },
@@ -225,7 +257,6 @@ export default {
     }
   },
   created() {
-  
     this.loadBailleurs();
     Fire.$on("AfterCreate", () => {
       this.loadBailleurs();

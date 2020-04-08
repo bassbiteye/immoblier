@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Bailleurs;
+use App\User;
+use App\Comptes;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use phpDocumentor\Reflection\Types\Integer;
 
 class BailleursController extends Controller
 {
@@ -25,10 +30,10 @@ class BailleursController extends Controller
      */
     public function index()
     {
-      //  $this->authorize('isAdmin');
-        if(\Gate::allows('isAdmin')||\Gate::allows('isAuthor')){
-        return Bailleurs::latest()->paginate(10);
-        }
+            //return User::latest()->paginate(10);
+
+            return User::where('type','bailleurs')->paginate(10);
+    
     }
 
     /**
@@ -41,19 +46,34 @@ class BailleursController extends Controller
     {
 
         $this->validate($request, [
-            'nomComplet' => 'required|string|max:191',
+            'name' => 'required|string|max:191',
             'adresse' => 'required|string|max:191',
-            'telephone' => 'required|string|max:191'
+            'telephone' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users,email,',
+            'password' => 'sometimes|required|min:6'
 
         ]);
-      
-        return Bailleurs::create([
-            'nomComplet' => $request['nomComplet'],
-            'adresse' => $request['adresse'],
-            'telephone' => $request['telephone'],
-    
+        $compte = new Comptes();
+        $bailleur = User::where('email', $request->email)->first();
 
-        ]);
+        if (isset($bailleur->id)) {
+            return response()->json(["error" => "email already exists"], 401);
+        }
+        $compte = new Comptes();
+        $compte->solde=0;
+        $compte->numero=rand(0,1000000);
+        $compte->save();
+        $bailleur = new User();
+        $bailleur->name = $request['name'];
+        $bailleur->adresse = $request['adresse'];
+        $bailleur->telephone = $request['telephone'];
+        $bailleur->email = $request['email'];
+        $bailleur->type = $request['type'];
+        $bailleur->compte = $compte->compte_id;
+        $bailleur->password = Hash::make($request['password']);
+        $bailleur->save();
+        return $bailleur;
+
     }
    
     /**
@@ -76,11 +96,13 @@ class BailleursController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bailleur = Bailleurs::findOrFail($id);
+        $bailleur = User::findOrFail($id);
         $this->validate($request, [
-            'nomComplet' => 'required|string|max:191',
+            'name' => 'required|string|max:191',
             'adresse' => 'required|string|max:191',
-            'telephone' => 'required|string|max:191'
+            'telephone' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users,email,' . $bailleur->id,
+            'email' => 'sometimes|min:6'
         ]);
         $bailleur->update($request->all());
         return ['message' => 'bailleur has been updated'];
@@ -94,11 +116,11 @@ class BailleursController extends Controller
      */
     public function destroy($id)
     {
-        $bailleur = Bailleurs::findOrFail($id);
+        $bailleur = User::findOrFail($id);
         $bailleur->delete();
         return ['message' => 'bailleur has been deleted'];
     }
     public function countbailleurs(){
-        return Bailleurs::count();
+        return User::where('type', 'bailleurs')->count();
     }
 }

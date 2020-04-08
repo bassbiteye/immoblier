@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Typebiens;
+use App\Typeclients;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-class TypebiensController extends Controller
+class TypeclientsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,9 +25,9 @@ class TypebiensController extends Controller
      */
     public function index()
     {
-       // if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
-            return Typebiens::latest()->paginate(10);
-       // }
+        // if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
+        return Typeclients::latest()->paginate(10);
+        // }
     }
 
     /**
@@ -44,7 +44,7 @@ class TypebiensController extends Controller
 
         ]);
 
-        return Typebiens::create([
+        return Typeclients::create([
             'libelle' => $request['libelle']
         ]);
     }
@@ -70,11 +70,11 @@ class TypebiensController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Typebiens = DB::table('typebiens')->where('typebien_id', $id);
+        $Typeclients = DB::table('typeclients')->where('typeclients_id', $id);
         $this->validate($request, [
             'libelle' => 'required|string|max:191',
         ]);
-        $Typebiens->update($request->all());
+        $Typeclients->update($request->all());
         return ['message' => 'Type de Biens has been updated'];
     }
 
@@ -86,8 +86,9 @@ class TypebiensController extends Controller
      */
     public function destroy($id)
     {
-        $Typebiens = DB::table('typebiens')->where('typebien_id', $id);
-        $Typebiens->delete();
+        $Typeclients = DB::table('typeclients')->where('typeclients_id', $id);
+
+        $Typeclients->delete();
         return ['message' => 'Type de Biens has been deleted'];
     }
 }

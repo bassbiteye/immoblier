@@ -12,16 +12,17 @@ class CreateBiensTable extends Migration
      * @return void
      */
     public function up()
-    {       
+    {
 
         Schema::create('biens', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('bien_id');
             $table->string('details');
             $table->string('prix');
             $table->string('etat');
             $table->string('adresse');
             $table->string('bailleur');
             $table->string('type')->nullable();
+            $table->boolean('louer')->default(false);
             $table->timestamps();
         });
     }
