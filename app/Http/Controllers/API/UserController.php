@@ -30,9 +30,9 @@ class UserController extends Controller
     public function index()
     {
       //  $this->authorize('isAdmin');
-        if(\Gate::allows('isAdmin')||\Gate::allows('isAuthor')){
+       // if(\Gate::allows('isAdmin')||\Gate::allows('isAuthor')){
         return User::latest()->paginate(10);
-        }
+        //}
     }
 
     /**
@@ -58,7 +58,6 @@ class UserController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'type' => $request['type'],
-            'bio' => $request['bio'],
             'password' => Hash::make($request['password']),
 
 
@@ -153,6 +152,7 @@ class UserController extends Controller
         return ['message' => 'User has been deleted'];
     }
     public function countuser(){
-        return User::count();
+        return User::where('type', 'admin' )->Orwhere('type', 'user' )
+        ->count();
     }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="conteiner">
-    <div class="row mt-5" v-if="$gate.isAdminOrAuthor()">
+    <div class="row mt-5" v-if="$gate.isAdmin()">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -49,7 +49,7 @@
         <!-- /.card -->
       </div>
     </div>
-    <div v-if="!$gate.isAdminOrAuthor()">
+    <div v-if="!$gate.isAdmin()">
       <not-found></not-found>
     </div>
     <!-- Modal -->
@@ -100,14 +100,14 @@
                   id="type"
                   name="type"
                   class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('email') }"
+                  :class="{ 'is-invalid': form.errors.has('type') }"
                 >
                   <option value>selectionner un role</option>
                   <option value="admin">Admin</option>
                   <option value="user">user</option>
                   <option value="bailleur">bailleur</option>
                 </select>
-                <has-error :form="form" field="email"></has-error>
+                <has-error :form="form" field="type"></has-error>
               </div>
               <div class="form-group">
                 <label>Password</label>
@@ -134,11 +134,16 @@
 </template>
 
 <script>
+import notFoundComponentVue from './notFoundComponent.vue';
+
 export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
   },
+   components: {
+  'not-found': notFoundComponentVue
+},
   data() {
     return {
       editmode: false,
@@ -214,7 +219,7 @@ export default {
       });
     },
     loadUsers() {
-      if (this.$gate.isAdminOrAuthor()) {
+      if (this.$gate.isAdmin()) {
         axios.get("/api/user").then(({ data }) => (this.users = data));
       }
     },

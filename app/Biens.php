@@ -12,7 +12,7 @@ class Biens extends Model
      * @var array
      */
     protected $fillable = [
-        'details', 'prix', 'bailleur','type','etat','adresse'
+        'details', 'prix', 'bailleur','type','etat','adresse','bien_id'
     ];
         /**
      * Get the Typebiens for the blog post.
@@ -26,7 +26,28 @@ class Biens extends Model
      */
     public function bailleur()
     {
-        return $this->hasMany('App\Bailleurs');
+        return $this->hasMany('App\User');
+    }
+         /**
+     * Get the equipements for the blog post.
+     */
+    public function equipements()
+    {
+        return $this->hasMany('App\Equipement');
+    }
+         /**
+     * Get the Lieux for the blog post.
+     */
+    public function Lieux()
+    {
+        return $this->hasMany('App\Lieux');
+    }
+      /**
+     * Get the operations that owns the comment.
+     */
+    public function operations()
+    {
+        return $this->belongsTo('App\Operations', 'foreign_key');
     }
 }
 

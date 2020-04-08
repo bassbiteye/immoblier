@@ -14,7 +14,7 @@ class CreateTypebiensTable extends Migration
     public function up()
     {
         Schema::create('typebiens', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('typebien_id');
             $table->string('libelle');
             $table->timestamps();
         });

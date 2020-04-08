@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Clients;
-use App\Http\Controllers\Controller;
+use App\Typeclients;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class ClientsController extends Controller
 {
@@ -27,10 +29,14 @@ class ClientsController extends Controller
      */
     public function index()
     {
-      //  $this->authorize('isAdmin');
-        if(\Gate::allows('isAdmin')||\Gate::allows('isAuthor')){
-        return Clients::latest()->paginate(10);
-        }
+        //  $this->authorize('isAdmin');
+        //if(\Gate::allows('isAdmin')||\Gate::allows('isAuthor')){
+        //return Clients::latest()->paginate(10);
+        return DB::table('clients')
+        ->leftJoin('typeclients', 'clients.type', '=', 'typeclients.typeclients_id')
+        ->select('clients.*', 'typeclients.libelle', 'typeclients.typeclients_id')->paginate(10);
+        
+        // }
     }
 
     /**
@@ -57,6 +63,21 @@ class ClientsController extends Controller
         if (isset($client->id)) {
             return response()->json(["error" => "telephone already exists"], 401);
         }
+        $client = Typeclients::where('typeclients_id',$request->type)->first();;
+        
+        if ($client) {
+            return Clients::create([
+                'nom' => $request['nom'],
+                'prenom' => $request['prenom'],
+                'adresse' => $request['adresse'],
+                'tel' => $request['tel'],
+                'sexe' => $request['sexe'],
+                'profession' => $request['profession'],
+                'nationalite' => $request['nationalite'],
+                'type' => $client->typeclients_id
+            ]);
+        }
+
         return Clients::create([
             'nom' => $request['nom'],
             'prenom' => $request['prenom'],
@@ -64,9 +85,7 @@ class ClientsController extends Controller
             'tel' => $request['tel'],
             'sexe' => $request['sexe'],
             'profession' => $request['profession'],
-            'nationalite' => $request['nationalite']
-
-
+            'nationalite' => $request['nationalite'],
         ]);
     }
 
@@ -91,7 +110,7 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $client = clients::findOrFail($id);
+        $client = DB::table('clients')->where('client_id', $id);
         $this->validate($request, [
             'nom' => 'required|string|max:191',
             'prenom' => 'required|string|max:191',
@@ -115,11 +134,13 @@ class ClientsController extends Controller
      */
     public function destroy($id)
     {
-        $client = clients::findOrFail($id);
+        $client = DB::table('clients')->where('client_id', $id);
+
         $client->delete();
         return ['message' => 'client has been deleted'];
     }
-    public function countclients(){
+    public function countclients()
+    {
         return clients::count();
     }
 }

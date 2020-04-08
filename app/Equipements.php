@@ -4,20 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Typebiens extends Model
+class Equipements extends Model
 {
-      /**
+    
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'typebien_id','libelle'
+        'equipements_id','typeEquipement', 'nombreEquipement','etatEquipement', 'commentaireEquipement','bien'
     ];
-       /**
+
+      /**
      * Get the biens that owns the comment.
      */
-    public function biens()
+    public function bien()
     {
         return $this->belongsTo('App\Biens', 'foreign_key');
     }

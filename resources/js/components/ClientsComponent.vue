@@ -1,6 +1,6 @@
 <template>
   <div class="conteiner">
-    <div class="row mt-5" v-if="$gate.isAdminOrAuthor()">
+    <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -24,6 +24,8 @@
                   <th>sexe</th>
                   <th>profession</th>
                   <th>nationalité</th>
+                  <th>type</th>
+                  <th>action</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,12 +37,14 @@
                   <td>{{client.sexe}}</td>
                   <td>{{client.profession}}</td>
                   <td>{{client.nationalite}}</td>
+                  <td>{{client.libelle}}</td>
+
                   <td>
                     <a href="#" @click="editModal(client)">
                       <i class="fa fa-edit blue"></i>
                     </a>
                     /
-                    <a href="#" @click="deleteclient(client.id)">
+                    <a href="#" @click="deleteclient(client.client_id)">
                       <i class="fa fa-trash red"></i>
                     </a>
                   </td>
@@ -56,7 +60,7 @@
         <!-- /.card -->
       </div>
     </div>
-    <div v-if="!$gate.isAdminOrAuthor()">
+    <div v-if="!$gate.isAdminOrBailleurs()">
       <not-found></not-found>
     </div>
     <!-- Modal -->
@@ -124,7 +128,7 @@
                 />
                 <has-error :form="form" field="tel"></has-error>
               </div>
-                 <div class="form-group">
+              <div class="form-group">
                 <select
                   v-model="form.sexe"
                   id="type"
@@ -160,6 +164,16 @@
                 />
                 <has-error :form="form" field="nationalite"></has-error>
               </div>
+              <div class="form-group">
+                <select v-model="form.type" name="type" class="form-control">
+                  <option value>type de client</option>
+                  <option
+                    v-for="typeclient in Typeclient.data"
+                    :key="typeclient.typeclients_id"
+                    :value="typeclient.typeclients_id"
+                  >{{typeclient.libelle}}</option>
+                </select>
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
@@ -174,15 +188,22 @@
 </template>
 
 <script>
+import notFoundComponentVue from "./notFoundComponent.vue";
+
 export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
+    this.type();
+  },
+  components: {
+    "not-found": notFoundComponentVue
   },
   data() {
     return {
       editmode: false,
       clients: {},
+      Typeclient: {},
       // Create a new form instance
       form: new Form({
         id: "",
@@ -192,7 +213,8 @@ export default {
         tel: "",
         sexe: "",
         profession: "",
-        nationalite: ""
+        nationalite: "",
+        type: ""
       })
     };
   },
@@ -201,6 +223,11 @@ export default {
     getResults(page = 1) {
       axios.get("api/clients?page=" + page).then(response => {
         this.clients = response.data;
+      });
+    },
+    type(page = 1) {
+      axios.get("api/typeclients?page=" + page).then(response => {
+        this.Typeclient = response.data;
       });
     },
     updateclient(id) {
@@ -256,7 +283,7 @@ export default {
       });
     },
     loadclients() {
-      if (this.$gate.isAdminOrAuthor()) {
+      if (this.$gate.isAdminOrBailleurs()) {
         axios.get("/api/clients").then(({ data }) => (this.clients = data));
       }
     },

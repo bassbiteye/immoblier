@@ -4,17 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Typebiens extends Model
+class Lieuxes extends Model
 {
-      /**
+    
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'typebien_id','libelle'
+        'lieux_id','etat', 'murs','sols', 'ouverture','circuit','divers'
     ];
-       /**
+
+      /**
      * Get the biens that owns the comment.
      */
     public function biens()

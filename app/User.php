@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','type','bio','photo'
+        'name', 'email', 'password','type','bio','photo','adresse', 'telephone'
     ];
 
     /**
@@ -36,4 +36,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+          /**
+     * Get the biens that owns the comment.
+     */
+    public function biens()
+    {
+        return $this->belongsTo('App\Biens', 'foreign_key');
+    }
+       /**
+     * Get the Bailleurs for the blog post.
+     */
+    public function comptes()
+    {
+        return $this->hasMany('App\Comptes');
+    }
 }

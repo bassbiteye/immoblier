@@ -10,9 +10,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Biens</span>
-            <span class="info-box-number" v-if="bien">
-              {{bien}}
-            </span>
+            <span class="info-box-number" v-if="bien">{{bien}}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -74,7 +72,12 @@
 </template>
 
 <script>
+import notFoundComponentVue from "./notFoundComponent.vue";
+
 export default {
+  components: {
+    "not-found": notFoundComponentVue
+  },
   mounted() {
     this.countuser();
     this.countclients();
@@ -85,9 +88,9 @@ export default {
   data() {
     return {
       user: "",
-      bailleur:"",
-      client:"",
-      bien:""
+      bailleur: "",
+      client: "",
+      bien: ""
     };
   },
   methods: {

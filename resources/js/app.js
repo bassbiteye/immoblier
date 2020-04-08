@@ -61,8 +61,11 @@ let routes = [
     { path: '/selected', component: require('./components/SelectComponent.vue').default },
     { path: '/biens', component: require('./components/BiensComponent.vue').default },
     { path: '/typebiens', component: require('./components/TypeBiensComponent.vue').default },
+    { path: '/typeclients', component: require('./components/TypeClientsComponent.vue').default },
     { path: '/bailleurs', component: require('./components/BailleursComponent.vue').default },
     { path: '/clients', component: require('./components/ClientsComponent.vue').default },
+    { path: '/login', component: require('./components/LoginComponent.vue').default },
+    { path: '/louer', component: require('./components/LouersComponent.vue').default },
 
     { path: '*', component: require('./components/notFoundComponent.vue').default }
 
