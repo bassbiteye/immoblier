@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">liste des typeclients</h3>
+            <h3 class="card-title">liste des types clients</h3>
 
             <div class="card-tools">
               <button class="btn btn-success" @click="newModal">

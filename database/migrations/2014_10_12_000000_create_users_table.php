@@ -20,12 +20,20 @@ class CreateUsersTable extends Migration
             $table->string('adresse')->nullable();
             $table->string('telephone')->nullable();
             $table->string('password');
-            $table->string('compte')->unique()->nullable();
+            $table->string('sexe')->nullable();
+            $table->string('nombreBien')->nullable();
+            $table->string('profession')->nullable();
+            $table->string('nationalite')->nullable();
+            $table->string('bp')->nullable();
+            $table->unsignedBigInteger('compte')->unique()->nullable();;
             $table->string('type')->default('admin');
             $table->string('photo')->default('photo.png');
             $table->rememberToken();
             $table->timestamps();
+
         });
+
+     
     }
 
     /**

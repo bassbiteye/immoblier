@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use phpDocumentor\Reflection\Types\Integer;
+use Symfony\Component\Console\Helper\Table;
 
 class BailleursController extends Controller
 {
@@ -50,26 +51,35 @@ class BailleursController extends Controller
             'adresse' => 'required|string|max:191',
             'telephone' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users,email,',
-            'password' => 'sometimes|required|min:6'
-
+            'password' => 'sometimes|required|min:6',
+            'email' => 'sometimes|min:6',
+            'nombreBien'=> 'required|int|max:191',
+            'profession'=> 'required|string|max:191',
+            'nationalite'=> 'required|string|max:191',
         ]);
-        $compte = new Comptes();
         $bailleur = User::where('email', $request->email)->first();
 
         if (isset($bailleur->id)) {
             return response()->json(["error" => "email already exists"], 401);
         }
-        $compte = new Comptes();
-        $compte->solde=0;
-        $compte->numero=rand(0,1000000);
-        $compte->save();
+        $compte = DB::table('comptes')->insert([
+            'solde'=>0,
+            'numero'=>rand(0,1000000)
+        ]);
+      
+         dump($compte);       
+
         $bailleur = new User();
         $bailleur->name = $request['name'];
         $bailleur->adresse = $request['adresse'];
         $bailleur->telephone = $request['telephone'];
         $bailleur->email = $request['email'];
         $bailleur->type = $request['type'];
-        $bailleur->compte = $compte->compte_id;
+        $bailleur->compte = $compte->id;
+        $bailleur->nombreBien= $request['nombreBien'];
+        $bailleur->profession=$request['profession'];
+        $bailleur->bp=$request['bp'];
+        $bailleur->nationalite=$request['nationalite'];
         $bailleur->password = Hash::make($request['password']);
         $bailleur->save();
         return $bailleur;
@@ -102,7 +112,11 @@ class BailleursController extends Controller
             'adresse' => 'required|string|max:191',
             'telephone' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users,email,' . $bailleur->id,
-            'email' => 'sometimes|min:6'
+            'email' => 'sometimes|min:6',
+            'nombreBien'=> 'required|int|max:191',
+            'profession'=> 'required|string|max:191',
+            'nationalite'=> 'required|string|max:191',
+            'bp'=> 'required|string|max:191',
         ]);
         $bailleur->update($request->all());
         return ['message' => 'bailleur has been updated'];

@@ -21,11 +21,18 @@ Route::get('profile','API\UserController@profile');
 Route::put('profile','API\UserController@updateProfile');
 Route::get('countuser','API\UserController@countuser');
 
+//equipement
+Route::apiResources(['equipements'=>'API\EquipementsController']);
+
 //Biens
 Route::apiResources(['biens'=>'API\BiensController']);
 Route::get('countbiens','API\BiensController@countbiens');
 Route::post('addequip','API\BiensController@addEquip');
 
+//Typeetats
+Route::apiResources(['typeetats'=>'API\TypeetatsController']);
+//TypeComptes
+Route::apiResources(['typecomptes'=>'API\TypecomptesController']);
 //TypeBiens
 Route::apiResources(['typebiens'=>'API\TypebiensController']);
 //TypeBiens

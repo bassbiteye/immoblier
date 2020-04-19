@@ -13,7 +13,7 @@ class Comptes extends Model
      * @var array
      */
     protected $fillable = [
-        'numero', 'solde'
+        'numero', 'solde','type'
     ];
         /**
      * Get the biens that owns the comment.
@@ -21,5 +21,12 @@ class Comptes extends Model
     public function user()
     {
         return $this->belongsTo('App\User', 'foreign_key');
+    }
+         /**
+     * Get the type that owns the comment.
+     */
+    public function typecompte()
+    {
+        return $this->belongsTo('App\Typecomptes', 'foreign_key');
     }
 }

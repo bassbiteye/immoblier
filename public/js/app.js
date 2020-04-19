@@ -94,11 +94,11 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
- * AdminLTE v3.0.1 (https://adminlte.io)
- * Copyright 2014-2019 Colorlib <http://colorlib.com>
+ * AdminLTE v3.0.4 (https://adminlte.io)
+ * Copyright 2014-2020 Colorlib <http://colorlib.com>
  * Licensed under MIT (https://github.com/ColorlibHQ/AdminLTE/blob/master/LICENSE)
  */
-!function(t,e){ true?e(exports):undefined}(this,(function(t){"use strict";var e=function(t){var e="ControlSidebar",i="lte.controlsidebar",n=t.fn[e],s={COLLAPSED:"collapsed.lte.controlsidebar",EXPANDED:"expanded.lte.controlsidebar"},o=".control-sidebar",a=".control-sidebar-content",r='[data-widget="control-sidebar"]',l=".main-header",c=".main-footer",d="control-sidebar-animate",h="control-sidebar-open",f="control-sidebar-slide-open",u="layout-fixed",g="layout-navbar-fixed",p="layout-sm-navbar-fixed",_="layout-md-navbar-fixed",m="layout-lg-navbar-fixed",C="layout-xl-navbar-fixed",v="layout-footer-fixed",y="layout-sm-footer-fixed",b="layout-md-footer-fixed",w="layout-lg-footer-fixed",D="layout-xl-footer-fixed",E={controlsidebarSlide:!0,scrollbarTheme:"os-theme-light",scrollbarAutoHide:"l"},A=function(){function e(t,e){this._element=t,this._config=e,this._init()}var n=e.prototype;return n.show=function(){this._config.controlsidebarSlide?(t("html").addClass(d),t("body").removeClass(f).delay(300).queue((function(){t(o).hide(),t("html").removeClass(d),t(this).dequeue()}))):t("body").removeClass(h);var e=t.Event(s.EXPANDED);t(this._element).trigger(e)},n.collapse=function(){this._config.controlsidebarSlide?(t("html").addClass(d),t(o).show().delay(10).queue((function(){t("body").addClass(f).delay(300).queue((function(){t("html").removeClass(d),t(this).dequeue()})),t(this).dequeue()}))):t("body").addClass(h);var e=t.Event(s.COLLAPSED);t(this._element).trigger(e)},n.toggle=function(){t("body").hasClass(h)||t("body").hasClass(f)?this.show():this.collapse()},n._init=function(){var e=this;this._fixHeight(),this._fixScrollHeight(),t(window).resize((function(){e._fixHeight(),e._fixScrollHeight()})),t(window).scroll((function(){(t("body").hasClass(h)||t("body").hasClass(f))&&e._fixScrollHeight()}))},n._fixScrollHeight=function(){var e={scroll:t(document).height(),window:t(window).height(),header:t(l).outerHeight(),footer:t(c).outerHeight()},i=Math.abs(e.window+t(window).scrollTop()-e.scroll),n=t(window).scrollTop(),s=!1,r=!1;t("body").hasClass(u)&&((t("body").hasClass(g)||t("body").hasClass(p)||t("body").hasClass(_)||t("body").hasClass(m)||t("body").hasClass(C))&&"fixed"===t(l).css("position")&&(s=!0),(t("body").hasClass(v)||t("body").hasClass(y)||t("body").hasClass(b)||t("body").hasClass(w)||t("body").hasClass(D))&&"fixed"===t(c).css("position")&&(r=!0),0===n&&0===i?(t(o).css("bottom",e.footer),t(o).css("top",e.header),t(o+", "+o+" "+a).css("height",e.window-(e.header+e.footer))):i<=e.footer?!1===r?(t(o).css("bottom",e.footer-i),t(o+", "+o+" "+a).css("height",e.window-(e.footer-i))):t(o).css("bottom",e.footer):n<=e.header?!1===s?(t(o).css("top",e.header-n),t(o+", "+o+" "+a).css("height",e.window-(e.header-n))):t(o).css("top",e.header):!1===s?(t(o).css("top",0),t(o+", "+o+" "+a).css("height",e.window)):t(o).css("top",e.header))},n._fixHeight=function(){var e=t(window).height(),i=t(l).outerHeight(),n=t(c).outerHeight();if(t("body").hasClass(u)){var s=e-i;(t("body").hasClass(v)||t("body").hasClass(y)||t("body").hasClass(b)||t("body").hasClass(w)||t("body").hasClass(D))&&"fixed"===t(c).css("position")&&(s=e-i-n),t(o+" "+a).css("height",s),"undefined"!=typeof t.fn.overlayScrollbars&&t(o+" "+a).overlayScrollbars({className:this._config.scrollbarTheme,sizeAutoCapable:!0,scrollbars:{autoHide:this._config.scrollbarAutoHide,clickScrolling:!0}})}},e._jQueryInterface=function(n){return this.each((function(){var s=t(this).data(i),o=t.extend({},E,t(this).data());if(s||(s=new e(this,o),t(this).data(i,s)),"undefined"===s[n])throw new Error(n+" is not a function");s[n]()}))},e}();return t(document).on("click",r,(function(e){e.preventDefault(),A._jQueryInterface.call(t(this),"toggle")})),t.fn[e]=A._jQueryInterface,t.fn[e].Constructor=A,t.fn[e].noConflict=function(){return t.fn[e]=n,A._jQueryInterface},A}(jQuery),i=function(t){var e="Layout",i=t.fn[e],n=".main-header",s=".main-sidebar",o=".main-sidebar .sidebar",a=".content-wrapper",r=".main-footer",l='[data-widget="pushmenu"]',c=".login-box",d=".register-box",h="sidebar-focused",f="layout-fixed",u="login-page",g="register-page",p={scrollbarTheme:"os-theme-light",scrollbarAutoHide:"l"},_=function(){function e(t,e){this._config=e,this._element=t,this._init()}var i=e.prototype;return i.fixLayoutHeight=function(){var e={window:t(window).height(),header:0!==t(n).length?t(n).outerHeight():0,footer:0!==t(r).length?t(r).outerHeight():0,sidebar:0!==t(o).length?t(o).height():0},i=this._max(e);i==e.window?t(a).css("min-height",i-e.header-e.footer):t(a).css("min-height",i-e.header),t("body").hasClass(f)&&(t(a).css("min-height",i-e.header-e.footer),"undefined"!=typeof t.fn.overlayScrollbars&&t(o).overlayScrollbars({className:this._config.scrollbarTheme,sizeAutoCapable:!0,scrollbars:{autoHide:this._config.scrollbarAutoHide,clickScrolling:!0}}))},i._init=function(){var e=this;if(this.fixLayoutHeight(),t(o).on("collapsed.lte.treeview expanded.lte.treeview",(function(){e.fixLayoutHeight()})),t(l).on("collapsed.lte.pushmenu shown.lte.pushmenu",(function(){e.fixLayoutHeight()})),t(window).resize((function(){e.fixLayoutHeight()})),t("body").hasClass(u)||t("body").hasClass(g)){if(t("body").hasClass(u)||t("body").hasClass(g)){var i=t(c+", "+d).height();t("body").css("min-height",i)}}else t("body, html").css("height","auto");t("body.hold-transition").removeClass("hold-transition")},i._max=function(t){var e=0;return Object.keys(t).forEach((function(i){t[i]>e&&(e=t[i])})),e},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.layout"),s=t.extend({},p,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.layout",n)),"init"===i&&n[i]()}))},e}();return t(window).on("load",(function(){_._jQueryInterface.call(t("body"))})),t(o+" a").on("focusin",(function(){t(s).addClass(h)})),t(o+" a").on("focusout",(function(){t(s).removeClass(h)})),t.fn[e]=_._jQueryInterface,t.fn[e].Constructor=_,t.fn[e].noConflict=function(){return t.fn[e]=i,_._jQueryInterface},_}(jQuery),n=function(t){var e="PushMenu",i=".lte.pushmenu",n=t.fn[e],s={COLLAPSED:"collapsed"+i,SHOWN:"shown"+i},o={autoCollapseSize:992,enableRemember:!1,noTransitionAfterReload:!0},a={TOGGLE_BUTTON:'[data-widget="pushmenu"]',SIDEBAR_MINI:".sidebar-mini",SIDEBAR_COLLAPSED:".sidebar-collapse",BODY:"body",OVERLAY:"#sidebar-overlay",WRAPPER:".wrapper"},r="sidebar-collapse",l="sidebar-open",c=function(){function e(e,i){this._element=e,this._options=t.extend({},o,i),t(a.OVERLAY).length||this._addOverlay(),this._init()}var n=e.prototype;return n.expand=function(){this._options.autoCollapseSize&&t(window).width()<=this._options.autoCollapseSize&&t(a.BODY).addClass(l),t(a.BODY).removeClass(r),this._options.enableRemember&&localStorage.setItem("remember"+i,l);var e=t.Event(s.SHOWN);t(this._element).trigger(e)},n.collapse=function(){this._options.autoCollapseSize&&t(window).width()<=this._options.autoCollapseSize&&t(a.BODY).removeClass(l),t(a.BODY).addClass(r),this._options.enableRemember&&localStorage.setItem("remember"+i,r);var e=t.Event(s.COLLAPSED);t(this._element).trigger(e)},n.toggle=function(){t(a.BODY).hasClass(r)?this.expand():this.collapse()},n.autoCollapse=function(e){void 0===e&&(e=!1),this._options.autoCollapseSize&&(t(window).width()<=this._options.autoCollapseSize?t(a.BODY).hasClass(l)||this.collapse():1==e&&t(a.BODY).hasClass(l)&&t(a.BODY).removeClass(l))},n.remember=function(){this._options.enableRemember&&(localStorage.getItem("remember"+i)==r?this._options.noTransitionAfterReload?t("body").addClass("hold-transition").addClass(r).delay(50).queue((function(){t(this).removeClass("hold-transition"),t(this).dequeue()})):t("body").addClass(r):this._options.noTransitionAfterReload?t("body").addClass("hold-transition").removeClass(r).delay(50).queue((function(){t(this).removeClass("hold-transition"),t(this).dequeue()})):t("body").removeClass(r))},n._init=function(){var e=this;this.remember(),this.autoCollapse(),t(window).resize((function(){e.autoCollapse(!0)}))},n._addOverlay=function(){var e=this,i=t("<div />",{id:"sidebar-overlay"});i.on("click",(function(){e.collapse()})),t(a.WRAPPER).append(i)},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.pushmenu"),s=t.extend({},o,t(this).data());n||(n=new e(this,s),t(this).data("lte.pushmenu",n)),"string"==typeof i&&i.match(/collapse|expand|toggle/)&&n[i]()}))},e}();return t(document).on("click",a.TOGGLE_BUTTON,(function(e){e.preventDefault();var i=e.currentTarget;"pushmenu"!==t(i).data("widget")&&(i=t(i).closest(a.TOGGLE_BUTTON)),c._jQueryInterface.call(t(i),"toggle")})),t(window).on("load",(function(){c._jQueryInterface.call(t(a.TOGGLE_BUTTON))})),t.fn[e]=c._jQueryInterface,t.fn[e].Constructor=c,t.fn[e].noConflict=function(){return t.fn[e]=n,c._jQueryInterface},c}(jQuery),s=function(t){var e="Treeview",i=t.fn[e],n={SELECTED:"selected.lte.treeview",EXPANDED:"expanded.lte.treeview",COLLAPSED:"collapsed.lte.treeview",LOAD_DATA_API:"load.lte.treeview"},s=".nav-item",o=".nav-treeview",a=".menu-open",r='[data-widget="treeview"]',l="menu-open",c="sidebar-collapse",d={trigger:r+" "+".nav-link",animationSpeed:300,accordion:!0,expandSidebar:!1,sidebarButtonSelector:'[data-widget="pushmenu"]'},h=function(){function e(t,e){this._config=e,this._element=t}var i=e.prototype;return i.init=function(){this._setupListeners()},i.expand=function(e,i){var s=this,r=t.Event(n.EXPANDED);if(this._config.accordion){var c=i.siblings(a).first(),d=c.find(o).first();this.collapse(d,c)}e.stop().slideDown(this._config.animationSpeed,(function(){i.addClass(l),t(s._element).trigger(r)})),this._config.expandSidebar&&this._expandSidebar()},i.collapse=function(e,i){var s=this,r=t.Event(n.COLLAPSED);e.stop().slideUp(this._config.animationSpeed,(function(){i.removeClass(l),t(s._element).trigger(r),e.find(a+" > "+o).slideUp(),e.find(a).removeClass(l)}))},i.toggle=function(e){var i=t(e.currentTarget),n=i.parent(),a=n.find("> "+o);if(a.is(o)||(n.is(s)||(a=n.parent().find("> "+o)),a.is(o))){e.preventDefault();var r=i.parents(s).first();r.hasClass(l)?this.collapse(t(a),r):this.expand(t(a),r)}},i._setupListeners=function(){var e=this;t(document).on("click",this._config.trigger,(function(t){e.toggle(t)}))},i._expandSidebar=function(){t("body").hasClass(c)&&t(this._config.sidebarButtonSelector).PushMenu("expand")},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.treeview"),s=t.extend({},d,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.treeview",n)),"init"===i&&n[i]()}))},e}();return t(window).on(n.LOAD_DATA_API,(function(){t(r).each((function(){h._jQueryInterface.call(t(this),"init")}))})),t.fn[e]=h._jQueryInterface,t.fn[e].Constructor=h,t.fn[e].noConflict=function(){return t.fn[e]=i,h._jQueryInterface},h}(jQuery),o=function(t){var e="DirectChat",i=t.fn[e],n="toggled{EVENT_KEY}",s='[data-widget="chat-pane-toggle"]',o=".direct-chat",a="direct-chat-contacts-open",r=function(){function e(t,e){this._element=t}return e.prototype.toggle=function(){t(this._element).parents(o).first().toggleClass(a);var e=t.Event(n);t(this._element).trigger(e)},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.directchat");n||(n=new e(t(this)),t(this).data("lte.directchat",n)),n[i]()}))},e}();return t(document).on("click",s,(function(e){e&&e.preventDefault(),r._jQueryInterface.call(t(this),"toggle")})),t.fn[e]=r._jQueryInterface,t.fn[e].Constructor=r,t.fn[e].noConflict=function(){return t.fn[e]=i,r._jQueryInterface},r}(jQuery),a=function(t){var e="TodoList",i=t.fn[e],n='[data-widget="todo-list"]',s="done",o={onCheck:function(t){return t},onUnCheck:function(t){return t}},a=function(){function e(t,e){this._config=e,this._element=t,this._init()}var i=e.prototype;return i.toggle=function(e){e.parents("li").toggleClass(s),t(e).prop("checked")?this.check(e):this.unCheck(t(e))},i.check=function(t){this._config.onCheck.call(t)},i.unCheck=function(t){this._config.onUnCheck.call(t)},i._init=function(){var e=this;t(n).find("input:checkbox:checked").parents("li").toggleClass(s),t(n).on("change","input:checkbox",(function(i){e.toggle(t(i.target))}))},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.todolist"),s=t.extend({},o,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.todolist",n)),"init"===i&&n[i]()}))},e}();return t(window).on("load",(function(){a._jQueryInterface.call(t(n))})),t.fn[e]=a._jQueryInterface,t.fn[e].Constructor=a,t.fn[e].noConflict=function(){return t.fn[e]=i,a._jQueryInterface},a}(jQuery),r=function(t){var e="CardWidget",i=".lte.cardwidget",n=t.fn[e],s={EXPANDED:"expanded"+i,COLLAPSED:"collapsed"+i,MAXIMIZED:"maximized"+i,MINIMIZED:"minimized"+i,REMOVED:"removed"+i},o={CARD:"card",COLLAPSED:"collapsed-card",WAS_COLLAPSED:"was-collapsed",MAXIMIZED:"maximized-card"},a={DATA_REMOVE:'[data-card-widget="remove"]',DATA_COLLAPSE:'[data-card-widget="collapse"]',DATA_MAXIMIZE:'[data-card-widget="maximize"]',CARD:"."+o.CARD,CARD_HEADER:".card-header",CARD_BODY:".card-body",CARD_FOOTER:".card-footer",COLLAPSED:"."+o.COLLAPSED},r={animationSpeed:"normal",collapseTrigger:a.DATA_COLLAPSE,removeTrigger:a.DATA_REMOVE,maximizeTrigger:a.DATA_MAXIMIZE,collapseIcon:"fa-minus",expandIcon:"fa-plus",maximizeIcon:"fa-expand",minimizeIcon:"fa-compress"},l=function(){function e(e,i){this._element=e,this._parent=e.parents(a.CARD).first(),e.hasClass(o.CARD)&&(this._parent=e),this._settings=t.extend({},r,i)}var i=e.prototype;return i.collapse=function(){var e=this;this._parent.children(a.CARD_BODY+", "+a.CARD_FOOTER).slideUp(this._settings.animationSpeed,(function(){e._parent.addClass(o.COLLAPSED)})),this._parent.find(this._settings.collapseTrigger+" ."+this._settings.collapseIcon).addClass(this._settings.expandIcon).removeClass(this._settings.collapseIcon);var i=t.Event(s.COLLAPSED);this._element.trigger(i,this._parent)},i.expand=function(){var e=this;this._parent.children(a.CARD_BODY+", "+a.CARD_FOOTER).slideDown(this._settings.animationSpeed,(function(){e._parent.removeClass(o.COLLAPSED)})),this._parent.find(this._settings.collapseTrigger+" ."+this._settings.expandIcon).addClass(this._settings.collapseIcon).removeClass(this._settings.expandIcon);var i=t.Event(s.EXPANDED);this._element.trigger(i,this._parent)},i.remove=function(){this._parent.slideUp();var e=t.Event(s.REMOVED);this._element.trigger(e,this._parent)},i.toggle=function(){this._parent.hasClass(o.COLLAPSED)?this.expand():this.collapse()},i.maximize=function(){this._parent.find(this._settings.maximizeTrigger+" ."+this._settings.maximizeIcon).addClass(this._settings.minimizeIcon).removeClass(this._settings.maximizeIcon),this._parent.css({height:this._parent.height(),width:this._parent.width(),transition:"all .15s"}).delay(150).queue((function(){t(this).addClass(o.MAXIMIZED),t("html").addClass(o.MAXIMIZED),t(this).hasClass(o.COLLAPSED)&&t(this).addClass(o.WAS_COLLAPSED),t(this).dequeue()}));var e=t.Event(s.MAXIMIZED);this._element.trigger(e,this._parent)},i.minimize=function(){this._parent.find(this._settings.maximizeTrigger+" ."+this._settings.minimizeIcon).addClass(this._settings.maximizeIcon).removeClass(this._settings.minimizeIcon),this._parent.css("cssText","height:"+this._parent[0].style.height+" !important;width:"+this._parent[0].style.width+" !important; transition: all .15s;").delay(10).queue((function(){t(this).removeClass(o.MAXIMIZED),t("html").removeClass(o.MAXIMIZED),t(this).css({height:"inherit",width:"inherit"}),t(this).hasClass(o.WAS_COLLAPSED)&&t(this).removeClass(o.WAS_COLLAPSED),t(this).dequeue()}));var e=t.Event(s.MINIMIZED);this._element.trigger(e,this._parent)},i.toggleMaximize=function(){this._parent.hasClass(o.MAXIMIZED)?this.minimize():this.maximize()},i._init=function(e){var i=this;this._parent=e,t(this).find(this._settings.collapseTrigger).click((function(){i.toggle()})),t(this).find(this._settings.maximizeTrigger).click((function(){i.toggleMaximize()})),t(this).find(this._settings.removeTrigger).click((function(){i.remove()}))},e._jQueryInterface=function(i){var n=t(this).data("lte.cardwidget"),s=t.extend({},r,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.cardwidget","string"==typeof i?n:i)),"string"==typeof i&&i.match(/collapse|expand|remove|toggle|maximize|minimize|toggleMaximize/)?n[i]():"object"==typeof i&&n._init(t(this))},e}();return t(document).on("click",a.DATA_COLLAPSE,(function(e){e&&e.preventDefault(),l._jQueryInterface.call(t(this),"toggle")})),t(document).on("click",a.DATA_REMOVE,(function(e){e&&e.preventDefault(),l._jQueryInterface.call(t(this),"remove")})),t(document).on("click",a.DATA_MAXIMIZE,(function(e){e&&e.preventDefault(),l._jQueryInterface.call(t(this),"toggleMaximize")})),t.fn[e]=l._jQueryInterface,t.fn[e].Constructor=l,t.fn[e].noConflict=function(){return t.fn[e]=n,l._jQueryInterface},l}(jQuery),l=function(t){var e="CardRefresh",i=t.fn[e],n={LOADED:"loaded.lte.cardrefresh",OVERLAY_ADDED:"overlay.added.lte.cardrefresh",OVERLAY_REMOVED:"overlay.removed.lte.cardrefresh"},s={CARD:"card"},o={CARD:"."+s.CARD,DATA_REFRESH:'[data-card-widget="card-refresh"]'},a={source:"",sourceSelector:"",params:{},trigger:o.DATA_REFRESH,content:".card-body",loadInContent:!0,loadOnInit:!0,responseType:"",overlayTemplate:'<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>',onLoadStart:function(){},onLoadDone:function(t){return t}},r=function(){function e(e,i){if(this._element=e,this._parent=e.parents(o.CARD).first(),this._settings=t.extend({},a,i),this._overlay=t(this._settings.overlayTemplate),e.hasClass(s.CARD)&&(this._parent=e),""===this._settings.source)throw new Error("Source url was not defined. Please specify a url in your CardRefresh source option.");this._init(),this._settings.loadOnInit&&this.load()}var i=e.prototype;return i.load=function(){this._addOverlay(),this._settings.onLoadStart.call(t(this)),t.get(this._settings.source,this._settings.params,function(e){this._settings.loadInContent&&(""!=this._settings.sourceSelector&&(e=t(e).find(this._settings.sourceSelector).html()),this._parent.find(this._settings.content).html(e)),this._settings.onLoadDone.call(t(this),e),this._removeOverlay()}.bind(this),""!==this._settings.responseType&&this._settings.responseType);var e=t.Event(n.LOADED);t(this._element).trigger(e)},i._addOverlay=function(){this._parent.append(this._overlay);var e=t.Event(n.OVERLAY_ADDED);t(this._element).trigger(e)},i._removeOverlay=function(){this._parent.find(this._overlay).remove();var e=t.Event(n.OVERLAY_REMOVED);t(this._element).trigger(e)},i._init=function(e){var i=this;t(this).find(this._settings.trigger).on("click",(function(){i.load()}))},e._jQueryInterface=function(i){var n=t(this).data("lte.cardrefresh"),s=t.extend({},a,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.cardrefresh","string"==typeof i?n:i)),"string"==typeof i&&i.match(/load/)?n[i]():"object"==typeof i&&n._init(t(this))},e}();return t(document).on("click",o.DATA_REFRESH,(function(e){e&&e.preventDefault(),r._jQueryInterface.call(t(this),"load")})),t.fn[e]=r._jQueryInterface,t.fn[e].Constructor=r,t.fn[e].noConflict=function(){return t.fn[e]=i,r._jQueryInterface},r}(jQuery),c=function(t){var e="Dropdown",i=t.fn[e],n="ul.dropdown-menu",s='[data-toggle="dropdown"]',o={},a=function(){function e(t,e){this._config=e,this._element=t}return e.prototype.toggleSubmenu=function(){this._element.siblings().show().toggleClass("show"),this._element.next().hasClass("show")||this._element.parents(".dropdown-menu").first().find(".show").removeClass("show").hide(),this._element.parents("li.nav-item.dropdown.show").on("hidden.bs.dropdown",(function(e){t(".dropdown-submenu .show").removeClass("show").hide()}))},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.dropdown"),s=t.extend({},o,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.dropdown",n)),"toggleSubmenu"===i&&n[i]()}))},e}();return t(n+" "+s).on("click",(function(e){e.preventDefault(),e.stopPropagation(),a._jQueryInterface.call(t(this),"toggleSubmenu")})),t.fn[e]=a._jQueryInterface,t.fn[e].Constructor=a,t.fn[e].noConflict=function(){return t.fn[e]=i,a._jQueryInterface},a}(jQuery),d=function(t){var e="Toasts",i=t.fn[e],n={INIT:"init.lte.toasts",CREATED:"created.lte.toasts",REMOVED:"removed.lte.toasts"},s="#toastsContainerTopRight",o="#toastsContainerTopLeft",a="#toastsContainerBottomRight",r="#toastsContainerBottomLeft",l="toasts-top-right",c="toasts-top-left",d="toasts-bottom-right",h="toasts-bottom-left",f="topRight",u="topLeft",g="bottomRight",p="bottomLeft",_={position:f,fixed:!0,autohide:!1,autoremove:!0,delay:1e3,fade:!0,icon:null,image:null,imageAlt:null,imageHeight:"25px",title:null,subtitle:null,close:!0,body:null,class:null},m=function(){function e(e,i){this._config=i,this._prepareContainer();var s=t.Event(n.INIT);t("body").trigger(s)}var i=e.prototype;return i.create=function(){var e=t('<div class="toast" role="alert" aria-live="assertive" aria-atomic="true"/>');e.data("autohide",this._config.autohide),e.data("animation",this._config.fade),this._config.class&&e.addClass(this._config.class),this._config.delay&&500!=this._config.delay&&e.data("delay",this._config.delay);var i=t('<div class="toast-header">');if(null!=this._config.image){var s=t("<img />").addClass("rounded mr-2").attr("src",this._config.image).attr("alt",this._config.imageAlt);null!=this._config.imageHeight&&s.height(this._config.imageHeight).width("auto"),i.append(s)}if(null!=this._config.icon&&i.append(t("<i />").addClass("mr-2").addClass(this._config.icon)),null!=this._config.title&&i.append(t("<strong />").addClass("mr-auto").html(this._config.title)),null!=this._config.subtitle&&i.append(t("<small />").html(this._config.subtitle)),1==this._config.close){var o=t('<button data-dismiss="toast" />').attr("type","button").addClass("ml-2 mb-1 close").attr("aria-label","Close").append('<span aria-hidden="true">&times;</span>');null==this._config.title&&o.toggleClass("ml-2 ml-auto"),i.append(o)}e.append(i),null!=this._config.body&&e.append(t('<div class="toast-body" />').html(this._config.body)),t(this._getContainerId()).prepend(e);var a=t.Event(n.CREATED);t("body").trigger(a),e.toast("show"),this._config.autoremove&&e.on("hidden.bs.toast",(function(){t(this).delay(200).remove();var e=t.Event(n.REMOVED);t("body").trigger(e)}))},i._getContainerId=function(){return this._config.position==f?s:this._config.position==u?o:this._config.position==g?a:this._config.position==p?r:void 0},i._prepareContainer=function(){if(0===t(this._getContainerId()).length){var e=t("<div />").attr("id",this._getContainerId().replace("#",""));this._config.position==f?e.addClass(l):this._config.position==u?e.addClass(c):this._config.position==g?e.addClass(d):this._config.position==p&&e.addClass(h),t("body").append(e)}this._config.fixed?t(this._getContainerId()).addClass("fixed"):t(this._getContainerId()).removeClass("fixed")},e._jQueryInterface=function(i,n){return this.each((function(){var s=t.extend({},_,n),o=new e(t(this),s);"create"===i&&o[i]()}))},e}();return t.fn[e]=m._jQueryInterface,t.fn[e].Constructor=m,t.fn[e].noConflict=function(){return t.fn[e]=i,m._jQueryInterface},m}(jQuery);t.CardRefresh=l,t.CardWidget=r,t.ControlSidebar=e,t.DirectChat=o,t.Dropdown=c,t.Layout=i,t.PushMenu=n,t.Toasts=d,t.TodoList=a,t.Treeview=s,Object.defineProperty(t,"__esModule",{value:!0})}));
+!function(t,e){ true?e(exports):undefined}(this,(function(t){"use strict";var e=function(t){var e="ControlSidebar",i="lte.controlsidebar",n=t.fn[e],s={COLLAPSED:"collapsed.lte.controlsidebar",EXPANDED:"expanded.lte.controlsidebar"},o=".control-sidebar",a=".control-sidebar-content",r='[data-widget="control-sidebar"]',l=".main-header",c=".main-footer",d="control-sidebar-animate",h="control-sidebar-open",f="control-sidebar-slide-open",u="layout-fixed",g="layout-navbar-fixed",p="layout-sm-navbar-fixed",_="layout-md-navbar-fixed",m="layout-lg-navbar-fixed",v="layout-xl-navbar-fixed",C="layout-footer-fixed",y="layout-sm-footer-fixed",b="layout-md-footer-fixed",w="layout-lg-footer-fixed",x="layout-xl-footer-fixed",E={controlsidebarSlide:!0,scrollbarTheme:"os-theme-light",scrollbarAutoHide:"l"},A=function(){function e(t,e){this._element=t,this._config=e,this._init()}var n=e.prototype;return n.collapse=function(){this._config.controlsidebarSlide?(t("html").addClass(d),t("body").removeClass(f).delay(300).queue((function(){t(o).hide(),t("html").removeClass(d),t(this).dequeue()}))):t("body").removeClass(h);var e=t.Event(s.COLLAPSED);t(this._element).trigger(e)},n.show=function(){this._config.controlsidebarSlide?(t("html").addClass(d),t(o).show().delay(10).queue((function(){t("body").addClass(f).delay(300).queue((function(){t("html").removeClass(d),t(this).dequeue()})),t(this).dequeue()}))):t("body").addClass(h);var e=t.Event(s.EXPANDED);t(this._element).trigger(e)},n.toggle=function(){t("body").hasClass(h)||t("body").hasClass(f)?this.collapse():this.show()},n._init=function(){var e=this;this._fixHeight(),this._fixScrollHeight(),t(window).resize((function(){e._fixHeight(),e._fixScrollHeight()})),t(window).scroll((function(){(t("body").hasClass(h)||t("body").hasClass(f))&&e._fixScrollHeight()}))},n._fixScrollHeight=function(){var e={scroll:t(document).height(),window:t(window).height(),header:t(l).outerHeight(),footer:t(c).outerHeight()},i=Math.abs(e.window+t(window).scrollTop()-e.scroll),n=t(window).scrollTop(),s=!1,r=!1;t("body").hasClass(u)&&((t("body").hasClass(g)||t("body").hasClass(p)||t("body").hasClass(_)||t("body").hasClass(m)||t("body").hasClass(v))&&"fixed"===t(l).css("position")&&(s=!0),(t("body").hasClass(C)||t("body").hasClass(y)||t("body").hasClass(b)||t("body").hasClass(w)||t("body").hasClass(x))&&"fixed"===t(c).css("position")&&(r=!0),0===n&&0===i?(t(o).css("bottom",e.footer),t(o).css("top",e.header),t(o+", "+o+" "+a).css("height",e.window-(e.header+e.footer))):i<=e.footer?!1===r?(t(o).css("bottom",e.footer-i),t(o+", "+o+" "+a).css("height",e.window-(e.footer-i))):t(o).css("bottom",e.footer):n<=e.header?!1===s?(t(o).css("top",e.header-n),t(o+", "+o+" "+a).css("height",e.window-(e.header-n))):t(o).css("top",e.header):!1===s?(t(o).css("top",0),t(o+", "+o+" "+a).css("height",e.window)):t(o).css("top",e.header))},n._fixHeight=function(){var e=t(window).height(),i=t(l).outerHeight(),n=t(c).outerHeight();if(t("body").hasClass(u)){var s=e-i;(t("body").hasClass(C)||t("body").hasClass(y)||t("body").hasClass(b)||t("body").hasClass(w)||t("body").hasClass(x))&&"fixed"===t(c).css("position")&&(s=e-i-n),t(o+" "+a).css("height",s),"undefined"!=typeof t.fn.overlayScrollbars&&t(o+" "+a).overlayScrollbars({className:this._config.scrollbarTheme,sizeAutoCapable:!0,scrollbars:{autoHide:this._config.scrollbarAutoHide,clickScrolling:!0}})}},e._jQueryInterface=function(n){return this.each((function(){var s=t(this).data(i),o=t.extend({},E,t(this).data());if(s||(s=new e(this,o),t(this).data(i,s)),"undefined"===s[n])throw new Error(n+" is not a function");s[n]()}))},e}();return t(document).on("click",r,(function(e){e.preventDefault(),A._jQueryInterface.call(t(this),"toggle")})),t.fn[e]=A._jQueryInterface,t.fn[e].Constructor=A,t.fn[e].noConflict=function(){return t.fn[e]=n,A._jQueryInterface},A}(jQuery),i=function(t){var e="Layout",i=t.fn[e],n=".main-header",s=".main-sidebar",o=".main-sidebar .sidebar",a=".content-wrapper",r=".control-sidebar-content",l='[data-widget="control-sidebar"]',c=".main-footer",d='[data-widget="pushmenu"]',h=".login-box",f=".register-box",u="sidebar-focused",g="layout-fixed",p="control-sidebar-slide-open",_="control-sidebar-open",m={scrollbarTheme:"os-theme-light",scrollbarAutoHide:"l",panelAutoHeight:!0,loginRegisterAutoHeight:!0},v=function(){function e(t,e){this._config=e,this._element=t,this._init()}var i=e.prototype;return i.fixLayoutHeight=function(e){void 0===e&&(e=null);var i=0;(t("body").hasClass(p)||t("body").hasClass(_)||"control_sidebar"==e)&&(i=t(r).height());var s={window:t(window).height(),header:0!==t(n).length?t(n).outerHeight():0,footer:0!==t(c).length?t(c).outerHeight():0,sidebar:0!==t(o).length?t(o).height():0,control_sidebar:i},l=this._max(s),d=this._config.panelAutoHeight;!0===d&&(d=0),!1!==d&&(l==s.control_sidebar?t(a).css("min-height",l+d):l==s.window?t(a).css("min-height",l+d-s.header-s.footer):t(a).css("min-height",l+d-s.header)),t("body").hasClass(g)&&(!1!==d&&t(a).css("min-height",l+d-s.header-s.footer),"undefined"!=typeof t.fn.overlayScrollbars&&t(o).overlayScrollbars({className:this._config.scrollbarTheme,sizeAutoCapable:!0,scrollbars:{autoHide:this._config.scrollbarAutoHide,clickScrolling:!0}}))},i.fixLoginRegisterHeight=function(){if(0===t(h+", "+f).length)t("body, html").css("height","auto");else if(0!==t(h+", "+f).length){var e=t(h+", "+f).height();t("body").css("min-height")!==e&&t("body").css("min-height",e)}},i._init=function(){var e=this;this.fixLayoutHeight(),!0===this._config.loginRegisterAutoHeight?this.fixLoginRegisterHeight():Number.isInteger(this._config.loginRegisterAutoHeight)&&setInterval(this.fixLoginRegisterHeight,this._config.loginRegisterAutoHeight),t(o).on("collapsed.lte.treeview expanded.lte.treeview",(function(){e.fixLayoutHeight()})),t(d).on("collapsed.lte.pushmenu shown.lte.pushmenu",(function(){e.fixLayoutHeight()})),t(l).on("collapsed.lte.controlsidebar",(function(){e.fixLayoutHeight()})).on("expanded.lte.controlsidebar",(function(){e.fixLayoutHeight("control_sidebar")})),t(window).resize((function(){e.fixLayoutHeight()})),t("body.hold-transition").removeClass("hold-transition")},i._max=function(t){var e=0;return Object.keys(t).forEach((function(i){t[i]>e&&(e=t[i])})),e},e._jQueryInterface=function(i){return void 0===i&&(i=""),this.each((function(){var n=t(this).data("lte.layout"),s=t.extend({},m,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.layout",n)),"init"===i||""===i?n._init():"fixLayoutHeight"!==i&&"fixLoginRegisterHeight"!==i||n[i]()}))},e}();return t(window).on("load",(function(){v._jQueryInterface.call(t("body"))})),t(o+" a").on("focusin",(function(){t(s).addClass(u)})),t(o+" a").on("focusout",(function(){t(s).removeClass(u)})),t.fn[e]=v._jQueryInterface,t.fn[e].Constructor=v,t.fn[e].noConflict=function(){return t.fn[e]=i,v._jQueryInterface},v}(jQuery),n=function(t){var e="PushMenu",i=".lte.pushmenu",n=t.fn[e],s={COLLAPSED:"collapsed"+i,SHOWN:"shown"+i},o={autoCollapseSize:992,enableRemember:!1,noTransitionAfterReload:!0},a='[data-widget="pushmenu"]',r="body",l="#sidebar-overlay",c=".wrapper",d="sidebar-collapse",h="sidebar-open",f="sidebar-closed",u=function(){function e(e,i){this._element=e,this._options=t.extend({},o,i),t(l).length||this._addOverlay(),this._init()}var n=e.prototype;return n.expand=function(){this._options.autoCollapseSize&&t(window).width()<=this._options.autoCollapseSize&&t(r).addClass(h),t(r).removeClass(d).removeClass(f),this._options.enableRemember&&localStorage.setItem("remember"+i,h);var e=t.Event(s.SHOWN);t(this._element).trigger(e)},n.collapse=function(){this._options.autoCollapseSize&&t(window).width()<=this._options.autoCollapseSize&&t(r).removeClass(h).addClass(f),t(r).addClass(d),this._options.enableRemember&&localStorage.setItem("remember"+i,d);var e=t.Event(s.COLLAPSED);t(this._element).trigger(e)},n.toggle=function(){t(r).hasClass(d)?this.expand():this.collapse()},n.autoCollapse=function(e){void 0===e&&(e=!1),this._options.autoCollapseSize&&(t(window).width()<=this._options.autoCollapseSize?t(r).hasClass(h)||this.collapse():1==e&&(t(r).hasClass(h)?t(r).removeClass(h):t(r).hasClass(f)&&this.expand()))},n.remember=function(){this._options.enableRemember&&(localStorage.getItem("remember"+i)==d?this._options.noTransitionAfterReload?t("body").addClass("hold-transition").addClass(d).delay(50).queue((function(){t(this).removeClass("hold-transition"),t(this).dequeue()})):t("body").addClass(d):this._options.noTransitionAfterReload?t("body").addClass("hold-transition").removeClass(d).delay(50).queue((function(){t(this).removeClass("hold-transition"),t(this).dequeue()})):t("body").removeClass(d))},n._init=function(){var e=this;this.remember(),this.autoCollapse(),t(window).resize((function(){e.autoCollapse(!0)}))},n._addOverlay=function(){var e=this,i=t("<div />",{id:"sidebar-overlay"});i.on("click",(function(){e.collapse()})),t(c).append(i)},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.pushmenu"),s=t.extend({},o,t(this).data());n||(n=new e(this,s),t(this).data("lte.pushmenu",n)),"string"==typeof i&&i.match(/collapse|expand|toggle/)&&n[i]()}))},e}();return t(document).on("click",a,(function(e){e.preventDefault();var i=e.currentTarget;"pushmenu"!==t(i).data("widget")&&(i=t(i).closest(a)),u._jQueryInterface.call(t(i),"toggle")})),t(window).on("load",(function(){u._jQueryInterface.call(t(a))})),t.fn[e]=u._jQueryInterface,t.fn[e].Constructor=u,t.fn[e].noConflict=function(){return t.fn[e]=n,u._jQueryInterface},u}(jQuery),s=function(t){var e="Treeview",i=t.fn[e],n={SELECTED:"selected.lte.treeview",EXPANDED:"expanded.lte.treeview",COLLAPSED:"collapsed.lte.treeview",LOAD_DATA_API:"load.lte.treeview"},s=".nav-item",o=".nav-treeview",a=".menu-open",r='[data-widget="treeview"]',l="menu-open",c="sidebar-collapse",d={trigger:r+" "+".nav-link",animationSpeed:300,accordion:!0,expandSidebar:!1,sidebarButtonSelector:'[data-widget="pushmenu"]'},h=function(){function e(t,e){this._config=e,this._element=t}var i=e.prototype;return i.init=function(){this._setupListeners()},i.expand=function(e,i){var s=this,r=t.Event(n.EXPANDED);if(this._config.accordion){var c=i.siblings(a).first(),d=c.find(o).first();this.collapse(d,c)}e.stop().slideDown(this._config.animationSpeed,(function(){i.addClass(l),t(s._element).trigger(r)})),this._config.expandSidebar&&this._expandSidebar()},i.collapse=function(e,i){var s=this,r=t.Event(n.COLLAPSED);e.stop().slideUp(this._config.animationSpeed,(function(){i.removeClass(l),t(s._element).trigger(r),e.find(a+" > "+o).slideUp(),e.find(a).removeClass(l)}))},i.toggle=function(e){var i=t(e.currentTarget),n=i.parent(),a=n.find("> "+o);if(a.is(o)||(n.is(s)||(a=n.parent().find("> "+o)),a.is(o))){e.preventDefault();var r=i.parents(s).first();r.hasClass(l)?this.collapse(t(a),r):this.expand(t(a),r)}},i._setupListeners=function(){var e=this;t(document).on("click",this._config.trigger,(function(t){e.toggle(t)}))},i._expandSidebar=function(){t("body").hasClass(c)&&t(this._config.sidebarButtonSelector).PushMenu("expand")},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.treeview"),s=t.extend({},d,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.treeview",n)),"init"===i&&n[i]()}))},e}();return t(window).on(n.LOAD_DATA_API,(function(){t(r).each((function(){h._jQueryInterface.call(t(this),"init")}))})),t.fn[e]=h._jQueryInterface,t.fn[e].Constructor=h,t.fn[e].noConflict=function(){return t.fn[e]=i,h._jQueryInterface},h}(jQuery),o=function(t){var e="DirectChat",i=t.fn[e],n="toggled{EVENT_KEY}",s='[data-widget="chat-pane-toggle"]',o=".direct-chat",a="direct-chat-contacts-open",r=function(){function e(t,e){this._element=t}return e.prototype.toggle=function(){t(this._element).parents(o).first().toggleClass(a);var e=t.Event(n);t(this._element).trigger(e)},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.directchat");n||(n=new e(t(this)),t(this).data("lte.directchat",n)),n[i]()}))},e}();return t(document).on("click",s,(function(e){e&&e.preventDefault(),r._jQueryInterface.call(t(this),"toggle")})),t.fn[e]=r._jQueryInterface,t.fn[e].Constructor=r,t.fn[e].noConflict=function(){return t.fn[e]=i,r._jQueryInterface},r}(jQuery),a=function(t){var e="TodoList",i=t.fn[e],n='[data-widget="todo-list"]',s="done",o={onCheck:function(t){return t},onUnCheck:function(t){return t}},a=function(){function e(t,e){this._config=e,this._element=t,this._init()}var i=e.prototype;return i.toggle=function(e){e.parents("li").toggleClass(s),t(e).prop("checked")?this.check(e):this.unCheck(t(e))},i.check=function(t){this._config.onCheck.call(t)},i.unCheck=function(t){this._config.onUnCheck.call(t)},i._init=function(){var e=this;t(n).find("input:checkbox:checked").parents("li").toggleClass(s),t(n).on("change","input:checkbox",(function(i){e.toggle(t(i.target))}))},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.todolist"),s=t.extend({},o,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.todolist",n)),"init"===i&&n[i]()}))},e}();return t(window).on("load",(function(){a._jQueryInterface.call(t(n))})),t.fn[e]=a._jQueryInterface,t.fn[e].Constructor=a,t.fn[e].noConflict=function(){return t.fn[e]=i,a._jQueryInterface},a}(jQuery),r=function(t){var e="CardWidget",i=".lte.cardwidget",n=t.fn[e],s={EXPANDED:"expanded"+i,COLLAPSED:"collapsed"+i,MAXIMIZED:"maximized"+i,MINIMIZED:"minimized"+i,REMOVED:"removed"+i},o="card",a="collapsed-card",r="collapsing-card",l="expanding-card",c="was-collapsed",d="maximized-card",h={DATA_REMOVE:'[data-card-widget="remove"]',DATA_COLLAPSE:'[data-card-widget="collapse"]',DATA_MAXIMIZE:'[data-card-widget="maximize"]',CARD:"."+o,CARD_HEADER:".card-header",CARD_BODY:".card-body",CARD_FOOTER:".card-footer",COLLAPSED:"."+a},f={animationSpeed:"normal",collapseTrigger:h.DATA_COLLAPSE,removeTrigger:h.DATA_REMOVE,maximizeTrigger:h.DATA_MAXIMIZE,collapseIcon:"fa-minus",expandIcon:"fa-plus",maximizeIcon:"fa-expand",minimizeIcon:"fa-compress"},u=function(){function e(e,i){this._element=e,this._parent=e.parents(h.CARD).first(),e.hasClass(o)&&(this._parent=e),this._settings=t.extend({},f,i)}var i=e.prototype;return i.collapse=function(){var e=this;this._parent.addClass(r).children(h.CARD_BODY+", "+h.CARD_FOOTER).slideUp(this._settings.animationSpeed,(function(){e._parent.addClass(a).removeClass(r)})),this._parent.find("> "+h.CARD_HEADER+" "+this._settings.collapseTrigger+" ."+this._settings.collapseIcon).addClass(this._settings.expandIcon).removeClass(this._settings.collapseIcon);var i=t.Event(s.COLLAPSED);this._element.trigger(i,this._parent)},i.expand=function(){var e=this;this._parent.addClass(l).children(h.CARD_BODY+", "+h.CARD_FOOTER).slideDown(this._settings.animationSpeed,(function(){e._parent.removeClass(a).removeClass(l)})),this._parent.find("> "+h.CARD_HEADER+" "+this._settings.collapseTrigger+" ."+this._settings.expandIcon).addClass(this._settings.collapseIcon).removeClass(this._settings.expandIcon);var i=t.Event(s.EXPANDED);this._element.trigger(i,this._parent)},i.remove=function(){this._parent.slideUp();var e=t.Event(s.REMOVED);this._element.trigger(e,this._parent)},i.toggle=function(){this._parent.hasClass(a)?this.expand():this.collapse()},i.maximize=function(){this._parent.find(this._settings.maximizeTrigger+" ."+this._settings.maximizeIcon).addClass(this._settings.minimizeIcon).removeClass(this._settings.maximizeIcon),this._parent.css({height:this._parent.height(),width:this._parent.width(),transition:"all .15s"}).delay(150).queue((function(){t(this).addClass(d),t("html").addClass(d),t(this).hasClass(a)&&t(this).addClass(c),t(this).dequeue()}));var e=t.Event(s.MAXIMIZED);this._element.trigger(e,this._parent)},i.minimize=function(){this._parent.find(this._settings.maximizeTrigger+" ."+this._settings.minimizeIcon).addClass(this._settings.maximizeIcon).removeClass(this._settings.minimizeIcon),this._parent.css("cssText","height:"+this._parent[0].style.height+" !important;width:"+this._parent[0].style.width+" !important; transition: all .15s;").delay(10).queue((function(){t(this).removeClass(d),t("html").removeClass(d),t(this).css({height:"inherit",width:"inherit"}),t(this).hasClass(c)&&t(this).removeClass(c),t(this).dequeue()}));var e=t.Event(s.MINIMIZED);this._element.trigger(e,this._parent)},i.toggleMaximize=function(){this._parent.hasClass(d)?this.minimize():this.maximize()},i._init=function(e){var i=this;this._parent=e,t(this).find(this._settings.collapseTrigger).click((function(){i.toggle()})),t(this).find(this._settings.maximizeTrigger).click((function(){i.toggleMaximize()})),t(this).find(this._settings.removeTrigger).click((function(){i.remove()}))},e._jQueryInterface=function(i){var n=t(this).data("lte.cardwidget"),s=t.extend({},f,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.cardwidget","string"==typeof i?n:i)),"string"==typeof i&&i.match(/collapse|expand|remove|toggle|maximize|minimize|toggleMaximize/)?n[i]():"object"==typeof i&&n._init(t(this))},e}();return t(document).on("click",h.DATA_COLLAPSE,(function(e){e&&e.preventDefault(),u._jQueryInterface.call(t(this),"toggle")})),t(document).on("click",h.DATA_REMOVE,(function(e){e&&e.preventDefault(),u._jQueryInterface.call(t(this),"remove")})),t(document).on("click",h.DATA_MAXIMIZE,(function(e){e&&e.preventDefault(),u._jQueryInterface.call(t(this),"toggleMaximize")})),t.fn[e]=u._jQueryInterface,t.fn[e].Constructor=u,t.fn[e].noConflict=function(){return t.fn[e]=n,u._jQueryInterface},u}(jQuery),l=function(t){var e="CardRefresh",i=t.fn[e],n={LOADED:"loaded.lte.cardrefresh",OVERLAY_ADDED:"overlay.added.lte.cardrefresh",OVERLAY_REMOVED:"overlay.removed.lte.cardrefresh"},s="card",o={CARD:"."+s,DATA_REFRESH:'[data-card-widget="card-refresh"]'},a={source:"",sourceSelector:"",params:{},trigger:o.DATA_REFRESH,content:".card-body",loadInContent:!0,loadOnInit:!0,responseType:"",overlayTemplate:'<div class="overlay"><i class="fas fa-2x fa-sync-alt fa-spin"></i></div>',onLoadStart:function(){},onLoadDone:function(t){return t}},r=function(){function e(e,i){if(this._element=e,this._parent=e.parents(o.CARD).first(),this._settings=t.extend({},a,i),this._overlay=t(this._settings.overlayTemplate),e.hasClass(s)&&(this._parent=e),""===this._settings.source)throw new Error("Source url was not defined. Please specify a url in your CardRefresh source option.")}var i=e.prototype;return i.load=function(){this._addOverlay(),this._settings.onLoadStart.call(t(this)),t.get(this._settings.source,this._settings.params,function(e){this._settings.loadInContent&&(""!=this._settings.sourceSelector&&(e=t(e).find(this._settings.sourceSelector).html()),this._parent.find(this._settings.content).html(e)),this._settings.onLoadDone.call(t(this),e),this._removeOverlay()}.bind(this),""!==this._settings.responseType&&this._settings.responseType);var e=t.Event(n.LOADED);t(this._element).trigger(e)},i._addOverlay=function(){this._parent.append(this._overlay);var e=t.Event(n.OVERLAY_ADDED);t(this._element).trigger(e)},i._removeOverlay=function(){this._parent.find(this._overlay).remove();var e=t.Event(n.OVERLAY_REMOVED);t(this._element).trigger(e)},i._init=function(e){var i=this;t(this).find(this._settings.trigger).on("click",(function(){i.load()})),this._settings.loadOnInit&&this.load()},e._jQueryInterface=function(i){var n=t(this).data("lte.cardrefresh"),s=t.extend({},a,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.cardrefresh","string"==typeof i?n:i)),"string"==typeof i&&i.match(/load/)?n[i]():n._init(t(this))},e}();return t(document).on("click",o.DATA_REFRESH,(function(e){e&&e.preventDefault(),r._jQueryInterface.call(t(this),"load")})),t(document).ready((function(){t(o.DATA_REFRESH).each((function(){r._jQueryInterface.call(t(this))}))})),t.fn[e]=r._jQueryInterface,t.fn[e].Constructor=r,t.fn[e].noConflict=function(){return t.fn[e]=i,r._jQueryInterface},r}(jQuery),c=function(t){var e="Dropdown",i=t.fn[e],n=".navbar",s=".dropdown-menu",o=".dropdown-menu.show",a='[data-toggle="dropdown"]',r="dropdown-menu-right",l={},c=function(){function e(t,e){this._config=e,this._element=t}var i=e.prototype;return i.toggleSubmenu=function(){this._element.siblings().show().toggleClass("show"),this._element.next().hasClass("show")||this._element.parents(".dropdown-menu").first().find(".show").removeClass("show").hide(),this._element.parents("li.nav-item.dropdown.show").on("hidden.bs.dropdown",(function(e){t(".dropdown-submenu .show").removeClass("show").hide()}))},i.fixPosition=function(){var e=t(o);if(0!==e.length){e.hasClass(r)?(e.css("left","inherit"),e.css("right",0)):(e.css("left",0),e.css("right","inherit"));var i=e.offset(),n=e.width(),s=t(window).width()-i.left;i.left<0?(e.css("left","inherit"),e.css("right",i.left-5)):s<n&&(e.css("left","inherit"),e.css("right",0))}},e._jQueryInterface=function(i){return this.each((function(){var n=t(this).data("lte.dropdown"),s=t.extend({},l,t(this).data());n||(n=new e(t(this),s),t(this).data("lte.dropdown",n)),"toggleSubmenu"!==i&&"fixPosition"!=i||n[i]()}))},e}();return t(s+" "+a).on("click",(function(e){e.preventDefault(),e.stopPropagation(),c._jQueryInterface.call(t(this),"toggleSubmenu")})),t(n+" "+a).on("click",(function(e){e.preventDefault(),setTimeout((function(){c._jQueryInterface.call(t(this),"fixPosition")}),1)})),t.fn[e]=c._jQueryInterface,t.fn[e].Constructor=c,t.fn[e].noConflict=function(){return t.fn[e]=i,c._jQueryInterface},c}(jQuery),d=function(t){var e="Toasts",i=t.fn[e],n={INIT:"init.lte.toasts",CREATED:"created.lte.toasts",REMOVED:"removed.lte.toasts"},s="#toastsContainerTopRight",o="#toastsContainerTopLeft",a="#toastsContainerBottomRight",r="#toastsContainerBottomLeft",l="toasts-top-right",c="toasts-top-left",d="toasts-bottom-right",h="toasts-bottom-left",f="topRight",u="topLeft",g="bottomRight",p="bottomLeft",_={position:f,fixed:!0,autohide:!1,autoremove:!0,delay:1e3,fade:!0,icon:null,image:null,imageAlt:null,imageHeight:"25px",title:null,subtitle:null,close:!0,body:null,class:null},m=function(){function e(e,i){this._config=i,this._prepareContainer();var s=t.Event(n.INIT);t("body").trigger(s)}var i=e.prototype;return i.create=function(){var e=t('<div class="toast" role="alert" aria-live="assertive" aria-atomic="true"/>');e.data("autohide",this._config.autohide),e.data("animation",this._config.fade),this._config.class&&e.addClass(this._config.class),this._config.delay&&500!=this._config.delay&&e.data("delay",this._config.delay);var i=t('<div class="toast-header">');if(null!=this._config.image){var s=t("<img />").addClass("rounded mr-2").attr("src",this._config.image).attr("alt",this._config.imageAlt);null!=this._config.imageHeight&&s.height(this._config.imageHeight).width("auto"),i.append(s)}if(null!=this._config.icon&&i.append(t("<i />").addClass("mr-2").addClass(this._config.icon)),null!=this._config.title&&i.append(t("<strong />").addClass("mr-auto").html(this._config.title)),null!=this._config.subtitle&&i.append(t("<small />").html(this._config.subtitle)),1==this._config.close){var o=t('<button data-dismiss="toast" />').attr("type","button").addClass("ml-2 mb-1 close").attr("aria-label","Close").append('<span aria-hidden="true">&times;</span>');null==this._config.title&&o.toggleClass("ml-2 ml-auto"),i.append(o)}e.append(i),null!=this._config.body&&e.append(t('<div class="toast-body" />').html(this._config.body)),t(this._getContainerId()).prepend(e);var a=t.Event(n.CREATED);t("body").trigger(a),e.toast("show"),this._config.autoremove&&e.on("hidden.bs.toast",(function(){t(this).delay(200).remove();var e=t.Event(n.REMOVED);t("body").trigger(e)}))},i._getContainerId=function(){return this._config.position==f?s:this._config.position==u?o:this._config.position==g?a:this._config.position==p?r:void 0},i._prepareContainer=function(){if(0===t(this._getContainerId()).length){var e=t("<div />").attr("id",this._getContainerId().replace("#",""));this._config.position==f?e.addClass(l):this._config.position==u?e.addClass(c):this._config.position==g?e.addClass(d):this._config.position==p&&e.addClass(h),t("body").append(e)}this._config.fixed?t(this._getContainerId()).addClass("fixed"):t(this._getContainerId()).removeClass("fixed")},e._jQueryInterface=function(i,n){return this.each((function(){var s=t.extend({},_,n),o=new e(t(this),s);"create"===i&&o[i]()}))},e}();return t.fn[e]=m._jQueryInterface,t.fn[e].Constructor=m,t.fn[e].noConflict=function(){return t.fn[e]=i,m._jQueryInterface},m}(jQuery);t.CardRefresh=l,t.CardWidget=r,t.ControlSidebar=e,t.DirectChat=o,t.Dropdown=c,t.Layout=i,t.PushMenu=n,t.Toasts=d,t.TodoList=a,t.Treeview=s,Object.defineProperty(t,"__esModule",{value:!0})}));
 //# sourceMappingURL=adminlte.min.js.map
 
 /***/ }),
@@ -1363,7 +1363,6 @@ module.exports = function isAbsoluteURL(url) {
 
 
 var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
-var isValidXss = __webpack_require__(/*! ./isValidXss */ "./node_modules/axios/lib/helpers/isValidXss.js");
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1383,10 +1382,6 @@ module.exports = (
     */
       function resolveURL(url) {
         var href = url;
-
-        if (isValidXss(url)) {
-          throw new Error('URL contains XSS injection attempt');
-        }
 
         if (msie) {
         // IE needs attribute set twice to normalize properties
@@ -1433,25 +1428,6 @@ module.exports = (
       };
     })()
 );
-
-
-/***/ }),
-
-/***/ "./node_modules/axios/lib/helpers/isValidXss.js":
-/*!******************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/isValidXss.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function isValidXss(requestURL) {
-  var xssRegex = /(\b)(on\w+)=|javascript|(<\s*)(\/*)script/gi;
-  return xssRegex.test(requestURL);
-};
-
 
 
 /***/ }),
@@ -2094,6 +2070,59 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -2116,7 +2145,11 @@ __webpack_require__.r(__webpack_exports__);
         email: "",
         type: "bailleurs",
         password: "",
-        photo: ""
+        photo: "",
+        nombreBien: "",
+        profession: "",
+        nationalite: "",
+        bp: ""
       })
     };
   },
@@ -2607,6 +2640,171 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -2614,6 +2812,7 @@ __webpack_require__.r(__webpack_exports__);
     this.getResults();
     this.type();
     this.bailleur();
+    this.Equipement;
   },
   components: {
     "not-found": _notFoundComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -2622,6 +2821,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       editmode: false,
       editbien: false,
+      Emode: false,
+      Equipement: {},
       Biens: {},
       // Create a new form instance
       formE: new Form({
@@ -2631,6 +2832,14 @@ __webpack_require__.r(__webpack_exports__);
         etatEquipement: "",
         commentaire: ""
       }),
+      formEquip: new Form({
+        equipements_id: "",
+        typeEquipement: "",
+        nombreEquipement: "",
+        etatEquipement: "",
+        commentaireEquipement: "",
+        bien: ""
+      }),
       form: new Form({
         id: "",
         details: "",
@@ -2638,13 +2847,17 @@ __webpack_require__.r(__webpack_exports__);
         bailleur: "",
         etat: "",
         adresse: "",
-        type: "",
+        typebien_id: "",
         etatLieux: "",
         murs: "",
         sols: "",
         ouverture: "",
         circuit: "",
-        divers: ""
+        divers: "",
+        commentaire: "",
+        plafonds: "",
+        cuisine: "",
+        salledebain: ""
       }),
       Typebiens: {},
       Bailleurs: {}
@@ -2681,22 +2894,54 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$Progress.start(); // Submit the form via a POST request
 
-      this.formE.put("/api/biens/" + this.form.id).then(function () {
+      this.formEquip.put("/api/equipements/" + this.formEquip.equipements_id).then(function () {
         //this will update dom automatically
         //this.loadbiens();
-        $("#addNew").modal("hide");
-        Swal.fire("Deleted!", "le biens bien été modifié.", "success");
+        Swal.fire("Deleted!", "l'équipement a bien été modifié.", "success");
         Fire.$emit("AfterCreate");
 
         _this4.$Progress.finish();
 
-        _this4.editbien = false;
+        _this4.Emode = false;
+
+        _this4.Detail(_this4.formEquip.bien);
       })["catch"](function () {
         _this4.$Progress.fail();
       });
     },
-    updateBiens: function updateBiens(id) {
+    deleteEquip: function deleteEquip(e) {
       var _this5 = this;
+
+      Swal.fire({
+        title: "etes vous sur?",
+        text: "Vous ne pourrez pas revenir en arrière!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(function (result) {
+        //send ajax request to the server
+        if (result.value) {
+          _this5.formEquip["delete"]("api/equipements/" + e.equipements_id).then(function () {
+            Swal.fire("Suppression!", "l'equipement a bien été supprimé.", "success");
+            Fire.$emit("AfterCreate");
+            _this5.Emode = false;
+
+            _this5.Detail(e.bien);
+          })["catch"](function () {
+            swal("Failed", "Something wronge", "warnig");
+          });
+        }
+      });
+    },
+    Eform: function Eform(equipement) {
+      console.log(equipement);
+      this.Emode = true;
+      this.formEquip.fill(equipement);
+    },
+    updateBiens: function updateBiens(id) {
+      var _this6 = this;
 
       this.$Progress.start(); // Submit the form via a POST request
 
@@ -2707,11 +2952,11 @@ __webpack_require__.r(__webpack_exports__);
         Swal.fire("Success!", "le biens bien été modifié.", "success");
         Fire.$emit("AfterCreate");
 
-        _this5.$Progress.finish();
+        _this6.$Progress.finish();
 
-        _this5.editbien = false;
+        _this6.editbien = false;
       })["catch"](function () {
-        _this5.$Progress.fail();
+        _this6.$Progress.fail();
       });
     },
     editModal: function editModal(equip) {
@@ -2731,11 +2976,17 @@ __webpack_require__.r(__webpack_exports__);
       $("#addNew").modal("show");
       this.formE.bien_id = id;
     },
-    Detail: function Detail(bien) {
+    Detail: function Detail(id) {
+      var _this7 = this;
+
+      axios.get("/api/biens/" + id).then(function (response) {
+        _this7.Equipement = response.data.equipement;
+        console.log(response.data.equipement);
+      });
       $("#detailModal").modal("show");
     },
     deleteBiens: function deleteBiens(id) {
-      var _this6 = this;
+      var _this8 = this;
 
       Swal.fire({
         title: "etes vous sur?",
@@ -2748,7 +2999,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (result) {
         //send ajax request to the server
         if (result.value) {
-          _this6.form["delete"]("api/biens/" + id).then(function () {
+          _this8.form["delete"]("api/biens/" + id).then(function () {
             Swal.fire("Deleted!", "le biens bien été supprimé.", "success");
             Fire.$emit("AfterCreate");
           })["catch"](function () {
@@ -2758,17 +3009,17 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     loadbiens: function loadbiens() {
-      var _this7 = this;
+      var _this9 = this;
 
       if (this.$gate.isAdminOrBailleurs()) {
         axios.get("/api/biens").then(function (_ref) {
           var data = _ref.data;
-          return _this7.Biens = data;
+          return _this9.Biens = data;
         });
       }
     },
     createBiens: function createBiens() {
-      var _this8 = this;
+      var _this10 = this;
 
       this.$Progress.start(); // Submit the form via a POST request
 
@@ -2782,13 +3033,13 @@ __webpack_require__.r(__webpack_exports__);
           title: "biens a été créé avec succes"
         });
 
-        _this8.$Progress.finish();
+        _this10.$Progress.finish();
       })["catch"](function (e) {
         console.log(e);
       });
     },
     createEquip: function createEquip() {
-      var _this9 = this;
+      var _this11 = this;
 
       this.$Progress.start(); // Submit the form via a POST request
 
@@ -2802,18 +3053,18 @@ __webpack_require__.r(__webpack_exports__);
           title: "biens a été créé avec succes"
         });
 
-        _this9.$Progress.finish();
+        _this11.$Progress.finish();
       })["catch"](function (e) {
         console.log(e);
       });
     }
   },
   created: function created() {
-    var _this10 = this;
+    var _this12 = this;
 
     this.loadbiens();
     Fire.$on("AfterCreate", function () {
-      _this10.loadbiens();
+      _this12.loadbiens();
     }); //setInterval(()=>this.loadbiens(),10000)
   }
 });
@@ -3164,39 +3415,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
-  data: function data() {
-    return {
-      'name': 'bass'
-    };
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LoginComponent.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LoginComponent.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4226,6 +4444,468 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on("AfterCreate", function () {
       _this6.loadtypeclients();
     }); //setInterval(()=>this.loadtypeclients(),10000)
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TypeComptesComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TypeComptesComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _notFoundComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./notFoundComponent.vue */ "./resources/js/components/notFoundComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log("Component mounted.");
+    this.getResults();
+  },
+  components: {
+    'not-found': _notFoundComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      editmode: false,
+      typecomptes: {},
+      // Create a new form instance
+      form: new Form({
+        id: '',
+        libelle: ""
+      })
+    };
+  },
+  methods: {
+    // Our method to GET results from a Laravel endpoint
+    getResults: function getResults() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get("api/typecomptes?page=" + page).then(function (response) {
+        _this.typecomptes = response.data;
+      });
+    },
+    updatetypecomptes: function updatetypecomptes(id) {
+      var _this2 = this;
+
+      this.$Progress.start(); // Submit the form via a POST request
+
+      this.form.put("/api/typecomptes/" + this.form.id).then(function () {
+        //this will update dom automatically
+        //this.loadtypecomptes();
+        $("#addNew").modal("hide");
+        Swal.fire("Deleted!", "le typecomptes bien été modifié.", "success");
+        Fire.$emit("AfterCreate");
+
+        _this2.$Progress.finish();
+      })["catch"](function () {
+        _this2.$Progress.fail();
+      });
+    },
+    editModal: function editModal(typecomptes) {
+      this.editmode = true;
+      this.form.reset();
+      $("#addNew").modal("show");
+      this.form.fill(typecomptes);
+    },
+    newModal: function newModal() {
+      this.editmode = false;
+      this.form.reset();
+      $("#addNew").modal("show");
+    },
+    deletetypecomptes: function deletetypecomptes(id) {
+      var _this3 = this;
+
+      Swal.fire({
+        title: "etes vous sur?",
+        text: "Vous ne pourrez pas revenir en arrière!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(function (result) {
+        //send ajax request to the server
+        if (result.value) {
+          _this3.form["delete"]("api/typecomptes/" + id).then(function () {
+            Swal.fire("Suppression!", "le typecomptes bien été supprimé.", "success");
+            Fire.$emit("AfterCreate");
+          })["catch"](function () {
+            swal("Failed", "Something wronge", "warnig");
+          });
+        }
+      });
+    },
+    loadtypecomptes: function loadtypecomptes() {
+      var _this4 = this;
+
+      if (this.$gate.isAdmin()) {
+        axios.get("/api/typecomptes").then(function (_ref) {
+          var data = _ref.data;
+          return _this4.typecomptes = data;
+        });
+      }
+    },
+    createtypecomptes: function createtypecomptes() {
+      var _this5 = this;
+
+      this.$Progress.start(); // Submit the form via a POST request
+
+      this.form.post("/api/typecomptes").then(function () {
+        //this will update dom automatically
+        //this.loadtypecomptes();
+        Fire.$emit("AfterCreate");
+        $("#addNew").modal("hide");
+        Toast.fire({
+          icon: "success",
+          title: "typecomptes a été créé avec succes"
+        });
+
+        _this5.$Progress.finish();
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  },
+  created: function created() {
+    var _this6 = this;
+
+    this.loadtypecomptes();
+    Fire.$on("AfterCreate", function () {
+      _this6.loadtypecomptes();
+    }); //setInterval(()=>this.loadtypecomptes(),10000)
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TypeEtatsComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TypeEtatsComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _notFoundComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./notFoundComponent.vue */ "./resources/js/components/notFoundComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log("Component mounted.");
+    this.getResults();
+  },
+  components: {
+    'not-found': _notFoundComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      editmode: false,
+      typeetats: {},
+      // Create a new form instance
+      form: new Form({
+        id: '',
+        libelle: ""
+      })
+    };
+  },
+  methods: {
+    // Our method to GET results from a Laravel endpoint
+    getResults: function getResults() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get("api/typeetats?page=" + page).then(function (response) {
+        _this.typeetats = response.data;
+      });
+    },
+    updatetypeetats: function updatetypeetats(id) {
+      var _this2 = this;
+
+      this.$Progress.start(); // Submit the form via a POST request
+
+      this.form.put("/api/typeetats/" + this.form.id).then(function () {
+        //this will update dom automatically
+        //this.loadtypeetats();
+        $("#addNew").modal("hide");
+        Swal.fire("Deleted!", "le typeetats bien été modifié.", "success");
+        Fire.$emit("AfterCreate");
+
+        _this2.$Progress.finish();
+      })["catch"](function () {
+        _this2.$Progress.fail();
+      });
+    },
+    editModal: function editModal(typeetats) {
+      this.editmode = true;
+      this.form.reset();
+      $("#addNew").modal("show");
+      this.form.fill(typeetats);
+    },
+    newModal: function newModal() {
+      this.editmode = false;
+      this.form.reset();
+      $("#addNew").modal("show");
+    },
+    deletetypeetats: function deletetypeetats(id) {
+      var _this3 = this;
+
+      Swal.fire({
+        title: "etes vous sur?",
+        text: "Vous ne pourrez pas revenir en arrière!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(function (result) {
+        //send ajax request to the server
+        if (result.value) {
+          _this3.form["delete"]("api/typeetats/" + id).then(function () {
+            Swal.fire("Suppression!", "le typeetats bien été supprimé.", "success");
+            Fire.$emit("AfterCreate");
+          })["catch"](function () {
+            swal("Failed", "Something wronge", "warnig");
+          });
+        }
+      });
+    },
+    loadtypeetats: function loadtypeetats() {
+      var _this4 = this;
+
+      if (this.$gate.isAdmin()) {
+        axios.get("/api/typeetats").then(function (_ref) {
+          var data = _ref.data;
+          return _this4.typeetats = data;
+        });
+      }
+    },
+    createtypeetats: function createtypeetats() {
+      var _this5 = this;
+
+      this.$Progress.start(); // Submit the form via a POST request
+
+      this.form.post("/api/typeetats").then(function () {
+        //this will update dom automatically
+        //this.loadtypeetats();
+        Fire.$emit("AfterCreate");
+        $("#addNew").modal("hide");
+        Toast.fire({
+          icon: "success",
+          title: "typeetats a été créé avec succes"
+        });
+
+        _this5.$Progress.finish();
+      })["catch"](function (e) {
+        console.log(e);
+      });
+    }
+  },
+  created: function created() {
+    var _this6 = this;
+
+    this.loadtypeetats();
+    Fire.$on("AfterCreate", function () {
+      _this6.loadtypeetats();
+    }); //setInterval(()=>this.loadtypeetats(),10000)
   }
 });
 
@@ -10397,7 +11077,7 @@ function toComment(sourceMap) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery JavaScript Library v3.4.1
+ * jQuery JavaScript Library v3.5.0
  * https://jquery.com/
  *
  * Includes Sizzle.js
@@ -10407,7 +11087,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2019-05-01T21:04Z
+ * Date: 2020-04-10T15:07Z
  */
 ( function( global, factory ) {
 
@@ -10445,13 +11125,16 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 var arr = [];
 
-var document = window.document;
-
 var getProto = Object.getPrototypeOf;
 
 var slice = arr.slice;
 
-var concat = arr.concat;
+var flat = arr.flat ? function( array ) {
+	return arr.flat.call( array );
+} : function( array ) {
+	return arr.concat.apply( [], array );
+};
+
 
 var push = arr.push;
 
@@ -10483,6 +11166,8 @@ var isWindow = function isWindow( obj ) {
 		return obj != null && obj === obj.window;
 	};
 
+
+var document = window.document;
 
 
 
@@ -10540,7 +11225,7 @@ function toType( obj ) {
 
 
 var
-	version = "3.4.1",
+	version = "3.5.0",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -10548,11 +11233,7 @@ var
 		// The jQuery object is actually just the init constructor 'enhanced'
 		// Need init if jQuery is called (just allow error to be thrown if not included)
 		return new jQuery.fn.init( selector, context );
-	},
-
-	// Support: Android <=4.0 only
-	// Make sure we trim BOM and NBSP
-	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+	};
 
 jQuery.fn = jQuery.prototype = {
 
@@ -10616,6 +11297,18 @@ jQuery.fn = jQuery.prototype = {
 
 	last: function() {
 		return this.eq( -1 );
+	},
+
+	even: function() {
+		return this.pushStack( jQuery.grep( this, function( _elem, i ) {
+			return ( i + 1 ) % 2;
+		} ) );
+	},
+
+	odd: function() {
+		return this.pushStack( jQuery.grep( this, function( _elem, i ) {
+			return i % 2;
+		} ) );
 	},
 
 	eq: function( i ) {
@@ -10751,9 +11444,10 @@ jQuery.extend( {
 		return true;
 	},
 
-	// Evaluates a script in a global context
-	globalEval: function( code, options ) {
-		DOMEval( code, { nonce: options && options.nonce } );
+	// Evaluates a script in a provided context; falls back to the global one
+	// if not specified.
+	globalEval: function( code, options, doc ) {
+		DOMEval( code, { nonce: options && options.nonce }, doc );
 	},
 
 	each: function( obj, callback ) {
@@ -10775,13 +11469,6 @@ jQuery.extend( {
 		}
 
 		return obj;
-	},
-
-	// Support: Android <=4.0 only
-	trim: function( text ) {
-		return text == null ?
-			"" :
-			( text + "" ).replace( rtrim, "" );
 	},
 
 	// results is for internal usage only
@@ -10870,7 +11557,7 @@ jQuery.extend( {
 		}
 
 		// Flatten any nested arrays
-		return concat.apply( [], ret );
+		return flat( ret );
 	},
 
 	// A global GUID counter for objects
@@ -10887,7 +11574,7 @@ if ( typeof Symbol === "function" ) {
 
 // Populate the class2type map
 jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
-function( i, name ) {
+function( _i, name ) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 } );
 
@@ -10909,17 +11596,16 @@ function isArrayLike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v2.3.4
+ * Sizzle CSS Selector Engine v2.3.5
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2019-04-08
+ * Date: 2020-03-14
  */
-(function( window ) {
-
+( function( window ) {
 var i,
 	support,
 	Expr,
@@ -10959,59 +11645,70 @@ var i,
 	},
 
 	// Instance methods
-	hasOwn = ({}).hasOwnProperty,
+	hasOwn = ( {} ).hasOwnProperty,
 	arr = [],
 	pop = arr.pop,
-	push_native = arr.push,
+	pushNative = arr.push,
 	push = arr.push,
 	slice = arr.slice,
+
 	// Use a stripped-down indexOf as it's faster than native
 	// https://jsperf.com/thor-indexof-vs-for/5
 	indexOf = function( list, elem ) {
 		var i = 0,
 			len = list.length;
 		for ( ; i < len; i++ ) {
-			if ( list[i] === elem ) {
+			if ( list[ i ] === elem ) {
 				return i;
 			}
 		}
 		return -1;
 	},
 
-	booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",
+	booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|" +
+		"ismap|loop|multiple|open|readonly|required|scoped",
 
 	// Regular expressions
 
 	// http://www.w3.org/TR/css3-selectors/#whitespace
 	whitespace = "[\\x20\\t\\r\\n\\f]",
 
-	// http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
-	identifier = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+",
+	// https://www.w3.org/TR/css-syntax-3/#ident-token-diagram
+	identifier = "(?:\\\\[\\da-fA-F]{1,6}" + whitespace +
+		"?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+",
 
 	// Attribute selectors: http://www.w3.org/TR/selectors/#attribute-selectors
 	attributes = "\\[" + whitespace + "*(" + identifier + ")(?:" + whitespace +
+
 		// Operator (capture 2)
 		"*([*^$|!~]?=)" + whitespace +
-		// "Attribute values must be CSS identifiers [capture 5] or strings [capture 3 or capture 4]"
-		"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + identifier + "))|)" + whitespace +
-		"*\\]",
+
+		// "Attribute values must be CSS identifiers [capture 5]
+		// or strings [capture 3 or capture 4]"
+		"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + identifier + "))|)" +
+		whitespace + "*\\]",
 
 	pseudos = ":(" + identifier + ")(?:\\((" +
+
 		// To reduce the number of selectors needing tokenize in the preFilter, prefer arguments:
 		// 1. quoted (capture 3; capture 4 or capture 5)
 		"('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|" +
+
 		// 2. simple (capture 6)
 		"((?:\\\\.|[^\\\\()[\\]]|" + attributes + ")*)|" +
+
 		// 3. anything else (capture 2)
 		".*" +
 		")\\)|)",
 
 	// Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
 	rwhitespace = new RegExp( whitespace + "+", "g" ),
-	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g" ),
+	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" +
+		whitespace + "+$", "g" ),
 
 	rcomma = new RegExp( "^" + whitespace + "*," + whitespace + "*" ),
-	rcombinators = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace + "*" ),
+	rcombinators = new RegExp( "^" + whitespace + "*([>+~]|" + whitespace + ")" + whitespace +
+		"*" ),
 	rdescend = new RegExp( whitespace + "|>" ),
 
 	rpseudo = new RegExp( pseudos ),
@@ -11023,14 +11720,16 @@ var i,
 		"TAG": new RegExp( "^(" + identifier + "|[*])" ),
 		"ATTR": new RegExp( "^" + attributes ),
 		"PSEUDO": new RegExp( "^" + pseudos ),
-		"CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + whitespace +
-			"*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" + whitespace +
-			"*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
+		"CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" +
+			whitespace + "*(even|odd|(([+-]|)(\\d*)n|)" + whitespace + "*(?:([+-]|)" +
+			whitespace + "*(\\d+)|))" + whitespace + "*\\)|)", "i" ),
 		"bool": new RegExp( "^(?:" + booleans + ")$", "i" ),
+
 		// For use in libraries implementing .is()
 		// We use this for POS matching in `select`
-		"needsContext": new RegExp( "^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
-			whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
+		"needsContext": new RegExp( "^" + whitespace +
+			"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + whitespace +
+			"*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i" )
 	},
 
 	rhtml = /HTML$/i,
@@ -11046,18 +11745,21 @@ var i,
 
 	// CSS escapes
 	// http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
-	runescape = new RegExp( "\\\\([\\da-f]{1,6}" + whitespace + "?|(" + whitespace + ")|.)", "ig" ),
-	funescape = function( _, escaped, escapedWhitespace ) {
-		var high = "0x" + escaped - 0x10000;
-		// NaN means non-codepoint
-		// Support: Firefox<24
-		// Workaround erroneous numeric interpretation of +"0x"
-		return high !== high || escapedWhitespace ?
-			escaped :
+	runescape = new RegExp( "\\\\[\\da-fA-F]{1,6}" + whitespace + "?|\\\\([^\\r\\n\\f])", "g" ),
+	funescape = function( escape, nonHex ) {
+		var high = "0x" + escape.slice( 1 ) - 0x10000;
+
+		return nonHex ?
+
+			// Strip the backslash prefix from a non-hex escape sequence
+			nonHex :
+
+			// Replace a hexadecimal escape sequence with the encoded Unicode code point
+			// Support: IE <=11+
+			// For values outside the Basic Multilingual Plane (BMP), manually construct a
+			// surrogate pair
 			high < 0 ?
-				// BMP codepoint
 				String.fromCharCode( high + 0x10000 ) :
-				// Supplemental Plane codepoint (surrogate pair)
 				String.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );
 	},
 
@@ -11073,7 +11775,8 @@ var i,
 			}
 
 			// Control characters and (dependent upon position) numbers get escaped as code points
-			return ch.slice( 0, -1 ) + "\\" + ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
+			return ch.slice( 0, -1 ) + "\\" +
+				ch.charCodeAt( ch.length - 1 ).toString( 16 ) + " ";
 		}
 
 		// Other potentially-special ASCII characters get backslash-escaped
@@ -11098,18 +11801,20 @@ var i,
 // Optimize for push.apply( _, NodeList )
 try {
 	push.apply(
-		(arr = slice.call( preferredDoc.childNodes )),
+		( arr = slice.call( preferredDoc.childNodes ) ),
 		preferredDoc.childNodes
 	);
+
 	// Support: Android<4.0
 	// Detect silently failing push.apply
+	// eslint-disable-next-line no-unused-expressions
 	arr[ preferredDoc.childNodes.length ].nodeType;
 } catch ( e ) {
 	push = { apply: arr.length ?
 
 		// Leverage slice if possible
 		function( target, els ) {
-			push_native.apply( target, slice.call(els) );
+			pushNative.apply( target, slice.call( els ) );
 		} :
 
 		// Support: IE<9
@@ -11117,8 +11822,9 @@ try {
 		function( target, els ) {
 			var j = target.length,
 				i = 0;
+
 			// Can't trust NodeList.length
-			while ( (target[j++] = els[i++]) ) {}
+			while ( ( target[ j++ ] = els[ i++ ] ) ) {}
 			target.length = j - 1;
 		}
 	};
@@ -11142,24 +11848,21 @@ function Sizzle( selector, context, results, seed ) {
 
 	// Try to shortcut find operations (as opposed to filters) in HTML documents
 	if ( !seed ) {
-
-		if ( ( context ? context.ownerDocument || context : preferredDoc ) !== document ) {
-			setDocument( context );
-		}
+		setDocument( context );
 		context = context || document;
 
 		if ( documentIsHTML ) {
 
 			// If the selector is sufficiently simple, try using a "get*By*" DOM method
 			// (excepting DocumentFragment context, where the methods don't exist)
-			if ( nodeType !== 11 && (match = rquickExpr.exec( selector )) ) {
+			if ( nodeType !== 11 && ( match = rquickExpr.exec( selector ) ) ) {
 
 				// ID selector
-				if ( (m = match[1]) ) {
+				if ( ( m = match[ 1 ] ) ) {
 
 					// Document context
 					if ( nodeType === 9 ) {
-						if ( (elem = context.getElementById( m )) ) {
+						if ( ( elem = context.getElementById( m ) ) ) {
 
 							// Support: IE, Opera, Webkit
 							// TODO: identify versions
@@ -11178,7 +11881,7 @@ function Sizzle( selector, context, results, seed ) {
 						// Support: IE, Opera, Webkit
 						// TODO: identify versions
 						// getElementById can match elements by name instead of ID
-						if ( newContext && (elem = newContext.getElementById( m )) &&
+						if ( newContext && ( elem = newContext.getElementById( m ) ) &&
 							contains( context, elem ) &&
 							elem.id === m ) {
 
@@ -11188,12 +11891,12 @@ function Sizzle( selector, context, results, seed ) {
 					}
 
 				// Type selector
-				} else if ( match[2] ) {
+				} else if ( match[ 2 ] ) {
 					push.apply( results, context.getElementsByTagName( selector ) );
 					return results;
 
 				// Class selector
-				} else if ( (m = match[3]) && support.getElementsByClassName &&
+				} else if ( ( m = match[ 3 ] ) && support.getElementsByClassName &&
 					context.getElementsByClassName ) {
 
 					push.apply( results, context.getElementsByClassName( m ) );
@@ -11204,11 +11907,11 @@ function Sizzle( selector, context, results, seed ) {
 			// Take advantage of querySelectorAll
 			if ( support.qsa &&
 				!nonnativeSelectorCache[ selector + " " ] &&
-				(!rbuggyQSA || !rbuggyQSA.test( selector )) &&
+				( !rbuggyQSA || !rbuggyQSA.test( selector ) ) &&
 
 				// Support: IE 8 only
 				// Exclude object elements
-				(nodeType !== 1 || context.nodeName.toLowerCase() !== "object") ) {
+				( nodeType !== 1 || context.nodeName.toLowerCase() !== "object" ) ) {
 
 				newSelector = selector;
 				newContext = context;
@@ -11217,27 +11920,36 @@ function Sizzle( selector, context, results, seed ) {
 				// descendant combinators, which is not what we want.
 				// In such cases, we work around the behavior by prefixing every selector in the
 				// list with an ID selector referencing the scope context.
+				// The technique has to be used as well when a leading combinator is used
+				// as such selectors are not recognized by querySelectorAll.
 				// Thanks to Andrew Dupont for this technique.
-				if ( nodeType === 1 && rdescend.test( selector ) ) {
+				if ( nodeType === 1 &&
+					( rdescend.test( selector ) || rcombinators.test( selector ) ) ) {
 
-					// Capture the context ID, setting it first if necessary
-					if ( (nid = context.getAttribute( "id" )) ) {
-						nid = nid.replace( rcssescape, fcssescape );
-					} else {
-						context.setAttribute( "id", (nid = expando) );
+					// Expand context for sibling selectors
+					newContext = rsibling.test( selector ) && testContext( context.parentNode ) ||
+						context;
+
+					// We can use :scope instead of the ID hack if the browser
+					// supports it & if we're not changing the context.
+					if ( newContext !== context || !support.scope ) {
+
+						// Capture the context ID, setting it first if necessary
+						if ( ( nid = context.getAttribute( "id" ) ) ) {
+							nid = nid.replace( rcssescape, fcssescape );
+						} else {
+							context.setAttribute( "id", ( nid = expando ) );
+						}
 					}
 
 					// Prefix every selector in the list
 					groups = tokenize( selector );
 					i = groups.length;
 					while ( i-- ) {
-						groups[i] = "#" + nid + " " + toSelector( groups[i] );
+						groups[ i ] = ( nid ? "#" + nid : ":scope" ) + " " +
+							toSelector( groups[ i ] );
 					}
 					newSelector = groups.join( "," );
-
-					// Expand context for sibling selectors
-					newContext = rsibling.test( selector ) && testContext( context.parentNode ) ||
-						context;
 				}
 
 				try {
@@ -11270,12 +11982,14 @@ function createCache() {
 	var keys = [];
 
 	function cache( key, value ) {
+
 		// Use (key + " ") to avoid collision with native prototype properties (see Issue #157)
 		if ( keys.push( key + " " ) > Expr.cacheLength ) {
+
 			// Only keep the most recent entries
 			delete cache[ keys.shift() ];
 		}
-		return (cache[ key + " " ] = value);
+		return ( cache[ key + " " ] = value );
 	}
 	return cache;
 }
@@ -11294,17 +12008,19 @@ function markFunction( fn ) {
  * @param {Function} fn Passed the created element and returns a boolean result
  */
 function assert( fn ) {
-	var el = document.createElement("fieldset");
+	var el = document.createElement( "fieldset" );
 
 	try {
 		return !!fn( el );
-	} catch (e) {
+	} catch ( e ) {
 		return false;
 	} finally {
+
 		// Remove from its parent by default
 		if ( el.parentNode ) {
 			el.parentNode.removeChild( el );
 		}
+
 		// release memory in IE
 		el = null;
 	}
@@ -11316,11 +12032,11 @@ function assert( fn ) {
  * @param {Function} handler The method that will be applied
  */
 function addHandle( attrs, handler ) {
-	var arr = attrs.split("|"),
+	var arr = attrs.split( "|" ),
 		i = arr.length;
 
 	while ( i-- ) {
-		Expr.attrHandle[ arr[i] ] = handler;
+		Expr.attrHandle[ arr[ i ] ] = handler;
 	}
 }
 
@@ -11342,7 +12058,7 @@ function siblingCheck( a, b ) {
 
 	// Check if b follows a
 	if ( cur ) {
-		while ( (cur = cur.nextSibling) ) {
+		while ( ( cur = cur.nextSibling ) ) {
 			if ( cur === b ) {
 				return -1;
 			}
@@ -11370,7 +12086,7 @@ function createInputPseudo( type ) {
 function createButtonPseudo( type ) {
 	return function( elem ) {
 		var name = elem.nodeName.toLowerCase();
-		return (name === "input" || name === "button") && elem.type === type;
+		return ( name === "input" || name === "button" ) && elem.type === type;
 	};
 }
 
@@ -11413,7 +12129,7 @@ function createDisabledPseudo( disabled ) {
 					// Where there is no isDisabled, check manually
 					/* jshint -W018 */
 					elem.isDisabled !== !disabled &&
-						inDisabledFieldset( elem ) === disabled;
+					inDisabledFieldset( elem ) === disabled;
 			}
 
 			return elem.disabled === disabled;
@@ -11435,21 +12151,21 @@ function createDisabledPseudo( disabled ) {
  * @param {Function} fn
  */
 function createPositionalPseudo( fn ) {
-	return markFunction(function( argument ) {
+	return markFunction( function( argument ) {
 		argument = +argument;
-		return markFunction(function( seed, matches ) {
+		return markFunction( function( seed, matches ) {
 			var j,
 				matchIndexes = fn( [], seed.length, argument ),
 				i = matchIndexes.length;
 
 			// Match elements found at the specified indexes
 			while ( i-- ) {
-				if ( seed[ (j = matchIndexes[i]) ] ) {
-					seed[j] = !(matches[j] = seed[j]);
+				if ( seed[ ( j = matchIndexes[ i ] ) ] ) {
+					seed[ j ] = !( matches[ j ] = seed[ j ] );
 				}
 			}
-		});
-	});
+		} );
+	} );
 }
 
 /**
@@ -11471,7 +12187,7 @@ support = Sizzle.support = {};
  */
 isXML = Sizzle.isXML = function( elem ) {
 	var namespace = elem.namespaceURI,
-		docElem = (elem.ownerDocument || elem).documentElement;
+		docElem = ( elem.ownerDocument || elem ).documentElement;
 
 	// Support: IE <=8
 	// Assume HTML when documentElement doesn't yet exist, such as inside loading iframes
@@ -11489,7 +12205,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 		doc = node ? node.ownerDocument || node : preferredDoc;
 
 	// Return early if doc is invalid or already selected
-	if ( doc === document || doc.nodeType !== 9 || !doc.documentElement ) {
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( doc == document || doc.nodeType !== 9 || !doc.documentElement ) {
 		return document;
 	}
 
@@ -11498,10 +12218,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 	docElem = document.documentElement;
 	documentIsHTML = !isXML( document );
 
-	// Support: IE 9-11, Edge
+	// Support: IE 9 - 11+, Edge 12 - 18+
 	// Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
-	if ( preferredDoc !== document &&
-		(subWindow = document.defaultView) && subWindow.top !== subWindow ) {
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( preferredDoc != document &&
+		( subWindow = document.defaultView ) && subWindow.top !== subWindow ) {
 
 		// Support: IE 11, Edge
 		if ( subWindow.addEventListener ) {
@@ -11513,25 +12237,36 @@ setDocument = Sizzle.setDocument = function( node ) {
 		}
 	}
 
+	// Support: IE 8 - 11+, Edge 12 - 18+, Chrome <=16 - 25 only, Firefox <=3.6 - 31 only,
+	// Safari 4 - 5 only, Opera <=11.6 - 12.x only
+	// IE/Edge & older browsers don't support the :scope pseudo-class.
+	// Support: Safari 6.0 only
+	// Safari 6.0 supports :scope but it's an alias of :root there.
+	support.scope = assert( function( el ) {
+		docElem.appendChild( el ).appendChild( document.createElement( "div" ) );
+		return typeof el.querySelectorAll !== "undefined" &&
+			!el.querySelectorAll( ":scope fieldset div" ).length;
+	} );
+
 	/* Attributes
 	---------------------------------------------------------------------- */
 
 	// Support: IE<8
 	// Verify that getAttribute really returns attributes and not properties
 	// (excepting IE8 booleans)
-	support.attributes = assert(function( el ) {
+	support.attributes = assert( function( el ) {
 		el.className = "i";
-		return !el.getAttribute("className");
-	});
+		return !el.getAttribute( "className" );
+	} );
 
 	/* getElement(s)By*
 	---------------------------------------------------------------------- */
 
 	// Check if getElementsByTagName("*") returns only elements
-	support.getElementsByTagName = assert(function( el ) {
-		el.appendChild( document.createComment("") );
-		return !el.getElementsByTagName("*").length;
-	});
+	support.getElementsByTagName = assert( function( el ) {
+		el.appendChild( document.createComment( "" ) );
+		return !el.getElementsByTagName( "*" ).length;
+	} );
 
 	// Support: IE<9
 	support.getElementsByClassName = rnative.test( document.getElementsByClassName );
@@ -11540,38 +12275,38 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Check if getElementById returns elements by name
 	// The broken getElementById methods don't pick up programmatically-set names,
 	// so use a roundabout getElementsByName test
-	support.getById = assert(function( el ) {
+	support.getById = assert( function( el ) {
 		docElem.appendChild( el ).id = expando;
 		return !document.getElementsByName || !document.getElementsByName( expando ).length;
-	});
+	} );
 
 	// ID filter and find
 	if ( support.getById ) {
-		Expr.filter["ID"] = function( id ) {
+		Expr.filter[ "ID" ] = function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
-				return elem.getAttribute("id") === attrId;
+				return elem.getAttribute( "id" ) === attrId;
 			};
 		};
-		Expr.find["ID"] = function( id, context ) {
+		Expr.find[ "ID" ] = function( id, context ) {
 			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
 				var elem = context.getElementById( id );
 				return elem ? [ elem ] : [];
 			}
 		};
 	} else {
-		Expr.filter["ID"] =  function( id ) {
+		Expr.filter[ "ID" ] =  function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
 				var node = typeof elem.getAttributeNode !== "undefined" &&
-					elem.getAttributeNode("id");
+					elem.getAttributeNode( "id" );
 				return node && node.value === attrId;
 			};
 		};
 
 		// Support: IE 6 - 7 only
 		// getElementById is not reliable as a find shortcut
-		Expr.find["ID"] = function( id, context ) {
+		Expr.find[ "ID" ] = function( id, context ) {
 			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
 				var node, i, elems,
 					elem = context.getElementById( id );
@@ -11579,7 +12314,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				if ( elem ) {
 
 					// Verify the id attribute
-					node = elem.getAttributeNode("id");
+					node = elem.getAttributeNode( "id" );
 					if ( node && node.value === id ) {
 						return [ elem ];
 					}
@@ -11587,8 +12322,8 @@ setDocument = Sizzle.setDocument = function( node ) {
 					// Fall back on getElementsByName
 					elems = context.getElementsByName( id );
 					i = 0;
-					while ( (elem = elems[i++]) ) {
-						node = elem.getAttributeNode("id");
+					while ( ( elem = elems[ i++ ] ) ) {
+						node = elem.getAttributeNode( "id" );
 						if ( node && node.value === id ) {
 							return [ elem ];
 						}
@@ -11601,7 +12336,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	}
 
 	// Tag
-	Expr.find["TAG"] = support.getElementsByTagName ?
+	Expr.find[ "TAG" ] = support.getElementsByTagName ?
 		function( tag, context ) {
 			if ( typeof context.getElementsByTagName !== "undefined" ) {
 				return context.getElementsByTagName( tag );
@@ -11616,12 +12351,13 @@ setDocument = Sizzle.setDocument = function( node ) {
 			var elem,
 				tmp = [],
 				i = 0,
+
 				// By happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
 				results = context.getElementsByTagName( tag );
 
 			// Filter out possible comments
 			if ( tag === "*" ) {
-				while ( (elem = results[i++]) ) {
+				while ( ( elem = results[ i++ ] ) ) {
 					if ( elem.nodeType === 1 ) {
 						tmp.push( elem );
 					}
@@ -11633,7 +12369,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		};
 
 	// Class
-	Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
+	Expr.find[ "CLASS" ] = support.getElementsByClassName && function( className, context ) {
 		if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
 			return context.getElementsByClassName( className );
 		}
@@ -11654,10 +12390,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// See https://bugs.jquery.com/ticket/13378
 	rbuggyQSA = [];
 
-	if ( (support.qsa = rnative.test( document.querySelectorAll )) ) {
+	if ( ( support.qsa = rnative.test( document.querySelectorAll ) ) ) {
+
 		// Build QSA regex
 		// Regex strategy adopted from Diego Perini
-		assert(function( el ) {
+		assert( function( el ) {
+
+			var input;
+
 			// Select is set to empty string on purpose
 			// This is to test IE's treatment of not explicitly
 			// setting a boolean content attribute,
@@ -11671,78 +12411,98 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// Nothing should be selected when empty strings follow ^= or $= or *=
 			// The test attribute must be unknown in Opera but "safe" for WinRT
 			// https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
-			if ( el.querySelectorAll("[msallowcapture^='']").length ) {
+			if ( el.querySelectorAll( "[msallowcapture^='']" ).length ) {
 				rbuggyQSA.push( "[*^$]=" + whitespace + "*(?:''|\"\")" );
 			}
 
 			// Support: IE8
 			// Boolean attributes and "value" are not treated correctly
-			if ( !el.querySelectorAll("[selected]").length ) {
+			if ( !el.querySelectorAll( "[selected]" ).length ) {
 				rbuggyQSA.push( "\\[" + whitespace + "*(?:value|" + booleans + ")" );
 			}
 
 			// Support: Chrome<29, Android<4.4, Safari<7.0+, iOS<7.0+, PhantomJS<1.9.8+
 			if ( !el.querySelectorAll( "[id~=" + expando + "-]" ).length ) {
-				rbuggyQSA.push("~=");
+				rbuggyQSA.push( "~=" );
+			}
+
+			// Support: IE 11+, Edge 15 - 18+
+			// IE 11/Edge don't find elements on a `[name='']` query in some cases.
+			// Adding a temporary attribute to the document before the selection works
+			// around the issue.
+			// Interestingly, IE 10 & older don't seem to have the issue.
+			input = document.createElement( "input" );
+			input.setAttribute( "name", "" );
+			el.appendChild( input );
+			if ( !el.querySelectorAll( "[name='']" ).length ) {
+				rbuggyQSA.push( "\\[" + whitespace + "*name" + whitespace + "*=" +
+					whitespace + "*(?:''|\"\")" );
 			}
 
 			// Webkit/Opera - :checked should return selected option elements
 			// http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
 			// IE8 throws error here and will not see later tests
-			if ( !el.querySelectorAll(":checked").length ) {
-				rbuggyQSA.push(":checked");
+			if ( !el.querySelectorAll( ":checked" ).length ) {
+				rbuggyQSA.push( ":checked" );
 			}
 
 			// Support: Safari 8+, iOS 8+
 			// https://bugs.webkit.org/show_bug.cgi?id=136851
 			// In-page `selector#id sibling-combinator selector` fails
 			if ( !el.querySelectorAll( "a#" + expando + "+*" ).length ) {
-				rbuggyQSA.push(".#.+[+~]");
+				rbuggyQSA.push( ".#.+[+~]" );
 			}
-		});
 
-		assert(function( el ) {
+			// Support: Firefox <=3.6 - 5 only
+			// Old Firefox doesn't throw on a badly-escaped identifier.
+			el.querySelectorAll( "\\\f" );
+			rbuggyQSA.push( "[\\r\\n\\f]" );
+		} );
+
+		assert( function( el ) {
 			el.innerHTML = "<a href='' disabled='disabled'></a>" +
 				"<select disabled='disabled'><option/></select>";
 
 			// Support: Windows 8 Native Apps
 			// The type and name attributes are restricted during .innerHTML assignment
-			var input = document.createElement("input");
+			var input = document.createElement( "input" );
 			input.setAttribute( "type", "hidden" );
 			el.appendChild( input ).setAttribute( "name", "D" );
 
 			// Support: IE8
 			// Enforce case-sensitivity of name attribute
-			if ( el.querySelectorAll("[name=d]").length ) {
+			if ( el.querySelectorAll( "[name=d]" ).length ) {
 				rbuggyQSA.push( "name" + whitespace + "*[*^$|!~]?=" );
 			}
 
 			// FF 3.5 - :enabled/:disabled and hidden elements (hidden elements are still enabled)
 			// IE8 throws error here and will not see later tests
-			if ( el.querySelectorAll(":enabled").length !== 2 ) {
+			if ( el.querySelectorAll( ":enabled" ).length !== 2 ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
 
 			// Support: IE9-11+
 			// IE's :disabled selector does not pick up the children of disabled fieldsets
 			docElem.appendChild( el ).disabled = true;
-			if ( el.querySelectorAll(":disabled").length !== 2 ) {
+			if ( el.querySelectorAll( ":disabled" ).length !== 2 ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
 
+			// Support: Opera 10 - 11 only
 			// Opera 10-11 does not throw on post-comma invalid pseudos
-			el.querySelectorAll("*,:x");
-			rbuggyQSA.push(",.*:");
-		});
+			el.querySelectorAll( "*,:x" );
+			rbuggyQSA.push( ",.*:" );
+		} );
 	}
 
-	if ( (support.matchesSelector = rnative.test( (matches = docElem.matches ||
+	if ( ( support.matchesSelector = rnative.test( ( matches = docElem.matches ||
 		docElem.webkitMatchesSelector ||
 		docElem.mozMatchesSelector ||
 		docElem.oMatchesSelector ||
-		docElem.msMatchesSelector) )) ) {
+		docElem.msMatchesSelector ) ) ) ) {
 
-		assert(function( el ) {
+		assert( function( el ) {
+
 			// Check to see if it's possible to do matchesSelector
 			// on a disconnected node (IE 9)
 			support.disconnectedMatch = matches.call( el, "*" );
@@ -11751,11 +12511,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// Gecko does not error, returns false instead
 			matches.call( el, "[s!='']:x" );
 			rbuggyMatches.push( "!=", pseudos );
-		});
+		} );
 	}
 
-	rbuggyQSA = rbuggyQSA.length && new RegExp( rbuggyQSA.join("|") );
-	rbuggyMatches = rbuggyMatches.length && new RegExp( rbuggyMatches.join("|") );
+	rbuggyQSA = rbuggyQSA.length && new RegExp( rbuggyQSA.join( "|" ) );
+	rbuggyMatches = rbuggyMatches.length && new RegExp( rbuggyMatches.join( "|" ) );
 
 	/* Contains
 	---------------------------------------------------------------------- */
@@ -11772,11 +12532,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 				adown.contains ?
 					adown.contains( bup ) :
 					a.compareDocumentPosition && a.compareDocumentPosition( bup ) & 16
-			));
+			) );
 		} :
 		function( a, b ) {
 			if ( b ) {
-				while ( (b = b.parentNode) ) {
+				while ( ( b = b.parentNode ) ) {
 					if ( b === a ) {
 						return true;
 					}
@@ -11805,7 +12565,11 @@ setDocument = Sizzle.setDocument = function( node ) {
 		}
 
 		// Calculate position if both inputs belong to the same document
-		compare = ( a.ownerDocument || a ) === ( b.ownerDocument || b ) ?
+		// Support: IE 11+, Edge 17 - 18+
+		// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+		// two documents; shallow comparisons work.
+		// eslint-disable-next-line eqeqeq
+		compare = ( a.ownerDocument || a ) == ( b.ownerDocument || b ) ?
 			a.compareDocumentPosition( b ) :
 
 			// Otherwise we know they are disconnected
@@ -11813,13 +12577,24 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// Disconnected nodes
 		if ( compare & 1 ||
-			(!support.sortDetached && b.compareDocumentPosition( a ) === compare) ) {
+			( !support.sortDetached && b.compareDocumentPosition( a ) === compare ) ) {
 
 			// Choose the first element that is related to our preferred document
-			if ( a === document || a.ownerDocument === preferredDoc && contains(preferredDoc, a) ) {
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			// eslint-disable-next-line eqeqeq
+			if ( a == document || a.ownerDocument == preferredDoc &&
+				contains( preferredDoc, a ) ) {
 				return -1;
 			}
-			if ( b === document || b.ownerDocument === preferredDoc && contains(preferredDoc, b) ) {
+
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			// eslint-disable-next-line eqeqeq
+			if ( b == document || b.ownerDocument == preferredDoc &&
+				contains( preferredDoc, b ) ) {
 				return 1;
 			}
 
@@ -11832,6 +12607,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		return compare & 4 ? -1 : 1;
 	} :
 	function( a, b ) {
+
 		// Exit early if the nodes are identical
 		if ( a === b ) {
 			hasDuplicate = true;
@@ -11847,8 +12623,14 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// Parentless nodes are either documents or disconnected
 		if ( !aup || !bup ) {
-			return a === document ? -1 :
-				b === document ? 1 :
+
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			/* eslint-disable eqeqeq */
+			return a == document ? -1 :
+				b == document ? 1 :
+				/* eslint-enable eqeqeq */
 				aup ? -1 :
 				bup ? 1 :
 				sortInput ?
@@ -11862,26 +12644,32 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		// Otherwise we need full lists of their ancestors for comparison
 		cur = a;
-		while ( (cur = cur.parentNode) ) {
+		while ( ( cur = cur.parentNode ) ) {
 			ap.unshift( cur );
 		}
 		cur = b;
-		while ( (cur = cur.parentNode) ) {
+		while ( ( cur = cur.parentNode ) ) {
 			bp.unshift( cur );
 		}
 
 		// Walk down the tree looking for a discrepancy
-		while ( ap[i] === bp[i] ) {
+		while ( ap[ i ] === bp[ i ] ) {
 			i++;
 		}
 
 		return i ?
+
 			// Do a sibling check if the nodes have a common ancestor
-			siblingCheck( ap[i], bp[i] ) :
+			siblingCheck( ap[ i ], bp[ i ] ) :
 
 			// Otherwise nodes in our document sort first
-			ap[i] === preferredDoc ? -1 :
-			bp[i] === preferredDoc ? 1 :
+			// Support: IE 11+, Edge 17 - 18+
+			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+			// two documents; shallow comparisons work.
+			/* eslint-disable eqeqeq */
+			ap[ i ] == preferredDoc ? -1 :
+			bp[ i ] == preferredDoc ? 1 :
+			/* eslint-enable eqeqeq */
 			0;
 	};
 
@@ -11893,10 +12681,7 @@ Sizzle.matches = function( expr, elements ) {
 };
 
 Sizzle.matchesSelector = function( elem, expr ) {
-	// Set document vars if needed
-	if ( ( elem.ownerDocument || elem ) !== document ) {
-		setDocument( elem );
-	}
+	setDocument( elem );
 
 	if ( support.matchesSelector && documentIsHTML &&
 		!nonnativeSelectorCache[ expr + " " ] &&
@@ -11908,12 +12693,13 @@ Sizzle.matchesSelector = function( elem, expr ) {
 
 			// IE 9's matchesSelector returns false on disconnected nodes
 			if ( ret || support.disconnectedMatch ||
-					// As well, disconnected nodes are said to be in a document
-					// fragment in IE 9
-					elem.document && elem.document.nodeType !== 11 ) {
+
+				// As well, disconnected nodes are said to be in a document
+				// fragment in IE 9
+				elem.document && elem.document.nodeType !== 11 ) {
 				return ret;
 			}
-		} catch (e) {
+		} catch ( e ) {
 			nonnativeSelectorCache( expr, true );
 		}
 	}
@@ -11922,20 +12708,31 @@ Sizzle.matchesSelector = function( elem, expr ) {
 };
 
 Sizzle.contains = function( context, elem ) {
+
 	// Set document vars if needed
-	if ( ( context.ownerDocument || context ) !== document ) {
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( ( context.ownerDocument || context ) != document ) {
 		setDocument( context );
 	}
 	return contains( context, elem );
 };
 
 Sizzle.attr = function( elem, name ) {
+
 	// Set document vars if needed
-	if ( ( elem.ownerDocument || elem ) !== document ) {
+	// Support: IE 11+, Edge 17 - 18+
+	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+	// two documents; shallow comparisons work.
+	// eslint-disable-next-line eqeqeq
+	if ( ( elem.ownerDocument || elem ) != document ) {
 		setDocument( elem );
 	}
 
 	var fn = Expr.attrHandle[ name.toLowerCase() ],
+
 		// Don't get fooled by Object.prototype properties (jQuery #13807)
 		val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
 			fn( elem, name, !documentIsHTML ) :
@@ -11945,13 +12742,13 @@ Sizzle.attr = function( elem, name ) {
 		val :
 		support.attributes || !documentIsHTML ?
 			elem.getAttribute( name ) :
-			(val = elem.getAttributeNode(name)) && val.specified ?
+			( val = elem.getAttributeNode( name ) ) && val.specified ?
 				val.value :
 				null;
 };
 
 Sizzle.escape = function( sel ) {
-	return (sel + "").replace( rcssescape, fcssescape );
+	return ( sel + "" ).replace( rcssescape, fcssescape );
 };
 
 Sizzle.error = function( msg ) {
@@ -11974,7 +12771,7 @@ Sizzle.uniqueSort = function( results ) {
 	results.sort( sortOrder );
 
 	if ( hasDuplicate ) {
-		while ( (elem = results[i++]) ) {
+		while ( ( elem = results[ i++ ] ) ) {
 			if ( elem === results[ i ] ) {
 				j = duplicates.push( i );
 			}
@@ -12002,17 +12799,21 @@ getText = Sizzle.getText = function( elem ) {
 		nodeType = elem.nodeType;
 
 	if ( !nodeType ) {
+
 		// If no nodeType, this is expected to be an array
-		while ( (node = elem[i++]) ) {
+		while ( ( node = elem[ i++ ] ) ) {
+
 			// Do not traverse comment nodes
 			ret += getText( node );
 		}
 	} else if ( nodeType === 1 || nodeType === 9 || nodeType === 11 ) {
+
 		// Use textContent for elements
 		// innerText usage removed for consistency of new lines (jQuery #11153)
 		if ( typeof elem.textContent === "string" ) {
 			return elem.textContent;
 		} else {
+
 			// Traverse its children
 			for ( elem = elem.firstChild; elem; elem = elem.nextSibling ) {
 				ret += getText( elem );
@@ -12021,6 +12822,7 @@ getText = Sizzle.getText = function( elem ) {
 	} else if ( nodeType === 3 || nodeType === 4 ) {
 		return elem.nodeValue;
 	}
+
 	// Do not include comment or processing instruction nodes
 
 	return ret;
@@ -12048,19 +12850,21 @@ Expr = Sizzle.selectors = {
 
 	preFilter: {
 		"ATTR": function( match ) {
-			match[1] = match[1].replace( runescape, funescape );
+			match[ 1 ] = match[ 1 ].replace( runescape, funescape );
 
 			// Move the given value to match[3] whether quoted or unquoted
-			match[3] = ( match[3] || match[4] || match[5] || "" ).replace( runescape, funescape );
+			match[ 3 ] = ( match[ 3 ] || match[ 4 ] ||
+				match[ 5 ] || "" ).replace( runescape, funescape );
 
-			if ( match[2] === "~=" ) {
-				match[3] = " " + match[3] + " ";
+			if ( match[ 2 ] === "~=" ) {
+				match[ 3 ] = " " + match[ 3 ] + " ";
 			}
 
 			return match.slice( 0, 4 );
 		},
 
 		"CHILD": function( match ) {
+
 			/* matches from matchExpr["CHILD"]
 				1 type (only|nth|...)
 				2 what (child|of-type)
@@ -12071,22 +12875,25 @@ Expr = Sizzle.selectors = {
 				7 sign of y-component
 				8 y of y-component
 			*/
-			match[1] = match[1].toLowerCase();
+			match[ 1 ] = match[ 1 ].toLowerCase();
 
-			if ( match[1].slice( 0, 3 ) === "nth" ) {
+			if ( match[ 1 ].slice( 0, 3 ) === "nth" ) {
+
 				// nth-* requires argument
-				if ( !match[3] ) {
-					Sizzle.error( match[0] );
+				if ( !match[ 3 ] ) {
+					Sizzle.error( match[ 0 ] );
 				}
 
 				// numeric x and y parameters for Expr.filter.CHILD
 				// remember that false/true cast respectively to 0/1
-				match[4] = +( match[4] ? match[5] + (match[6] || 1) : 2 * ( match[3] === "even" || match[3] === "odd" ) );
-				match[5] = +( ( match[7] + match[8] ) || match[3] === "odd" );
+				match[ 4 ] = +( match[ 4 ] ?
+					match[ 5 ] + ( match[ 6 ] || 1 ) :
+					2 * ( match[ 3 ] === "even" || match[ 3 ] === "odd" ) );
+				match[ 5 ] = +( ( match[ 7 ] + match[ 8 ] ) || match[ 3 ] === "odd" );
 
-			// other types prohibit arguments
-			} else if ( match[3] ) {
-				Sizzle.error( match[0] );
+				// other types prohibit arguments
+			} else if ( match[ 3 ] ) {
+				Sizzle.error( match[ 0 ] );
 			}
 
 			return match;
@@ -12094,26 +12901,28 @@ Expr = Sizzle.selectors = {
 
 		"PSEUDO": function( match ) {
 			var excess,
-				unquoted = !match[6] && match[2];
+				unquoted = !match[ 6 ] && match[ 2 ];
 
-			if ( matchExpr["CHILD"].test( match[0] ) ) {
+			if ( matchExpr[ "CHILD" ].test( match[ 0 ] ) ) {
 				return null;
 			}
 
 			// Accept quoted arguments as-is
-			if ( match[3] ) {
-				match[2] = match[4] || match[5] || "";
+			if ( match[ 3 ] ) {
+				match[ 2 ] = match[ 4 ] || match[ 5 ] || "";
 
 			// Strip excess characters from unquoted arguments
 			} else if ( unquoted && rpseudo.test( unquoted ) &&
+
 				// Get excess from tokenize (recursively)
-				(excess = tokenize( unquoted, true )) &&
+				( excess = tokenize( unquoted, true ) ) &&
+
 				// advance to the next closing parenthesis
-				(excess = unquoted.indexOf( ")", unquoted.length - excess ) - unquoted.length) ) {
+				( excess = unquoted.indexOf( ")", unquoted.length - excess ) - unquoted.length ) ) {
 
 				// excess is a negative index
-				match[0] = match[0].slice( 0, excess );
-				match[2] = unquoted.slice( 0, excess );
+				match[ 0 ] = match[ 0 ].slice( 0, excess );
+				match[ 2 ] = unquoted.slice( 0, excess );
 			}
 
 			// Return only captures needed by the pseudo filter method (type and argument)
@@ -12126,7 +12935,9 @@ Expr = Sizzle.selectors = {
 		"TAG": function( nodeNameSelector ) {
 			var nodeName = nodeNameSelector.replace( runescape, funescape ).toLowerCase();
 			return nodeNameSelector === "*" ?
-				function() { return true; } :
+				function() {
+					return true;
+				} :
 				function( elem ) {
 					return elem.nodeName && elem.nodeName.toLowerCase() === nodeName;
 				};
@@ -12136,10 +12947,16 @@ Expr = Sizzle.selectors = {
 			var pattern = classCache[ className + " " ];
 
 			return pattern ||
-				(pattern = new RegExp( "(^|" + whitespace + ")" + className + "(" + whitespace + "|$)" )) &&
-				classCache( className, function( elem ) {
-					return pattern.test( typeof elem.className === "string" && elem.className || typeof elem.getAttribute !== "undefined" && elem.getAttribute("class") || "" );
-				});
+				( pattern = new RegExp( "(^|" + whitespace +
+					")" + className + "(" + whitespace + "|$)" ) ) && classCache(
+						className, function( elem ) {
+							return pattern.test(
+								typeof elem.className === "string" && elem.className ||
+								typeof elem.getAttribute !== "undefined" &&
+									elem.getAttribute( "class" ) ||
+								""
+							);
+				} );
 		},
 
 		"ATTR": function( name, operator, check ) {
@@ -12155,6 +12972,8 @@ Expr = Sizzle.selectors = {
 
 				result += "";
 
+				/* eslint-disable max-len */
+
 				return operator === "=" ? result === check :
 					operator === "!=" ? result !== check :
 					operator === "^=" ? check && result.indexOf( check ) === 0 :
@@ -12163,10 +12982,12 @@ Expr = Sizzle.selectors = {
 					operator === "~=" ? ( " " + result.replace( rwhitespace, " " ) + " " ).indexOf( check ) > -1 :
 					operator === "|=" ? result === check || result.slice( 0, check.length + 1 ) === check + "-" :
 					false;
+				/* eslint-enable max-len */
+
 			};
 		},
 
-		"CHILD": function( type, what, argument, first, last ) {
+		"CHILD": function( type, what, _argument, first, last ) {
 			var simple = type.slice( 0, 3 ) !== "nth",
 				forward = type.slice( -4 ) !== "last",
 				ofType = what === "of-type";
@@ -12178,7 +12999,7 @@ Expr = Sizzle.selectors = {
 					return !!elem.parentNode;
 				} :
 
-				function( elem, context, xml ) {
+				function( elem, _context, xml ) {
 					var cache, uniqueCache, outerCache, node, nodeIndex, start,
 						dir = simple !== forward ? "nextSibling" : "previousSibling",
 						parent = elem.parentNode,
@@ -12192,7 +13013,7 @@ Expr = Sizzle.selectors = {
 						if ( simple ) {
 							while ( dir ) {
 								node = elem;
-								while ( (node = node[ dir ]) ) {
+								while ( ( node = node[ dir ] ) ) {
 									if ( ofType ?
 										node.nodeName.toLowerCase() === name :
 										node.nodeType === 1 ) {
@@ -12200,6 +13021,7 @@ Expr = Sizzle.selectors = {
 										return false;
 									}
 								}
+
 								// Reverse direction for :only-* (if we haven't yet done so)
 								start = dir = type === "only" && !start && "nextSibling";
 							}
@@ -12215,22 +13037,22 @@ Expr = Sizzle.selectors = {
 
 							// ...in a gzip-friendly way
 							node = parent;
-							outerCache = node[ expando ] || (node[ expando ] = {});
+							outerCache = node[ expando ] || ( node[ expando ] = {} );
 
 							// Support: IE <9 only
 							// Defend against cloned attroperties (jQuery gh-1709)
 							uniqueCache = outerCache[ node.uniqueID ] ||
-								(outerCache[ node.uniqueID ] = {});
+								( outerCache[ node.uniqueID ] = {} );
 
 							cache = uniqueCache[ type ] || [];
 							nodeIndex = cache[ 0 ] === dirruns && cache[ 1 ];
 							diff = nodeIndex && cache[ 2 ];
 							node = nodeIndex && parent.childNodes[ nodeIndex ];
 
-							while ( (node = ++nodeIndex && node && node[ dir ] ||
+							while ( ( node = ++nodeIndex && node && node[ dir ] ||
 
 								// Fallback to seeking `elem` from the start
-								(diff = nodeIndex = 0) || start.pop()) ) {
+								( diff = nodeIndex = 0 ) || start.pop() ) ) {
 
 								// When found, cache indexes on `parent` and break
 								if ( node.nodeType === 1 && ++diff && node === elem ) {
@@ -12240,16 +13062,18 @@ Expr = Sizzle.selectors = {
 							}
 
 						} else {
+
 							// Use previously-cached element index if available
 							if ( useCache ) {
+
 								// ...in a gzip-friendly way
 								node = elem;
-								outerCache = node[ expando ] || (node[ expando ] = {});
+								outerCache = node[ expando ] || ( node[ expando ] = {} );
 
 								// Support: IE <9 only
 								// Defend against cloned attroperties (jQuery gh-1709)
 								uniqueCache = outerCache[ node.uniqueID ] ||
-									(outerCache[ node.uniqueID ] = {});
+									( outerCache[ node.uniqueID ] = {} );
 
 								cache = uniqueCache[ type ] || [];
 								nodeIndex = cache[ 0 ] === dirruns && cache[ 1 ];
@@ -12259,9 +13083,10 @@ Expr = Sizzle.selectors = {
 							// xml :nth-child(...)
 							// or :nth-last-child(...) or :nth(-last)?-of-type(...)
 							if ( diff === false ) {
+
 								// Use the same loop as above to seek `elem` from the start
-								while ( (node = ++nodeIndex && node && node[ dir ] ||
-									(diff = nodeIndex = 0) || start.pop()) ) {
+								while ( ( node = ++nodeIndex && node && node[ dir ] ||
+									( diff = nodeIndex = 0 ) || start.pop() ) ) {
 
 									if ( ( ofType ?
 										node.nodeName.toLowerCase() === name :
@@ -12270,12 +13095,13 @@ Expr = Sizzle.selectors = {
 
 										// Cache the index of each encountered element
 										if ( useCache ) {
-											outerCache = node[ expando ] || (node[ expando ] = {});
+											outerCache = node[ expando ] ||
+												( node[ expando ] = {} );
 
 											// Support: IE <9 only
 											// Defend against cloned attroperties (jQuery gh-1709)
 											uniqueCache = outerCache[ node.uniqueID ] ||
-												(outerCache[ node.uniqueID ] = {});
+												( outerCache[ node.uniqueID ] = {} );
 
 											uniqueCache[ type ] = [ dirruns, diff ];
 										}
@@ -12296,6 +13122,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"PSEUDO": function( pseudo, argument ) {
+
 			// pseudo-class names are case-insensitive
 			// http://www.w3.org/TR/selectors/#pseudo-classes
 			// Prioritize by case sensitivity in case custom pseudos are added with uppercase letters
@@ -12315,15 +13142,15 @@ Expr = Sizzle.selectors = {
 			if ( fn.length > 1 ) {
 				args = [ pseudo, pseudo, "", argument ];
 				return Expr.setFilters.hasOwnProperty( pseudo.toLowerCase() ) ?
-					markFunction(function( seed, matches ) {
+					markFunction( function( seed, matches ) {
 						var idx,
 							matched = fn( seed, argument ),
 							i = matched.length;
 						while ( i-- ) {
-							idx = indexOf( seed, matched[i] );
-							seed[ idx ] = !( matches[ idx ] = matched[i] );
+							idx = indexOf( seed, matched[ i ] );
+							seed[ idx ] = !( matches[ idx ] = matched[ i ] );
 						}
-					}) :
+					} ) :
 					function( elem ) {
 						return fn( elem, 0, args );
 					};
@@ -12334,8 +13161,10 @@ Expr = Sizzle.selectors = {
 	},
 
 	pseudos: {
+
 		// Potentially complex pseudos
-		"not": markFunction(function( selector ) {
+		"not": markFunction( function( selector ) {
+
 			// Trim the selector passed to compile
 			// to avoid treating leading and trailing
 			// spaces as combinators
@@ -12344,39 +13173,40 @@ Expr = Sizzle.selectors = {
 				matcher = compile( selector.replace( rtrim, "$1" ) );
 
 			return matcher[ expando ] ?
-				markFunction(function( seed, matches, context, xml ) {
+				markFunction( function( seed, matches, _context, xml ) {
 					var elem,
 						unmatched = matcher( seed, null, xml, [] ),
 						i = seed.length;
 
 					// Match elements unmatched by `matcher`
 					while ( i-- ) {
-						if ( (elem = unmatched[i]) ) {
-							seed[i] = !(matches[i] = elem);
+						if ( ( elem = unmatched[ i ] ) ) {
+							seed[ i ] = !( matches[ i ] = elem );
 						}
 					}
-				}) :
-				function( elem, context, xml ) {
-					input[0] = elem;
+				} ) :
+				function( elem, _context, xml ) {
+					input[ 0 ] = elem;
 					matcher( input, null, xml, results );
+
 					// Don't keep the element (issue #299)
-					input[0] = null;
+					input[ 0 ] = null;
 					return !results.pop();
 				};
-		}),
+		} ),
 
-		"has": markFunction(function( selector ) {
+		"has": markFunction( function( selector ) {
 			return function( elem ) {
 				return Sizzle( selector, elem ).length > 0;
 			};
-		}),
+		} ),
 
-		"contains": markFunction(function( text ) {
+		"contains": markFunction( function( text ) {
 			text = text.replace( runescape, funescape );
 			return function( elem ) {
 				return ( elem.textContent || getText( elem ) ).indexOf( text ) > -1;
 			};
-		}),
+		} ),
 
 		// "Whether an element is represented by a :lang() selector
 		// is based solely on the element's language value
@@ -12386,25 +13216,26 @@ Expr = Sizzle.selectors = {
 		// The identifier C does not have to be a valid language name."
 		// http://www.w3.org/TR/selectors/#lang-pseudo
 		"lang": markFunction( function( lang ) {
+
 			// lang value must be a valid identifier
-			if ( !ridentifier.test(lang || "") ) {
+			if ( !ridentifier.test( lang || "" ) ) {
 				Sizzle.error( "unsupported lang: " + lang );
 			}
 			lang = lang.replace( runescape, funescape ).toLowerCase();
 			return function( elem ) {
 				var elemLang;
 				do {
-					if ( (elemLang = documentIsHTML ?
+					if ( ( elemLang = documentIsHTML ?
 						elem.lang :
-						elem.getAttribute("xml:lang") || elem.getAttribute("lang")) ) {
+						elem.getAttribute( "xml:lang" ) || elem.getAttribute( "lang" ) ) ) {
 
 						elemLang = elemLang.toLowerCase();
 						return elemLang === lang || elemLang.indexOf( lang + "-" ) === 0;
 					}
-				} while ( (elem = elem.parentNode) && elem.nodeType === 1 );
+				} while ( ( elem = elem.parentNode ) && elem.nodeType === 1 );
 				return false;
 			};
-		}),
+		} ),
 
 		// Miscellaneous
 		"target": function( elem ) {
@@ -12417,7 +13248,9 @@ Expr = Sizzle.selectors = {
 		},
 
 		"focus": function( elem ) {
-			return elem === document.activeElement && (!document.hasFocus || document.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
+			return elem === document.activeElement &&
+				( !document.hasFocus || document.hasFocus() ) &&
+				!!( elem.type || elem.href || ~elem.tabIndex );
 		},
 
 		// Boolean properties
@@ -12425,16 +13258,20 @@ Expr = Sizzle.selectors = {
 		"disabled": createDisabledPseudo( true ),
 
 		"checked": function( elem ) {
+
 			// In CSS3, :checked should return both checked and selected elements
 			// http://www.w3.org/TR/2011/REC-css3-selectors-20110929/#checked
 			var nodeName = elem.nodeName.toLowerCase();
-			return (nodeName === "input" && !!elem.checked) || (nodeName === "option" && !!elem.selected);
+			return ( nodeName === "input" && !!elem.checked ) ||
+				( nodeName === "option" && !!elem.selected );
 		},
 
 		"selected": function( elem ) {
+
 			// Accessing this property makes selected-by-default
 			// options in Safari work properly
 			if ( elem.parentNode ) {
+				// eslint-disable-next-line no-unused-expressions
 				elem.parentNode.selectedIndex;
 			}
 
@@ -12443,6 +13280,7 @@ Expr = Sizzle.selectors = {
 
 		// Contents
 		"empty": function( elem ) {
+
 			// http://www.w3.org/TR/selectors/#empty-pseudo
 			// :empty is negated by element (1) or content nodes (text: 3; cdata: 4; entity ref: 5),
 			//   but not by others (comment: 8; processing instruction: 7; etc.)
@@ -12456,7 +13294,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"parent": function( elem ) {
-			return !Expr.pseudos["empty"]( elem );
+			return !Expr.pseudos[ "empty" ]( elem );
 		},
 
 		// Element/input types
@@ -12480,39 +13318,40 @@ Expr = Sizzle.selectors = {
 
 				// Support: IE<8
 				// New HTML5 attribute values (e.g., "search") appear with elem.type === "text"
-				( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text" );
+				( ( attr = elem.getAttribute( "type" ) ) == null ||
+					attr.toLowerCase() === "text" );
 		},
 
 		// Position-in-collection
-		"first": createPositionalPseudo(function() {
+		"first": createPositionalPseudo( function() {
 			return [ 0 ];
-		}),
+		} ),
 
-		"last": createPositionalPseudo(function( matchIndexes, length ) {
+		"last": createPositionalPseudo( function( _matchIndexes, length ) {
 			return [ length - 1 ];
-		}),
+		} ),
 
-		"eq": createPositionalPseudo(function( matchIndexes, length, argument ) {
+		"eq": createPositionalPseudo( function( _matchIndexes, length, argument ) {
 			return [ argument < 0 ? argument + length : argument ];
-		}),
+		} ),
 
-		"even": createPositionalPseudo(function( matchIndexes, length ) {
+		"even": createPositionalPseudo( function( matchIndexes, length ) {
 			var i = 0;
 			for ( ; i < length; i += 2 ) {
 				matchIndexes.push( i );
 			}
 			return matchIndexes;
-		}),
+		} ),
 
-		"odd": createPositionalPseudo(function( matchIndexes, length ) {
+		"odd": createPositionalPseudo( function( matchIndexes, length ) {
 			var i = 1;
 			for ( ; i < length; i += 2 ) {
 				matchIndexes.push( i );
 			}
 			return matchIndexes;
-		}),
+		} ),
 
-		"lt": createPositionalPseudo(function( matchIndexes, length, argument ) {
+		"lt": createPositionalPseudo( function( matchIndexes, length, argument ) {
 			var i = argument < 0 ?
 				argument + length :
 				argument > length ?
@@ -12522,19 +13361,19 @@ Expr = Sizzle.selectors = {
 				matchIndexes.push( i );
 			}
 			return matchIndexes;
-		}),
+		} ),
 
-		"gt": createPositionalPseudo(function( matchIndexes, length, argument ) {
+		"gt": createPositionalPseudo( function( matchIndexes, length, argument ) {
 			var i = argument < 0 ? argument + length : argument;
 			for ( ; ++i < length; ) {
 				matchIndexes.push( i );
 			}
 			return matchIndexes;
-		})
+		} )
 	}
 };
 
-Expr.pseudos["nth"] = Expr.pseudos["eq"];
+Expr.pseudos[ "nth" ] = Expr.pseudos[ "eq" ];
 
 // Add button/input type pseudos
 for ( i in { radio: true, checkbox: true, file: true, password: true, image: true } ) {
@@ -12565,37 +13404,39 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 	while ( soFar ) {
 
 		// Comma and first run
-		if ( !matched || (match = rcomma.exec( soFar )) ) {
+		if ( !matched || ( match = rcomma.exec( soFar ) ) ) {
 			if ( match ) {
+
 				// Don't consume trailing commas as valid
-				soFar = soFar.slice( match[0].length ) || soFar;
+				soFar = soFar.slice( match[ 0 ].length ) || soFar;
 			}
-			groups.push( (tokens = []) );
+			groups.push( ( tokens = [] ) );
 		}
 
 		matched = false;
 
 		// Combinators
-		if ( (match = rcombinators.exec( soFar )) ) {
+		if ( ( match = rcombinators.exec( soFar ) ) ) {
 			matched = match.shift();
-			tokens.push({
+			tokens.push( {
 				value: matched,
+
 				// Cast descendant combinators to space
-				type: match[0].replace( rtrim, " " )
-			});
+				type: match[ 0 ].replace( rtrim, " " )
+			} );
 			soFar = soFar.slice( matched.length );
 		}
 
 		// Filters
 		for ( type in Expr.filter ) {
-			if ( (match = matchExpr[ type ].exec( soFar )) && (!preFilters[ type ] ||
-				(match = preFilters[ type ]( match ))) ) {
+			if ( ( match = matchExpr[ type ].exec( soFar ) ) && ( !preFilters[ type ] ||
+				( match = preFilters[ type ]( match ) ) ) ) {
 				matched = match.shift();
-				tokens.push({
+				tokens.push( {
 					value: matched,
 					type: type,
 					matches: match
-				});
+				} );
 				soFar = soFar.slice( matched.length );
 			}
 		}
@@ -12612,6 +13453,7 @@ tokenize = Sizzle.tokenize = function( selector, parseOnly ) {
 		soFar.length :
 		soFar ?
 			Sizzle.error( selector ) :
+
 			// Cache the tokens
 			tokenCache( selector, groups ).slice( 0 );
 };
@@ -12621,7 +13463,7 @@ function toSelector( tokens ) {
 		len = tokens.length,
 		selector = "";
 	for ( ; i < len; i++ ) {
-		selector += tokens[i].value;
+		selector += tokens[ i ].value;
 	}
 	return selector;
 }
@@ -12634,9 +13476,10 @@ function addCombinator( matcher, combinator, base ) {
 		doneName = done++;
 
 	return combinator.first ?
+
 		// Check against closest ancestor/preceding element
 		function( elem, context, xml ) {
-			while ( (elem = elem[ dir ]) ) {
+			while ( ( elem = elem[ dir ] ) ) {
 				if ( elem.nodeType === 1 || checkNonElements ) {
 					return matcher( elem, context, xml );
 				}
@@ -12651,7 +13494,7 @@ function addCombinator( matcher, combinator, base ) {
 
 			// We can't set arbitrary data on XML nodes, so they don't benefit from combinator caching
 			if ( xml ) {
-				while ( (elem = elem[ dir ]) ) {
+				while ( ( elem = elem[ dir ] ) ) {
 					if ( elem.nodeType === 1 || checkNonElements ) {
 						if ( matcher( elem, context, xml ) ) {
 							return true;
@@ -12659,27 +13502,29 @@ function addCombinator( matcher, combinator, base ) {
 					}
 				}
 			} else {
-				while ( (elem = elem[ dir ]) ) {
+				while ( ( elem = elem[ dir ] ) ) {
 					if ( elem.nodeType === 1 || checkNonElements ) {
-						outerCache = elem[ expando ] || (elem[ expando ] = {});
+						outerCache = elem[ expando ] || ( elem[ expando ] = {} );
 
 						// Support: IE <9 only
 						// Defend against cloned attroperties (jQuery gh-1709)
-						uniqueCache = outerCache[ elem.uniqueID ] || (outerCache[ elem.uniqueID ] = {});
+						uniqueCache = outerCache[ elem.uniqueID ] ||
+							( outerCache[ elem.uniqueID ] = {} );
 
 						if ( skip && skip === elem.nodeName.toLowerCase() ) {
 							elem = elem[ dir ] || elem;
-						} else if ( (oldCache = uniqueCache[ key ]) &&
+						} else if ( ( oldCache = uniqueCache[ key ] ) &&
 							oldCache[ 0 ] === dirruns && oldCache[ 1 ] === doneName ) {
 
 							// Assign to newCache so results back-propagate to previous elements
-							return (newCache[ 2 ] = oldCache[ 2 ]);
+							return ( newCache[ 2 ] = oldCache[ 2 ] );
 						} else {
+
 							// Reuse newcache so results back-propagate to previous elements
 							uniqueCache[ key ] = newCache;
 
 							// A match means we're done; a fail means we have to keep checking
-							if ( (newCache[ 2 ] = matcher( elem, context, xml )) ) {
+							if ( ( newCache[ 2 ] = matcher( elem, context, xml ) ) ) {
 								return true;
 							}
 						}
@@ -12695,20 +13540,20 @@ function elementMatcher( matchers ) {
 		function( elem, context, xml ) {
 			var i = matchers.length;
 			while ( i-- ) {
-				if ( !matchers[i]( elem, context, xml ) ) {
+				if ( !matchers[ i ]( elem, context, xml ) ) {
 					return false;
 				}
 			}
 			return true;
 		} :
-		matchers[0];
+		matchers[ 0 ];
 }
 
 function multipleContexts( selector, contexts, results ) {
 	var i = 0,
 		len = contexts.length;
 	for ( ; i < len; i++ ) {
-		Sizzle( selector, contexts[i], results );
+		Sizzle( selector, contexts[ i ], results );
 	}
 	return results;
 }
@@ -12721,7 +13566,7 @@ function condense( unmatched, map, filter, context, xml ) {
 		mapped = map != null;
 
 	for ( ; i < len; i++ ) {
-		if ( (elem = unmatched[i]) ) {
+		if ( ( elem = unmatched[ i ] ) ) {
 			if ( !filter || filter( elem, context, xml ) ) {
 				newUnmatched.push( elem );
 				if ( mapped ) {
@@ -12741,14 +13586,18 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 	if ( postFinder && !postFinder[ expando ] ) {
 		postFinder = setMatcher( postFinder, postSelector );
 	}
-	return markFunction(function( seed, results, context, xml ) {
+	return markFunction( function( seed, results, context, xml ) {
 		var temp, i, elem,
 			preMap = [],
 			postMap = [],
 			preexisting = results.length,
 
 			// Get initial elements from seed or context
-			elems = seed || multipleContexts( selector || "*", context.nodeType ? [ context ] : context, [] ),
+			elems = seed || multipleContexts(
+				selector || "*",
+				context.nodeType ? [ context ] : context,
+				[]
+			),
 
 			// Prefilter to get matcher input, preserving a map for seed-results synchronization
 			matcherIn = preFilter && ( seed || !selector ) ?
@@ -12756,6 +13605,7 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 				elems,
 
 			matcherOut = matcher ?
+
 				// If we have a postFinder, or filtered seed, or non-seed postFilter or preexisting results,
 				postFinder || ( seed ? preFilter : preexisting || postFilter ) ?
 
@@ -12779,8 +13629,8 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 			// Un-match failing elements by moving them back to matcherIn
 			i = temp.length;
 			while ( i-- ) {
-				if ( (elem = temp[i]) ) {
-					matcherOut[ postMap[i] ] = !(matcherIn[ postMap[i] ] = elem);
+				if ( ( elem = temp[ i ] ) ) {
+					matcherOut[ postMap[ i ] ] = !( matcherIn[ postMap[ i ] ] = elem );
 				}
 			}
 		}
@@ -12788,25 +13638,27 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 		if ( seed ) {
 			if ( postFinder || preFilter ) {
 				if ( postFinder ) {
+
 					// Get the final matcherOut by condensing this intermediate into postFinder contexts
 					temp = [];
 					i = matcherOut.length;
 					while ( i-- ) {
-						if ( (elem = matcherOut[i]) ) {
+						if ( ( elem = matcherOut[ i ] ) ) {
+
 							// Restore matcherIn since elem is not yet a final match
-							temp.push( (matcherIn[i] = elem) );
+							temp.push( ( matcherIn[ i ] = elem ) );
 						}
 					}
-					postFinder( null, (matcherOut = []), temp, xml );
+					postFinder( null, ( matcherOut = [] ), temp, xml );
 				}
 
 				// Move matched elements from seed to results to keep them synchronized
 				i = matcherOut.length;
 				while ( i-- ) {
-					if ( (elem = matcherOut[i]) &&
-						(temp = postFinder ? indexOf( seed, elem ) : preMap[i]) > -1 ) {
+					if ( ( elem = matcherOut[ i ] ) &&
+						( temp = postFinder ? indexOf( seed, elem ) : preMap[ i ] ) > -1 ) {
 
-						seed[temp] = !(results[temp] = elem);
+						seed[ temp ] = !( results[ temp ] = elem );
 					}
 				}
 			}
@@ -12824,14 +13676,14 @@ function setMatcher( preFilter, selector, matcher, postFilter, postFinder, postS
 				push.apply( results, matcherOut );
 			}
 		}
-	});
+	} );
 }
 
 function matcherFromTokens( tokens ) {
 	var checkContext, matcher, j,
 		len = tokens.length,
-		leadingRelative = Expr.relative[ tokens[0].type ],
-		implicitRelative = leadingRelative || Expr.relative[" "],
+		leadingRelative = Expr.relative[ tokens[ 0 ].type ],
+		implicitRelative = leadingRelative || Expr.relative[ " " ],
 		i = leadingRelative ? 1 : 0,
 
 		// The foundational matcher ensures that elements are reachable from top-level context(s)
@@ -12843,38 +13695,43 @@ function matcherFromTokens( tokens ) {
 		}, implicitRelative, true ),
 		matchers = [ function( elem, context, xml ) {
 			var ret = ( !leadingRelative && ( xml || context !== outermostContext ) ) || (
-				(checkContext = context).nodeType ?
+				( checkContext = context ).nodeType ?
 					matchContext( elem, context, xml ) :
 					matchAnyContext( elem, context, xml ) );
+
 			// Avoid hanging onto element (issue #299)
 			checkContext = null;
 			return ret;
 		} ];
 
 	for ( ; i < len; i++ ) {
-		if ( (matcher = Expr.relative[ tokens[i].type ]) ) {
-			matchers = [ addCombinator(elementMatcher( matchers ), matcher) ];
+		if ( ( matcher = Expr.relative[ tokens[ i ].type ] ) ) {
+			matchers = [ addCombinator( elementMatcher( matchers ), matcher ) ];
 		} else {
-			matcher = Expr.filter[ tokens[i].type ].apply( null, tokens[i].matches );
+			matcher = Expr.filter[ tokens[ i ].type ].apply( null, tokens[ i ].matches );
 
 			// Return special upon seeing a positional matcher
 			if ( matcher[ expando ] ) {
+
 				// Find the next relative operator (if any) for proper handling
 				j = ++i;
 				for ( ; j < len; j++ ) {
-					if ( Expr.relative[ tokens[j].type ] ) {
+					if ( Expr.relative[ tokens[ j ].type ] ) {
 						break;
 					}
 				}
 				return setMatcher(
 					i > 1 && elementMatcher( matchers ),
 					i > 1 && toSelector(
-						// If the preceding token was a descendant combinator, insert an implicit any-element `*`
-						tokens.slice( 0, i - 1 ).concat({ value: tokens[ i - 2 ].type === " " ? "*" : "" })
+
+					// If the preceding token was a descendant combinator, insert an implicit any-element `*`
+					tokens
+						.slice( 0, i - 1 )
+						.concat( { value: tokens[ i - 2 ].type === " " ? "*" : "" } )
 					).replace( rtrim, "$1" ),
 					matcher,
 					i < j && matcherFromTokens( tokens.slice( i, j ) ),
-					j < len && matcherFromTokens( (tokens = tokens.slice( j )) ),
+					j < len && matcherFromTokens( ( tokens = tokens.slice( j ) ) ),
 					j < len && toSelector( tokens )
 				);
 			}
@@ -12895,28 +13752,40 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				unmatched = seed && [],
 				setMatched = [],
 				contextBackup = outermostContext,
+
 				// We must always have either seed elements or outermost context
-				elems = seed || byElement && Expr.find["TAG"]( "*", outermost ),
+				elems = seed || byElement && Expr.find[ "TAG" ]( "*", outermost ),
+
 				// Use integer dirruns iff this is the outermost matcher
-				dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.random() || 0.1),
+				dirrunsUnique = ( dirruns += contextBackup == null ? 1 : Math.random() || 0.1 ),
 				len = elems.length;
 
 			if ( outermost ) {
-				outermostContext = context === document || context || outermost;
+
+				// Support: IE 11+, Edge 17 - 18+
+				// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+				// two documents; shallow comparisons work.
+				// eslint-disable-next-line eqeqeq
+				outermostContext = context == document || context || outermost;
 			}
 
 			// Add elements passing elementMatchers directly to results
 			// Support: IE<9, Safari
 			// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements by id
-			for ( ; i !== len && (elem = elems[i]) != null; i++ ) {
+			for ( ; i !== len && ( elem = elems[ i ] ) != null; i++ ) {
 				if ( byElement && elem ) {
 					j = 0;
-					if ( !context && elem.ownerDocument !== document ) {
+
+					// Support: IE 11+, Edge 17 - 18+
+					// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+					// two documents; shallow comparisons work.
+					// eslint-disable-next-line eqeqeq
+					if ( !context && elem.ownerDocument != document ) {
 						setDocument( elem );
 						xml = !documentIsHTML;
 					}
-					while ( (matcher = elementMatchers[j++]) ) {
-						if ( matcher( elem, context || document, xml) ) {
+					while ( ( matcher = elementMatchers[ j++ ] ) ) {
+						if ( matcher( elem, context || document, xml ) ) {
 							results.push( elem );
 							break;
 						}
@@ -12928,8 +13797,9 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 
 				// Track unmatched elements for set filters
 				if ( bySet ) {
+
 					// They will have gone through all possible matchers
-					if ( (elem = !matcher && elem) ) {
+					if ( ( elem = !matcher && elem ) ) {
 						matchedCount--;
 					}
 
@@ -12953,16 +13823,17 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			// numerically zero.
 			if ( bySet && i !== matchedCount ) {
 				j = 0;
-				while ( (matcher = setMatchers[j++]) ) {
+				while ( ( matcher = setMatchers[ j++ ] ) ) {
 					matcher( unmatched, setMatched, context, xml );
 				}
 
 				if ( seed ) {
+
 					// Reintegrate element matches to eliminate the need for sorting
 					if ( matchedCount > 0 ) {
 						while ( i-- ) {
-							if ( !(unmatched[i] || setMatched[i]) ) {
-								setMatched[i] = pop.call( results );
+							if ( !( unmatched[ i ] || setMatched[ i ] ) ) {
+								setMatched[ i ] = pop.call( results );
 							}
 						}
 					}
@@ -13003,13 +13874,14 @@ compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
 		cached = compilerCache[ selector + " " ];
 
 	if ( !cached ) {
+
 		// Generate a function of recursive functions that can be used to check each element
 		if ( !match ) {
 			match = tokenize( selector );
 		}
 		i = match.length;
 		while ( i-- ) {
-			cached = matcherFromTokens( match[i] );
+			cached = matcherFromTokens( match[ i ] );
 			if ( cached[ expando ] ) {
 				setMatchers.push( cached );
 			} else {
@@ -13018,7 +13890,10 @@ compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
 		}
 
 		// Cache the compiled function
-		cached = compilerCache( selector, matcherFromGroupMatchers( elementMatchers, setMatchers ) );
+		cached = compilerCache(
+			selector,
+			matcherFromGroupMatchers( elementMatchers, setMatchers )
+		);
 
 		// Save selector and tokenization
 		cached.selector = selector;
@@ -13038,7 +13913,7 @@ compile = Sizzle.compile = function( selector, match /* Internal Use Only */ ) {
 select = Sizzle.select = function( selector, context, results, seed ) {
 	var i, tokens, token, type, find,
 		compiled = typeof selector === "function" && selector,
-		match = !seed && tokenize( (selector = compiled.selector || selector) );
+		match = !seed && tokenize( ( selector = compiled.selector || selector ) );
 
 	results = results || [];
 
@@ -13047,11 +13922,12 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 	if ( match.length === 1 ) {
 
 		// Reduce context if the leading compound selector is an ID
-		tokens = match[0] = match[0].slice( 0 );
-		if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
-				context.nodeType === 9 && documentIsHTML && Expr.relative[ tokens[1].type ] ) {
+		tokens = match[ 0 ] = match[ 0 ].slice( 0 );
+		if ( tokens.length > 2 && ( token = tokens[ 0 ] ).type === "ID" &&
+			context.nodeType === 9 && documentIsHTML && Expr.relative[ tokens[ 1 ].type ] ) {
 
-			context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
+			context = ( Expr.find[ "ID" ]( token.matches[ 0 ]
+				.replace( runescape, funescape ), context ) || [] )[ 0 ];
 			if ( !context ) {
 				return results;
 
@@ -13064,20 +13940,22 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 		}
 
 		// Fetch a seed set for right-to-left matching
-		i = matchExpr["needsContext"].test( selector ) ? 0 : tokens.length;
+		i = matchExpr[ "needsContext" ].test( selector ) ? 0 : tokens.length;
 		while ( i-- ) {
-			token = tokens[i];
+			token = tokens[ i ];
 
 			// Abort if we hit a combinator
-			if ( Expr.relative[ (type = token.type) ] ) {
+			if ( Expr.relative[ ( type = token.type ) ] ) {
 				break;
 			}
-			if ( (find = Expr.find[ type ]) ) {
+			if ( ( find = Expr.find[ type ] ) ) {
+
 				// Search, expanding context for leading sibling combinators
-				if ( (seed = find(
-					token.matches[0].replace( runescape, funescape ),
-					rsibling.test( tokens[0].type ) && testContext( context.parentNode ) || context
-				)) ) {
+				if ( ( seed = find(
+					token.matches[ 0 ].replace( runescape, funescape ),
+					rsibling.test( tokens[ 0 ].type ) && testContext( context.parentNode ) ||
+						context
+				) ) ) {
 
 					// If seed is empty or no tokens remain, we can return early
 					tokens.splice( i, 1 );
@@ -13108,7 +13986,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 // One-time assignments
 
 // Sort stability
-support.sortStable = expando.split("").sort( sortOrder ).join("") === expando;
+support.sortStable = expando.split( "" ).sort( sortOrder ).join( "" ) === expando;
 
 // Support: Chrome 14-35+
 // Always assume duplicates if they aren't passed to the comparison function
@@ -13119,58 +13997,59 @@ setDocument();
 
 // Support: Webkit<537.32 - Safari 6.0.3/Chrome 25 (fixed in Chrome 27)
 // Detached nodes confoundingly follow *each other*
-support.sortDetached = assert(function( el ) {
+support.sortDetached = assert( function( el ) {
+
 	// Should return 1, but returns 4 (following)
-	return el.compareDocumentPosition( document.createElement("fieldset") ) & 1;
-});
+	return el.compareDocumentPosition( document.createElement( "fieldset" ) ) & 1;
+} );
 
 // Support: IE<8
 // Prevent attribute/property "interpolation"
 // https://msdn.microsoft.com/en-us/library/ms536429%28VS.85%29.aspx
-if ( !assert(function( el ) {
+if ( !assert( function( el ) {
 	el.innerHTML = "<a href='#'></a>";
-	return el.firstChild.getAttribute("href") === "#" ;
-}) ) {
+	return el.firstChild.getAttribute( "href" ) === "#";
+} ) ) {
 	addHandle( "type|href|height|width", function( elem, name, isXML ) {
 		if ( !isXML ) {
 			return elem.getAttribute( name, name.toLowerCase() === "type" ? 1 : 2 );
 		}
-	});
+	} );
 }
 
 // Support: IE<9
 // Use defaultValue in place of getAttribute("value")
-if ( !support.attributes || !assert(function( el ) {
+if ( !support.attributes || !assert( function( el ) {
 	el.innerHTML = "<input/>";
 	el.firstChild.setAttribute( "value", "" );
 	return el.firstChild.getAttribute( "value" ) === "";
-}) ) {
-	addHandle( "value", function( elem, name, isXML ) {
+} ) ) {
+	addHandle( "value", function( elem, _name, isXML ) {
 		if ( !isXML && elem.nodeName.toLowerCase() === "input" ) {
 			return elem.defaultValue;
 		}
-	});
+	} );
 }
 
 // Support: IE<9
 // Use getAttributeNode to fetch booleans when getAttribute lies
-if ( !assert(function( el ) {
-	return el.getAttribute("disabled") == null;
-}) ) {
+if ( !assert( function( el ) {
+	return el.getAttribute( "disabled" ) == null;
+} ) ) {
 	addHandle( booleans, function( elem, name, isXML ) {
 		var val;
 		if ( !isXML ) {
 			return elem[ name ] === true ? name.toLowerCase() :
-					(val = elem.getAttributeNode( name )) && val.specified ?
+				( val = elem.getAttributeNode( name ) ) && val.specified ?
 					val.value :
-				null;
+					null;
 		}
-	});
+	} );
 }
 
 return Sizzle;
 
-})( window );
+} )( window );
 
 
 
@@ -13539,7 +14418,7 @@ jQuery.each( {
 	parents: function( elem ) {
 		return dir( elem, "parentNode" );
 	},
-	parentsUntil: function( elem, i, until ) {
+	parentsUntil: function( elem, _i, until ) {
 		return dir( elem, "parentNode", until );
 	},
 	next: function( elem ) {
@@ -13554,10 +14433,10 @@ jQuery.each( {
 	prevAll: function( elem ) {
 		return dir( elem, "previousSibling" );
 	},
-	nextUntil: function( elem, i, until ) {
+	nextUntil: function( elem, _i, until ) {
 		return dir( elem, "nextSibling", until );
 	},
-	prevUntil: function( elem, i, until ) {
+	prevUntil: function( elem, _i, until ) {
 		return dir( elem, "previousSibling", until );
 	},
 	siblings: function( elem ) {
@@ -13567,7 +14446,13 @@ jQuery.each( {
 		return siblings( elem.firstChild );
 	},
 	contents: function( elem ) {
-		if ( typeof elem.contentDocument !== "undefined" ) {
+		if ( elem.contentDocument != null &&
+
+			// Support: IE 11+
+			// <object> elements with no `data` attribute has an object
+			// `contentDocument` with a `null` prototype.
+			getProto( elem.contentDocument ) ) {
+
 			return elem.contentDocument;
 		}
 
@@ -13910,7 +14795,7 @@ jQuery.extend( {
 					var fns = arguments;
 
 					return jQuery.Deferred( function( newDefer ) {
-						jQuery.each( tuples, function( i, tuple ) {
+						jQuery.each( tuples, function( _i, tuple ) {
 
 							// Map tuples (progress, done, fail) to arguments (done, fail, progress)
 							var fn = isFunction( fns[ tuple[ 4 ] ] ) && fns[ tuple[ 4 ] ];
@@ -14363,7 +15248,7 @@ var access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
 			// ...except when executing function values
 			} else {
 				bulk = fn;
-				fn = function( elem, key, value ) {
+				fn = function( elem, _key, value ) {
 					return bulk.call( jQuery( elem ), value );
 				};
 			}
@@ -14398,7 +15283,7 @@ var rmsPrefix = /^-ms-/,
 	rdashAlpha = /-([a-z])/g;
 
 // Used by camelCase as callback to replace()
-function fcamelCase( all, letter ) {
+function fcamelCase( _all, letter ) {
 	return letter.toUpperCase();
 }
 
@@ -14437,7 +15322,7 @@ Data.prototype = {
 
 		// If not, create one
 		if ( !value ) {
-			value = {};
+			value = Object.create( null );
 
 			// We can accept data for non-element nodes in modern browsers,
 			// but we should not, see #8335.
@@ -14926,27 +15811,6 @@ var isHiddenWithinTree = function( elem, el ) {
 			jQuery.css( elem, "display" ) === "none";
 	};
 
-var swap = function( elem, options, callback, args ) {
-	var ret, name,
-		old = {};
-
-	// Remember the old values, and insert the new ones
-	for ( name in options ) {
-		old[ name ] = elem.style[ name ];
-		elem.style[ name ] = options[ name ];
-	}
-
-	ret = callback.apply( elem, args || [] );
-
-	// Revert the old values
-	for ( name in options ) {
-		elem.style[ name ] = old[ name ];
-	}
-
-	return ret;
-};
-
-
 
 
 function adjustCSS( elem, prop, valueParts, tween ) {
@@ -15117,11 +15981,40 @@ var rscriptType = ( /^$|^module$|\/(?:java|ecma)script/i );
 
 
 
-// We have to close these tags to support XHTML (#13200)
-var wrapMap = {
+( function() {
+	var fragment = document.createDocumentFragment(),
+		div = fragment.appendChild( document.createElement( "div" ) ),
+		input = document.createElement( "input" );
+
+	// Support: Android 4.0 - 4.3 only
+	// Check state lost if the name is set (#11217)
+	// Support: Windows Web Apps (WWA)
+	// `name` and `type` must use .setAttribute for WWA (#14901)
+	input.setAttribute( "type", "radio" );
+	input.setAttribute( "checked", "checked" );
+	input.setAttribute( "name", "t" );
+
+	div.appendChild( input );
+
+	// Support: Android <=4.1 only
+	// Older WebKit doesn't clone checked state correctly in fragments
+	support.checkClone = div.cloneNode( true ).cloneNode( true ).lastChild.checked;
+
+	// Support: IE <=11 only
+	// Make sure textarea (and checkbox) defaultValue is properly cloned
+	div.innerHTML = "<textarea>x</textarea>";
+	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
 
 	// Support: IE <=9 only
-	option: [ 1, "<select multiple='multiple'>", "</select>" ],
+	// IE <=9 replaces <option> tags with their contents when inserted outside of
+	// the select element.
+	div.innerHTML = "<option></option>";
+	support.option = !!div.lastChild;
+} )();
+
+
+// We have to close these tags to support XHTML (#13200)
+var wrapMap = {
 
 	// XHTML parsers do not magically insert elements in the
 	// same way that tag soup parsers do. So we cannot shorten
@@ -15134,11 +16027,13 @@ var wrapMap = {
 	_default: [ 0, "", "" ]
 };
 
-// Support: IE <=9 only
-wrapMap.optgroup = wrapMap.option;
-
 wrapMap.tbody = wrapMap.tfoot = wrapMap.colgroup = wrapMap.caption = wrapMap.thead;
 wrapMap.th = wrapMap.td;
+
+// Support: IE <=9 only
+if ( !support.option ) {
+	wrapMap.optgroup = wrapMap.option = [ 1, "<select multiple='multiple'>", "</select>" ];
+}
 
 
 function getAll( context, tag ) {
@@ -15272,32 +16167,6 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 }
 
 
-( function() {
-	var fragment = document.createDocumentFragment(),
-		div = fragment.appendChild( document.createElement( "div" ) ),
-		input = document.createElement( "input" );
-
-	// Support: Android 4.0 - 4.3 only
-	// Check state lost if the name is set (#11217)
-	// Support: Windows Web Apps (WWA)
-	// `name` and `type` must use .setAttribute for WWA (#14901)
-	input.setAttribute( "type", "radio" );
-	input.setAttribute( "checked", "checked" );
-	input.setAttribute( "name", "t" );
-
-	div.appendChild( input );
-
-	// Support: Android <=4.1 only
-	// Older WebKit doesn't clone checked state correctly in fragments
-	support.checkClone = div.cloneNode( true ).cloneNode( true ).lastChild.checked;
-
-	// Support: IE <=11 only
-	// Make sure textarea (and checkbox) defaultValue is properly cloned
-	div.innerHTML = "<textarea>x</textarea>";
-	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
-} )();
-
-
 var
 	rkeyEvent = /^key/,
 	rmouseEvent = /^(?:mouse|pointer|contextmenu|drag|drop)|click/,
@@ -15406,8 +16275,8 @@ jQuery.event = {
 			special, handlers, type, namespaces, origType,
 			elemData = dataPriv.get( elem );
 
-		// Don't attach events to noData or text/comment nodes (but allow plain objects)
-		if ( !elemData ) {
+		// Only attach events to objects that accept data
+		if ( !acceptData( elem ) ) {
 			return;
 		}
 
@@ -15431,7 +16300,7 @@ jQuery.event = {
 
 		// Init the element's event structure and main handler, if this is the first
 		if ( !( events = elemData.events ) ) {
-			events = elemData.events = {};
+			events = elemData.events = Object.create( null );
 		}
 		if ( !( eventHandle = elemData.handle ) ) {
 			eventHandle = elemData.handle = function( e ) {
@@ -15589,12 +16458,15 @@ jQuery.event = {
 
 	dispatch: function( nativeEvent ) {
 
-		// Make a writable jQuery.Event from the native event object
-		var event = jQuery.event.fix( nativeEvent );
-
 		var i, j, ret, matched, handleObj, handlerQueue,
 			args = new Array( arguments.length ),
-			handlers = ( dataPriv.get( this, "events" ) || {} )[ event.type ] || [],
+
+			// Make a writable jQuery.Event from the native event object
+			event = jQuery.event.fix( nativeEvent ),
+
+			handlers = (
+					dataPriv.get( this, "events" ) || Object.create( null )
+				)[ event.type ] || [],
 			special = jQuery.event.special[ event.type ] || {};
 
 		// Use the fix-ed jQuery.Event rather than the (read-only) native event
@@ -16169,13 +17041,6 @@ jQuery.fn.extend( {
 
 var
 
-	/* eslint-disable max-len */
-
-	// See https://github.com/eslint/eslint/issues/3229
-	rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
-
-	/* eslint-enable */
-
 	// Support: IE <=10 - 11, Edge 12 - 13 only
 	// In IE/Edge using regex groups here causes severe slowdowns.
 	// See https://connect.microsoft.com/IE/feedback/details/1736512/
@@ -16212,7 +17077,7 @@ function restoreScript( elem ) {
 }
 
 function cloneCopyEvent( src, dest ) {
-	var i, l, type, pdataOld, pdataCur, udataOld, udataCur, events;
+	var i, l, type, pdataOld, udataOld, udataCur, events;
 
 	if ( dest.nodeType !== 1 ) {
 		return;
@@ -16220,13 +17085,11 @@ function cloneCopyEvent( src, dest ) {
 
 	// 1. Copy private data: events, handlers, etc.
 	if ( dataPriv.hasData( src ) ) {
-		pdataOld = dataPriv.access( src );
-		pdataCur = dataPriv.set( dest, pdataOld );
+		pdataOld = dataPriv.get( src );
 		events = pdataOld.events;
 
 		if ( events ) {
-			delete pdataCur.handle;
-			pdataCur.events = {};
+			dataPriv.remove( dest, "handle events" );
 
 			for ( type in events ) {
 				for ( i = 0, l = events[ type ].length; i < l; i++ ) {
@@ -16262,7 +17125,7 @@ function fixInput( src, dest ) {
 function domManip( collection, args, callback, ignored ) {
 
 	// Flatten any nested arrays
-	args = concat.apply( [], args );
+	args = flat( args );
 
 	var fragment, first, scripts, hasScripts, node, doc,
 		i = 0,
@@ -16337,7 +17200,7 @@ function domManip( collection, args, callback, ignored ) {
 							if ( jQuery._evalUrl && !node.noModule ) {
 								jQuery._evalUrl( node.src, {
 									nonce: node.nonce || node.getAttribute( "nonce" )
-								} );
+								}, doc );
 							}
 						} else {
 							DOMEval( node.textContent.replace( rcleanScript, "" ), node, doc );
@@ -16374,7 +17237,7 @@ function remove( elem, selector, keepData ) {
 
 jQuery.extend( {
 	htmlPrefilter: function( html ) {
-		return html.replace( rxhtmlTag, "<$1></$2>" );
+		return html;
 	},
 
 	clone: function( elem, dataAndEvents, deepDataAndEvents ) {
@@ -16636,6 +17499,27 @@ var getStyles = function( elem ) {
 		return view.getComputedStyle( elem );
 	};
 
+var swap = function( elem, options, callback ) {
+	var ret, name,
+		old = {};
+
+	// Remember the old values, and insert the new ones
+	for ( name in options ) {
+		old[ name ] = elem.style[ name ];
+		elem.style[ name ] = options[ name ];
+	}
+
+	ret = callback.call( elem );
+
+	// Revert the old values
+	for ( name in options ) {
+		elem.style[ name ] = old[ name ];
+	}
+
+	return ret;
+};
+
+
 var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 
 
@@ -16693,7 +17577,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 	}
 
 	var pixelPositionVal, boxSizingReliableVal, scrollboxSizeVal, pixelBoxStylesVal,
-		reliableMarginLeftVal,
+		reliableTrDimensionsVal, reliableMarginLeftVal,
 		container = document.createElement( "div" ),
 		div = document.createElement( "div" );
 
@@ -16728,6 +17612,35 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		scrollboxSize: function() {
 			computeStyleTests();
 			return scrollboxSizeVal;
+		},
+
+		// Support: IE 9 - 11+, Edge 15 - 18+
+		// IE/Edge misreport `getComputedStyle` of table rows with width/height
+		// set in CSS while `offset*` properties report correct values.
+		// Behavior in IE 9 is more subtle than in newer versions & it passes
+		// some versions of this test; make sure not to make it pass there!
+		reliableTrDimensions: function() {
+			var table, tr, trChild, trStyle;
+			if ( reliableTrDimensionsVal == null ) {
+				table = document.createElement( "table" );
+				tr = document.createElement( "tr" );
+				trChild = document.createElement( "div" );
+
+				table.style.cssText = "position:absolute;left:-11111px";
+				tr.style.height = "1px";
+				trChild.style.height = "9px";
+
+				documentElement
+					.appendChild( table )
+					.appendChild( tr )
+					.appendChild( trChild );
+
+				trStyle = window.getComputedStyle( tr );
+				reliableTrDimensionsVal = parseInt( trStyle.height ) > 3;
+
+				documentElement.removeChild( table );
+			}
+			return reliableTrDimensionsVal;
 		}
 	} );
 } )();
@@ -16852,7 +17765,7 @@ var
 		fontWeight: "400"
 	};
 
-function setPositiveNumber( elem, value, subtract ) {
+function setPositiveNumber( _elem, value, subtract ) {
 
 	// Any relative (+/-) values have already been
 	// normalized at this point
@@ -16957,17 +17870,26 @@ function getWidthOrHeight( elem, dimension, extra ) {
 	}
 
 
-	// Fall back to offsetWidth/offsetHeight when value is "auto"
-	// This happens for inline elements with no explicit setting (gh-3571)
-	// Support: Android <=4.1 - 4.3 only
-	// Also use offsetWidth/offsetHeight for misreported inline dimensions (gh-3602)
-	// Support: IE 9-11 only
-	// Also use offsetWidth/offsetHeight for when box sizing is unreliable
-	// We use getClientRects() to check for hidden/disconnected.
-	// In those cases, the computed value can be trusted to be border-box
+	// Support: IE 9 - 11 only
+	// Use offsetWidth/offsetHeight for when box sizing is unreliable.
+	// In those cases, the computed value can be trusted to be border-box.
 	if ( ( !support.boxSizingReliable() && isBorderBox ||
+
+		// Support: IE 10 - 11+, Edge 15 - 18+
+		// IE/Edge misreport `getComputedStyle` of table rows with width/height
+		// set in CSS while `offset*` properties report correct values.
+		// Interestingly, in some cases IE 9 doesn't suffer from this issue.
+		!support.reliableTrDimensions() && nodeName( elem, "tr" ) ||
+
+		// Fall back to offsetWidth/offsetHeight when value is "auto"
+		// This happens for inline elements with no explicit setting (gh-3571)
 		val === "auto" ||
+
+		// Support: Android <=4.1 - 4.3 only
+		// Also use offsetWidth/offsetHeight for misreported inline dimensions (gh-3602)
 		!parseFloat( val ) && jQuery.css( elem, "display", false, styles ) === "inline" ) &&
+
+		// Make sure the element is visible & connected
 		elem.getClientRects().length ) {
 
 		isBorderBox = jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
@@ -17162,7 +18084,7 @@ jQuery.extend( {
 	}
 } );
 
-jQuery.each( [ "height", "width" ], function( i, dimension ) {
+jQuery.each( [ "height", "width" ], function( _i, dimension ) {
 	jQuery.cssHooks[ dimension ] = {
 		get: function( elem, computed, extra ) {
 			if ( computed ) {
@@ -17935,7 +18857,7 @@ jQuery.fn.extend( {
 			clearQueue = type;
 			type = undefined;
 		}
-		if ( clearQueue && type !== false ) {
+		if ( clearQueue ) {
 			this.queue( type || "fx", [] );
 		}
 
@@ -18018,7 +18940,7 @@ jQuery.fn.extend( {
 	}
 } );
 
-jQuery.each( [ "toggle", "show", "hide" ], function( i, name ) {
+jQuery.each( [ "toggle", "show", "hide" ], function( _i, name ) {
 	var cssFn = jQuery.fn[ name ];
 	jQuery.fn[ name ] = function( speed, easing, callback ) {
 		return speed == null || typeof speed === "boolean" ?
@@ -18239,7 +19161,7 @@ boolHook = {
 	}
 };
 
-jQuery.each( jQuery.expr.match.bool.source.match( /\w+/g ), function( i, name ) {
+jQuery.each( jQuery.expr.match.bool.source.match( /\w+/g ), function( _i, name ) {
 	var getter = attrHandle[ name ] || jQuery.find.attr;
 
 	attrHandle[ name ] = function( elem, name, isXML ) {
@@ -18863,7 +19785,9 @@ jQuery.extend( jQuery.event, {
 				special.bindType || type;
 
 			// jQuery handler
-			handle = ( dataPriv.get( cur, "events" ) || {} )[ event.type ] &&
+			handle = (
+					dataPriv.get( cur, "events" ) || Object.create( null )
+				)[ event.type ] &&
 				dataPriv.get( cur, "handle" );
 			if ( handle ) {
 				handle.apply( cur, data );
@@ -18974,7 +19898,10 @@ if ( !support.focusin ) {
 
 		jQuery.event.special[ fix ] = {
 			setup: function() {
-				var doc = this.ownerDocument || this,
+
+				// Handle: regular nodes (via `this.ownerDocument`), window
+				// (via `this.document`) & document (via `this`).
+				var doc = this.ownerDocument || this.document || this,
 					attaches = dataPriv.access( doc, fix );
 
 				if ( !attaches ) {
@@ -18983,7 +19910,7 @@ if ( !support.focusin ) {
 				dataPriv.access( doc, fix, ( attaches || 0 ) + 1 );
 			},
 			teardown: function() {
-				var doc = this.ownerDocument || this,
+				var doc = this.ownerDocument || this.document || this,
 					attaches = dataPriv.access( doc, fix ) - 1;
 
 				if ( !attaches ) {
@@ -18999,7 +19926,7 @@ if ( !support.focusin ) {
 }
 var location = window.location;
 
-var nonce = Date.now();
+var nonce = { guid: Date.now() };
 
 var rquery = ( /\?/ );
 
@@ -19131,7 +20058,7 @@ jQuery.fn.extend( {
 				rsubmittable.test( this.nodeName ) && !rsubmitterTypes.test( type ) &&
 				( this.checked || !rcheckableType.test( type ) );
 		} )
-		.map( function( i, elem ) {
+		.map( function( _i, elem ) {
 			var val = jQuery( this ).val();
 
 			if ( val == null ) {
@@ -19744,7 +20671,8 @@ jQuery.extend( {
 			// Add or update anti-cache param if needed
 			if ( s.cache === false ) {
 				cacheURL = cacheURL.replace( rantiCache, "$1" );
-				uncached = ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + ( nonce++ ) + uncached;
+				uncached = ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + ( nonce.guid++ ) +
+					uncached;
 			}
 
 			// Put hash and anti-cache on the URL that will be requested (gh-1732)
@@ -19877,6 +20805,11 @@ jQuery.extend( {
 				response = ajaxHandleResponses( s, jqXHR, responses );
 			}
 
+			// Use a noop converter for missing script
+			if ( !isSuccess && jQuery.inArray( "script", s.dataTypes ) > -1 ) {
+				s.converters[ "text script" ] = function() {};
+			}
+
 			// Convert no matter what (that way responseXXX fields are always set)
 			response = ajaxConvert( s, response, jqXHR, isSuccess );
 
@@ -19967,7 +20900,7 @@ jQuery.extend( {
 	}
 } );
 
-jQuery.each( [ "get", "post" ], function( i, method ) {
+jQuery.each( [ "get", "post" ], function( _i, method ) {
 	jQuery[ method ] = function( url, data, callback, type ) {
 
 		// Shift arguments if data argument was omitted
@@ -19988,8 +20921,17 @@ jQuery.each( [ "get", "post" ], function( i, method ) {
 	};
 } );
 
+jQuery.ajaxPrefilter( function( s ) {
+	var i;
+	for ( i in s.headers ) {
+		if ( i.toLowerCase() === "content-type" ) {
+			s.contentType = s.headers[ i ] || "";
+		}
+	}
+} );
 
-jQuery._evalUrl = function( url, options ) {
+
+jQuery._evalUrl = function( url, options, doc ) {
 	return jQuery.ajax( {
 		url: url,
 
@@ -20007,7 +20949,7 @@ jQuery._evalUrl = function( url, options ) {
 			"text script": function() {}
 		},
 		dataFilter: function( response ) {
-			jQuery.globalEval( response, options );
+			jQuery.globalEval( response, options, doc );
 		}
 	} );
 };
@@ -20329,7 +21271,7 @@ var oldCallbacks = [],
 jQuery.ajaxSetup( {
 	jsonp: "callback",
 	jsonpCallback: function() {
-		var callback = oldCallbacks.pop() || ( jQuery.expando + "_" + ( nonce++ ) );
+		var callback = oldCallbacks.pop() || ( jQuery.expando + "_" + ( nonce.guid++ ) );
 		this[ callback ] = true;
 		return callback;
 	}
@@ -20546,23 +21488,6 @@ jQuery.fn.load = function( url, params, callback ) {
 
 
 
-// Attach a bunch of functions for handling common AJAX events
-jQuery.each( [
-	"ajaxStart",
-	"ajaxStop",
-	"ajaxComplete",
-	"ajaxError",
-	"ajaxSuccess",
-	"ajaxSend"
-], function( i, type ) {
-	jQuery.fn[ type ] = function( fn ) {
-		return this.on( type, fn );
-	};
-} );
-
-
-
-
 jQuery.expr.pseudos.animated = function( elem ) {
 	return jQuery.grep( jQuery.timers, function( fn ) {
 		return elem === fn.elem;
@@ -20619,6 +21544,12 @@ jQuery.offset = {
 			options.using.call( elem, props );
 
 		} else {
+			if ( typeof props.top === "number" ) {
+				props.top += "px";
+			}
+			if ( typeof props.left === "number" ) {
+				props.left += "px";
+			}
 			curElem.css( props );
 		}
 	}
@@ -20769,7 +21700,7 @@ jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( 
 // Blink bug: https://bugs.chromium.org/p/chromium/issues/detail?id=589347
 // getComputedStyle returns percent when specified for top/left/bottom/right;
 // rather than make the css module depend on the offset module, just check for it here
-jQuery.each( [ "top", "left" ], function( i, prop ) {
+jQuery.each( [ "top", "left" ], function( _i, prop ) {
 	jQuery.cssHooks[ prop ] = addGetHookIf( support.pixelPosition,
 		function( elem, computed ) {
 			if ( computed ) {
@@ -20832,23 +21763,17 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 } );
 
 
-jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
-	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
-	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
-	function( i, name ) {
-
-	// Handle event binding
-	jQuery.fn[ name ] = function( data, fn ) {
-		return arguments.length > 0 ?
-			this.on( name, null, data, fn ) :
-			this.trigger( name );
+jQuery.each( [
+	"ajaxStart",
+	"ajaxStop",
+	"ajaxComplete",
+	"ajaxError",
+	"ajaxSuccess",
+	"ajaxSend"
+], function( _i, type ) {
+	jQuery.fn[ type ] = function( fn ) {
+		return this.on( type, fn );
 	};
-} );
-
-jQuery.fn.extend( {
-	hover: function( fnOver, fnOut ) {
-		return this.mouseenter( fnOver ).mouseleave( fnOut || fnOver );
-	}
 } );
 
 
@@ -20872,8 +21797,32 @@ jQuery.fn.extend( {
 		return arguments.length === 1 ?
 			this.off( selector, "**" ) :
 			this.off( types, selector || "**", fn );
+	},
+
+	hover: function( fnOver, fnOut ) {
+		return this.mouseenter( fnOver ).mouseleave( fnOut || fnOver );
 	}
 } );
+
+jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
+	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
+	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
+	function( _i, name ) {
+
+		// Handle event binding
+		jQuery.fn[ name ] = function( data, fn ) {
+			return arguments.length > 0 ?
+				this.on( name, null, data, fn ) :
+				this.trigger( name );
+		};
+	} );
+
+
+
+
+// Support: Android <=4.0 only
+// Make sure we trim BOM and NBSP
+var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
 
 // Bind a function to a context, optionally partially applying any
 // arguments.
@@ -20937,6 +21886,11 @@ jQuery.isNumeric = function( obj ) {
 		!isNaN( obj - parseFloat( obj ) );
 };
 
+jQuery.trim = function( text ) {
+	return text == null ?
+		"" :
+		( text + "" ).replace( rtrim, "" );
+};
 
 
 
@@ -20986,7 +21940,7 @@ jQuery.noConflict = function( deep ) {
 // Expose jQuery and $ identifiers, even in AMD
 // (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
 // and CommonJS for browser emulators (#13566)
-if ( !noGlobal ) {
+if ( typeof noGlobal === "undefined" ) {
 	window.jQuery = window.$ = jQuery;
 }
 
@@ -56324,7 +57278,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.16.0
+ * @version 1.16.1
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -56670,7 +57624,7 @@ function getBordersSize(styles, axis) {
   var sideA = axis === 'x' ? 'Left' : 'Top';
   var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
 
-  return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
+  return parseFloat(styles['border' + sideA + 'Width']) + parseFloat(styles['border' + sideB + 'Width']);
 }
 
 function getSize(axis, body, html, computedStyle) {
@@ -56825,8 +57779,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   var scrollParent = getScrollParent(children);
 
   var styles = getStyleComputedProperty(parent);
-  var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
-  var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
+  var borderTopWidth = parseFloat(styles.borderTopWidth);
+  var borderLeftWidth = parseFloat(styles.borderLeftWidth);
 
   // In cases where the parent is fixed, we must ignore negative scroll in offset calc
   if (fixedPosition && isHTML) {
@@ -56847,8 +57801,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   // differently when margins are applied to it. The margins are included in
   // the box of the documentElement, in the other cases not.
   if (!isIE10 && isHTML) {
-    var marginTop = parseFloat(styles.marginTop, 10);
-    var marginLeft = parseFloat(styles.marginLeft, 10);
+    var marginTop = parseFloat(styles.marginTop);
+    var marginLeft = parseFloat(styles.marginLeft);
 
     offsets.top -= borderTopWidth - marginTop;
     offsets.bottom -= borderTopWidth - marginTop;
@@ -57787,8 +58741,8 @@ function arrow(data, options) {
   // Compute the sideValue using the updated popper offsets
   // take popper margin in account because we don't have this info available
   var css = getStyleComputedProperty(data.instance.popper);
-  var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10);
-  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width'], 10);
+  var popperMarginSide = parseFloat(css['margin' + sideCapitalized]);
+  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width']);
   var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
 
   // prevent arrowElement from being placed not contiguously to its popper
@@ -59973,3012 +60927,3107 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v9.5.4
+* sweetalert2 v9.10.12
 * Released under the MIT License.
 */
 (function (global, factory) {
-	 true ? module.exports = factory() :
-	undefined;
-}(this, (function () { 'use strict';
+   true ? module.exports = factory() :
+  undefined;
+}(this, function () { 'use strict';
 
-function _typeof(obj) {
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
+  function _typeof(obj) {
+    "@babel/helpers - typeof";
+
+    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+      _typeof = function (obj) {
+        return typeof obj;
+      };
+    } else {
+      _typeof = function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+      };
+    }
+
+    return _typeof(obj);
   }
 
-  return _typeof(obj);
-}
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
   }
-}
 
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
   }
-}
 
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
+  function _extends() {
+    _extends = Object.assign || function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
 
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
         }
       }
-    }
 
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _construct(Parent, args, Class) {
-  if (isNativeReflectConstruct()) {
-    _construct = Reflect.construct;
-  } else {
-    _construct = function _construct(Parent, args, Class) {
-      var a = [null];
-      a.push.apply(a, args);
-      var Constructor = Function.bind.apply(Parent, a);
-      var instance = new Constructor();
-      if (Class) _setPrototypeOf(instance, Class.prototype);
-      return instance;
+      return target;
     };
+
+    return _extends.apply(this, arguments);
   }
 
-  return _construct.apply(null, arguments);
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (typeof call === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _superPropBase(object, property) {
-  while (!Object.prototype.hasOwnProperty.call(object, property)) {
-    object = _getPrototypeOf(object);
-    if (object === null) break;
-  }
-
-  return object;
-}
-
-function _get(target, property, receiver) {
-  if (typeof Reflect !== "undefined" && Reflect.get) {
-    _get = Reflect.get;
-  } else {
-    _get = function _get(target, property, receiver) {
-      var base = _superPropBase(target, property);
-
-      if (!base) return;
-      var desc = Object.getOwnPropertyDescriptor(base, property);
-
-      if (desc.get) {
-        return desc.get.call(receiver);
-      }
-
-      return desc.value;
-    };
-  }
-
-  return _get(target, property, receiver || target);
-}
-
-var consolePrefix = 'SweetAlert2:';
-/**
- * Filter the unique values into a new array
- * @param arr
- */
-
-var uniqueArray = function uniqueArray(arr) {
-  var result = [];
-
-  for (var i = 0; i < arr.length; i++) {
-    if (result.indexOf(arr[i]) === -1) {
-      result.push(arr[i]);
+  function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function");
     }
-  }
 
-  return result;
-};
-/**
- * Capitalize the first letter of a string
- * @param str
- */
-
-var capitalizeFirstLetter = function capitalizeFirstLetter(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
-/**
- * Returns the array ob object values (Object.values isn't supported in IE11)
- * @param obj
- */
-
-var objectValues = function objectValues(obj) {
-  return Object.keys(obj).map(function (key) {
-    return obj[key];
-  });
-};
-/**
- * Convert NodeList to Array
- * @param nodeList
- */
-
-var toArray = function toArray(nodeList) {
-  return Array.prototype.slice.call(nodeList);
-};
-/**
- * Standardise console warnings
- * @param message
- */
-
-var warn = function warn(message) {
-  console.warn("".concat(consolePrefix, " ").concat(message));
-};
-/**
- * Standardise console errors
- * @param message
- */
-
-var error = function error(message) {
-  console.error("".concat(consolePrefix, " ").concat(message));
-};
-/**
- * Private global state for `warnOnce`
- * @type {Array}
- * @private
- */
-
-var previousWarnOnceMessages = [];
-/**
- * Show a console warning, but only if it hasn't already been shown
- * @param message
- */
-
-var warnOnce = function warnOnce(message) {
-  if (!(previousWarnOnceMessages.indexOf(message) !== -1)) {
-    previousWarnOnceMessages.push(message);
-    warn(message);
-  }
-};
-/**
- * Show a one-time console warning about deprecated params/methods
- */
-
-var warnAboutDepreation = function warnAboutDepreation(deprecatedParam, useInstead) {
-  warnOnce("\"".concat(deprecatedParam, "\" is deprecated and will be removed in the next major release. Please use \"").concat(useInstead, "\" instead."));
-};
-/**
- * If `arg` is a function, call it (with no arguments or context) and return the result.
- * Otherwise, just pass the value through
- * @param arg
- */
-
-var callIfFunction = function callIfFunction(arg) {
-  return typeof arg === 'function' ? arg() : arg;
-};
-var isPromise = function isPromise(arg) {
-  return arg && Promise.resolve(arg) === arg;
-};
-
-var DismissReason = Object.freeze({
-  cancel: 'cancel',
-  backdrop: 'backdrop',
-  close: 'close',
-  esc: 'esc',
-  timer: 'timer'
-});
-
-var isJqueryElement = function isJqueryElement(elem) {
-  return _typeof(elem) === 'object' && elem.jquery;
-};
-
-var isElement = function isElement(elem) {
-  return elem instanceof Element || isJqueryElement(elem);
-};
-
-var argsToParams = function argsToParams(args) {
-  var params = {};
-
-  if (_typeof(args[0]) === 'object' && !isElement(args[0])) {
-    _extends(params, args[0]);
-  } else {
-    ['title', 'html', 'icon'].forEach(function (name, index) {
-      var arg = args[index];
-
-      if (typeof arg === 'string' || isElement(arg)) {
-        params[name] = arg;
-      } else if (arg !== undefined) {
-        error("Unexpected type of ".concat(name, "! Expected \"string\" or \"Element\", got ").concat(_typeof(arg)));
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        writable: true,
+        configurable: true
       }
     });
+    if (superClass) _setPrototypeOf(subClass, superClass);
   }
 
-  return params;
-};
-
-var swalPrefix = 'swal2-';
-var prefix = function prefix(items) {
-  var result = {};
-
-  for (var i in items) {
-    result[items[i]] = swalPrefix + items[i];
+  function _getPrototypeOf(o) {
+    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+      return o.__proto__ || Object.getPrototypeOf(o);
+    };
+    return _getPrototypeOf(o);
   }
 
-  return result;
-};
-var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error']);
-var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
 
-var getContainer = function getContainer() {
-  return document.body.querySelector(".".concat(swalClasses.container));
-};
-var elementBySelector = function elementBySelector(selectorString) {
-  var container = getContainer();
-  return container ? container.querySelector(selectorString) : null;
-};
-
-var elementByClass = function elementByClass(className) {
-  return elementBySelector(".".concat(className));
-};
-
-var getPopup = function getPopup() {
-  return elementByClass(swalClasses.popup);
-};
-var getIcons = function getIcons() {
-  var popup = getPopup();
-  return toArray(popup.querySelectorAll(".".concat(swalClasses.icon)));
-};
-var getIcon = function getIcon() {
-  var visibleIcon = getIcons().filter(function (icon) {
-    return isVisible(icon);
-  });
-  return visibleIcon.length ? visibleIcon[0] : null;
-};
-var getTitle = function getTitle() {
-  return elementByClass(swalClasses.title);
-};
-var getContent = function getContent() {
-  return elementByClass(swalClasses.content);
-};
-var getHtmlContainer = function getHtmlContainer() {
-  return elementByClass(swalClasses['html-container']);
-};
-var getImage = function getImage() {
-  return elementByClass(swalClasses.image);
-};
-var getProgressSteps = function getProgressSteps() {
-  return elementByClass(swalClasses['progress-steps']);
-};
-var getValidationMessage = function getValidationMessage() {
-  return elementByClass(swalClasses['validation-message']);
-};
-var getConfirmButton = function getConfirmButton() {
-  return elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm));
-};
-var getCancelButton = function getCancelButton() {
-  return elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel));
-};
-var getActions = function getActions() {
-  return elementByClass(swalClasses.actions);
-};
-var getHeader = function getHeader() {
-  return elementByClass(swalClasses.header);
-};
-var getFooter = function getFooter() {
-  return elementByClass(swalClasses.footer);
-};
-var getTimerProgressBar = function getTimerProgressBar() {
-  return elementByClass(swalClasses['timer-progress-bar']);
-};
-var getCloseButton = function getCloseButton() {
-  return elementByClass(swalClasses.close);
-}; // https://github.com/jkup/focusable/blob/master/index.js
-
-var focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
-var getFocusableElements = function getFocusableElements() {
-  var focusableElementsWithTabindex = toArray(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])')) // sort according to tabindex
-  .sort(function (a, b) {
-    a = parseInt(a.getAttribute('tabindex'));
-    b = parseInt(b.getAttribute('tabindex'));
-
-    if (a > b) {
-      return 1;
-    } else if (a < b) {
-      return -1;
-    }
-
-    return 0;
-  });
-  var otherFocusableElements = toArray(getPopup().querySelectorAll(focusable)).filter(function (el) {
-    return el.getAttribute('tabindex') !== '-1';
-  });
-  return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(function (el) {
-    return isVisible(el);
-  });
-};
-var isModal = function isModal() {
-  return !isToast() && !document.body.classList.contains(swalClasses['no-backdrop']);
-};
-var isToast = function isToast() {
-  return document.body.classList.contains(swalClasses['toast-shown']);
-};
-var isLoading = function isLoading() {
-  return getPopup().hasAttribute('data-loading');
-};
-
-var states = {
-  previousBodyPadding: null
-};
-var hasClass = function hasClass(elem, className) {
-  if (!className) {
-    return false;
+    return _setPrototypeOf(o, p);
   }
 
-  var classList = className.split(/\s+/);
+  function _isNativeReflectConstruct() {
+    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+    if (Reflect.construct.sham) return false;
+    if (typeof Proxy === "function") return true;
 
-  for (var i = 0; i < classList.length; i++) {
-    if (!elem.classList.contains(classList[i])) {
+    try {
+      Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+      return true;
+    } catch (e) {
       return false;
     }
   }
 
-  return true;
-};
-
-var removeCustomClasses = function removeCustomClasses(elem, params) {
-  toArray(elem.classList).forEach(function (className) {
-    if (!(objectValues(swalClasses).indexOf(className) !== -1) && !(objectValues(iconTypes).indexOf(className) !== -1) && !(objectValues(params.showClass).indexOf(className) !== -1)) {
-      elem.classList.remove(className);
-    }
-  });
-};
-
-var applyCustomClass = function applyCustomClass(elem, params, className) {
-  removeCustomClasses(elem, params);
-
-  if (params.customClass && params.customClass[className]) {
-    if (typeof params.customClass[className] !== 'string' && !params.customClass[className].forEach) {
-      return warn("Invalid type of customClass.".concat(className, "! Expected string or iterable object, got \"").concat(_typeof(params.customClass[className]), "\""));
-    }
-
-    addClass(elem, params.customClass[className]);
-  }
-};
-function getInput(content, inputType) {
-  if (!inputType) {
-    return null;
-  }
-
-  switch (inputType) {
-    case 'select':
-    case 'textarea':
-    case 'file':
-      return getChildByClass(content, swalClasses[inputType]);
-
-    case 'checkbox':
-      return content.querySelector(".".concat(swalClasses.checkbox, " input"));
-
-    case 'radio':
-      return content.querySelector(".".concat(swalClasses.radio, " input:checked")) || content.querySelector(".".concat(swalClasses.radio, " input:first-child"));
-
-    case 'range':
-      return content.querySelector(".".concat(swalClasses.range, " input"));
-
-    default:
-      return getChildByClass(content, swalClasses.input);
-  }
-}
-var focusInput = function focusInput(input) {
-  input.focus(); // place cursor at end of text in text input
-
-  if (input.type !== 'file') {
-    // http://stackoverflow.com/a/2345915
-    var val = input.value;
-    input.value = '';
-    input.value = val;
-  }
-};
-var toggleClass = function toggleClass(target, classList, condition) {
-  if (!target || !classList) {
-    return;
-  }
-
-  if (typeof classList === 'string') {
-    classList = classList.split(/\s+/).filter(Boolean);
-  }
-
-  classList.forEach(function (className) {
-    if (target.forEach) {
-      target.forEach(function (elem) {
-        condition ? elem.classList.add(className) : elem.classList.remove(className);
-      });
+  function _construct(Parent, args, Class) {
+    if (_isNativeReflectConstruct()) {
+      _construct = Reflect.construct;
     } else {
-      condition ? target.classList.add(className) : target.classList.remove(className);
-    }
-  });
-};
-var addClass = function addClass(target, classList) {
-  toggleClass(target, classList, true);
-};
-var removeClass = function removeClass(target, classList) {
-  toggleClass(target, classList, false);
-};
-var getChildByClass = function getChildByClass(elem, className) {
-  for (var i = 0; i < elem.childNodes.length; i++) {
-    if (hasClass(elem.childNodes[i], className)) {
-      return elem.childNodes[i];
-    }
-  }
-};
-var applyNumericalStyle = function applyNumericalStyle(elem, property, value) {
-  if (value || parseInt(value) === 0) {
-    elem.style[property] = typeof value === 'number' ? "".concat(value, "px") : value;
-  } else {
-    elem.style.removeProperty(property);
-  }
-};
-var show = function show(elem) {
-  var display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'flex';
-  elem.style.opacity = '';
-  elem.style.display = display;
-};
-var hide = function hide(elem) {
-  elem.style.opacity = '';
-  elem.style.display = 'none';
-};
-var toggle = function toggle(elem, condition, display) {
-  condition ? show(elem, display) : hide(elem);
-}; // borrowed from jquery $(elem).is(':visible') implementation
-
-var isVisible = function isVisible(elem) {
-  return !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
-};
-/* istanbul ignore next */
-
-var isScrollable = function isScrollable(elem) {
-  return !!(elem.scrollHeight > elem.clientHeight);
-}; // borrowed from https://stackoverflow.com/a/46352119
-
-var hasCssAnimation = function hasCssAnimation(elem) {
-  var style = window.getComputedStyle(elem);
-  var animDuration = parseFloat(style.getPropertyValue('animation-duration') || '0');
-  var transDuration = parseFloat(style.getPropertyValue('transition-duration') || '0');
-  return animDuration > 0 || transDuration > 0;
-};
-var contains = function contains(haystack, needle) {
-  if (typeof haystack.contains === 'function') {
-    return haystack.contains(needle);
-  }
-};
-var animateTimerProgressBar = function animateTimerProgressBar(timer) {
-  var reset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  var timerProgressBar = getTimerProgressBar();
-
-  if (isVisible(timerProgressBar)) {
-    if (reset) {
-      timerProgressBar.style.transition = 'none';
-      timerProgressBar.style.width = '100%';
+      _construct = function _construct(Parent, args, Class) {
+        var a = [null];
+        a.push.apply(a, args);
+        var Constructor = Function.bind.apply(Parent, a);
+        var instance = new Constructor();
+        if (Class) _setPrototypeOf(instance, Class.prototype);
+        return instance;
+      };
     }
 
-    setTimeout(function () {
-      timerProgressBar.style.transition = "width ".concat(timer / 1000, "s linear");
-      timerProgressBar.style.width = '0%';
-    }, 10);
-  }
-};
-var stopTimerProgressBar = function stopTimerProgressBar() {
-  var timerProgressBar = getTimerProgressBar();
-  var timerProgressBarWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
-  timerProgressBar.style.removeProperty('transition');
-  timerProgressBar.style.width = '100%';
-  var timerProgressBarFullWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
-  var timerProgressBarPercent = parseInt(timerProgressBarWidth / timerProgressBarFullWidth * 100);
-  timerProgressBar.style.removeProperty('transition');
-  timerProgressBar.style.width = "".concat(timerProgressBarPercent, "%");
-};
-
-// Detect Node env
-var isNodeEnv = function isNodeEnv() {
-  return typeof window === 'undefined' || typeof document === 'undefined';
-};
-
-var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses['html-container'], "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n </div>\n").replace(/(^|\n)\s*/g, '');
-
-var resetOldContainer = function resetOldContainer() {
-  var oldContainer = getContainer();
-
-  if (!oldContainer) {
-    return;
+    return _construct.apply(null, arguments);
   }
 
-  oldContainer.parentNode.removeChild(oldContainer);
-  removeClass([document.documentElement, document.body], [swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['has-column']]);
-};
-
-var oldInputVal; // IE11 workaround, see #1109 for details
-
-var resetValidationMessage = function resetValidationMessage(e) {
-  if (Swal.isVisible() && oldInputVal !== e.target.value) {
-    Swal.resetValidationMessage();
-  }
-
-  oldInputVal = e.target.value;
-};
-
-var addInputChangeListeners = function addInputChangeListeners() {
-  var content = getContent();
-  var input = getChildByClass(content, swalClasses.input);
-  var file = getChildByClass(content, swalClasses.file);
-  var range = content.querySelector(".".concat(swalClasses.range, " input"));
-  var rangeOutput = content.querySelector(".".concat(swalClasses.range, " output"));
-  var select = getChildByClass(content, swalClasses.select);
-  var checkbox = content.querySelector(".".concat(swalClasses.checkbox, " input"));
-  var textarea = getChildByClass(content, swalClasses.textarea);
-  input.oninput = resetValidationMessage;
-  file.onchange = resetValidationMessage;
-  select.onchange = resetValidationMessage;
-  checkbox.onchange = resetValidationMessage;
-  textarea.oninput = resetValidationMessage;
-
-  range.oninput = function (e) {
-    resetValidationMessage(e);
-    rangeOutput.value = range.value;
-  };
-
-  range.onchange = function (e) {
-    resetValidationMessage(e);
-    range.nextSibling.value = range.value;
-  };
-};
-
-var getTarget = function getTarget(target) {
-  return typeof target === 'string' ? document.querySelector(target) : target;
-};
-
-var setupAccessibility = function setupAccessibility(params) {
-  var popup = getPopup();
-  popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
-  popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
-
-  if (!params.toast) {
-    popup.setAttribute('aria-modal', 'true');
-  }
-};
-
-var setupRTL = function setupRTL(targetElement) {
-  if (window.getComputedStyle(targetElement).direction === 'rtl') {
-    addClass(getContainer(), swalClasses.rtl);
-  }
-};
-/*
- * Add modal + backdrop to DOM
- */
-
-
-var init = function init(params) {
-  // Clean up the old popup container if it exists
-  resetOldContainer();
-  /* istanbul ignore if */
-
-  if (isNodeEnv()) {
-    error('SweetAlert2 requires document to initialize');
-    return;
-  }
-
-  var container = document.createElement('div');
-  container.className = swalClasses.container;
-  container.innerHTML = sweetHTML;
-  var targetElement = getTarget(params.target);
-  targetElement.appendChild(container);
-  setupAccessibility(params);
-  setupRTL(targetElement);
-  addInputChangeListeners();
-};
-
-var parseHtmlToContainer = function parseHtmlToContainer(param, target) {
-  // DOM element
-  if (param instanceof HTMLElement) {
-    target.appendChild(param); // JQuery element(s)
-  } else if (_typeof(param) === 'object') {
-    handleJqueryElem(target, param); // Plain string
-  } else if (param) {
-    target.innerHTML = param;
-  }
-};
-
-var handleJqueryElem = function handleJqueryElem(target, elem) {
-  target.innerHTML = '';
-
-  if (0 in elem) {
-    for (var i = 0; i in elem; i++) {
-      target.appendChild(elem[i].cloneNode(true));
-    }
-  } else {
-    target.appendChild(elem.cloneNode(true));
-  }
-};
-
-var animationEndEvent = function () {
-  // Prevent run in Node env
-
-  /* istanbul ignore if */
-  if (isNodeEnv()) {
-    return false;
-  }
-
-  var testEl = document.createElement('div');
-  var transEndEventNames = {
-    WebkitAnimation: 'webkitAnimationEnd',
-    OAnimation: 'oAnimationEnd oanimationend',
-    animation: 'animationend'
-  };
-
-  for (var i in transEndEventNames) {
-    if (Object.prototype.hasOwnProperty.call(transEndEventNames, i) && typeof testEl.style[i] !== 'undefined') {
-      return transEndEventNames[i];
-    }
-  }
-
-  return false;
-}();
-
-// https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
-
-var measureScrollbar = function measureScrollbar() {
-  var scrollDiv = document.createElement('div');
-  scrollDiv.className = swalClasses['scrollbar-measure'];
-  document.body.appendChild(scrollDiv);
-  var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
-  document.body.removeChild(scrollDiv);
-  return scrollbarWidth;
-};
-
-var renderActions = function renderActions(instance, params) {
-  var actions = getActions();
-  var confirmButton = getConfirmButton();
-  var cancelButton = getCancelButton(); // Actions (buttons) wrapper
-
-  if (!params.showConfirmButton && !params.showCancelButton) {
-    hide(actions);
-  } // Custom class
-
-
-  applyCustomClass(actions, params, 'actions'); // Render confirm button
-
-  renderButton(confirmButton, 'confirm', params); // render Cancel Button
-
-  renderButton(cancelButton, 'cancel', params);
-
-  if (params.buttonsStyling) {
-    handleButtonsStyling(confirmButton, cancelButton, params);
-  } else {
-    removeClass([confirmButton, cancelButton], swalClasses.styled);
-    confirmButton.style.backgroundColor = confirmButton.style.borderLeftColor = confirmButton.style.borderRightColor = '';
-    cancelButton.style.backgroundColor = cancelButton.style.borderLeftColor = cancelButton.style.borderRightColor = '';
-  }
-
-  if (params.reverseButtons) {
-    confirmButton.parentNode.insertBefore(cancelButton, confirmButton);
-  }
-};
-
-function handleButtonsStyling(confirmButton, cancelButton, params) {
-  addClass([confirmButton, cancelButton], swalClasses.styled); // Buttons background colors
-
-  if (params.confirmButtonColor) {
-    confirmButton.style.backgroundColor = params.confirmButtonColor;
-  }
-
-  if (params.cancelButtonColor) {
-    cancelButton.style.backgroundColor = params.cancelButtonColor;
-  } // Loading state
-
-
-  var confirmButtonBackgroundColor = window.getComputedStyle(confirmButton).getPropertyValue('background-color');
-  confirmButton.style.borderLeftColor = confirmButtonBackgroundColor;
-  confirmButton.style.borderRightColor = confirmButtonBackgroundColor;
-}
-
-function renderButton(button, buttonType, params) {
-  toggle(button, params["show".concat(capitalizeFirstLetter(buttonType), "Button")], 'inline-block');
-  button.innerHTML = params["".concat(buttonType, "ButtonText")]; // Set caption text
-
-  button.setAttribute('aria-label', params["".concat(buttonType, "ButtonAriaLabel")]); // ARIA label
-  // Add buttons custom classes
-
-  button.className = swalClasses[buttonType];
-  applyCustomClass(button, params, "".concat(buttonType, "Button"));
-  addClass(button, params["".concat(buttonType, "ButtonClass")]);
-}
-
-function handleBackdropParam(container, backdrop) {
-  if (typeof backdrop === 'string') {
-    container.style.background = backdrop;
-  } else if (!backdrop) {
-    addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
-  }
-}
-
-function handlePositionParam(container, position) {
-  if (position in swalClasses) {
-    addClass(container, swalClasses[position]);
-  } else {
-    warn('The "position" parameter is not valid, defaulting to "center"');
-    addClass(container, swalClasses.center);
-  }
-}
-
-function handleGrowParam(container, grow) {
-  if (grow && typeof grow === 'string') {
-    var growClass = "grow-".concat(grow);
-
-    if (growClass in swalClasses) {
-      addClass(container, swalClasses[growClass]);
-    }
-  }
-}
-
-var renderContainer = function renderContainer(instance, params) {
-  var container = getContainer();
-
-  if (!container) {
-    return;
-  }
-
-  handleBackdropParam(container, params.backdrop);
-
-  if (!params.backdrop && params.allowOutsideClick) {
-    warn('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`');
-  }
-
-  handlePositionParam(container, params.position);
-  handleGrowParam(container, params.grow); // Custom class
-
-  applyCustomClass(container, params, 'container'); // Set queue step attribute for getQueueStep() method
-
-  var queueStep = document.body.getAttribute('data-swal2-queue-step');
-
-  if (queueStep) {
-    container.setAttribute('data-queue-step', queueStep);
-    document.body.removeAttribute('data-swal2-queue-step');
-  }
-};
-
-/**
- * This module containts `WeakMap`s for each effectively-"private  property" that a `Swal` has.
- * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
- * This is the approach that Babel will probably take to implement private methods/fields
- *   https://github.com/tc39/proposal-private-methods
- *   https://github.com/babel/babel/pull/7555
- * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
- *   then we can use that language feature.
- */
-var privateProps = {
-  promise: new WeakMap(),
-  innerParams: new WeakMap(),
-  domCache: new WeakMap()
-};
-
-var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
-var renderInput = function renderInput(instance, params) {
-  var content = getContent();
-  var innerParams = privateProps.innerParams.get(instance);
-  var rerender = !innerParams || params.input !== innerParams.input;
-  inputTypes.forEach(function (inputType) {
-    var inputClass = swalClasses[inputType];
-    var inputContainer = getChildByClass(content, inputClass); // set attributes
-
-    setAttributes(inputType, params.inputAttributes); // set class
-
-    inputContainer.className = inputClass;
-
-    if (rerender) {
-      hide(inputContainer);
-    }
-  });
-
-  if (params.input) {
-    if (rerender) {
-      showInput(params);
-    } // set custom class
-
-
-    setCustomClass(params);
-  }
-};
-
-var showInput = function showInput(params) {
-  if (!renderInputType[params.input]) {
-    return error("Unexpected type of input! Expected \"text\", \"email\", \"password\", \"number\", \"tel\", \"select\", \"radio\", \"checkbox\", \"textarea\", \"file\" or \"url\", got \"".concat(params.input, "\""));
-  }
-
-  var inputContainer = getInputContainer(params.input);
-  var input = renderInputType[params.input](inputContainer, params);
-  show(input); // input autofocus
-
-  setTimeout(function () {
-    focusInput(input);
-  });
-};
-
-var removeAttributes = function removeAttributes(input) {
-  for (var i = 0; i < input.attributes.length; i++) {
-    var attrName = input.attributes[i].name;
-
-    if (!(['type', 'value', 'style'].indexOf(attrName) !== -1)) {
-      input.removeAttribute(attrName);
-    }
-  }
-};
-
-var setAttributes = function setAttributes(inputType, inputAttributes) {
-  var input = getInput(getContent(), inputType);
-
-  if (!input) {
-    return;
-  }
-
-  removeAttributes(input);
-
-  for (var attr in inputAttributes) {
-    // Do not set a placeholder for <input type="range">
-    // it'll crash Edge, #1298
-    if (inputType === 'range' && attr === 'placeholder') {
-      continue;
+  function _assertThisInitialized(self) {
+    if (self === void 0) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
     }
 
-    input.setAttribute(attr, inputAttributes[attr]);
-  }
-};
-
-var setCustomClass = function setCustomClass(params) {
-  var inputContainer = getInputContainer(params.input);
-
-  if (params.customClass) {
-    addClass(inputContainer, params.customClass.input);
-  }
-};
-
-var setInputPlaceholder = function setInputPlaceholder(input, params) {
-  if (!input.placeholder || params.inputPlaceholder) {
-    input.placeholder = params.inputPlaceholder;
-  }
-};
-
-var getInputContainer = function getInputContainer(inputType) {
-  var inputClass = swalClasses[inputType] ? swalClasses[inputType] : swalClasses.input;
-  return getChildByClass(getContent(), inputClass);
-};
-
-var renderInputType = {};
-
-renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = function (input, params) {
-  if (typeof params.inputValue === 'string' || typeof params.inputValue === 'number') {
-    input.value = params.inputValue;
-  } else if (!isPromise(params.inputValue)) {
-    warn("Unexpected type of inputValue! Expected \"string\", \"number\" or \"Promise\", got \"".concat(_typeof(params.inputValue), "\""));
+    return self;
   }
 
-  setInputPlaceholder(input, params);
-  input.type = params.input;
-  return input;
-};
+  function _possibleConstructorReturn(self, call) {
+    if (call && (typeof call === "object" || typeof call === "function")) {
+      return call;
+    }
 
-renderInputType.file = function (input, params) {
-  setInputPlaceholder(input, params);
-  return input;
-};
-
-renderInputType.range = function (range, params) {
-  var rangeInput = range.querySelector('input');
-  var rangeOutput = range.querySelector('output');
-  rangeInput.value = params.inputValue;
-  rangeInput.type = params.input;
-  rangeOutput.value = params.inputValue;
-  return range;
-};
-
-renderInputType.select = function (select, params) {
-  select.innerHTML = '';
-
-  if (params.inputPlaceholder) {
-    var placeholder = document.createElement('option');
-    placeholder.innerHTML = params.inputPlaceholder;
-    placeholder.value = '';
-    placeholder.disabled = true;
-    placeholder.selected = true;
-    select.appendChild(placeholder);
+    return _assertThisInitialized(self);
   }
 
-  return select;
-};
+  function _createSuper(Derived) {
+    return function () {
+      var Super = _getPrototypeOf(Derived),
+          result;
 
-renderInputType.radio = function (radio) {
-  radio.innerHTML = '';
-  return radio;
-};
+      if (_isNativeReflectConstruct()) {
+        var NewTarget = _getPrototypeOf(this).constructor;
 
-renderInputType.checkbox = function (checkboxContainer, params) {
-  var checkbox = getInput(getContent(), 'checkbox');
-  checkbox.value = 1;
-  checkbox.id = swalClasses.checkbox;
-  checkbox.checked = Boolean(params.inputValue);
-  var label = checkboxContainer.querySelector('span');
-  label.innerHTML = params.inputPlaceholder;
-  return checkboxContainer;
-};
-
-renderInputType.textarea = function (textarea, params) {
-  textarea.value = params.inputValue;
-  setInputPlaceholder(textarea, params);
-
-  if ('MutationObserver' in window) {
-    // #1699
-    var initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
-    var popupPadding = parseInt(window.getComputedStyle(getPopup()).paddingLeft) + parseInt(window.getComputedStyle(getPopup()).paddingRight);
-
-    var outputsize = function outputsize() {
-      var contentWidth = textarea.offsetWidth + popupPadding;
-
-      if (contentWidth > initialPopupWidth) {
-        getPopup().style.width = "".concat(contentWidth, "px");
+        result = Reflect.construct(Super, arguments, NewTarget);
       } else {
-        getPopup().style.width = null;
+        result = Super.apply(this, arguments);
       }
+
+      return _possibleConstructorReturn(this, result);
+    };
+  }
+
+  function _superPropBase(object, property) {
+    while (!Object.prototype.hasOwnProperty.call(object, property)) {
+      object = _getPrototypeOf(object);
+      if (object === null) break;
+    }
+
+    return object;
+  }
+
+  function _get(target, property, receiver) {
+    if (typeof Reflect !== "undefined" && Reflect.get) {
+      _get = Reflect.get;
+    } else {
+      _get = function _get(target, property, receiver) {
+        var base = _superPropBase(target, property);
+
+        if (!base) return;
+        var desc = Object.getOwnPropertyDescriptor(base, property);
+
+        if (desc.get) {
+          return desc.get.call(receiver);
+        }
+
+        return desc.value;
+      };
+    }
+
+    return _get(target, property, receiver || target);
+  }
+
+  var consolePrefix = 'SweetAlert2:';
+  /**
+   * Filter the unique values into a new array
+   * @param arr
+   */
+
+  var uniqueArray = function uniqueArray(arr) {
+    var result = [];
+
+    for (var i = 0; i < arr.length; i++) {
+      if (result.indexOf(arr[i]) === -1) {
+        result.push(arr[i]);
+      }
+    }
+
+    return result;
+  };
+  /**
+   * Capitalize the first letter of a string
+   * @param str
+   */
+
+  var capitalizeFirstLetter = function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+  /**
+   * Returns the array ob object values (Object.values isn't supported in IE11)
+   * @param obj
+   */
+
+  var objectValues = function objectValues(obj) {
+    return Object.keys(obj).map(function (key) {
+      return obj[key];
+    });
+  };
+  /**
+   * Convert NodeList to Array
+   * @param nodeList
+   */
+
+  var toArray = function toArray(nodeList) {
+    return Array.prototype.slice.call(nodeList);
+  };
+  /**
+   * Standardise console warnings
+   * @param message
+   */
+
+  var warn = function warn(message) {
+    console.warn("".concat(consolePrefix, " ").concat(message));
+  };
+  /**
+   * Standardise console errors
+   * @param message
+   */
+
+  var error = function error(message) {
+    console.error("".concat(consolePrefix, " ").concat(message));
+  };
+  /**
+   * Private global state for `warnOnce`
+   * @type {Array}
+   * @private
+   */
+
+  var previousWarnOnceMessages = [];
+  /**
+   * Show a console warning, but only if it hasn't already been shown
+   * @param message
+   */
+
+  var warnOnce = function warnOnce(message) {
+    if (!(previousWarnOnceMessages.indexOf(message) !== -1)) {
+      previousWarnOnceMessages.push(message);
+      warn(message);
+    }
+  };
+  /**
+   * Show a one-time console warning about deprecated params/methods
+   */
+
+  var warnAboutDepreation = function warnAboutDepreation(deprecatedParam, useInstead) {
+    warnOnce("\"".concat(deprecatedParam, "\" is deprecated and will be removed in the next major release. Please use \"").concat(useInstead, "\" instead."));
+  };
+  /**
+   * If `arg` is a function, call it (with no arguments or context) and return the result.
+   * Otherwise, just pass the value through
+   * @param arg
+   */
+
+  var callIfFunction = function callIfFunction(arg) {
+    return typeof arg === 'function' ? arg() : arg;
+  };
+  var isPromise = function isPromise(arg) {
+    return arg && Promise.resolve(arg) === arg;
+  };
+
+  var DismissReason = Object.freeze({
+    cancel: 'cancel',
+    backdrop: 'backdrop',
+    close: 'close',
+    esc: 'esc',
+    timer: 'timer'
+  });
+
+  var isJqueryElement = function isJqueryElement(elem) {
+    return _typeof(elem) === 'object' && elem.jquery;
+  };
+
+  var isElement = function isElement(elem) {
+    return elem instanceof Element || isJqueryElement(elem);
+  };
+
+  var argsToParams = function argsToParams(args) {
+    var params = {};
+
+    if (_typeof(args[0]) === 'object' && !isElement(args[0])) {
+      _extends(params, args[0]);
+    } else {
+      ['title', 'html', 'icon'].forEach(function (name, index) {
+        var arg = args[index];
+
+        if (typeof arg === 'string' || isElement(arg)) {
+          params[name] = arg;
+        } else if (arg !== undefined) {
+          error("Unexpected type of ".concat(name, "! Expected \"string\" or \"Element\", got ").concat(_typeof(arg)));
+        }
+      });
+    }
+
+    return params;
+  };
+
+  var swalPrefix = 'swal2-';
+  var prefix = function prefix(items) {
+    var result = {};
+
+    for (var i in items) {
+      result[items[i]] = swalPrefix + items[i];
+    }
+
+    return result;
+  };
+  var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error']);
+  var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
+
+  var getContainer = function getContainer() {
+    return document.body.querySelector(".".concat(swalClasses.container));
+  };
+  var elementBySelector = function elementBySelector(selectorString) {
+    var container = getContainer();
+    return container ? container.querySelector(selectorString) : null;
+  };
+
+  var elementByClass = function elementByClass(className) {
+    return elementBySelector(".".concat(className));
+  };
+
+  var getPopup = function getPopup() {
+    return elementByClass(swalClasses.popup);
+  };
+  var getIcons = function getIcons() {
+    var popup = getPopup();
+    return toArray(popup.querySelectorAll(".".concat(swalClasses.icon)));
+  };
+  var getIcon = function getIcon() {
+    var visibleIcon = getIcons().filter(function (icon) {
+      return isVisible(icon);
+    });
+    return visibleIcon.length ? visibleIcon[0] : null;
+  };
+  var getTitle = function getTitle() {
+    return elementByClass(swalClasses.title);
+  };
+  var getContent = function getContent() {
+    return elementByClass(swalClasses.content);
+  };
+  var getHtmlContainer = function getHtmlContainer() {
+    return elementByClass(swalClasses['html-container']);
+  };
+  var getImage = function getImage() {
+    return elementByClass(swalClasses.image);
+  };
+  var getProgressSteps = function getProgressSteps() {
+    return elementByClass(swalClasses['progress-steps']);
+  };
+  var getValidationMessage = function getValidationMessage() {
+    return elementByClass(swalClasses['validation-message']);
+  };
+  var getConfirmButton = function getConfirmButton() {
+    return elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm));
+  };
+  var getCancelButton = function getCancelButton() {
+    return elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel));
+  };
+  var getActions = function getActions() {
+    return elementByClass(swalClasses.actions);
+  };
+  var getHeader = function getHeader() {
+    return elementByClass(swalClasses.header);
+  };
+  var getFooter = function getFooter() {
+    return elementByClass(swalClasses.footer);
+  };
+  var getTimerProgressBar = function getTimerProgressBar() {
+    return elementByClass(swalClasses['timer-progress-bar']);
+  };
+  var getCloseButton = function getCloseButton() {
+    return elementByClass(swalClasses.close);
+  }; // https://github.com/jkup/focusable/blob/master/index.js
+
+  var focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
+  var getFocusableElements = function getFocusableElements() {
+    var focusableElementsWithTabindex = toArray(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])')) // sort according to tabindex
+    .sort(function (a, b) {
+      a = parseInt(a.getAttribute('tabindex'));
+      b = parseInt(b.getAttribute('tabindex'));
+
+      if (a > b) {
+        return 1;
+      } else if (a < b) {
+        return -1;
+      }
+
+      return 0;
+    });
+    var otherFocusableElements = toArray(getPopup().querySelectorAll(focusable)).filter(function (el) {
+      return el.getAttribute('tabindex') !== '-1';
+    });
+    return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(function (el) {
+      return isVisible(el);
+    });
+  };
+  var isModal = function isModal() {
+    return !isToast() && !document.body.classList.contains(swalClasses['no-backdrop']);
+  };
+  var isToast = function isToast() {
+    return document.body.classList.contains(swalClasses['toast-shown']);
+  };
+  var isLoading = function isLoading() {
+    return getPopup().hasAttribute('data-loading');
+  };
+
+  var states = {
+    previousBodyPadding: null
+  };
+  var setInnerHtml = function setInnerHtml(elem, html) {
+    // #1926
+    elem.textContent = '';
+
+    if (html) {
+      var parser = new DOMParser();
+      var parsed = parser.parseFromString(html, "text/html");
+      toArray(parsed.querySelector('head').childNodes).forEach(function (child) {
+        elem.appendChild(child);
+      });
+      toArray(parsed.querySelector('body').childNodes).forEach(function (child) {
+        elem.appendChild(child);
+      });
+    }
+  };
+  var hasClass = function hasClass(elem, className) {
+    if (!className) {
+      return false;
+    }
+
+    var classList = className.split(/\s+/);
+
+    for (var i = 0; i < classList.length; i++) {
+      if (!elem.classList.contains(classList[i])) {
+        return false;
+      }
+    }
+
+    return true;
+  };
+
+  var removeCustomClasses = function removeCustomClasses(elem, params) {
+    toArray(elem.classList).forEach(function (className) {
+      if (!(objectValues(swalClasses).indexOf(className) !== -1) && !(objectValues(iconTypes).indexOf(className) !== -1) && !(objectValues(params.showClass).indexOf(className) !== -1)) {
+        elem.classList.remove(className);
+      }
+    });
+  };
+
+  var applyCustomClass = function applyCustomClass(elem, params, className) {
+    removeCustomClasses(elem, params);
+
+    if (params.customClass && params.customClass[className]) {
+      if (typeof params.customClass[className] !== 'string' && !params.customClass[className].forEach) {
+        return warn("Invalid type of customClass.".concat(className, "! Expected string or iterable object, got \"").concat(_typeof(params.customClass[className]), "\""));
+      }
+
+      addClass(elem, params.customClass[className]);
+    }
+  };
+  function getInput(content, inputType) {
+    if (!inputType) {
+      return null;
+    }
+
+    switch (inputType) {
+      case 'select':
+      case 'textarea':
+      case 'file':
+        return getChildByClass(content, swalClasses[inputType]);
+
+      case 'checkbox':
+        return content.querySelector(".".concat(swalClasses.checkbox, " input"));
+
+      case 'radio':
+        return content.querySelector(".".concat(swalClasses.radio, " input:checked")) || content.querySelector(".".concat(swalClasses.radio, " input:first-child"));
+
+      case 'range':
+        return content.querySelector(".".concat(swalClasses.range, " input"));
+
+      default:
+        return getChildByClass(content, swalClasses.input);
+    }
+  }
+  var focusInput = function focusInput(input) {
+    input.focus(); // place cursor at end of text in text input
+
+    if (input.type !== 'file') {
+      // http://stackoverflow.com/a/2345915
+      var val = input.value;
+      input.value = '';
+      input.value = val;
+    }
+  };
+  var toggleClass = function toggleClass(target, classList, condition) {
+    if (!target || !classList) {
+      return;
+    }
+
+    if (typeof classList === 'string') {
+      classList = classList.split(/\s+/).filter(Boolean);
+    }
+
+    classList.forEach(function (className) {
+      if (target.forEach) {
+        target.forEach(function (elem) {
+          condition ? elem.classList.add(className) : elem.classList.remove(className);
+        });
+      } else {
+        condition ? target.classList.add(className) : target.classList.remove(className);
+      }
+    });
+  };
+  var addClass = function addClass(target, classList) {
+    toggleClass(target, classList, true);
+  };
+  var removeClass = function removeClass(target, classList) {
+    toggleClass(target, classList, false);
+  };
+  var getChildByClass = function getChildByClass(elem, className) {
+    for (var i = 0; i < elem.childNodes.length; i++) {
+      if (hasClass(elem.childNodes[i], className)) {
+        return elem.childNodes[i];
+      }
+    }
+  };
+  var applyNumericalStyle = function applyNumericalStyle(elem, property, value) {
+    if (value || parseInt(value) === 0) {
+      elem.style[property] = typeof value === 'number' ? "".concat(value, "px") : value;
+    } else {
+      elem.style.removeProperty(property);
+    }
+  };
+  var show = function show(elem) {
+    var display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'flex';
+    elem.style.opacity = '';
+    elem.style.display = display;
+  };
+  var hide = function hide(elem) {
+    elem.style.opacity = '';
+    elem.style.display = 'none';
+  };
+  var toggle = function toggle(elem, condition, display) {
+    condition ? show(elem, display) : hide(elem);
+  }; // borrowed from jquery $(elem).is(':visible') implementation
+
+  var isVisible = function isVisible(elem) {
+    return !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
+  };
+  /* istanbul ignore next */
+
+  var isScrollable = function isScrollable(elem) {
+    return !!(elem.scrollHeight > elem.clientHeight);
+  }; // borrowed from https://stackoverflow.com/a/46352119
+
+  var hasCssAnimation = function hasCssAnimation(elem) {
+    var style = window.getComputedStyle(elem);
+    var animDuration = parseFloat(style.getPropertyValue('animation-duration') || '0');
+    var transDuration = parseFloat(style.getPropertyValue('transition-duration') || '0');
+    return animDuration > 0 || transDuration > 0;
+  };
+  var contains = function contains(haystack, needle) {
+    if (typeof haystack.contains === 'function') {
+      return haystack.contains(needle);
+    }
+  };
+  var animateTimerProgressBar = function animateTimerProgressBar(timer) {
+    var reset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var timerProgressBar = getTimerProgressBar();
+
+    if (isVisible(timerProgressBar)) {
+      if (reset) {
+        timerProgressBar.style.transition = 'none';
+        timerProgressBar.style.width = '100%';
+      }
+
+      setTimeout(function () {
+        timerProgressBar.style.transition = "width ".concat(timer / 1000, "s linear");
+        timerProgressBar.style.width = '0%';
+      }, 10);
+    }
+  };
+  var stopTimerProgressBar = function stopTimerProgressBar() {
+    var timerProgressBar = getTimerProgressBar();
+    var timerProgressBarWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
+    timerProgressBar.style.removeProperty('transition');
+    timerProgressBar.style.width = '100%';
+    var timerProgressBarFullWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
+    var timerProgressBarPercent = parseInt(timerProgressBarWidth / timerProgressBarFullWidth * 100);
+    timerProgressBar.style.removeProperty('transition');
+    timerProgressBar.style.width = "".concat(timerProgressBarPercent, "%");
+  };
+
+  // Detect Node env
+  var isNodeEnv = function isNodeEnv() {
+    return typeof window === 'undefined' || typeof document === 'undefined';
+  };
+
+  var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses['html-container'], "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar-container'], "\">\n     <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n   </div>\n </div>\n").replace(/(^|\n)\s*/g, '');
+
+  var resetOldContainer = function resetOldContainer() {
+    var oldContainer = getContainer();
+
+    if (!oldContainer) {
+      return false;
+    }
+
+    oldContainer.parentNode.removeChild(oldContainer);
+    removeClass([document.documentElement, document.body], [swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['has-column']]);
+    return true;
+  };
+
+  var oldInputVal; // IE11 workaround, see #1109 for details
+
+  var resetValidationMessage = function resetValidationMessage(e) {
+    if (Swal.isVisible() && oldInputVal !== e.target.value) {
+      Swal.resetValidationMessage();
+    }
+
+    oldInputVal = e.target.value;
+  };
+
+  var addInputChangeListeners = function addInputChangeListeners() {
+    var content = getContent();
+    var input = getChildByClass(content, swalClasses.input);
+    var file = getChildByClass(content, swalClasses.file);
+    var range = content.querySelector(".".concat(swalClasses.range, " input"));
+    var rangeOutput = content.querySelector(".".concat(swalClasses.range, " output"));
+    var select = getChildByClass(content, swalClasses.select);
+    var checkbox = content.querySelector(".".concat(swalClasses.checkbox, " input"));
+    var textarea = getChildByClass(content, swalClasses.textarea);
+    input.oninput = resetValidationMessage;
+    file.onchange = resetValidationMessage;
+    select.onchange = resetValidationMessage;
+    checkbox.onchange = resetValidationMessage;
+    textarea.oninput = resetValidationMessage;
+
+    range.oninput = function (e) {
+      resetValidationMessage(e);
+      rangeOutput.value = range.value;
     };
 
-    new MutationObserver(outputsize).observe(textarea, {
-      attributes: true,
-      attributeFilter: ['style']
+    range.onchange = function (e) {
+      resetValidationMessage(e);
+      range.nextSibling.value = range.value;
+    };
+  };
+
+  var getTarget = function getTarget(target) {
+    return typeof target === 'string' ? document.querySelector(target) : target;
+  };
+
+  var setupAccessibility = function setupAccessibility(params) {
+    var popup = getPopup();
+    popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
+    popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
+
+    if (!params.toast) {
+      popup.setAttribute('aria-modal', 'true');
+    }
+  };
+
+  var setupRTL = function setupRTL(targetElement) {
+    if (window.getComputedStyle(targetElement).direction === 'rtl') {
+      addClass(getContainer(), swalClasses.rtl);
+    }
+  };
+  /*
+   * Add modal + backdrop to DOM
+   */
+
+
+  var init = function init(params) {
+    // Clean up the old popup container if it exists
+    var oldContainerExisted = resetOldContainer();
+    /* istanbul ignore if */
+
+    if (isNodeEnv()) {
+      error('SweetAlert2 requires document to initialize');
+      return;
+    }
+
+    var container = document.createElement('div');
+    container.className = swalClasses.container;
+
+    if (oldContainerExisted) {
+      addClass(container, swalClasses['no-transition']);
+    }
+
+    setInnerHtml(container, sweetHTML);
+    var targetElement = getTarget(params.target);
+    targetElement.appendChild(container);
+    setupAccessibility(params);
+    setupRTL(targetElement);
+    addInputChangeListeners();
+  };
+
+  var parseHtmlToContainer = function parseHtmlToContainer(param, target) {
+    // DOM element
+    if (param instanceof HTMLElement) {
+      target.appendChild(param); // Object
+    } else if (_typeof(param) === 'object') {
+      handleObject(param, target); // Plain string
+    } else if (param) {
+      setInnerHtml(target, param);
+    }
+  };
+
+  var handleObject = function handleObject(param, target) {
+    // JQuery element(s)
+    if (param.jquery) {
+      handleJqueryElem(target, param); // For other objects use their string representation
+    } else {
+      setInnerHtml(target, param.toString());
+    }
+  };
+
+  var handleJqueryElem = function handleJqueryElem(target, elem) {
+    target.textContent = '';
+
+    if (0 in elem) {
+      for (var i = 0; (i in elem); i++) {
+        target.appendChild(elem[i].cloneNode(true));
+      }
+    } else {
+      target.appendChild(elem.cloneNode(true));
+    }
+  };
+
+  var animationEndEvent = function () {
+    // Prevent run in Node env
+
+    /* istanbul ignore if */
+    if (isNodeEnv()) {
+      return false;
+    }
+
+    var testEl = document.createElement('div');
+    var transEndEventNames = {
+      WebkitAnimation: 'webkitAnimationEnd',
+      OAnimation: 'oAnimationEnd oanimationend',
+      animation: 'animationend'
+    };
+
+    for (var i in transEndEventNames) {
+      if (Object.prototype.hasOwnProperty.call(transEndEventNames, i) && typeof testEl.style[i] !== 'undefined') {
+        return transEndEventNames[i];
+      }
+    }
+
+    return false;
+  }();
+
+  // https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
+
+  var measureScrollbar = function measureScrollbar() {
+    var scrollDiv = document.createElement('div');
+    scrollDiv.className = swalClasses['scrollbar-measure'];
+    document.body.appendChild(scrollDiv);
+    var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
+  };
+
+  var renderActions = function renderActions(instance, params) {
+    var actions = getActions();
+    var confirmButton = getConfirmButton();
+    var cancelButton = getCancelButton(); // Actions (buttons) wrapper
+
+    if (!params.showConfirmButton && !params.showCancelButton) {
+      hide(actions);
+    } // Custom class
+
+
+    applyCustomClass(actions, params, 'actions'); // Render confirm button
+
+    renderButton(confirmButton, 'confirm', params); // render Cancel Button
+
+    renderButton(cancelButton, 'cancel', params);
+
+    if (params.buttonsStyling) {
+      handleButtonsStyling(confirmButton, cancelButton, params);
+    } else {
+      removeClass([confirmButton, cancelButton], swalClasses.styled);
+      confirmButton.style.backgroundColor = confirmButton.style.borderLeftColor = confirmButton.style.borderRightColor = '';
+      cancelButton.style.backgroundColor = cancelButton.style.borderLeftColor = cancelButton.style.borderRightColor = '';
+    }
+
+    if (params.reverseButtons) {
+      confirmButton.parentNode.insertBefore(cancelButton, confirmButton);
+    }
+  };
+
+  function handleButtonsStyling(confirmButton, cancelButton, params) {
+    addClass([confirmButton, cancelButton], swalClasses.styled); // Buttons background colors
+
+    if (params.confirmButtonColor) {
+      confirmButton.style.backgroundColor = params.confirmButtonColor;
+    }
+
+    if (params.cancelButtonColor) {
+      cancelButton.style.backgroundColor = params.cancelButtonColor;
+    } // Loading state
+
+
+    var confirmButtonBackgroundColor = window.getComputedStyle(confirmButton).getPropertyValue('background-color');
+    confirmButton.style.borderLeftColor = confirmButtonBackgroundColor;
+    confirmButton.style.borderRightColor = confirmButtonBackgroundColor;
+  }
+
+  function renderButton(button, buttonType, params) {
+    toggle(button, params["show".concat(capitalizeFirstLetter(buttonType), "Button")], 'inline-block');
+    setInnerHtml(button, params["".concat(buttonType, "ButtonText")]); // Set caption text
+
+    button.setAttribute('aria-label', params["".concat(buttonType, "ButtonAriaLabel")]); // ARIA label
+    // Add buttons custom classes
+
+    button.className = swalClasses[buttonType];
+    applyCustomClass(button, params, "".concat(buttonType, "Button"));
+    addClass(button, params["".concat(buttonType, "ButtonClass")]);
+  }
+
+  function handleBackdropParam(container, backdrop) {
+    if (typeof backdrop === 'string') {
+      container.style.background = backdrop;
+    } else if (!backdrop) {
+      addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
+    }
+  }
+
+  function handlePositionParam(container, position) {
+    if (position in swalClasses) {
+      addClass(container, swalClasses[position]);
+    } else {
+      warn('The "position" parameter is not valid, defaulting to "center"');
+      addClass(container, swalClasses.center);
+    }
+  }
+
+  function handleGrowParam(container, grow) {
+    if (grow && typeof grow === 'string') {
+      var growClass = "grow-".concat(grow);
+
+      if (growClass in swalClasses) {
+        addClass(container, swalClasses[growClass]);
+      }
+    }
+  }
+
+  var renderContainer = function renderContainer(instance, params) {
+    var container = getContainer();
+
+    if (!container) {
+      return;
+    }
+
+    handleBackdropParam(container, params.backdrop);
+
+    if (!params.backdrop && params.allowOutsideClick) {
+      warn('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`');
+    }
+
+    handlePositionParam(container, params.position);
+    handleGrowParam(container, params.grow); // Custom class
+
+    applyCustomClass(container, params, 'container'); // Set queue step attribute for getQueueStep() method
+
+    var queueStep = document.body.getAttribute('data-swal2-queue-step');
+
+    if (queueStep) {
+      container.setAttribute('data-queue-step', queueStep);
+      document.body.removeAttribute('data-swal2-queue-step');
+    }
+  };
+
+  /**
+   * This module containts `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+  var privateProps = {
+    promise: new WeakMap(),
+    innerParams: new WeakMap(),
+    domCache: new WeakMap()
+  };
+
+  var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
+  var renderInput = function renderInput(instance, params) {
+    var content = getContent();
+    var innerParams = privateProps.innerParams.get(instance);
+    var rerender = !innerParams || params.input !== innerParams.input;
+    inputTypes.forEach(function (inputType) {
+      var inputClass = swalClasses[inputType];
+      var inputContainer = getChildByClass(content, inputClass); // set attributes
+
+      setAttributes(inputType, params.inputAttributes); // set class
+
+      inputContainer.className = inputClass;
+
+      if (rerender) {
+        hide(inputContainer);
+      }
+    });
+
+    if (params.input) {
+      if (rerender) {
+        showInput(params);
+      } // set custom class
+
+
+      setCustomClass(params);
+    }
+  };
+
+  var showInput = function showInput(params) {
+    if (!renderInputType[params.input]) {
+      return error("Unexpected type of input! Expected \"text\", \"email\", \"password\", \"number\", \"tel\", \"select\", \"radio\", \"checkbox\", \"textarea\", \"file\" or \"url\", got \"".concat(params.input, "\""));
+    }
+
+    var inputContainer = getInputContainer(params.input);
+    var input = renderInputType[params.input](inputContainer, params);
+    show(input); // input autofocus
+
+    setTimeout(function () {
+      focusInput(input);
+    });
+  };
+
+  var removeAttributes = function removeAttributes(input) {
+    for (var i = 0; i < input.attributes.length; i++) {
+      var attrName = input.attributes[i].name;
+
+      if (!(['type', 'value', 'style'].indexOf(attrName) !== -1)) {
+        input.removeAttribute(attrName);
+      }
+    }
+  };
+
+  var setAttributes = function setAttributes(inputType, inputAttributes) {
+    var input = getInput(getContent(), inputType);
+
+    if (!input) {
+      return;
+    }
+
+    removeAttributes(input);
+
+    for (var attr in inputAttributes) {
+      // Do not set a placeholder for <input type="range">
+      // it'll crash Edge, #1298
+      if (inputType === 'range' && attr === 'placeholder') {
+        continue;
+      }
+
+      input.setAttribute(attr, inputAttributes[attr]);
+    }
+  };
+
+  var setCustomClass = function setCustomClass(params) {
+    var inputContainer = getInputContainer(params.input);
+
+    if (params.customClass) {
+      addClass(inputContainer, params.customClass.input);
+    }
+  };
+
+  var setInputPlaceholder = function setInputPlaceholder(input, params) {
+    if (!input.placeholder || params.inputPlaceholder) {
+      input.placeholder = params.inputPlaceholder;
+    }
+  };
+
+  var getInputContainer = function getInputContainer(inputType) {
+    var inputClass = swalClasses[inputType] ? swalClasses[inputType] : swalClasses.input;
+    return getChildByClass(getContent(), inputClass);
+  };
+
+  var renderInputType = {};
+
+  renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = function (input, params) {
+    if (typeof params.inputValue === 'string' || typeof params.inputValue === 'number') {
+      input.value = params.inputValue;
+    } else if (!isPromise(params.inputValue)) {
+      warn("Unexpected type of inputValue! Expected \"string\", \"number\" or \"Promise\", got \"".concat(_typeof(params.inputValue), "\""));
+    }
+
+    setInputPlaceholder(input, params);
+    input.type = params.input;
+    return input;
+  };
+
+  renderInputType.file = function (input, params) {
+    setInputPlaceholder(input, params);
+    return input;
+  };
+
+  renderInputType.range = function (range, params) {
+    var rangeInput = range.querySelector('input');
+    var rangeOutput = range.querySelector('output');
+    rangeInput.value = params.inputValue;
+    rangeInput.type = params.input;
+    rangeOutput.value = params.inputValue;
+    return range;
+  };
+
+  renderInputType.select = function (select, params) {
+    select.textContent = '';
+
+    if (params.inputPlaceholder) {
+      var placeholder = document.createElement('option');
+      setInnerHtml(placeholder, params.inputPlaceholder);
+      placeholder.value = '';
+      placeholder.disabled = true;
+      placeholder.selected = true;
+      select.appendChild(placeholder);
+    }
+
+    return select;
+  };
+
+  renderInputType.radio = function (radio) {
+    radio.textContent = '';
+    return radio;
+  };
+
+  renderInputType.checkbox = function (checkboxContainer, params) {
+    var checkbox = getInput(getContent(), 'checkbox');
+    checkbox.value = 1;
+    checkbox.id = swalClasses.checkbox;
+    checkbox.checked = Boolean(params.inputValue);
+    var label = checkboxContainer.querySelector('span');
+    setInnerHtml(label, params.inputPlaceholder);
+    return checkboxContainer;
+  };
+
+  renderInputType.textarea = function (textarea, params) {
+    textarea.value = params.inputValue;
+    setInputPlaceholder(textarea, params);
+
+    if ('MutationObserver' in window) {
+      // #1699
+      var initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
+      var popupPadding = parseInt(window.getComputedStyle(getPopup()).paddingLeft) + parseInt(window.getComputedStyle(getPopup()).paddingRight);
+
+      var outputsize = function outputsize() {
+        var contentWidth = textarea.offsetWidth + popupPadding;
+
+        if (contentWidth > initialPopupWidth) {
+          getPopup().style.width = "".concat(contentWidth, "px");
+        } else {
+          getPopup().style.width = null;
+        }
+      };
+
+      new MutationObserver(outputsize).observe(textarea, {
+        attributes: true,
+        attributeFilter: ['style']
+      });
+    }
+
+    return textarea;
+  };
+
+  var renderContent = function renderContent(instance, params) {
+    var content = getContent().querySelector("#".concat(swalClasses.content)); // Content as HTML
+
+    if (params.html) {
+      parseHtmlToContainer(params.html, content);
+      show(content, 'block'); // Content as plain text
+    } else if (params.text) {
+      content.textContent = params.text;
+      show(content, 'block'); // No content
+    } else {
+      hide(content);
+    }
+
+    renderInput(instance, params); // Custom class
+
+    applyCustomClass(getContent(), params, 'content');
+  };
+
+  var renderFooter = function renderFooter(instance, params) {
+    var footer = getFooter();
+    toggle(footer, params.footer);
+
+    if (params.footer) {
+      parseHtmlToContainer(params.footer, footer);
+    } // Custom class
+
+
+    applyCustomClass(footer, params, 'footer');
+  };
+
+  var renderCloseButton = function renderCloseButton(instance, params) {
+    var closeButton = getCloseButton();
+    setInnerHtml(closeButton, params.closeButtonHtml); // Custom class
+
+    applyCustomClass(closeButton, params, 'closeButton');
+    toggle(closeButton, params.showCloseButton);
+    closeButton.setAttribute('aria-label', params.closeButtonAriaLabel);
+  };
+
+  var renderIcon = function renderIcon(instance, params) {
+    var innerParams = privateProps.innerParams.get(instance); // if the give icon already rendered, apply the custom class without re-rendering the icon
+
+    if (innerParams && params.icon === innerParams.icon && getIcon()) {
+      applyCustomClass(getIcon(), params, 'icon');
+      return;
+    }
+
+    hideAllIcons();
+
+    if (!params.icon) {
+      return;
+    }
+
+    if (Object.keys(iconTypes).indexOf(params.icon) !== -1) {
+      var icon = elementBySelector(".".concat(swalClasses.icon, ".").concat(iconTypes[params.icon]));
+      show(icon); // Custom or default content
+
+      setContent(icon, params);
+      adjustSuccessIconBackgoundColor(); // Custom class
+
+      applyCustomClass(icon, params, 'icon'); // Animate icon
+
+      addClass(icon, params.showClass.icon);
+    } else {
+      error("Unknown icon! Expected \"success\", \"error\", \"warning\", \"info\" or \"question\", got \"".concat(params.icon, "\""));
+    }
+  };
+
+  var hideAllIcons = function hideAllIcons() {
+    var icons = getIcons();
+
+    for (var i = 0; i < icons.length; i++) {
+      hide(icons[i]);
+    }
+  }; // Adjust success icon background color to match the popup background color
+
+
+  var adjustSuccessIconBackgoundColor = function adjustSuccessIconBackgoundColor() {
+    var popup = getPopup();
+    var popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
+    var successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
+
+    for (var i = 0; i < successIconParts.length; i++) {
+      successIconParts[i].style.backgroundColor = popupBackgroundColor;
+    }
+  };
+
+  var setContent = function setContent(icon, params) {
+    icon.textContent = '';
+
+    if (params.iconHtml) {
+      setInnerHtml(icon, iconContent(params.iconHtml));
+    } else if (params.icon === 'success') {
+      setInnerHtml(icon, "\n      <div class=\"swal2-success-circular-line-left\"></div>\n      <span class=\"swal2-success-line-tip\"></span> <span class=\"swal2-success-line-long\"></span>\n      <div class=\"swal2-success-ring\"></div> <div class=\"swal2-success-fix\"></div>\n      <div class=\"swal2-success-circular-line-right\"></div>\n    ");
+    } else if (params.icon === 'error') {
+      setInnerHtml(icon, "\n      <span class=\"swal2-x-mark\">\n        <span class=\"swal2-x-mark-line-left\"></span>\n        <span class=\"swal2-x-mark-line-right\"></span>\n      </span>\n    ");
+    } else {
+      var defaultIconHtml = {
+        question: '?',
+        warning: '!',
+        info: 'i'
+      };
+      setInnerHtml(icon, iconContent(defaultIconHtml[params.icon]));
+    }
+  };
+
+  var iconContent = function iconContent(content) {
+    return "<div class=\"".concat(swalClasses['icon-content'], "\">").concat(content, "</div>");
+  };
+
+  var renderImage = function renderImage(instance, params) {
+    var image = getImage();
+
+    if (!params.imageUrl) {
+      return hide(image);
+    }
+
+    show(image); // Src, alt
+
+    image.setAttribute('src', params.imageUrl);
+    image.setAttribute('alt', params.imageAlt); // Width, height
+
+    applyNumericalStyle(image, 'width', params.imageWidth);
+    applyNumericalStyle(image, 'height', params.imageHeight); // Class
+
+    image.className = swalClasses.image;
+    applyCustomClass(image, params, 'image');
+  };
+
+  var currentSteps = [];
+  /*
+   * Global function for chaining sweetAlert popups
+   */
+
+  var queue = function queue(steps) {
+    var Swal = this;
+    currentSteps = steps;
+
+    var resetAndResolve = function resetAndResolve(resolve, value) {
+      currentSteps = [];
+      resolve(value);
+    };
+
+    var queueResult = [];
+    return new Promise(function (resolve) {
+      (function step(i, callback) {
+        if (i < currentSteps.length) {
+          document.body.setAttribute('data-swal2-queue-step', i);
+          Swal.fire(currentSteps[i]).then(function (result) {
+            if (typeof result.value !== 'undefined') {
+              queueResult.push(result.value);
+              step(i + 1, callback);
+            } else {
+              resetAndResolve(resolve, {
+                dismiss: result.dismiss
+              });
+            }
+          });
+        } else {
+          resetAndResolve(resolve, {
+            value: queueResult
+          });
+        }
+      })(0);
+    });
+  };
+  /*
+   * Global function for getting the index of current popup in queue
+   */
+
+  var getQueueStep = function getQueueStep() {
+    return getContainer() && getContainer().getAttribute('data-queue-step');
+  };
+  /*
+   * Global function for inserting a popup to the queue
+   */
+
+  var insertQueueStep = function insertQueueStep(step, index) {
+    if (index && index < currentSteps.length) {
+      return currentSteps.splice(index, 0, step);
+    }
+
+    return currentSteps.push(step);
+  };
+  /*
+   * Global function for deleting a popup from the queue
+   */
+
+  var deleteQueueStep = function deleteQueueStep(index) {
+    if (typeof currentSteps[index] !== 'undefined') {
+      currentSteps.splice(index, 1);
+    }
+  };
+
+  var createStepElement = function createStepElement(step) {
+    var stepEl = document.createElement('li');
+    addClass(stepEl, swalClasses['progress-step']);
+    setInnerHtml(stepEl, step);
+    return stepEl;
+  };
+
+  var createLineElement = function createLineElement(params) {
+    var lineEl = document.createElement('li');
+    addClass(lineEl, swalClasses['progress-step-line']);
+
+    if (params.progressStepsDistance) {
+      lineEl.style.width = params.progressStepsDistance;
+    }
+
+    return lineEl;
+  };
+
+  var renderProgressSteps = function renderProgressSteps(instance, params) {
+    var progressStepsContainer = getProgressSteps();
+
+    if (!params.progressSteps || params.progressSteps.length === 0) {
+      return hide(progressStepsContainer);
+    }
+
+    show(progressStepsContainer);
+    progressStepsContainer.textContent = '';
+    var currentProgressStep = parseInt(params.currentProgressStep === undefined ? getQueueStep() : params.currentProgressStep);
+
+    if (currentProgressStep >= params.progressSteps.length) {
+      warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
+    }
+
+    params.progressSteps.forEach(function (step, index) {
+      var stepEl = createStepElement(step);
+      progressStepsContainer.appendChild(stepEl);
+
+      if (index === currentProgressStep) {
+        addClass(stepEl, swalClasses['active-progress-step']);
+      }
+
+      if (index !== params.progressSteps.length - 1) {
+        var lineEl = createLineElement(step);
+        progressStepsContainer.appendChild(lineEl);
+      }
+    });
+  };
+
+  var renderTitle = function renderTitle(instance, params) {
+    var title = getTitle();
+    toggle(title, params.title || params.titleText);
+
+    if (params.title) {
+      parseHtmlToContainer(params.title, title);
+    }
+
+    if (params.titleText) {
+      title.innerText = params.titleText;
+    } // Custom class
+
+
+    applyCustomClass(title, params, 'title');
+  };
+
+  var renderHeader = function renderHeader(instance, params) {
+    var header = getHeader(); // Custom class
+
+    applyCustomClass(header, params, 'header'); // Progress steps
+
+    renderProgressSteps(instance, params); // Icon
+
+    renderIcon(instance, params); // Image
+
+    renderImage(instance, params); // Title
+
+    renderTitle(instance, params); // Close button
+
+    renderCloseButton(instance, params);
+  };
+
+  var renderPopup = function renderPopup(instance, params) {
+    var popup = getPopup(); // Width
+
+    applyNumericalStyle(popup, 'width', params.width); // Padding
+
+    applyNumericalStyle(popup, 'padding', params.padding); // Background
+
+    if (params.background) {
+      popup.style.background = params.background;
+    } // Classes
+
+
+    addClasses(popup, params);
+  };
+
+  var addClasses = function addClasses(popup, params) {
+    // Default Class + showClass when updating Swal.update({})
+    popup.className = "".concat(swalClasses.popup, " ").concat(isVisible(popup) ? params.showClass.popup : '');
+
+    if (params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['toast-shown']);
+      addClass(popup, swalClasses.toast);
+    } else {
+      addClass(popup, swalClasses.modal);
+    } // Custom class
+
+
+    applyCustomClass(popup, params, 'popup');
+
+    if (typeof params.customClass === 'string') {
+      addClass(popup, params.customClass);
+    } // Icon class (#1842)
+
+
+    if (params.icon) {
+      addClass(popup, swalClasses["icon-".concat(params.icon)]);
+    }
+  };
+
+  var render = function render(instance, params) {
+    renderPopup(instance, params);
+    renderContainer(instance, params);
+    renderHeader(instance, params);
+    renderContent(instance, params);
+    renderActions(instance, params);
+    renderFooter(instance, params);
+
+    if (typeof params.onRender === 'function') {
+      params.onRender(getPopup());
+    }
+  };
+
+  /*
+   * Global function to determine if SweetAlert2 popup is shown
+   */
+
+  var isVisible$1 = function isVisible$$1() {
+    return isVisible(getPopup());
+  };
+  /*
+   * Global function to click 'Confirm' button
+   */
+
+  var clickConfirm = function clickConfirm() {
+    return getConfirmButton() && getConfirmButton().click();
+  };
+  /*
+   * Global function to click 'Cancel' button
+   */
+
+  var clickCancel = function clickCancel() {
+    return getCancelButton() && getCancelButton().click();
+  };
+
+  function fire() {
+    var Swal = this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _construct(Swal, args);
+  }
+
+  /**
+   * Returns an extended version of `Swal` containing `params` as defaults.
+   * Useful for reusing Swal configuration.
+   *
+   * For example:
+   *
+   * Before:
+   * const textPromptOptions = { input: 'text', showCancelButton: true }
+   * const {value: firstName} = await Swal.fire({ ...textPromptOptions, title: 'What is your first name?' })
+   * const {value: lastName} = await Swal.fire({ ...textPromptOptions, title: 'What is your last name?' })
+   *
+   * After:
+   * const TextPrompt = Swal.mixin({ input: 'text', showCancelButton: true })
+   * const {value: firstName} = await TextPrompt('What is your first name?')
+   * const {value: lastName} = await TextPrompt('What is your last name?')
+   *
+   * @param mixinParams
+   */
+  function mixin(mixinParams) {
+    var MixinSwal = /*#__PURE__*/function (_this) {
+      _inherits(MixinSwal, _this);
+
+      var _super = _createSuper(MixinSwal);
+
+      function MixinSwal() {
+        _classCallCheck(this, MixinSwal);
+
+        return _super.apply(this, arguments);
+      }
+
+      _createClass(MixinSwal, [{
+        key: "_main",
+        value: function _main(params) {
+          return _get(_getPrototypeOf(MixinSwal.prototype), "_main", this).call(this, _extends({}, mixinParams, params));
+        }
+      }]);
+
+      return MixinSwal;
+    }(this);
+
+    return MixinSwal;
+  }
+
+  /**
+   * Show spinner instead of Confirm button
+   */
+
+  var showLoading = function showLoading() {
+    var popup = getPopup();
+
+    if (!popup) {
+      Swal.fire();
+    }
+
+    popup = getPopup();
+    var actions = getActions();
+    var confirmButton = getConfirmButton();
+    show(actions);
+    show(confirmButton, 'inline-block');
+    addClass([popup, actions], swalClasses.loading);
+    confirmButton.disabled = true;
+    popup.setAttribute('data-loading', true);
+    popup.setAttribute('aria-busy', true);
+    popup.focus();
+  };
+
+  var RESTORE_FOCUS_TIMEOUT = 100;
+
+  var globalState = {};
+
+  var focusPreviousActiveElement = function focusPreviousActiveElement() {
+    if (globalState.previousActiveElement && globalState.previousActiveElement.focus) {
+      globalState.previousActiveElement.focus();
+      globalState.previousActiveElement = null;
+    } else if (document.body) {
+      document.body.focus();
+    }
+  }; // Restore previous active (focused) element
+
+
+  var restoreActiveElement = function restoreActiveElement() {
+    return new Promise(function (resolve) {
+      var x = window.scrollX;
+      var y = window.scrollY;
+      globalState.restoreFocusTimeout = setTimeout(function () {
+        focusPreviousActiveElement();
+        resolve();
+      }, RESTORE_FOCUS_TIMEOUT); // issues/900
+
+      /* istanbul ignore if */
+
+      if (typeof x !== 'undefined' && typeof y !== 'undefined') {
+        // IE doesn't have scrollX/scrollY support
+        window.scrollTo(x, y);
+      }
+    });
+  };
+
+  /**
+   * If `timer` parameter is set, returns number of milliseconds of timer remained.
+   * Otherwise, returns undefined.
+   */
+
+  var getTimerLeft = function getTimerLeft() {
+    return globalState.timeout && globalState.timeout.getTimerLeft();
+  };
+  /**
+   * Stop timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   */
+
+  var stopTimer = function stopTimer() {
+    if (globalState.timeout) {
+      stopTimerProgressBar();
+      return globalState.timeout.stop();
+    }
+  };
+  /**
+   * Resume timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   */
+
+  var resumeTimer = function resumeTimer() {
+    if (globalState.timeout) {
+      var remaining = globalState.timeout.start();
+      animateTimerProgressBar(remaining);
+      return remaining;
+    }
+  };
+  /**
+   * Resume timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   */
+
+  var toggleTimer = function toggleTimer() {
+    var timer = globalState.timeout;
+    return timer && (timer.running ? stopTimer() : resumeTimer());
+  };
+  /**
+   * Increase timer. Returns number of milliseconds of an updated timer.
+   * If `timer` parameter isn't set, returns undefined.
+   */
+
+  var increaseTimer = function increaseTimer(n) {
+    if (globalState.timeout) {
+      var remaining = globalState.timeout.increase(n);
+      animateTimerProgressBar(remaining, true);
+      return remaining;
+    }
+  };
+  /**
+   * Check if timer is running. Returns true if timer is running
+   * or false if timer is paused or stopped.
+   * If `timer` parameter isn't set, returns undefined
+   */
+
+  var isTimerRunning = function isTimerRunning() {
+    return globalState.timeout && globalState.timeout.isRunning();
+  };
+
+  var defaultParams = {
+    title: '',
+    titleText: '',
+    text: '',
+    html: '',
+    footer: '',
+    icon: undefined,
+    iconHtml: undefined,
+    toast: false,
+    animation: true,
+    showClass: {
+      popup: 'swal2-show',
+      backdrop: 'swal2-backdrop-show',
+      icon: 'swal2-icon-show'
+    },
+    hideClass: {
+      popup: 'swal2-hide',
+      backdrop: 'swal2-backdrop-hide',
+      icon: 'swal2-icon-hide'
+    },
+    customClass: undefined,
+    target: 'body',
+    backdrop: true,
+    heightAuto: true,
+    allowOutsideClick: true,
+    allowEscapeKey: true,
+    allowEnterKey: true,
+    stopKeydownPropagation: true,
+    keydownListenerCapture: false,
+    showConfirmButton: true,
+    showCancelButton: false,
+    preConfirm: undefined,
+    confirmButtonText: 'OK',
+    confirmButtonAriaLabel: '',
+    confirmButtonColor: undefined,
+    cancelButtonText: 'Cancel',
+    cancelButtonAriaLabel: '',
+    cancelButtonColor: undefined,
+    buttonsStyling: true,
+    reverseButtons: false,
+    focusConfirm: true,
+    focusCancel: false,
+    showCloseButton: false,
+    closeButtonHtml: '&times;',
+    closeButtonAriaLabel: 'Close this dialog',
+    showLoaderOnConfirm: false,
+    imageUrl: undefined,
+    imageWidth: undefined,
+    imageHeight: undefined,
+    imageAlt: '',
+    timer: undefined,
+    timerProgressBar: false,
+    width: undefined,
+    padding: undefined,
+    background: undefined,
+    input: undefined,
+    inputPlaceholder: '',
+    inputValue: '',
+    inputOptions: {},
+    inputAutoTrim: true,
+    inputAttributes: {},
+    inputValidator: undefined,
+    validationMessage: undefined,
+    grow: false,
+    position: 'center',
+    progressSteps: [],
+    currentProgressStep: undefined,
+    progressStepsDistance: undefined,
+    onBeforeOpen: undefined,
+    onOpen: undefined,
+    onRender: undefined,
+    onClose: undefined,
+    onAfterClose: undefined,
+    onDestroy: undefined,
+    scrollbarPadding: true
+  };
+  var updatableParams = ['title', 'titleText', 'text', 'html', 'icon', 'hideClass', 'customClass', 'allowOutsideClick', 'allowEscapeKey', 'showConfirmButton', 'showCancelButton', 'confirmButtonText', 'confirmButtonAriaLabel', 'confirmButtonColor', 'cancelButtonText', 'cancelButtonAriaLabel', 'cancelButtonColor', 'buttonsStyling', 'reverseButtons', 'imageUrl', 'imageWidth', 'imageHeight', 'imageAlt', 'progressSteps', 'currentProgressStep'];
+  var deprecatedParams = {
+    animation: 'showClass" and "hideClass'
+  };
+  var toastIncompatibleParams = ['allowOutsideClick', 'allowEnterKey', 'backdrop', 'focusConfirm', 'focusCancel', 'heightAuto', 'keydownListenerCapture'];
+  /**
+   * Is valid parameter
+   * @param {String} paramName
+   */
+
+  var isValidParameter = function isValidParameter(paramName) {
+    return Object.prototype.hasOwnProperty.call(defaultParams, paramName);
+  };
+  /**
+   * Is valid parameter for Swal.update() method
+   * @param {String} paramName
+   */
+
+  var isUpdatableParameter = function isUpdatableParameter(paramName) {
+    return updatableParams.indexOf(paramName) !== -1;
+  };
+  /**
+   * Is deprecated parameter
+   * @param {String} paramName
+   */
+
+  var isDeprecatedParameter = function isDeprecatedParameter(paramName) {
+    return deprecatedParams[paramName];
+  };
+
+  var checkIfParamIsValid = function checkIfParamIsValid(param) {
+    if (!isValidParameter(param)) {
+      warn("Unknown parameter \"".concat(param, "\""));
+    }
+  };
+
+  var checkIfToastParamIsValid = function checkIfToastParamIsValid(param) {
+    if (toastIncompatibleParams.indexOf(param) !== -1) {
+      warn("The parameter \"".concat(param, "\" is incompatible with toasts"));
+    }
+  };
+
+  var checkIfParamIsDeprecated = function checkIfParamIsDeprecated(param) {
+    if (isDeprecatedParameter(param)) {
+      warnAboutDepreation(param, isDeprecatedParameter(param));
+    }
+  };
+  /**
+   * Show relevant warnings for given params
+   *
+   * @param params
+   */
+
+
+  var showWarningsForParams = function showWarningsForParams(params) {
+    for (var param in params) {
+      checkIfParamIsValid(param);
+
+      if (params.toast) {
+        checkIfToastParamIsValid(param);
+      }
+
+      checkIfParamIsDeprecated(param);
+    }
+  };
+
+
+
+  var staticMethods = /*#__PURE__*/Object.freeze({
+    isValidParameter: isValidParameter,
+    isUpdatableParameter: isUpdatableParameter,
+    isDeprecatedParameter: isDeprecatedParameter,
+    argsToParams: argsToParams,
+    isVisible: isVisible$1,
+    clickConfirm: clickConfirm,
+    clickCancel: clickCancel,
+    getContainer: getContainer,
+    getPopup: getPopup,
+    getTitle: getTitle,
+    getContent: getContent,
+    getHtmlContainer: getHtmlContainer,
+    getImage: getImage,
+    getIcon: getIcon,
+    getIcons: getIcons,
+    getCloseButton: getCloseButton,
+    getActions: getActions,
+    getConfirmButton: getConfirmButton,
+    getCancelButton: getCancelButton,
+    getHeader: getHeader,
+    getFooter: getFooter,
+    getTimerProgressBar: getTimerProgressBar,
+    getFocusableElements: getFocusableElements,
+    getValidationMessage: getValidationMessage,
+    isLoading: isLoading,
+    fire: fire,
+    mixin: mixin,
+    queue: queue,
+    getQueueStep: getQueueStep,
+    insertQueueStep: insertQueueStep,
+    deleteQueueStep: deleteQueueStep,
+    showLoading: showLoading,
+    enableLoading: showLoading,
+    getTimerLeft: getTimerLeft,
+    stopTimer: stopTimer,
+    resumeTimer: resumeTimer,
+    toggleTimer: toggleTimer,
+    increaseTimer: increaseTimer,
+    isTimerRunning: isTimerRunning
+  });
+
+  /**
+   * Enables buttons and hide loader.
+   */
+
+  function hideLoading() {
+    // do nothing if popup is closed
+    var innerParams = privateProps.innerParams.get(this);
+
+    if (!innerParams) {
+      return;
+    }
+
+    var domCache = privateProps.domCache.get(this);
+
+    if (!innerParams.showConfirmButton) {
+      hide(domCache.confirmButton);
+
+      if (!innerParams.showCancelButton) {
+        hide(domCache.actions);
+      }
+    }
+
+    removeClass([domCache.popup, domCache.actions], swalClasses.loading);
+    domCache.popup.removeAttribute('aria-busy');
+    domCache.popup.removeAttribute('data-loading');
+    domCache.confirmButton.disabled = false;
+    domCache.cancelButton.disabled = false;
+  }
+
+  function getInput$1(instance) {
+    var innerParams = privateProps.innerParams.get(instance || this);
+    var domCache = privateProps.domCache.get(instance || this);
+
+    if (!domCache) {
+      return null;
+    }
+
+    return getInput(domCache.content, innerParams.input);
+  }
+
+  var fixScrollbar = function fixScrollbar() {
+    // for queues, do not do this more than once
+    if (states.previousBodyPadding !== null) {
+      return;
+    } // if the body has overflow
+
+
+    if (document.body.scrollHeight > window.innerHeight) {
+      // add padding so the content doesn't shift after removal of scrollbar
+      states.previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
+      document.body.style.paddingRight = "".concat(states.previousBodyPadding + measureScrollbar(), "px");
+    }
+  };
+  var undoScrollbar = function undoScrollbar() {
+    if (states.previousBodyPadding !== null) {
+      document.body.style.paddingRight = "".concat(states.previousBodyPadding, "px");
+      states.previousBodyPadding = null;
+    }
+  };
+
+  /* istanbul ignore file */
+
+  var iOSfix = function iOSfix() {
+    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+
+    if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
+      var offset = document.body.scrollTop;
+      document.body.style.top = "".concat(offset * -1, "px");
+      addClass(document.body, swalClasses.iosfix);
+      lockBodyScroll();
+    }
+  };
+
+  var lockBodyScroll = function lockBodyScroll() {
+    // #1246
+    var container = getContainer();
+    var preventTouchMove;
+
+    container.ontouchstart = function (e) {
+      preventTouchMove = shouldPreventTouchMove(e.target);
+    };
+
+    container.ontouchmove = function (e) {
+      if (preventTouchMove) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+  };
+
+  var shouldPreventTouchMove = function shouldPreventTouchMove(target) {
+    var container = getContainer();
+
+    if (target === container) {
+      return true;
+    }
+
+    if (!isScrollable(container) && target.tagName !== 'INPUT' && // #1603
+    !(isScrollable(getContent()) && // #1944
+    getContent().contains(target))) {
+      return true;
+    }
+
+    return false;
+  };
+
+  var undoIOSfix = function undoIOSfix() {
+    if (hasClass(document.body, swalClasses.iosfix)) {
+      var offset = parseInt(document.body.style.top, 10);
+      removeClass(document.body, swalClasses.iosfix);
+      document.body.style.top = '';
+      document.body.scrollTop = offset * -1;
+    }
+  };
+
+  /* istanbul ignore file */
+
+  var isIE11 = function isIE11() {
+    return !!window.MSInputMethodContext && !!document.documentMode;
+  }; // Fix IE11 centering sweetalert2/issues/933
+
+
+  var fixVerticalPositionIE = function fixVerticalPositionIE() {
+    var container = getContainer();
+    var popup = getPopup();
+    container.style.removeProperty('align-items');
+
+    if (popup.offsetTop < 0) {
+      container.style.alignItems = 'flex-start';
+    }
+  };
+
+  var IEfix = function IEfix() {
+    if (typeof window !== 'undefined' && isIE11()) {
+      fixVerticalPositionIE();
+      window.addEventListener('resize', fixVerticalPositionIE);
+    }
+  };
+  var undoIEfix = function undoIEfix() {
+    if (typeof window !== 'undefined' && isIE11()) {
+      window.removeEventListener('resize', fixVerticalPositionIE);
+    }
+  };
+
+  // Adding aria-hidden="true" to elements outside of the active modal dialog ensures that
+  // elements not within the active modal dialog will not be surfaced if a user opens a screen
+  // reader’s list of elements (headings, form controls, landmarks, etc.) in the document.
+
+  var setAriaHidden = function setAriaHidden() {
+    var bodyChildren = toArray(document.body.children);
+    bodyChildren.forEach(function (el) {
+      if (el === getContainer() || contains(el, getContainer())) {
+        return;
+      }
+
+      if (el.hasAttribute('aria-hidden')) {
+        el.setAttribute('data-previous-aria-hidden', el.getAttribute('aria-hidden'));
+      }
+
+      el.setAttribute('aria-hidden', 'true');
+    });
+  };
+  var unsetAriaHidden = function unsetAriaHidden() {
+    var bodyChildren = toArray(document.body.children);
+    bodyChildren.forEach(function (el) {
+      if (el.hasAttribute('data-previous-aria-hidden')) {
+        el.setAttribute('aria-hidden', el.getAttribute('data-previous-aria-hidden'));
+        el.removeAttribute('data-previous-aria-hidden');
+      } else {
+        el.removeAttribute('aria-hidden');
+      }
+    });
+  };
+
+  /**
+   * This module containts `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+  var privateMethods = {
+    swalPromiseResolve: new WeakMap()
+  };
+
+  /*
+   * Instance method to close sweetAlert
+   */
+
+  function removePopupAndResetState(instance, container, isToast$$1, onAfterClose) {
+    if (isToast$$1) {
+      triggerOnAfterCloseAndDispose(instance, onAfterClose);
+    } else {
+      restoreActiveElement().then(function () {
+        return triggerOnAfterCloseAndDispose(instance, onAfterClose);
+      });
+      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = false;
+    }
+
+    if (container.parentNode && !document.body.getAttribute('data-swal2-queue-step')) {
+      container.parentNode.removeChild(container);
+    }
+
+    if (isModal()) {
+      undoScrollbar();
+      undoIOSfix();
+      undoIEfix();
+      unsetAriaHidden();
+    }
+
+    removeBodyClasses();
+  }
+
+  function removeBodyClasses() {
+    removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['toast-column']]);
+  }
+
+  function close(resolveValue) {
+    var popup = getPopup();
+
+    if (!popup) {
+      return;
+    }
+
+    var innerParams = privateProps.innerParams.get(this);
+
+    if (!innerParams || hasClass(popup, innerParams.hideClass.popup)) {
+      return;
+    }
+
+    var swalPromiseResolve = privateMethods.swalPromiseResolve.get(this);
+    removeClass(popup, innerParams.showClass.popup);
+    addClass(popup, innerParams.hideClass.popup);
+    var backdrop = getContainer();
+    removeClass(backdrop, innerParams.showClass.backdrop);
+    addClass(backdrop, innerParams.hideClass.backdrop);
+    handlePopupAnimation(this, popup, innerParams); // Resolve Swal promise
+
+    swalPromiseResolve(resolveValue || {});
+  }
+
+  var handlePopupAnimation = function handlePopupAnimation(instance, popup, innerParams) {
+    var container = getContainer(); // If animation is supported, animate
+
+    var animationIsSupported = animationEndEvent && hasCssAnimation(popup);
+    var onClose = innerParams.onClose,
+        onAfterClose = innerParams.onAfterClose;
+
+    if (onClose !== null && typeof onClose === 'function') {
+      onClose(popup);
+    }
+
+    if (animationIsSupported) {
+      animatePopup(instance, popup, container, onAfterClose);
+    } else {
+      // Otherwise, remove immediately
+      removePopupAndResetState(instance, container, isToast(), onAfterClose);
+    }
+  };
+
+  var animatePopup = function animatePopup(instance, popup, container, onAfterClose) {
+    globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, isToast(), onAfterClose);
+    popup.addEventListener(animationEndEvent, function (e) {
+      if (e.target === popup) {
+        globalState.swalCloseEventFinishedCallback();
+        delete globalState.swalCloseEventFinishedCallback;
+      }
+    });
+  };
+
+  var triggerOnAfterCloseAndDispose = function triggerOnAfterCloseAndDispose(instance, onAfterClose) {
+    setTimeout(function () {
+      if (typeof onAfterClose === 'function') {
+        onAfterClose();
+      }
+
+      instance._destroy();
+    });
+  };
+
+  function setButtonsDisabled(instance, buttons, disabled) {
+    var domCache = privateProps.domCache.get(instance);
+    buttons.forEach(function (button) {
+      domCache[button].disabled = disabled;
     });
   }
 
-  return textarea;
-};
+  function setInputDisabled(input, disabled) {
+    if (!input) {
+      return false;
+    }
 
-var renderContent = function renderContent(instance, params) {
-  var content = getContent().querySelector("#".concat(swalClasses.content)); // Content as HTML
+    if (input.type === 'radio') {
+      var radiosContainer = input.parentNode.parentNode;
+      var radios = radiosContainer.querySelectorAll('input');
 
-  if (params.html) {
-    parseHtmlToContainer(params.html, content);
-    show(content, 'block'); // Content as plain text
-  } else if (params.text) {
-    content.textContent = params.text;
-    show(content, 'block'); // No content
-  } else {
-    hide(content);
-  }
-
-  renderInput(instance, params); // Custom class
-
-  applyCustomClass(getContent(), params, 'content');
-};
-
-var renderFooter = function renderFooter(instance, params) {
-  var footer = getFooter();
-  toggle(footer, params.footer);
-
-  if (params.footer) {
-    parseHtmlToContainer(params.footer, footer);
-  } // Custom class
-
-
-  applyCustomClass(footer, params, 'footer');
-};
-
-var renderCloseButton = function renderCloseButton(instance, params) {
-  var closeButton = getCloseButton();
-  closeButton.innerHTML = params.closeButtonHtml; // Custom class
-
-  applyCustomClass(closeButton, params, 'closeButton');
-  toggle(closeButton, params.showCloseButton);
-  closeButton.setAttribute('aria-label', params.closeButtonAriaLabel);
-};
-
-var renderIcon = function renderIcon(instance, params) {
-  var innerParams = privateProps.innerParams.get(instance); // if the give icon already rendered, apply the custom class without re-rendering the icon
-
-  if (innerParams && params.icon === innerParams.icon && getIcon()) {
-    applyCustomClass(getIcon(), params, 'icon');
-    return;
-  }
-
-  hideAllIcons();
-
-  if (!params.icon) {
-    return;
-  }
-
-  if (Object.keys(iconTypes).indexOf(params.icon) !== -1) {
-    var icon = elementBySelector(".".concat(swalClasses.icon, ".").concat(iconTypes[params.icon]));
-    show(icon); // Custom or default content
-
-    setContent(icon, params);
-    adjustSuccessIconBackgoundColor(); // Custom class
-
-    applyCustomClass(icon, params, 'icon'); // Animate icon
-
-    addClass(icon, params.showClass.icon);
-  } else {
-    error("Unknown icon! Expected \"success\", \"error\", \"warning\", \"info\" or \"question\", got \"".concat(params.icon, "\""));
-  }
-};
-
-var hideAllIcons = function hideAllIcons() {
-  var icons = getIcons();
-
-  for (var i = 0; i < icons.length; i++) {
-    hide(icons[i]);
-  }
-}; // Adjust success icon background color to match the popup background color
-
-
-var adjustSuccessIconBackgoundColor = function adjustSuccessIconBackgoundColor() {
-  var popup = getPopup();
-  var popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
-  var successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
-
-  for (var i = 0; i < successIconParts.length; i++) {
-    successIconParts[i].style.backgroundColor = popupBackgroundColor;
-  }
-};
-
-var setContent = function setContent(icon, params) {
-  icon.innerHTML = '';
-
-  if (params.iconHtml) {
-    icon.innerHTML = iconContent(params.iconHtml);
-  } else if (params.icon === 'success') {
-    icon.innerHTML = "\n      <div class=\"swal2-success-circular-line-left\"></div>\n      <span class=\"swal2-success-line-tip\"></span> <span class=\"swal2-success-line-long\"></span>\n      <div class=\"swal2-success-ring\"></div> <div class=\"swal2-success-fix\"></div>\n      <div class=\"swal2-success-circular-line-right\"></div>\n    ";
-  } else if (params.icon === 'error') {
-    icon.innerHTML = "\n      <span class=\"swal2-x-mark\">\n        <span class=\"swal2-x-mark-line-left\"></span>\n        <span class=\"swal2-x-mark-line-right\"></span>\n      </span>\n    ";
-  } else {
-    var defaultIconHtml = {
-      question: '?',
-      warning: '!',
-      info: 'i'
-    };
-    icon.innerHTML = iconContent(defaultIconHtml[params.icon]);
-  }
-};
-
-var iconContent = function iconContent(content) {
-  return "<div class=\"".concat(swalClasses['icon-content'], "\">").concat(content, "</div>");
-};
-
-var renderImage = function renderImage(instance, params) {
-  var image = getImage();
-
-  if (!params.imageUrl) {
-    return hide(image);
-  }
-
-  show(image); // Src, alt
-
-  image.setAttribute('src', params.imageUrl);
-  image.setAttribute('alt', params.imageAlt); // Width, height
-
-  applyNumericalStyle(image, 'width', params.imageWidth);
-  applyNumericalStyle(image, 'height', params.imageHeight); // Class
-
-  image.className = swalClasses.image;
-  applyCustomClass(image, params, 'image');
-};
-
-var currentSteps = [];
-/*
- * Global function for chaining sweetAlert popups
- */
-
-var queue = function queue(steps) {
-  var Swal = this;
-  currentSteps = steps;
-
-  var resetAndResolve = function resetAndResolve(resolve, value) {
-    currentSteps = [];
-    resolve(value);
-  };
-
-  var queueResult = [];
-  return new Promise(function (resolve) {
-    (function step(i, callback) {
-      if (i < currentSteps.length) {
-        document.body.setAttribute('data-swal2-queue-step', i);
-        Swal.fire(currentSteps[i]).then(function (result) {
-          if (typeof result.value !== 'undefined') {
-            queueResult.push(result.value);
-            step(i + 1, callback);
-          } else {
-            resetAndResolve(resolve, {
-              dismiss: result.dismiss
-            });
-          }
-        });
-      } else {
-        resetAndResolve(resolve, {
-          value: queueResult
-        });
+      for (var i = 0; i < radios.length; i++) {
+        radios[i].disabled = disabled;
       }
-    })(0);
-  });
-};
-/*
- * Global function for getting the index of current popup in queue
- */
-
-var getQueueStep = function getQueueStep() {
-  return getContainer().getAttribute('data-queue-step');
-};
-/*
- * Global function for inserting a popup to the queue
- */
-
-var insertQueueStep = function insertQueueStep(step, index) {
-  if (index && index < currentSteps.length) {
-    return currentSteps.splice(index, 0, step);
+    } else {
+      input.disabled = disabled;
+    }
   }
 
-  return currentSteps.push(step);
-};
-/*
- * Global function for deleting a popup from the queue
- */
-
-var deleteQueueStep = function deleteQueueStep(index) {
-  if (typeof currentSteps[index] !== 'undefined') {
-    currentSteps.splice(index, 1);
+  function enableButtons() {
+    setButtonsDisabled(this, ['confirmButton', 'cancelButton'], false);
   }
-};
-
-var createStepElement = function createStepElement(step) {
-  var stepEl = document.createElement('li');
-  addClass(stepEl, swalClasses['progress-step']);
-  stepEl.innerHTML = step;
-  return stepEl;
-};
-
-var createLineElement = function createLineElement(params) {
-  var lineEl = document.createElement('li');
-  addClass(lineEl, swalClasses['progress-step-line']);
-
-  if (params.progressStepsDistance) {
-    lineEl.style.width = params.progressStepsDistance;
+  function disableButtons() {
+    setButtonsDisabled(this, ['confirmButton', 'cancelButton'], true);
+  }
+  function enableInput() {
+    return setInputDisabled(this.getInput(), false);
+  }
+  function disableInput() {
+    return setInputDisabled(this.getInput(), true);
   }
 
-  return lineEl;
-};
+  function showValidationMessage(error) {
+    var domCache = privateProps.domCache.get(this);
+    setInnerHtml(domCache.validationMessage, error);
+    var popupComputedStyle = window.getComputedStyle(domCache.popup);
+    domCache.validationMessage.style.marginLeft = "-".concat(popupComputedStyle.getPropertyValue('padding-left'));
+    domCache.validationMessage.style.marginRight = "-".concat(popupComputedStyle.getPropertyValue('padding-right'));
+    show(domCache.validationMessage);
+    var input = this.getInput();
 
-var renderProgressSteps = function renderProgressSteps(instance, params) {
-  var progressStepsContainer = getProgressSteps();
+    if (input) {
+      input.setAttribute('aria-invalid', true);
+      input.setAttribute('aria-describedBy', swalClasses['validation-message']);
+      focusInput(input);
+      addClass(input, swalClasses.inputerror);
+    }
+  } // Hide block with validation message
 
-  if (!params.progressSteps || params.progressSteps.length === 0) {
-    return hide(progressStepsContainer);
-  }
+  function resetValidationMessage$1() {
+    var domCache = privateProps.domCache.get(this);
 
-  show(progressStepsContainer);
-  progressStepsContainer.innerHTML = '';
-  var currentProgressStep = parseInt(params.currentProgressStep === undefined ? getQueueStep() : params.currentProgressStep);
-
-  if (currentProgressStep >= params.progressSteps.length) {
-    warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
-  }
-
-  params.progressSteps.forEach(function (step, index) {
-    var stepEl = createStepElement(step);
-    progressStepsContainer.appendChild(stepEl);
-
-    if (index === currentProgressStep) {
-      addClass(stepEl, swalClasses['active-progress-step']);
+    if (domCache.validationMessage) {
+      hide(domCache.validationMessage);
     }
 
-    if (index !== params.progressSteps.length - 1) {
-      var lineEl = createLineElement(step);
-      progressStepsContainer.appendChild(lineEl);
+    var input = this.getInput();
+
+    if (input) {
+      input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-describedBy');
+      removeClass(input, swalClasses.inputerror);
     }
-  });
-};
-
-var renderTitle = function renderTitle(instance, params) {
-  var title = getTitle();
-  toggle(title, params.title || params.titleText);
-
-  if (params.title) {
-    parseHtmlToContainer(params.title, title);
   }
 
-  if (params.titleText) {
-    title.innerText = params.titleText;
-  } // Custom class
-
-
-  applyCustomClass(title, params, 'title');
-};
-
-var renderHeader = function renderHeader(instance, params) {
-  var header = getHeader(); // Custom class
-
-  applyCustomClass(header, params, 'header'); // Progress steps
-
-  renderProgressSteps(instance, params); // Icon
-
-  renderIcon(instance, params); // Image
-
-  renderImage(instance, params); // Title
-
-  renderTitle(instance, params); // Close button
-
-  renderCloseButton(instance, params);
-};
-
-var renderPopup = function renderPopup(instance, params) {
-  var popup = getPopup(); // Width
-
-  applyNumericalStyle(popup, 'width', params.width); // Padding
-
-  applyNumericalStyle(popup, 'padding', params.padding); // Background
-
-  if (params.background) {
-    popup.style.background = params.background;
-  } // Classes
-
-
-  addClasses(popup, params);
-};
-
-var addClasses = function addClasses(popup, params) {
-  // Default Class + showClass when updating Swal.update({})
-  popup.className = "".concat(swalClasses.popup, " ").concat(isVisible(popup) ? params.showClass.popup : '');
-
-  if (params.toast) {
-    addClass([document.documentElement, document.body], swalClasses['toast-shown']);
-    addClass(popup, swalClasses.toast);
-  } else {
-    addClass(popup, swalClasses.modal);
-  } // Custom class
-
-
-  applyCustomClass(popup, params, 'popup');
-
-  if (typeof params.customClass === 'string') {
-    addClass(popup, params.customClass);
-  } // Icon class (#1842)
-
-
-  if (params.icon) {
-    addClass(popup, swalClasses["icon-".concat(params.icon)]);
-  }
-};
-
-var render = function render(instance, params) {
-  renderPopup(instance, params);
-  renderContainer(instance, params);
-  renderHeader(instance, params);
-  renderContent(instance, params);
-  renderActions(instance, params);
-  renderFooter(instance, params);
-
-  if (typeof params.onRender === 'function') {
-    params.onRender(getPopup());
-  }
-};
-
-/*
- * Global function to determine if SweetAlert2 popup is shown
- */
-
-var isVisible$1 = function isVisible$$1() {
-  return isVisible(getPopup());
-};
-/*
- * Global function to click 'Confirm' button
- */
-
-var clickConfirm = function clickConfirm() {
-  return getConfirmButton() && getConfirmButton().click();
-};
-/*
- * Global function to click 'Cancel' button
- */
-
-var clickCancel = function clickCancel() {
-  return getCancelButton() && getCancelButton().click();
-};
-
-function fire() {
-  var Swal = this;
-
-  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-    args[_key] = arguments[_key];
+  function getProgressSteps$1() {
+    var domCache = privateProps.domCache.get(this);
+    return domCache.progressSteps;
   }
 
-  return _construct(Swal, args);
-}
+  var Timer = /*#__PURE__*/function () {
+    function Timer(callback, delay) {
+      _classCallCheck(this, Timer);
 
-/**
- * Returns an extended version of `Swal` containing `params` as defaults.
- * Useful for reusing Swal configuration.
- *
- * For example:
- *
- * Before:
- * const textPromptOptions = { input: 'text', showCancelButton: true }
- * const {value: firstName} = await Swal.fire({ ...textPromptOptions, title: 'What is your first name?' })
- * const {value: lastName} = await Swal.fire({ ...textPromptOptions, title: 'What is your last name?' })
- *
- * After:
- * const TextPrompt = Swal.mixin({ input: 'text', showCancelButton: true })
- * const {value: firstName} = await TextPrompt('What is your first name?')
- * const {value: lastName} = await TextPrompt('What is your last name?')
- *
- * @param mixinParams
- */
-function mixin(mixinParams) {
-  var MixinSwal =
-  /*#__PURE__*/
-  function (_this) {
-    _inherits(MixinSwal, _this);
-
-    function MixinSwal() {
-      _classCallCheck(this, MixinSwal);
-
-      return _possibleConstructorReturn(this, _getPrototypeOf(MixinSwal).apply(this, arguments));
+      this.callback = callback;
+      this.remaining = delay;
+      this.running = false;
+      this.start();
     }
 
-    _createClass(MixinSwal, [{
-      key: "_main",
-      value: function _main(params) {
-        return _get(_getPrototypeOf(MixinSwal.prototype), "_main", this).call(this, _extends({}, mixinParams, params));
+    _createClass(Timer, [{
+      key: "start",
+      value: function start() {
+        if (!this.running) {
+          this.running = true;
+          this.started = new Date();
+          this.id = setTimeout(this.callback, this.remaining);
+        }
+
+        return this.remaining;
+      }
+    }, {
+      key: "stop",
+      value: function stop() {
+        if (this.running) {
+          this.running = false;
+          clearTimeout(this.id);
+          this.remaining -= new Date() - this.started;
+        }
+
+        return this.remaining;
+      }
+    }, {
+      key: "increase",
+      value: function increase(n) {
+        var running = this.running;
+
+        if (running) {
+          this.stop();
+        }
+
+        this.remaining += n;
+
+        if (running) {
+          this.start();
+        }
+
+        return this.remaining;
+      }
+    }, {
+      key: "getTimerLeft",
+      value: function getTimerLeft() {
+        if (this.running) {
+          this.stop();
+          this.start();
+        }
+
+        return this.remaining;
+      }
+    }, {
+      key: "isRunning",
+      value: function isRunning() {
+        return this.running;
       }
     }]);
 
-    return MixinSwal;
-  }(this);
+    return Timer;
+  }();
 
-  return MixinSwal;
-}
-
-/**
- * Show spinner instead of Confirm button
- */
-
-var showLoading = function showLoading() {
-  var popup = getPopup();
-
-  if (!popup) {
-    Swal.fire();
-  }
-
-  popup = getPopup();
-  var actions = getActions();
-  var confirmButton = getConfirmButton();
-  show(actions);
-  show(confirmButton, 'inline-block');
-  addClass([popup, actions], swalClasses.loading);
-  confirmButton.disabled = true;
-  popup.setAttribute('data-loading', true);
-  popup.setAttribute('aria-busy', true);
-  popup.focus();
-};
-
-var RESTORE_FOCUS_TIMEOUT = 100;
-
-var globalState = {};
-var focusPreviousActiveElement = function focusPreviousActiveElement() {
-  if (globalState.previousActiveElement && globalState.previousActiveElement.focus) {
-    globalState.previousActiveElement.focus();
-    globalState.previousActiveElement = null;
-  } else if (document.body) {
-    document.body.focus();
-  }
-}; // Restore previous active (focused) element
-
-
-var restoreActiveElement = function restoreActiveElement() {
-  return new Promise(function (resolve) {
-    var x = window.scrollX;
-    var y = window.scrollY;
-    globalState.restoreFocusTimeout = setTimeout(function () {
-      focusPreviousActiveElement();
-      resolve();
-    }, RESTORE_FOCUS_TIMEOUT); // issues/900
-
-    if (typeof x !== 'undefined' && typeof y !== 'undefined') {
-      // IE doesn't have scrollX/scrollY support
-      window.scrollTo(x, y);
-    }
-  });
-};
-
-/**
- * If `timer` parameter is set, returns number of milliseconds of timer remained.
- * Otherwise, returns undefined.
- */
-
-var getTimerLeft = function getTimerLeft() {
-  return globalState.timeout && globalState.timeout.getTimerLeft();
-};
-/**
- * Stop timer. Returns number of milliseconds of timer remained.
- * If `timer` parameter isn't set, returns undefined.
- */
-
-var stopTimer = function stopTimer() {
-  if (globalState.timeout) {
-    stopTimerProgressBar();
-    return globalState.timeout.stop();
-  }
-};
-/**
- * Resume timer. Returns number of milliseconds of timer remained.
- * If `timer` parameter isn't set, returns undefined.
- */
-
-var resumeTimer = function resumeTimer() {
-  if (globalState.timeout) {
-    var remaining = globalState.timeout.start();
-    animateTimerProgressBar(remaining);
-    return remaining;
-  }
-};
-/**
- * Resume timer. Returns number of milliseconds of timer remained.
- * If `timer` parameter isn't set, returns undefined.
- */
-
-var toggleTimer = function toggleTimer() {
-  var timer = globalState.timeout;
-  return timer && (timer.running ? stopTimer() : resumeTimer());
-};
-/**
- * Increase timer. Returns number of milliseconds of an updated timer.
- * If `timer` parameter isn't set, returns undefined.
- */
-
-var increaseTimer = function increaseTimer(n) {
-  if (globalState.timeout) {
-    var remaining = globalState.timeout.increase(n);
-    animateTimerProgressBar(remaining, true);
-    return remaining;
-  }
-};
-/**
- * Check if timer is running. Returns true if timer is running
- * or false if timer is paused or stopped.
- * If `timer` parameter isn't set, returns undefined
- */
-
-var isTimerRunning = function isTimerRunning() {
-  return globalState.timeout && globalState.timeout.isRunning();
-};
-
-var defaultParams = {
-  title: '',
-  titleText: '',
-  text: '',
-  html: '',
-  footer: '',
-  icon: undefined,
-  iconHtml: undefined,
-  toast: false,
-  animation: true,
-  showClass: {
-    popup: 'swal2-show',
-    backdrop: 'swal2-backdrop-show',
-    icon: 'swal2-icon-show'
-  },
-  hideClass: {
-    popup: 'swal2-hide',
-    backdrop: 'swal2-backdrop-hide',
-    icon: 'swal2-icon-hide'
-  },
-  customClass: undefined,
-  target: 'body',
-  backdrop: true,
-  heightAuto: true,
-  allowOutsideClick: true,
-  allowEscapeKey: true,
-  allowEnterKey: true,
-  stopKeydownPropagation: true,
-  keydownListenerCapture: false,
-  showConfirmButton: true,
-  showCancelButton: false,
-  preConfirm: undefined,
-  confirmButtonText: 'OK',
-  confirmButtonAriaLabel: '',
-  confirmButtonColor: undefined,
-  cancelButtonText: 'Cancel',
-  cancelButtonAriaLabel: '',
-  cancelButtonColor: undefined,
-  buttonsStyling: true,
-  reverseButtons: false,
-  focusConfirm: true,
-  focusCancel: false,
-  showCloseButton: false,
-  closeButtonHtml: '&times;',
-  closeButtonAriaLabel: 'Close this dialog',
-  showLoaderOnConfirm: false,
-  imageUrl: undefined,
-  imageWidth: undefined,
-  imageHeight: undefined,
-  imageAlt: '',
-  timer: undefined,
-  timerProgressBar: false,
-  width: undefined,
-  padding: undefined,
-  background: undefined,
-  input: undefined,
-  inputPlaceholder: '',
-  inputValue: '',
-  inputOptions: {},
-  inputAutoTrim: true,
-  inputAttributes: {},
-  inputValidator: undefined,
-  validationMessage: undefined,
-  grow: false,
-  position: 'center',
-  progressSteps: [],
-  currentProgressStep: undefined,
-  progressStepsDistance: undefined,
-  onBeforeOpen: undefined,
-  onOpen: undefined,
-  onRender: undefined,
-  onClose: undefined,
-  onAfterClose: undefined,
-  scrollbarPadding: true
-};
-var updatableParams = ['title', 'titleText', 'text', 'html', 'icon', 'customClass', 'showConfirmButton', 'showCancelButton', 'confirmButtonText', 'confirmButtonAriaLabel', 'confirmButtonColor', 'cancelButtonText', 'cancelButtonAriaLabel', 'cancelButtonColor', 'buttonsStyling', 'reverseButtons', 'imageUrl', 'imageWidth', 'imageHeight', 'imageAlt', 'progressSteps', 'currentProgressStep'];
-var deprecatedParams = {
-  animation: 'showClass" and "hideClass'
-};
-var toastIncompatibleParams = ['allowOutsideClick', 'allowEnterKey', 'backdrop', 'focusConfirm', 'focusCancel', 'heightAuto', 'keydownListenerCapture'];
-/**
- * Is valid parameter
- * @param {String} paramName
- */
-
-var isValidParameter = function isValidParameter(paramName) {
-  return Object.prototype.hasOwnProperty.call(defaultParams, paramName);
-};
-/**
- * Is valid parameter for Swal.update() method
- * @param {String} paramName
- */
-
-var isUpdatableParameter = function isUpdatableParameter(paramName) {
-  return updatableParams.indexOf(paramName) !== -1;
-};
-/**
- * Is deprecated parameter
- * @param {String} paramName
- */
-
-var isDeprecatedParameter = function isDeprecatedParameter(paramName) {
-  return deprecatedParams[paramName];
-};
-
-var checkIfParamIsValid = function checkIfParamIsValid(param) {
-  if (!isValidParameter(param)) {
-    warn("Unknown parameter \"".concat(param, "\""));
-  }
-};
-
-var checkIfToastParamIsValid = function checkIfToastParamIsValid(param) {
-  if (toastIncompatibleParams.indexOf(param) !== -1) {
-    warn("The parameter \"".concat(param, "\" is incompatible with toasts"));
-  }
-};
-
-var checkIfParamIsDeprecated = function checkIfParamIsDeprecated(param) {
-  if (isDeprecatedParameter(param)) {
-    warnAboutDepreation(param, isDeprecatedParameter(param));
-  }
-};
-/**
- * Show relevant warnings for given params
- *
- * @param params
- */
-
-
-var showWarningsForParams = function showWarningsForParams(params) {
-  for (var param in params) {
-    checkIfParamIsValid(param);
-
-    if (params.toast) {
-      checkIfToastParamIsValid(param);
-    }
-
-    checkIfParamIsDeprecated(param);
-  }
-};
-
-
-
-var staticMethods = Object.freeze({
-	isValidParameter: isValidParameter,
-	isUpdatableParameter: isUpdatableParameter,
-	isDeprecatedParameter: isDeprecatedParameter,
-	argsToParams: argsToParams,
-	isVisible: isVisible$1,
-	clickConfirm: clickConfirm,
-	clickCancel: clickCancel,
-	getContainer: getContainer,
-	getPopup: getPopup,
-	getTitle: getTitle,
-	getContent: getContent,
-	getHtmlContainer: getHtmlContainer,
-	getImage: getImage,
-	getIcon: getIcon,
-	getIcons: getIcons,
-	getCloseButton: getCloseButton,
-	getActions: getActions,
-	getConfirmButton: getConfirmButton,
-	getCancelButton: getCancelButton,
-	getHeader: getHeader,
-	getFooter: getFooter,
-	getFocusableElements: getFocusableElements,
-	getValidationMessage: getValidationMessage,
-	isLoading: isLoading,
-	fire: fire,
-	mixin: mixin,
-	queue: queue,
-	getQueueStep: getQueueStep,
-	insertQueueStep: insertQueueStep,
-	deleteQueueStep: deleteQueueStep,
-	showLoading: showLoading,
-	enableLoading: showLoading,
-	getTimerLeft: getTimerLeft,
-	stopTimer: stopTimer,
-	resumeTimer: resumeTimer,
-	toggleTimer: toggleTimer,
-	increaseTimer: increaseTimer,
-	isTimerRunning: isTimerRunning
-});
-
-/**
- * Enables buttons and hide loader.
- */
-
-function hideLoading() {
-  // do nothing if popup is closed
-  var innerParams = privateProps.innerParams.get(this);
-
-  if (!innerParams) {
-    return;
-  }
-
-  var domCache = privateProps.domCache.get(this);
-
-  if (!innerParams.showConfirmButton) {
-    hide(domCache.confirmButton);
-
-    if (!innerParams.showCancelButton) {
-      hide(domCache.actions);
-    }
-  }
-
-  removeClass([domCache.popup, domCache.actions], swalClasses.loading);
-  domCache.popup.removeAttribute('aria-busy');
-  domCache.popup.removeAttribute('data-loading');
-  domCache.confirmButton.disabled = false;
-  domCache.cancelButton.disabled = false;
-}
-
-function getInput$1(instance) {
-  var innerParams = privateProps.innerParams.get(instance || this);
-  var domCache = privateProps.domCache.get(instance || this);
-
-  if (!domCache) {
-    return null;
-  }
-
-  return getInput(domCache.content, innerParams.input);
-}
-
-var fixScrollbar = function fixScrollbar() {
-  // for queues, do not do this more than once
-  if (states.previousBodyPadding !== null) {
-    return;
-  } // if the body has overflow
-
-
-  if (document.body.scrollHeight > window.innerHeight) {
-    // add padding so the content doesn't shift after removal of scrollbar
-    states.previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
-    document.body.style.paddingRight = "".concat(states.previousBodyPadding + measureScrollbar(), "px");
-  }
-};
-var undoScrollbar = function undoScrollbar() {
-  if (states.previousBodyPadding !== null) {
-    document.body.style.paddingRight = "".concat(states.previousBodyPadding, "px");
-    states.previousBodyPadding = null;
-  }
-};
-
-/* istanbul ignore next */
-
-var iOSfix = function iOSfix() {
-  var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
-
-  if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
-    var offset = document.body.scrollTop;
-    document.body.style.top = "".concat(offset * -1, "px");
-    addClass(document.body, swalClasses.iosfix);
-    lockBodyScroll();
-  }
-};
-/* istanbul ignore next */
-
-var lockBodyScroll = function lockBodyScroll() {
-  // #1246
-  var container = getContainer();
-  var preventTouchMove;
-
-  container.ontouchstart = function (e) {
-    preventTouchMove = e.target === container || !isScrollable(container) && e.target.tagName !== 'INPUT' // #1603
-    ;
-  };
-
-  container.ontouchmove = function (e) {
-    if (preventTouchMove) {
-      e.preventDefault();
-      e.stopPropagation();
+  var defaultInputValidators = {
+    email: function email(string, validationMessage) {
+      return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
+    },
+    url: function url(string, validationMessage) {
+      // taken from https://stackoverflow.com/a/3809435 with a small change from #1306
+      return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid URL');
     }
   };
-};
-/* istanbul ignore next */
 
-
-var undoIOSfix = function undoIOSfix() {
-  if (hasClass(document.body, swalClasses.iosfix)) {
-    var offset = parseInt(document.body.style.top, 10);
-    removeClass(document.body, swalClasses.iosfix);
-    document.body.style.top = '';
-    document.body.scrollTop = offset * -1;
+  function setDefaultInputValidators(params) {
+    // Use default `inputValidator` for supported input types if not provided
+    if (!params.inputValidator) {
+      Object.keys(defaultInputValidators).forEach(function (key) {
+        if (params.input === key) {
+          params.inputValidator = defaultInputValidators[key];
+        }
+      });
+    }
   }
-};
 
-var isIE11 = function isIE11() {
-  return !!window.MSInputMethodContext && !!document.documentMode;
-}; // Fix IE11 centering sweetalert2/issues/933
-
-/* istanbul ignore next */
-
-
-var fixVerticalPositionIE = function fixVerticalPositionIE() {
-  var container = getContainer();
-  var popup = getPopup();
-  container.style.removeProperty('align-items');
-
-  if (popup.offsetTop < 0) {
-    container.style.alignItems = 'flex-start';
+  function validateCustomTargetElement(params) {
+    // Determine if the custom target element is valid
+    if (!params.target || typeof params.target === 'string' && !document.querySelector(params.target) || typeof params.target !== 'string' && !params.target.appendChild) {
+      warn('Target parameter is not valid, defaulting to "body"');
+      params.target = 'body';
+    }
   }
-};
-/* istanbul ignore next */
+  /**
+   * Set type, text and actions on popup
+   *
+   * @param params
+   * @returns {boolean}
+   */
 
 
-var IEfix = function IEfix() {
-  if (typeof window !== 'undefined' && isIE11()) {
-    fixVerticalPositionIE();
-    window.addEventListener('resize', fixVerticalPositionIE);
+  function setParameters(params) {
+    setDefaultInputValidators(params); // showLoaderOnConfirm && preConfirm
+
+    if (params.showLoaderOnConfirm && !params.preConfirm) {
+      warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
+    } // params.animation will be actually used in renderPopup.js
+    // but in case when params.animation is a function, we need to call that function
+    // before popup (re)initialization, so it'll be possible to check Swal.isVisible()
+    // inside the params.animation function
+
+
+    params.animation = callIfFunction(params.animation);
+    validateCustomTargetElement(params); // Replace newlines with <br> in title
+
+    if (typeof params.title === 'string') {
+      params.title = params.title.split('\n').join('<br />');
+    }
+
+    init(params);
   }
-};
-/* istanbul ignore next */
 
-var undoIEfix = function undoIEfix() {
-  if (typeof window !== 'undefined' && isIE11()) {
-    window.removeEventListener('resize', fixVerticalPositionIE);
-  }
-};
+  /**
+   * Open popup, add necessary classes and styles, fix scrollbar
+   *
+   * @param {Array} params
+   */
 
-// Adding aria-hidden="true" to elements outside of the active modal dialog ensures that
-// elements not within the active modal dialog will not be surfaced if a user opens a screen
-// reader’s list of elements (headings, form controls, landmarks, etc.) in the document.
+  var openPopup = function openPopup(params) {
+    var container = getContainer();
+    var popup = getPopup();
 
-var setAriaHidden = function setAriaHidden() {
-  var bodyChildren = toArray(document.body.children);
-  bodyChildren.forEach(function (el) {
-    if (el === getContainer() || contains(el, getContainer())) {
+    if (typeof params.onBeforeOpen === 'function') {
+      params.onBeforeOpen(popup);
+    }
+
+    addClasses$1(container, popup, params); // scrolling is 'hidden' until animation is done, after that 'auto'
+
+    setScrollingVisibility(container, popup);
+
+    if (isModal()) {
+      fixScrollContainer(container, params.scrollbarPadding);
+    }
+
+    if (!isToast() && !globalState.previousActiveElement) {
+      globalState.previousActiveElement = document.activeElement;
+    }
+
+    if (typeof params.onOpen === 'function') {
+      setTimeout(function () {
+        return params.onOpen(popup);
+      });
+    }
+
+    removeClass(container, swalClasses['no-transition']);
+  };
+
+  function swalOpenAnimationFinished(event) {
+    var popup = getPopup();
+
+    if (event.target !== popup) {
       return;
     }
 
-    if (el.hasAttribute('aria-hidden')) {
-      el.setAttribute('data-previous-aria-hidden', el.getAttribute('aria-hidden'));
-    }
-
-    el.setAttribute('aria-hidden', 'true');
-  });
-};
-var unsetAriaHidden = function unsetAriaHidden() {
-  var bodyChildren = toArray(document.body.children);
-  bodyChildren.forEach(function (el) {
-    if (el.hasAttribute('data-previous-aria-hidden')) {
-      el.setAttribute('aria-hidden', el.getAttribute('data-previous-aria-hidden'));
-      el.removeAttribute('data-previous-aria-hidden');
-    } else {
-      el.removeAttribute('aria-hidden');
-    }
-  });
-};
-
-/**
- * This module containts `WeakMap`s for each effectively-"private  property" that a `Swal` has.
- * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
- * This is the approach that Babel will probably take to implement private methods/fields
- *   https://github.com/tc39/proposal-private-methods
- *   https://github.com/babel/babel/pull/7555
- * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
- *   then we can use that language feature.
- */
-var privateMethods = {
-  swalPromiseResolve: new WeakMap()
-};
-
-/*
- * Instance method to close sweetAlert
- */
-
-function removePopupAndResetState(instance, container, isToast, onAfterClose) {
-  if (isToast) {
-    triggerOnAfterCloseAndDispose(instance, onAfterClose);
-  } else {
-    restoreActiveElement().then(function () {
-      return triggerOnAfterCloseAndDispose(instance, onAfterClose);
-    });
-    globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
-      capture: globalState.keydownListenerCapture
-    });
-    globalState.keydownHandlerAdded = false;
-  }
-
-  if (container.parentNode) {
-    container.parentNode.removeChild(container);
-  }
-
-  if (isModal()) {
-    undoScrollbar();
-    undoIOSfix();
-    undoIEfix();
-    unsetAriaHidden();
-  }
-
-  removeBodyClasses();
-}
-
-function removeBodyClasses() {
-  removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['toast-column']]);
-}
-
-function disposeSwal(instance) {
-  // Unset this.params so GC will dispose it (#1569)
-  delete instance.params; // Unset globalState props so GC will dispose globalState (#1569)
-
-  delete globalState.keydownHandler;
-  delete globalState.keydownTarget; // Unset WeakMaps so GC will be able to dispose them (#1569)
-
-  unsetWeakMaps(privateProps);
-  unsetWeakMaps(privateMethods);
-}
-
-function close(resolveValue) {
-  var popup = getPopup();
-
-  if (!popup) {
-    return;
-  }
-
-  var innerParams = privateProps.innerParams.get(this);
-
-  if (!innerParams || hasClass(popup, innerParams.hideClass.popup)) {
-    return;
-  }
-
-  var swalPromiseResolve = privateMethods.swalPromiseResolve.get(this);
-  removeClass(popup, innerParams.showClass.popup);
-  addClass(popup, innerParams.hideClass.popup);
-  var backdrop = getContainer();
-  removeClass(backdrop, innerParams.showClass.backdrop);
-  addClass(backdrop, innerParams.hideClass.backdrop);
-  handlePopupAnimation(this, popup, innerParams); // Resolve Swal promise
-
-  swalPromiseResolve(resolveValue || {});
-}
-
-var handlePopupAnimation = function handlePopupAnimation(instance, popup, innerParams) {
-  var container = getContainer(); // If animation is supported, animate
-
-  var animationIsSupported = animationEndEvent && hasCssAnimation(popup);
-  var onClose = innerParams.onClose,
-      onAfterClose = innerParams.onAfterClose;
-
-  if (onClose !== null && typeof onClose === 'function') {
-    onClose(popup);
-  }
-
-  if (animationIsSupported) {
-    animatePopup(instance, popup, container, onAfterClose);
-  } else {
-    // Otherwise, remove immediately
-    removePopupAndResetState(instance, container, isToast(), onAfterClose);
-  }
-};
-
-var animatePopup = function animatePopup(instance, popup, container, onAfterClose) {
-  globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, isToast(), onAfterClose);
-  popup.addEventListener(animationEndEvent, function (e) {
-    if (e.target === popup) {
-      globalState.swalCloseEventFinishedCallback();
-      delete globalState.swalCloseEventFinishedCallback;
-    }
-  });
-};
-
-var unsetWeakMaps = function unsetWeakMaps(obj) {
-  for (var i in obj) {
-    obj[i] = new WeakMap();
-  }
-};
-
-var triggerOnAfterCloseAndDispose = function triggerOnAfterCloseAndDispose(instance, onAfterClose) {
-  setTimeout(function () {
-    if (onAfterClose !== null && typeof onAfterClose === 'function') {
-      onAfterClose();
-    }
-
-    if (!getPopup()) {
-      disposeSwal(instance);
-    }
-  });
-};
-
-function setButtonsDisabled(instance, buttons, disabled) {
-  var domCache = privateProps.domCache.get(instance);
-  buttons.forEach(function (button) {
-    domCache[button].disabled = disabled;
-  });
-}
-
-function setInputDisabled(input, disabled) {
-  if (!input) {
-    return false;
-  }
-
-  if (input.type === 'radio') {
-    var radiosContainer = input.parentNode.parentNode;
-    var radios = radiosContainer.querySelectorAll('input');
-
-    for (var i = 0; i < radios.length; i++) {
-      radios[i].disabled = disabled;
-    }
-  } else {
-    input.disabled = disabled;
-  }
-}
-
-function enableButtons() {
-  setButtonsDisabled(this, ['confirmButton', 'cancelButton'], false);
-}
-function disableButtons() {
-  setButtonsDisabled(this, ['confirmButton', 'cancelButton'], true);
-}
-function enableInput() {
-  return setInputDisabled(this.getInput(), false);
-}
-function disableInput() {
-  return setInputDisabled(this.getInput(), true);
-}
-
-function showValidationMessage(error) {
-  var domCache = privateProps.domCache.get(this);
-  domCache.validationMessage.innerHTML = error;
-  var popupComputedStyle = window.getComputedStyle(domCache.popup);
-  domCache.validationMessage.style.marginLeft = "-".concat(popupComputedStyle.getPropertyValue('padding-left'));
-  domCache.validationMessage.style.marginRight = "-".concat(popupComputedStyle.getPropertyValue('padding-right'));
-  show(domCache.validationMessage);
-  var input = this.getInput();
-
-  if (input) {
-    input.setAttribute('aria-invalid', true);
-    input.setAttribute('aria-describedBy', swalClasses['validation-message']);
-    focusInput(input);
-    addClass(input, swalClasses.inputerror);
-  }
-} // Hide block with validation message
-
-function resetValidationMessage$1() {
-  var domCache = privateProps.domCache.get(this);
-
-  if (domCache.validationMessage) {
-    hide(domCache.validationMessage);
-  }
-
-  var input = this.getInput();
-
-  if (input) {
-    input.removeAttribute('aria-invalid');
-    input.removeAttribute('aria-describedBy');
-    removeClass(input, swalClasses.inputerror);
-  }
-}
-
-function getProgressSteps$1() {
-  var domCache = privateProps.domCache.get(this);
-  return domCache.progressSteps;
-}
-
-var Timer =
-/*#__PURE__*/
-function () {
-  function Timer(callback, delay) {
-    _classCallCheck(this, Timer);
-
-    this.callback = callback;
-    this.remaining = delay;
-    this.running = false;
-    this.start();
-  }
-
-  _createClass(Timer, [{
-    key: "start",
-    value: function start() {
-      if (!this.running) {
-        this.running = true;
-        this.started = new Date();
-        this.id = setTimeout(this.callback, this.remaining);
-      }
-
-      return this.remaining;
-    }
-  }, {
-    key: "stop",
-    value: function stop() {
-      if (this.running) {
-        this.running = false;
-        clearTimeout(this.id);
-        this.remaining -= new Date() - this.started;
-      }
-
-      return this.remaining;
-    }
-  }, {
-    key: "increase",
-    value: function increase(n) {
-      var running = this.running;
-
-      if (running) {
-        this.stop();
-      }
-
-      this.remaining += n;
-
-      if (running) {
-        this.start();
-      }
-
-      return this.remaining;
-    }
-  }, {
-    key: "getTimerLeft",
-    value: function getTimerLeft() {
-      if (this.running) {
-        this.stop();
-        this.start();
-      }
-
-      return this.remaining;
-    }
-  }, {
-    key: "isRunning",
-    value: function isRunning() {
-      return this.running;
-    }
-  }]);
-
-  return Timer;
-}();
-
-var defaultInputValidators = {
-  email: function email(string, validationMessage) {
-    return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
-  },
-  url: function url(string, validationMessage) {
-    // taken from https://stackoverflow.com/a/3809435 with a small change from #1306
-    return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid URL');
-  }
-};
-
-function setDefaultInputValidators(params) {
-  // Use default `inputValidator` for supported input types if not provided
-  if (!params.inputValidator) {
-    Object.keys(defaultInputValidators).forEach(function (key) {
-      if (params.input === key) {
-        params.inputValidator = defaultInputValidators[key];
-      }
-    });
-  }
-}
-
-function validateCustomTargetElement(params) {
-  // Determine if the custom target element is valid
-  if (!params.target || typeof params.target === 'string' && !document.querySelector(params.target) || typeof params.target !== 'string' && !params.target.appendChild) {
-    warn('Target parameter is not valid, defaulting to "body"');
-    params.target = 'body';
-  }
-}
-/**
- * Set type, text and actions on popup
- *
- * @param params
- * @returns {boolean}
- */
-
-
-function setParameters(params) {
-  setDefaultInputValidators(params); // showLoaderOnConfirm && preConfirm
-
-  if (params.showLoaderOnConfirm && !params.preConfirm) {
-    warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
-  } // params.animation will be actually used in renderPopup.js
-  // but in case when params.animation is a function, we need to call that function
-  // before popup (re)initialization, so it'll be possible to check Swal.isVisible()
-  // inside the params.animation function
-
-
-  params.animation = callIfFunction(params.animation);
-  validateCustomTargetElement(params); // Replace newlines with <br> in title
-
-  if (typeof params.title === 'string') {
-    params.title = params.title.split('\n').join('<br />');
-  }
-
-  init(params);
-}
-
-/**
- * Open popup, add necessary classes and styles, fix scrollbar
- *
- * @param {Array} params
- */
-
-var openPopup = function openPopup(params) {
-  var container = getContainer();
-  var popup = getPopup();
-
-  if (typeof params.onBeforeOpen === 'function') {
-    params.onBeforeOpen(popup);
-  }
-
-  addClasses$1(container, popup, params); // scrolling is 'hidden' until animation is done, after that 'auto'
-
-  setScrollingVisibility(container, popup);
-
-  if (isModal()) {
-    fixScrollContainer(container, params.scrollbarPadding);
-  }
-
-  if (!isToast() && !globalState.previousActiveElement) {
-    globalState.previousActiveElement = document.activeElement;
-  }
-
-  if (typeof params.onOpen === 'function') {
-    setTimeout(function () {
-      return params.onOpen(popup);
-    });
-  }
-};
-
-function swalOpenAnimationFinished(event) {
-  var popup = getPopup();
-
-  if (event.target !== popup) {
-    return;
-  }
-
-  var container = getContainer();
-  popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
-  container.style.overflowY = 'auto';
-}
-
-var setScrollingVisibility = function setScrollingVisibility(container, popup) {
-  if (animationEndEvent && hasCssAnimation(popup)) {
-    container.style.overflowY = 'hidden';
-    popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
-  } else {
+    var container = getContainer();
+    popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
     container.style.overflowY = 'auto';
   }
-};
 
-var fixScrollContainer = function fixScrollContainer(container, scrollbarPadding) {
-  iOSfix();
-  IEfix();
-  setAriaHidden();
-
-  if (scrollbarPadding) {
-    fixScrollbar();
-  } // sweetalert2/issues/1247
-
-
-  setTimeout(function () {
-    container.scrollTop = 0;
-  });
-};
-
-var addClasses$1 = function addClasses(container, popup, params) {
-  addClass(container, params.showClass.backdrop);
-  show(popup); // Animate popup right after showing it
-
-  addClass(popup, params.showClass.popup);
-  addClass([document.documentElement, document.body], swalClasses.shown);
-
-  if (params.heightAuto && params.backdrop && !params.toast) {
-    addClass([document.documentElement, document.body], swalClasses['height-auto']);
-  }
-};
-
-var handleInputOptionsAndValue = function handleInputOptionsAndValue(instance, params) {
-  if (params.input === 'select' || params.input === 'radio') {
-    handleInputOptions(instance, params);
-  } else if (['text', 'email', 'number', 'tel', 'textarea'].indexOf(params.input) !== -1 && isPromise(params.inputValue)) {
-    handleInputValue(instance, params);
-  }
-};
-var getInputValue = function getInputValue(instance, innerParams) {
-  var input = instance.getInput();
-
-  if (!input) {
-    return null;
-  }
-
-  switch (innerParams.input) {
-    case 'checkbox':
-      return getCheckboxValue(input);
-
-    case 'radio':
-      return getRadioValue(input);
-
-    case 'file':
-      return getFileValue(input);
-
-    default:
-      return innerParams.inputAutoTrim ? input.value.trim() : input.value;
-  }
-};
-
-var getCheckboxValue = function getCheckboxValue(input) {
-  return input.checked ? 1 : 0;
-};
-
-var getRadioValue = function getRadioValue(input) {
-  return input.checked ? input.value : null;
-};
-
-var getFileValue = function getFileValue(input) {
-  return input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
-};
-
-var handleInputOptions = function handleInputOptions(instance, params) {
-  var content = getContent();
-
-  var processInputOptions = function processInputOptions(inputOptions) {
-    return populateInputOptions[params.input](content, formatInputOptions(inputOptions), params);
+  var setScrollingVisibility = function setScrollingVisibility(container, popup) {
+    if (animationEndEvent && hasCssAnimation(popup)) {
+      container.style.overflowY = 'hidden';
+      popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
+    } else {
+      container.style.overflowY = 'auto';
+    }
   };
 
-  if (isPromise(params.inputOptions)) {
-    showLoading();
-    params.inputOptions.then(function (inputOptions) {
-      instance.hideLoading();
-      processInputOptions(inputOptions);
+  var fixScrollContainer = function fixScrollContainer(container, scrollbarPadding) {
+    iOSfix();
+    IEfix();
+    setAriaHidden();
+
+    if (scrollbarPadding) {
+      fixScrollbar();
+    } // sweetalert2/issues/1247
+
+
+    setTimeout(function () {
+      container.scrollTop = 0;
     });
-  } else if (_typeof(params.inputOptions) === 'object') {
-    processInputOptions(params.inputOptions);
-  } else {
-    error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(_typeof(params.inputOptions)));
-  }
-};
+  };
 
-var handleInputValue = function handleInputValue(instance, params) {
-  var input = instance.getInput();
-  hide(input);
-  params.inputValue.then(function (inputValue) {
-    input.value = params.input === 'number' ? parseFloat(inputValue) || 0 : "".concat(inputValue);
-    show(input);
-    input.focus();
-    instance.hideLoading();
-  })["catch"](function (err) {
-    error("Error in inputValue promise: ".concat(err));
-    input.value = '';
-    show(input);
-    input.focus();
-    instance.hideLoading();
-  });
-};
+  var addClasses$1 = function addClasses(container, popup, params) {
+    addClass(container, params.showClass.backdrop);
+    show(popup); // Animate popup right after showing it
 
-var populateInputOptions = {
-  select: function select(content, inputOptions, params) {
-    var select = getChildByClass(content, swalClasses.select);
-    inputOptions.forEach(function (inputOption) {
-      var optionValue = inputOption[0];
-      var optionLabel = inputOption[1];
-      var option = document.createElement('option');
-      option.value = optionValue;
-      option.innerHTML = optionLabel;
+    addClass(popup, params.showClass.popup);
+    addClass([document.documentElement, document.body], swalClasses.shown);
 
-      if (params.inputValue.toString() === optionValue.toString()) {
-        option.selected = true;
-      }
-
-      select.appendChild(option);
-    });
-    select.focus();
-  },
-  radio: function radio(content, inputOptions, params) {
-    var radio = getChildByClass(content, swalClasses.radio);
-    inputOptions.forEach(function (inputOption) {
-      var radioValue = inputOption[0];
-      var radioLabel = inputOption[1];
-      var radioInput = document.createElement('input');
-      var radioLabelElement = document.createElement('label');
-      radioInput.type = 'radio';
-      radioInput.name = swalClasses.radio;
-      radioInput.value = radioValue;
-
-      if (params.inputValue.toString() === radioValue.toString()) {
-        radioInput.checked = true;
-      }
-
-      var label = document.createElement('span');
-      label.innerHTML = radioLabel;
-      label.className = swalClasses.label;
-      radioLabelElement.appendChild(radioInput);
-      radioLabelElement.appendChild(label);
-      radio.appendChild(radioLabelElement);
-    });
-    var radios = radio.querySelectorAll('input');
-
-    if (radios.length) {
-      radios[0].focus();
+    if (params.heightAuto && params.backdrop && !params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['height-auto']);
     }
-  }
-};
-/**
- * Converts `inputOptions` into an array of `[value, label]`s
- * @param inputOptions
- */
+  };
 
-var formatInputOptions = function formatInputOptions(inputOptions) {
-  var result = [];
+  var handleInputOptionsAndValue = function handleInputOptionsAndValue(instance, params) {
+    if (params.input === 'select' || params.input === 'radio') {
+      handleInputOptions(instance, params);
+    } else if (['text', 'email', 'number', 'tel', 'textarea'].indexOf(params.input) !== -1 && isPromise(params.inputValue)) {
+      handleInputValue(instance, params);
+    }
+  };
+  var getInputValue = function getInputValue(instance, innerParams) {
+    var input = instance.getInput();
 
-  if (typeof Map !== 'undefined' && inputOptions instanceof Map) {
-    inputOptions.forEach(function (value, key) {
-      result.push([key, value]);
-    });
-  } else {
-    Object.keys(inputOptions).forEach(function (key) {
-      result.push([key, inputOptions[key]]);
-    });
-  }
+    if (!input) {
+      return null;
+    }
 
-  return result;
-};
+    switch (innerParams.input) {
+      case 'checkbox':
+        return getCheckboxValue(input);
 
-var handleConfirmButtonClick = function handleConfirmButtonClick(instance, innerParams) {
-  instance.disableButtons();
+      case 'radio':
+        return getRadioValue(input);
 
-  if (innerParams.input) {
-    handleConfirmWithInput(instance, innerParams);
-  } else {
-    confirm(instance, innerParams, true);
-  }
-};
-var handleCancelButtonClick = function handleCancelButtonClick(instance, dismissWith) {
-  instance.disableButtons();
-  dismissWith(DismissReason.cancel);
-};
+      case 'file':
+        return getFileValue(input);
 
-var handleConfirmWithInput = function handleConfirmWithInput(instance, innerParams) {
-  var inputValue = getInputValue(instance, innerParams);
+      default:
+        return innerParams.inputAutoTrim ? input.value.trim() : input.value;
+    }
+  };
 
-  if (innerParams.inputValidator) {
-    instance.disableInput();
-    var validationPromise = Promise.resolve().then(function () {
-      return innerParams.inputValidator(inputValue, innerParams.validationMessage);
-    });
-    validationPromise.then(function (validationMessage) {
-      instance.enableButtons();
-      instance.enableInput();
+  var getCheckboxValue = function getCheckboxValue(input) {
+    return input.checked ? 1 : 0;
+  };
 
-      if (validationMessage) {
-        instance.showValidationMessage(validationMessage);
-      } else {
-        confirm(instance, innerParams, inputValue);
-      }
-    });
-  } else if (!instance.getInput().checkValidity()) {
-    instance.enableButtons();
-    instance.showValidationMessage(innerParams.validationMessage);
-  } else {
-    confirm(instance, innerParams, inputValue);
-  }
-};
+  var getRadioValue = function getRadioValue(input) {
+    return input.checked ? input.value : null;
+  };
 
-var succeedWith = function succeedWith(instance, value) {
-  instance.closePopup({
-    value: value
-  });
-};
+  var getFileValue = function getFileValue(input) {
+    return input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
+  };
 
-var confirm = function confirm(instance, innerParams, value) {
-  if (innerParams.showLoaderOnConfirm) {
-    showLoading(); // TODO: make showLoading an *instance* method
-  }
+  var handleInputOptions = function handleInputOptions(instance, params) {
+    var content = getContent();
 
-  if (innerParams.preConfirm) {
-    instance.resetValidationMessage();
-    var preConfirmPromise = Promise.resolve().then(function () {
-      return innerParams.preConfirm(value, innerParams.validationMessage);
-    });
-    preConfirmPromise.then(function (preConfirmValue) {
-      if (isVisible(getValidationMessage()) || preConfirmValue === false) {
+    var processInputOptions = function processInputOptions(inputOptions) {
+      return populateInputOptions[params.input](content, formatInputOptions(inputOptions), params);
+    };
+
+    if (isPromise(params.inputOptions)) {
+      showLoading();
+      params.inputOptions.then(function (inputOptions) {
         instance.hideLoading();
-      } else {
-        succeedWith(instance, typeof preConfirmValue === 'undefined' ? value : preConfirmValue);
+        processInputOptions(inputOptions);
+      });
+    } else if (_typeof(params.inputOptions) === 'object') {
+      processInputOptions(params.inputOptions);
+    } else {
+      error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(_typeof(params.inputOptions)));
+    }
+  };
+
+  var handleInputValue = function handleInputValue(instance, params) {
+    var input = instance.getInput();
+    hide(input);
+    params.inputValue.then(function (inputValue) {
+      input.value = params.input === 'number' ? parseFloat(inputValue) || 0 : "".concat(inputValue);
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    })["catch"](function (err) {
+      error("Error in inputValue promise: ".concat(err));
+      input.value = '';
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    });
+  };
+
+  var populateInputOptions = {
+    select: function select(content, inputOptions, params) {
+      var select = getChildByClass(content, swalClasses.select);
+      inputOptions.forEach(function (inputOption) {
+        var optionValue = inputOption[0];
+        var optionLabel = inputOption[1];
+        var option = document.createElement('option');
+        option.value = optionValue;
+        setInnerHtml(option, optionLabel);
+
+        if (params.inputValue.toString() === optionValue.toString()) {
+          option.selected = true;
+        }
+
+        select.appendChild(option);
+      });
+      select.focus();
+    },
+    radio: function radio(content, inputOptions, params) {
+      var radio = getChildByClass(content, swalClasses.radio);
+      inputOptions.forEach(function (inputOption) {
+        var radioValue = inputOption[0];
+        var radioLabel = inputOption[1];
+        var radioInput = document.createElement('input');
+        var radioLabelElement = document.createElement('label');
+        radioInput.type = 'radio';
+        radioInput.name = swalClasses.radio;
+        radioInput.value = radioValue;
+
+        if (params.inputValue.toString() === radioValue.toString()) {
+          radioInput.checked = true;
+        }
+
+        var label = document.createElement('span');
+        setInnerHtml(label, radioLabel);
+        label.className = swalClasses.label;
+        radioLabelElement.appendChild(radioInput);
+        radioLabelElement.appendChild(label);
+        radio.appendChild(radioLabelElement);
+      });
+      var radios = radio.querySelectorAll('input');
+
+      if (radios.length) {
+        radios[0].focus();
       }
-    });
-  } else {
-    succeedWith(instance, value);
-  }
-};
+    }
+  };
+  /**
+   * Converts `inputOptions` into an array of `[value, label]`s
+   * @param inputOptions
+   */
 
-var addKeydownHandler = function addKeydownHandler(instance, globalState, innerParams, dismissWith) {
-  if (globalState.keydownTarget && globalState.keydownHandlerAdded) {
-    globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
-      capture: globalState.keydownListenerCapture
-    });
-    globalState.keydownHandlerAdded = false;
-  }
+  var formatInputOptions = function formatInputOptions(inputOptions) {
+    var result = [];
 
-  if (!innerParams.toast) {
-    globalState.keydownHandler = function (e) {
-      return keydownHandler(instance, e, innerParams, dismissWith);
-    };
-
-    globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
-    globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
-    globalState.keydownTarget.addEventListener('keydown', globalState.keydownHandler, {
-      capture: globalState.keydownListenerCapture
-    });
-    globalState.keydownHandlerAdded = true;
-  }
-}; // Focus handling
-
-var setFocus = function setFocus(innerParams, index, increment) {
-  var focusableElements = getFocusableElements(); // search for visible elements and select the next possible match
-
-  for (var i = 0; i < focusableElements.length; i++) {
-    index = index + increment; // rollover to first item
-
-    if (index === focusableElements.length) {
-      index = 0; // go to last item
-    } else if (index === -1) {
-      index = focusableElements.length - 1;
+    if (typeof Map !== 'undefined' && inputOptions instanceof Map) {
+      inputOptions.forEach(function (value, key) {
+        result.push([key, value]);
+      });
+    } else {
+      Object.keys(inputOptions).forEach(function (key) {
+        result.push([key, inputOptions[key]]);
+      });
     }
 
-    return focusableElements[index].focus();
-  } // no visible focusable elements, focus the popup
+    return result;
+  };
+
+  var handleConfirmButtonClick = function handleConfirmButtonClick(instance, innerParams) {
+    instance.disableButtons();
+
+    if (innerParams.input) {
+      handleConfirmWithInput(instance, innerParams);
+    } else {
+      confirm(instance, innerParams, true);
+    }
+  };
+  var handleCancelButtonClick = function handleCancelButtonClick(instance, dismissWith) {
+    instance.disableButtons();
+    dismissWith(DismissReason.cancel);
+  };
+
+  var handleConfirmWithInput = function handleConfirmWithInput(instance, innerParams) {
+    var inputValue = getInputValue(instance, innerParams);
+
+    if (innerParams.inputValidator) {
+      instance.disableInput();
+      var validationPromise = Promise.resolve().then(function () {
+        return innerParams.inputValidator(inputValue, innerParams.validationMessage);
+      });
+      validationPromise.then(function (validationMessage) {
+        instance.enableButtons();
+        instance.enableInput();
+
+        if (validationMessage) {
+          instance.showValidationMessage(validationMessage);
+        } else {
+          confirm(instance, innerParams, inputValue);
+        }
+      });
+    } else if (!instance.getInput().checkValidity()) {
+      instance.enableButtons();
+      instance.showValidationMessage(innerParams.validationMessage);
+    } else {
+      confirm(instance, innerParams, inputValue);
+    }
+  };
+
+  var succeedWith = function succeedWith(instance, value) {
+    instance.closePopup({
+      value: value
+    });
+  };
+
+  var confirm = function confirm(instance, innerParams, value) {
+    if (innerParams.showLoaderOnConfirm) {
+      showLoading(); // TODO: make showLoading an *instance* method
+    }
+
+    if (innerParams.preConfirm) {
+      instance.resetValidationMessage();
+      var preConfirmPromise = Promise.resolve().then(function () {
+        return innerParams.preConfirm(value, innerParams.validationMessage);
+      });
+      preConfirmPromise.then(function (preConfirmValue) {
+        if (isVisible(getValidationMessage()) || preConfirmValue === false) {
+          instance.hideLoading();
+        } else {
+          succeedWith(instance, typeof preConfirmValue === 'undefined' ? value : preConfirmValue);
+        }
+      });
+    } else {
+      succeedWith(instance, value);
+    }
+  };
+
+  var addKeydownHandler = function addKeydownHandler(instance, globalState, innerParams, dismissWith) {
+    if (globalState.keydownTarget && globalState.keydownHandlerAdded) {
+      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = false;
+    }
+
+    if (!innerParams.toast) {
+      globalState.keydownHandler = function (e) {
+        return keydownHandler(instance, e, dismissWith);
+      };
+
+      globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
+      globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
+      globalState.keydownTarget.addEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = true;
+    }
+  }; // Focus handling
+
+  var setFocus = function setFocus(innerParams, index, increment) {
+    var focusableElements = getFocusableElements(); // search for visible elements and select the next possible match
+
+    for (var i = 0; i < focusableElements.length; i++) {
+      index = index + increment; // rollover to first item
+
+      if (index === focusableElements.length) {
+        index = 0; // go to last item
+      } else if (index === -1) {
+        index = focusableElements.length - 1;
+      }
+
+      return focusableElements[index].focus();
+    } // no visible focusable elements, focus the popup
 
 
-  getPopup().focus();
-};
-var arrowKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Left', 'Right', 'Up', 'Down' // IE11
-];
-var escKeys = ['Escape', 'Esc' // IE11
-];
+    getPopup().focus();
+  };
+  var arrowKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Left', 'Right', 'Up', 'Down' // IE11
+  ];
+  var escKeys = ['Escape', 'Esc' // IE11
+  ];
 
-var keydownHandler = function keydownHandler(instance, e, innerParams, dismissWith) {
-  if (innerParams.stopKeydownPropagation) {
+  var keydownHandler = function keydownHandler(instance, e, dismissWith) {
+    var innerParams = privateProps.innerParams.get(instance);
+
+    if (innerParams.stopKeydownPropagation) {
+      e.stopPropagation();
+    } // ENTER
+
+
+    if (e.key === 'Enter') {
+      handleEnter(instance, e, innerParams); // TAB
+    } else if (e.key === 'Tab') {
+      handleTab(e, innerParams); // ARROWS - switch focus between buttons
+    } else if (arrowKeys.indexOf(e.key) !== -1) {
+      handleArrows(); // ESC
+    } else if (escKeys.indexOf(e.key) !== -1) {
+      handleEsc(e, innerParams, dismissWith);
+    }
+  };
+
+  var handleEnter = function handleEnter(instance, e, innerParams) {
+    // #720 #721
+    if (e.isComposing) {
+      return;
+    }
+
+    if (e.target && instance.getInput() && e.target.outerHTML === instance.getInput().outerHTML) {
+      if (['textarea', 'file'].indexOf(innerParams.input) !== -1) {
+        return; // do not submit
+      }
+
+      clickConfirm();
+      e.preventDefault();
+    }
+  };
+
+  var handleTab = function handleTab(e, innerParams) {
+    var targetElement = e.target;
+    var focusableElements = getFocusableElements();
+    var btnIndex = -1;
+
+    for (var i = 0; i < focusableElements.length; i++) {
+      if (targetElement === focusableElements[i]) {
+        btnIndex = i;
+        break;
+      }
+    }
+
+    if (!e.shiftKey) {
+      // Cycle to the next button
+      setFocus(innerParams, btnIndex, 1);
+    } else {
+      // Cycle to the prev button
+      setFocus(innerParams, btnIndex, -1);
+    }
+
     e.stopPropagation();
-  } // ENTER
-
-
-  if (e.key === 'Enter') {
-    handleEnter(instance, e, innerParams); // TAB
-  } else if (e.key === 'Tab') {
-    handleTab(e, innerParams); // ARROWS - switch focus between buttons
-  } else if (arrowKeys.indexOf(e.key) !== -1) {
-    handleArrows(); // ESC
-  } else if (escKeys.indexOf(e.key) !== -1) {
-    handleEsc(e, innerParams, dismissWith);
-  }
-};
-
-var handleEnter = function handleEnter(instance, e, innerParams) {
-  // #720 #721
-  if (e.isComposing) {
-    return;
-  }
-
-  if (e.target && instance.getInput() && e.target.outerHTML === instance.getInput().outerHTML) {
-    if (['textarea', 'file'].indexOf(innerParams.input) !== -1) {
-      return; // do not submit
-    }
-
-    clickConfirm();
     e.preventDefault();
-  }
-};
-
-var handleTab = function handleTab(e, innerParams) {
-  var targetElement = e.target;
-  var focusableElements = getFocusableElements();
-  var btnIndex = -1;
-
-  for (var i = 0; i < focusableElements.length; i++) {
-    if (targetElement === focusableElements[i]) {
-      btnIndex = i;
-      break;
-    }
-  }
-
-  if (!e.shiftKey) {
-    // Cycle to the next button
-    setFocus(innerParams, btnIndex, 1);
-  } else {
-    // Cycle to the prev button
-    setFocus(innerParams, btnIndex, -1);
-  }
-
-  e.stopPropagation();
-  e.preventDefault();
-};
-
-var handleArrows = function handleArrows() {
-  var confirmButton = getConfirmButton();
-  var cancelButton = getCancelButton(); // focus Cancel button if Confirm button is currently focused
-
-  if (document.activeElement === confirmButton && isVisible(cancelButton)) {
-    cancelButton.focus(); // and vice versa
-  } else if (document.activeElement === cancelButton && isVisible(confirmButton)) {
-    confirmButton.focus();
-  }
-};
-
-var handleEsc = function handleEsc(e, innerParams, dismissWith) {
-  if (callIfFunction(innerParams.allowEscapeKey)) {
-    e.preventDefault();
-    dismissWith(DismissReason.esc);
-  }
-};
-
-var handlePopupClick = function handlePopupClick(domCache, innerParams, dismissWith) {
-  if (innerParams.toast) {
-    handleToastClick(domCache, innerParams, dismissWith);
-  } else {
-    // Ignore click events that had mousedown on the popup but mouseup on the container
-    // This can happen when the user drags a slider
-    handleModalMousedown(domCache); // Ignore click events that had mousedown on the container but mouseup on the popup
-
-    handleContainerMousedown(domCache);
-    handleModalClick(domCache, innerParams, dismissWith);
-  }
-};
-
-var handleToastClick = function handleToastClick(domCache, innerParams, dismissWith) {
-  // Closing toast by internal click
-  domCache.popup.onclick = function () {
-    if (innerParams.showConfirmButton || innerParams.showCancelButton || innerParams.showCloseButton || innerParams.input) {
-      return;
-    }
-
-    dismissWith(DismissReason.close);
   };
-};
 
-var ignoreOutsideClick = false;
+  var handleArrows = function handleArrows() {
+    var confirmButton = getConfirmButton();
+    var cancelButton = getCancelButton(); // focus Cancel button if Confirm button is currently focused
 
-var handleModalMousedown = function handleModalMousedown(domCache) {
-  domCache.popup.onmousedown = function () {
-    domCache.container.onmouseup = function (e) {
-      domCache.container.onmouseup = undefined; // We only check if the mouseup target is the container because usually it doesn't
-      // have any other direct children aside of the popup
-
-      if (e.target === domCache.container) {
-        ignoreOutsideClick = true;
-      }
-    };
-  };
-};
-
-var handleContainerMousedown = function handleContainerMousedown(domCache) {
-  domCache.container.onmousedown = function () {
-    domCache.popup.onmouseup = function (e) {
-      domCache.popup.onmouseup = undefined; // We also need to check if the mouseup target is a child of the popup
-
-      if (e.target === domCache.popup || domCache.popup.contains(e.target)) {
-        ignoreOutsideClick = true;
-      }
-    };
-  };
-};
-
-var handleModalClick = function handleModalClick(domCache, innerParams, dismissWith) {
-  domCache.container.onclick = function (e) {
-    if (ignoreOutsideClick) {
-      ignoreOutsideClick = false;
-      return;
-    }
-
-    if (e.target === domCache.container && callIfFunction(innerParams.allowOutsideClick)) {
-      dismissWith(DismissReason.backdrop);
+    if (document.activeElement === confirmButton && isVisible(cancelButton)) {
+      cancelButton.focus(); // and vice versa
+    } else if (document.activeElement === cancelButton && isVisible(confirmButton)) {
+      confirmButton.focus();
     }
   };
-};
 
-function _main(userParams) {
-  showWarningsForParams(userParams); // Check if there is another Swal closing
+  var handleEsc = function handleEsc(e, innerParams, dismissWith) {
+    if (callIfFunction(innerParams.allowEscapeKey)) {
+      e.preventDefault();
+      dismissWith(DismissReason.esc);
+    }
+  };
 
-  if (getPopup() && globalState.swalCloseEventFinishedCallback) {
-    globalState.swalCloseEventFinishedCallback();
-    delete globalState.swalCloseEventFinishedCallback;
-  } // Check if there is a swal disposal defer timer
+  var handlePopupClick = function handlePopupClick(instance, domCache, dismissWith) {
+    var innerParams = privateProps.innerParams.get(instance);
 
-
-  if (globalState.deferDisposalTimer) {
-    clearTimeout(globalState.deferDisposalTimer);
-    delete globalState.deferDisposalTimer;
-  }
-
-  var innerParams = prepareParams(userParams);
-  setParameters(innerParams);
-  Object.freeze(innerParams); // clear the previous timer
-
-  if (globalState.timeout) {
-    globalState.timeout.stop();
-    delete globalState.timeout;
-  } // clear the restore focus timeout
-
-
-  clearTimeout(globalState.restoreFocusTimeout);
-  var domCache = populateDomCache(this);
-  render(this, innerParams);
-  privateProps.innerParams.set(this, innerParams);
-  return swalPromise(this, domCache, innerParams);
-}
-
-var prepareParams = function prepareParams(userParams) {
-  var showClass = _extends({}, defaultParams.showClass, userParams.showClass);
-
-  var hideClass = _extends({}, defaultParams.hideClass, userParams.hideClass);
-
-  var params = _extends({}, defaultParams, userParams);
-
-  params.showClass = showClass;
-  params.hideClass = hideClass; // @deprecated
-
-  if (userParams.animation === false) {
-    params.showClass = {
-      popup: '',
-      backdrop: 'swal2-backdrop-show swal2-noanimation'
-    };
-    params.hideClass = {};
-  }
-
-  return params;
-};
-
-var swalPromise = function swalPromise(instance, domCache, innerParams) {
-  return new Promise(function (resolve) {
-    // functions to handle all closings/dismissals
-    var dismissWith = function dismissWith(dismiss) {
-      instance.closePopup({
-        dismiss: dismiss
-      });
-    };
-
-    privateMethods.swalPromiseResolve.set(instance, resolve);
-    setupTimer(globalState, innerParams, dismissWith);
-
-    domCache.confirmButton.onclick = function () {
-      return handleConfirmButtonClick(instance, innerParams);
-    };
-
-    domCache.cancelButton.onclick = function () {
-      return handleCancelButtonClick(instance, dismissWith);
-    };
-
-    domCache.closeButton.onclick = function () {
-      return dismissWith(DismissReason.close);
-    };
-
-    handlePopupClick(domCache, innerParams, dismissWith);
-    addKeydownHandler(instance, globalState, innerParams, dismissWith);
-
-    if (innerParams.toast && (innerParams.input || innerParams.footer || innerParams.showCloseButton)) {
-      addClass(document.body, swalClasses['toast-column']);
+    if (innerParams.toast) {
+      handleToastClick(instance, domCache, dismissWith);
     } else {
-      removeClass(document.body, swalClasses['toast-column']);
+      // Ignore click events that had mousedown on the popup but mouseup on the container
+      // This can happen when the user drags a slider
+      handleModalMousedown(domCache); // Ignore click events that had mousedown on the container but mouseup on the popup
+
+      handleContainerMousedown(domCache);
+      handleModalClick(instance, domCache, dismissWith);
+    }
+  };
+
+  var handleToastClick = function handleToastClick(instance, domCache, dismissWith) {
+    // Closing toast by internal click
+    domCache.popup.onclick = function () {
+      var innerParams = privateProps.innerParams.get(instance);
+
+      if (innerParams.showConfirmButton || innerParams.showCancelButton || innerParams.showCloseButton || innerParams.input) {
+        return;
+      }
+
+      dismissWith(DismissReason.close);
+    };
+  };
+
+  var ignoreOutsideClick = false;
+
+  var handleModalMousedown = function handleModalMousedown(domCache) {
+    domCache.popup.onmousedown = function () {
+      domCache.container.onmouseup = function (e) {
+        domCache.container.onmouseup = undefined; // We only check if the mouseup target is the container because usually it doesn't
+        // have any other direct children aside of the popup
+
+        if (e.target === domCache.container) {
+          ignoreOutsideClick = true;
+        }
+      };
+    };
+  };
+
+  var handleContainerMousedown = function handleContainerMousedown(domCache) {
+    domCache.container.onmousedown = function () {
+      domCache.popup.onmouseup = function (e) {
+        domCache.popup.onmouseup = undefined; // We also need to check if the mouseup target is a child of the popup
+
+        if (e.target === domCache.popup || domCache.popup.contains(e.target)) {
+          ignoreOutsideClick = true;
+        }
+      };
+    };
+  };
+
+  var handleModalClick = function handleModalClick(instance, domCache, dismissWith) {
+    domCache.container.onclick = function (e) {
+      var innerParams = privateProps.innerParams.get(instance);
+
+      if (ignoreOutsideClick) {
+        ignoreOutsideClick = false;
+        return;
+      }
+
+      if (e.target === domCache.container && callIfFunction(innerParams.allowOutsideClick)) {
+        dismissWith(DismissReason.backdrop);
+      }
+    };
+  };
+
+  function _main(userParams) {
+    showWarningsForParams(userParams);
+
+    if (globalState.currentInstance) {
+      globalState.currentInstance._destroy();
     }
 
-    handleInputOptionsAndValue(instance, innerParams);
-    openPopup(innerParams);
-    initFocus(domCache, innerParams); // Scroll container to top on open (#1247)
+    globalState.currentInstance = this;
+    var innerParams = prepareParams(userParams);
+    setParameters(innerParams);
+    Object.freeze(innerParams); // clear the previous timer
 
-    domCache.container.scrollTop = 0;
-  });
-};
+    if (globalState.timeout) {
+      globalState.timeout.stop();
+      delete globalState.timeout;
+    } // clear the restore focus timeout
 
-var populateDomCache = function populateDomCache(instance) {
-  var domCache = {
-    popup: getPopup(),
-    container: getContainer(),
-    content: getContent(),
-    actions: getActions(),
-    confirmButton: getConfirmButton(),
-    cancelButton: getCancelButton(),
-    closeButton: getCloseButton(),
-    validationMessage: getValidationMessage(),
-    progressSteps: getProgressSteps()
+
+    clearTimeout(globalState.restoreFocusTimeout);
+    var domCache = populateDomCache(this);
+    render(this, innerParams);
+    privateProps.innerParams.set(this, innerParams);
+    return swalPromise(this, domCache, innerParams);
+  }
+
+  var prepareParams = function prepareParams(userParams) {
+    var showClass = _extends({}, defaultParams.showClass, userParams.showClass);
+
+    var hideClass = _extends({}, defaultParams.hideClass, userParams.hideClass);
+
+    var params = _extends({}, defaultParams, userParams);
+
+    params.showClass = showClass;
+    params.hideClass = hideClass; // @deprecated
+
+    if (userParams.animation === false) {
+      params.showClass = {
+        popup: 'swal2-noanimation',
+        backdrop: 'swal2-noanimation'
+      };
+      params.hideClass = {};
+    }
+
+    return params;
   };
-  privateProps.domCache.set(instance, domCache);
-  return domCache;
-};
 
-var setupTimer = function setupTimer(globalState$$1, innerParams, dismissWith) {
-  var timerProgressBar = getTimerProgressBar();
-  hide(timerProgressBar);
+  var swalPromise = function swalPromise(instance, domCache, innerParams) {
+    return new Promise(function (resolve) {
+      // functions to handle all closings/dismissals
+      var dismissWith = function dismissWith(dismiss) {
+        instance.closePopup({
+          dismiss: dismiss
+        });
+      };
 
-  if (innerParams.timer) {
-    globalState$$1.timeout = new Timer(function () {
-      dismissWith('timer');
-      delete globalState$$1.timeout;
-    }, innerParams.timer);
+      privateMethods.swalPromiseResolve.set(instance, resolve);
 
-    if (innerParams.timerProgressBar) {
-      show(timerProgressBar);
+      domCache.confirmButton.onclick = function () {
+        return handleConfirmButtonClick(instance, innerParams);
+      };
+
+      domCache.cancelButton.onclick = function () {
+        return handleCancelButtonClick(instance, dismissWith);
+      };
+
+      domCache.closeButton.onclick = function () {
+        return dismissWith(DismissReason.close);
+      };
+
+      handlePopupClick(instance, domCache, dismissWith);
+      addKeydownHandler(instance, globalState, innerParams, dismissWith);
+
+      if (innerParams.toast && (innerParams.input || innerParams.footer || innerParams.showCloseButton)) {
+        addClass(document.body, swalClasses['toast-column']);
+      } else {
+        removeClass(document.body, swalClasses['toast-column']);
+      }
+
+      handleInputOptionsAndValue(instance, innerParams);
+      openPopup(innerParams);
+      setupTimer(globalState, innerParams, dismissWith);
+      initFocus(domCache, innerParams); // Scroll container to top on open (#1247, #1946)
+
       setTimeout(function () {
-        animateTimerProgressBar(innerParams.timer);
+        domCache.container.scrollTop = 0;
       });
-    }
-  }
-};
+    });
+  };
 
-var initFocus = function initFocus(domCache, innerParams) {
-  if (innerParams.toast) {
-    return;
-  }
+  var populateDomCache = function populateDomCache(instance) {
+    var domCache = {
+      popup: getPopup(),
+      container: getContainer(),
+      content: getContent(),
+      actions: getActions(),
+      confirmButton: getConfirmButton(),
+      cancelButton: getCancelButton(),
+      closeButton: getCloseButton(),
+      validationMessage: getValidationMessage(),
+      progressSteps: getProgressSteps()
+    };
+    privateProps.domCache.set(instance, domCache);
+    return domCache;
+  };
 
-  if (!callIfFunction(innerParams.allowEnterKey)) {
-    return blurActiveElement();
-  }
+  var setupTimer = function setupTimer(globalState$$1, innerParams, dismissWith) {
+    var timerProgressBar = getTimerProgressBar();
+    hide(timerProgressBar);
 
-  if (innerParams.focusCancel && isVisible(domCache.cancelButton)) {
-    return domCache.cancelButton.focus();
-  }
+    if (innerParams.timer) {
+      globalState$$1.timeout = new Timer(function () {
+        dismissWith('timer');
+        delete globalState$$1.timeout;
+      }, innerParams.timer);
 
-  if (innerParams.focusConfirm && isVisible(domCache.confirmButton)) {
-    return domCache.confirmButton.focus();
-  }
-
-  setFocus(innerParams, -1, 1);
-};
-
-var blurActiveElement = function blurActiveElement() {
-  if (document.activeElement && typeof document.activeElement.blur === 'function') {
-    document.activeElement.blur();
-  }
-};
-
-/**
- * Updates popup parameters.
- */
-
-function update(params) {
-  var popup = getPopup();
-  var innerParams = privateProps.innerParams.get(this);
-
-  if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
-    return warn("You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.");
-  }
-
-  var validUpdatableParams = {}; // assign valid params from `params` to `defaults`
-
-  Object.keys(params).forEach(function (param) {
-    if (Swal.isUpdatableParameter(param)) {
-      validUpdatableParams[param] = params[param];
-    } else {
-      warn("Invalid parameter to update: \"".concat(param, "\". Updatable params are listed here: https://github.com/sweetalert2/sweetalert2/blob/master/src/utils/params.js"));
-    }
-  });
-
-  var updatedParams = _extends({}, innerParams, validUpdatableParams);
-
-  render(this, updatedParams);
-  privateProps.innerParams.set(this, updatedParams);
-  Object.defineProperties(this, {
-    params: {
-      value: _extends({}, this.params, params),
-      writable: false,
-      enumerable: true
-    }
-  });
-}
-
-
-
-var instanceMethods = Object.freeze({
-	hideLoading: hideLoading,
-	disableLoading: hideLoading,
-	getInput: getInput$1,
-	close: close,
-	closePopup: close,
-	closeModal: close,
-	closeToast: close,
-	enableButtons: enableButtons,
-	disableButtons: disableButtons,
-	enableInput: enableInput,
-	disableInput: disableInput,
-	showValidationMessage: showValidationMessage,
-	resetValidationMessage: resetValidationMessage$1,
-	getProgressSteps: getProgressSteps$1,
-	_main: _main,
-	update: update
-});
-
-var currentInstance; // SweetAlert constructor
-
-function SweetAlert() {
-  // Prevent run in Node env
-
-  /* istanbul ignore if */
-  if (typeof window === 'undefined') {
-    return;
-  } // Check for the existence of Promise
-
-  /* istanbul ignore if */
-
-
-  if (typeof Promise === 'undefined') {
-    error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)');
-  }
-
-  currentInstance = this;
-
-  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-    args[_key] = arguments[_key];
-  }
-
-  var outerParams = Object.freeze(this.constructor.argsToParams(args));
-  Object.defineProperties(this, {
-    params: {
-      value: outerParams,
-      writable: false,
-      enumerable: true,
-      configurable: true
-    }
-  });
-
-  var promise = this._main(this.params);
-
-  privateProps.promise.set(this, promise);
-} // `catch` cannot be the name of a module export, so we define our thenable methods here instead
-
-
-SweetAlert.prototype.then = function (onFulfilled) {
-  var promise = privateProps.promise.get(this);
-  return promise.then(onFulfilled);
-};
-
-SweetAlert.prototype["finally"] = function (onFinally) {
-  var promise = privateProps.promise.get(this);
-  return promise["finally"](onFinally);
-}; // Assign instance methods from src/instanceMethods/*.js to prototype
-
-
-_extends(SweetAlert.prototype, instanceMethods); // Assign static methods from src/staticMethods/*.js to constructor
-
-
-_extends(SweetAlert, staticMethods); // Proxy to instance methods to constructor, for now, for backwards compatibility
-
-
-Object.keys(instanceMethods).forEach(function (key) {
-  SweetAlert[key] = function () {
-    if (currentInstance) {
-      var _currentInstance;
-
-      return (_currentInstance = currentInstance)[key].apply(_currentInstance, arguments);
+      if (innerParams.timerProgressBar) {
+        show(timerProgressBar);
+        setTimeout(function () {
+          if (globalState$$1.timeout.running) {
+            // timer can be already stopped at this point
+            animateTimerProgressBar(innerParams.timer);
+          }
+        });
+      }
     }
   };
-});
-SweetAlert.DismissReason = DismissReason;
-SweetAlert.version = '9.5.4';
 
-var Swal = SweetAlert;
-Swal["default"] = Swal;
+  var initFocus = function initFocus(domCache, innerParams) {
+    if (innerParams.toast) {
+      return;
+    }
 
-return Swal;
+    if (!callIfFunction(innerParams.allowEnterKey)) {
+      return blurActiveElement();
+    }
 
-})));
+    if (innerParams.focusCancel && isVisible(domCache.cancelButton)) {
+      return domCache.cancelButton.focus();
+    }
+
+    if (innerParams.focusConfirm && isVisible(domCache.confirmButton)) {
+      return domCache.confirmButton.focus();
+    }
+
+    setFocus(innerParams, -1, 1);
+  };
+
+  var blurActiveElement = function blurActiveElement() {
+    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+      document.activeElement.blur();
+    }
+  };
+
+  /**
+   * Updates popup parameters.
+   */
+
+  function update(params) {
+    var popup = getPopup();
+    var innerParams = privateProps.innerParams.get(this);
+
+    if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
+      return warn("You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.");
+    }
+
+    var validUpdatableParams = {}; // assign valid params from `params` to `defaults`
+
+    Object.keys(params).forEach(function (param) {
+      if (Swal.isUpdatableParameter(param)) {
+        validUpdatableParams[param] = params[param];
+      } else {
+        warn("Invalid parameter to update: \"".concat(param, "\". Updatable params are listed here: https://github.com/sweetalert2/sweetalert2/blob/master/src/utils/params.js"));
+      }
+    });
+
+    var updatedParams = _extends({}, innerParams, validUpdatableParams);
+
+    render(this, updatedParams);
+    privateProps.innerParams.set(this, updatedParams);
+    Object.defineProperties(this, {
+      params: {
+        value: _extends({}, this.params, params),
+        writable: false,
+        enumerable: true
+      }
+    });
+  }
+
+  function _destroy() {
+    var domCache = privateProps.domCache.get(this);
+    var innerParams = privateProps.innerParams.get(this);
+
+    if (!innerParams) {
+      return; // This instance has already been destroyed
+    } // Check if there is another Swal closing
+
+
+    if (domCache.popup && globalState.swalCloseEventFinishedCallback) {
+      globalState.swalCloseEventFinishedCallback();
+      delete globalState.swalCloseEventFinishedCallback;
+    } // Check if there is a swal disposal defer timer
+
+
+    if (globalState.deferDisposalTimer) {
+      clearTimeout(globalState.deferDisposalTimer);
+      delete globalState.deferDisposalTimer;
+    }
+
+    if (typeof innerParams.onDestroy === 'function') {
+      innerParams.onDestroy();
+    }
+
+    disposeSwal(this);
+  }
+
+  var disposeSwal = function disposeSwal(instance) {
+    // Unset this.params so GC will dispose it (#1569)
+    delete instance.params; // Unset globalState props so GC will dispose globalState (#1569)
+
+    delete globalState.keydownHandler;
+    delete globalState.keydownTarget; // Unset WeakMaps so GC will be able to dispose them (#1569)
+
+    unsetWeakMaps(privateProps);
+    unsetWeakMaps(privateMethods);
+  };
+
+  var unsetWeakMaps = function unsetWeakMaps(obj) {
+    for (var i in obj) {
+      obj[i] = new WeakMap();
+    }
+  };
+
+
+
+  var instanceMethods = /*#__PURE__*/Object.freeze({
+    hideLoading: hideLoading,
+    disableLoading: hideLoading,
+    getInput: getInput$1,
+    close: close,
+    closePopup: close,
+    closeModal: close,
+    closeToast: close,
+    enableButtons: enableButtons,
+    disableButtons: disableButtons,
+    enableInput: enableInput,
+    disableInput: disableInput,
+    showValidationMessage: showValidationMessage,
+    resetValidationMessage: resetValidationMessage$1,
+    getProgressSteps: getProgressSteps$1,
+    _main: _main,
+    update: update,
+    _destroy: _destroy
+  });
+
+  var currentInstance; // SweetAlert constructor
+
+  function SweetAlert() {
+    // Prevent run in Node env
+
+    /* istanbul ignore if */
+    if (typeof window === 'undefined') {
+      return;
+    } // Check for the existence of Promise
+
+    /* istanbul ignore if */
+
+
+    if (typeof Promise === 'undefined') {
+      error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)');
+    }
+
+    currentInstance = this;
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var outerParams = Object.freeze(this.constructor.argsToParams(args));
+    Object.defineProperties(this, {
+      params: {
+        value: outerParams,
+        writable: false,
+        enumerable: true,
+        configurable: true
+      }
+    });
+
+    var promise = this._main(this.params);
+
+    privateProps.promise.set(this, promise);
+  } // `catch` cannot be the name of a module export, so we define our thenable methods here instead
+
+
+  SweetAlert.prototype.then = function (onFulfilled) {
+    var promise = privateProps.promise.get(this);
+    return promise.then(onFulfilled);
+  };
+
+  SweetAlert.prototype["finally"] = function (onFinally) {
+    var promise = privateProps.promise.get(this);
+    return promise["finally"](onFinally);
+  }; // Assign instance methods from src/instanceMethods/*.js to prototype
+
+
+  _extends(SweetAlert.prototype, instanceMethods); // Assign static methods from src/staticMethods/*.js to constructor
+
+
+  _extends(SweetAlert, staticMethods); // Proxy to instance methods to constructor, for now, for backwards compatibility
+
+
+  Object.keys(instanceMethods).forEach(function (key) {
+    SweetAlert[key] = function () {
+      if (currentInstance) {
+        var _currentInstance;
+
+        return (_currentInstance = currentInstance)[key].apply(_currentInstance, arguments);
+      }
+    };
+  });
+  SweetAlert.DismissReason = DismissReason;
+  SweetAlert.version = '9.10.12';
+
+  var Swal = SweetAlert;
+  Swal["default"] = Swal;
+
+  return Swal;
+
+}));
 if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
 
-"undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,".swal2-popup.swal2-toast{-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row;-webkit-box-align:center;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row}.swal2-popup.swal2-toast .swal2-title{-webkit-box-flex:1;flex-grow:1;-webkit-box-pack:start;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{-webkit-box-pack:start;justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:2em 2em;transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;-webkit-transform-origin:0 1.5em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:-webkit-box;display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;padding:.625em;overflow-x:hidden;-webkit-transition:background-color .1s;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{-webkit-box-align:start;align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{-webkit-box-align:start;align-items:flex-start;-webkit-box-pack:start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{-webkit-box-align:start;align-items:flex-start;-webkit-box-pack:end;justify-content:flex-end}.swal2-container.swal2-center{-webkit-box-align:center;align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{-webkit-box-align:center;align-items:center;-webkit-box-pack:start;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{-webkit-box-align:center;align-items:center;-webkit-box-pack:end;justify-content:flex-end}.swal2-container.swal2-bottom{-webkit-box-align:end;align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{-webkit-box-align:end;align-items:flex-end;-webkit-box-pack:start;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{-webkit-box-align:end;align-items:flex-end;-webkit-box-pack:end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:-webkit-box!important;display:flex!important;-webkit-box-flex:1;flex:1;align-self:stretch;-webkit-box-pack:center;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:-webkit-box!important;display:flex!important;-webkit-box-flex:1;flex:1;align-content:center;-webkit-box-pack:center;justify-content:center}.swal2-container.swal2-grow-column{-webkit-box-flex:1;flex:1;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{-webkit-box-align:center;align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{-webkit-box-align:start;align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{-webkit-box-align:end;align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:-webkit-box!important;display:flex!important;-webkit-box-flex:1;flex:1;align-content:center;-webkit-box-pack:center;justify-content:center}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;-webkit-box-pack:center;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:-webkit-box;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;-webkit-box-align:center;align-items:center}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:-webkit-box;display:flex;z-index:1;flex-wrap:wrap;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:-webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.1)),to(rgba(0,0,0,.1)));background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:-webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.2)),to(rgba(0,0,0,.2)));background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:\"\";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{-webkit-box-pack:center;justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar{position:absolute;bottom:0;left:0;width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;-webkit-box-pack:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;-webkit-transition:color .1s ease-out;transition:color .1s ease-out;border:none;border-radius:0;outline:initial;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{-webkit-transform:none;transform:none;background:0 0;color:#f27474}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;-webkit-box-pack:center;justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;-webkit-transition:border-color .3s,box-shadow .3s;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-webkit-input-placeholder,.swal2-input::-webkit-input-placeholder,.swal2-textarea::-webkit-input-placeholder{color:#ccc}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;-webkit-box-pack:center;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;-webkit-box-flex:1;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:3.75em 3.75em;transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 3.75em;transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.875em;width:1.5625em;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{-webkit-box-align:center;align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{-webkit-transition:none;transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{-webkit-transform:translateY(-.625em) rotateZ(2deg);transform:translateY(-.625em) rotateZ(2deg)}33%{-webkit-transform:translateY(0) rotateZ(-2deg);transform:translateY(0) rotateZ(-2deg)}66%{-webkit-transform:translateY(.3125em) rotateZ(2deg);transform:translateY(.3125em) rotateZ(2deg)}100%{-webkit-transform:translateY(0) rotateZ(0);transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{-webkit-transform:translateY(-.625em) rotateZ(2deg);transform:translateY(-.625em) rotateZ(2deg)}33%{-webkit-transform:translateY(0) rotateZ(-2deg);transform:translateY(0) rotateZ(-2deg)}66%{-webkit-transform:translateY(.3125em) rotateZ(2deg);transform:translateY(.3125em) rotateZ(2deg)}100%{-webkit-transform:translateY(0) rotateZ(0);transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{-webkit-transform:rotateZ(1deg);transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{-webkit-transform:rotateZ(1deg);transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{-webkit-transform:scale(.7);transform:scale(.7)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes swal2-show{0%{-webkit-transform:scale(.7);transform:scale(.7)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}100%{-webkit-transform:scale(1);transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{-webkit-transform:scale(.5);transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{-webkit-transform:scale(.5);transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}100%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}100%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}50%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}80%{margin-top:-.375em;-webkit-transform:scale(1.15);transform:scale(1.15)}100%{margin-top:0;-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}50%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}80%{margin-top:-.375em;-webkit-transform:scale(1.15);transform:scale(1.15)}100%{margin-top:0;-webkit-transform:scale(1);transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}100%{-webkit-transform:rotateX(0);transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}100%{-webkit-transform:rotateX(0);transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;-webkit-box-align:stretch;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{-webkit-box-flex:1;flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{-webkit-box-pack:center;justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}");
+"undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,".swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent!important;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:\"\";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:.3125em;border-bottom-left-radius:.3125em}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:0;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-webkit-input-placeholder,.swal2-input::-webkit-input-placeholder,.swal2-textarea::-webkit-input-placeholder{color:#ccc}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}");
 
 /***/ }),
 
@@ -64135,6 +65184,14 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(bailleur.adresse))]),
                         _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(bailleur.profession))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(bailleur.nationalite))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(bailleur.nombreBien))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(bailleur.bp))]),
+                        _vm._v(" "),
                         _c("td", [
                           _c(
                             "a",
@@ -64422,6 +65479,176 @@ var render = function() {
                       "div",
                       { staticClass: "form-group" },
                       [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.nombreBien,
+                              expression: "form.nombreBien"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("nombreBien")
+                          },
+                          attrs: {
+                            type: "number",
+                            name: "nombreBien",
+                            placeholder: "nombre de Bien"
+                          },
+                          domProps: { value: _vm.form.nombreBien },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "nombreBien",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "nombreBien" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.profession,
+                              expression: "form.profession"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("profession")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "profession",
+                            placeholder: "profession"
+                          },
+                          domProps: { value: _vm.form.profession },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "profession",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "profession" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.nationalite,
+                              expression: "form.nationalite"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("nationalite")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "nationalite",
+                            placeholder: "nationalite"
+                          },
+                          domProps: { value: _vm.form.nationalite },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "nationalite",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "nationalite" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.bp,
+                              expression: "form.bp"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: { "is-invalid": _vm.form.errors.has("bp") },
+                          attrs: {
+                            type: "text",
+                            name: "bp",
+                            placeholder: "boite postal"
+                          },
+                          domProps: { value: _vm.form.bp },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "bp", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "bp" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
                         _c("label", [_vm._v("Password")]),
                         _vm._v(" "),
                         _c("input", {
@@ -64527,7 +65754,15 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("telephone")]),
         _vm._v(" "),
-        _c("th", [_vm._v("adresse")])
+        _c("th", [_vm._v("adresse")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("profession")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("nationalite")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("nombre Bien")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Boite postale")])
       ])
     ])
   },
@@ -64797,15 +66032,15 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.form.type,
-                                expression: "form.type"
+                                value: _vm.form.typebien_id,
+                                expression: "form.typebien_id"
                               }
                             ],
                             staticClass: "form-control",
                             class: {
-                              "is-invalid": _vm.form.errors.has("type")
+                              "is-invalid": _vm.form.errors.has("typebien_id")
                             },
-                            attrs: { name: "type" },
+                            attrs: { name: "typebien_id" },
                             on: {
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter
@@ -64818,7 +66053,7 @@ var render = function() {
                                   })
                                 _vm.$set(
                                   _vm.form,
-                                  "type",
+                                  "typebien_id",
                                   $event.target.multiple
                                     ? $$selectedVal
                                     : $$selectedVal[0]
@@ -64846,7 +66081,74 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c("has-error", {
-                          attrs: { form: _vm.form, field: "type" }
+                          attrs: { form: _vm.form, field: "typebien_id" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 col-sm-6" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("label", [_vm._v("Propriétaire")]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.bailleur,
+                                expression: "form.bailleur"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("bailleur")
+                            },
+                            attrs: { name: "bailleur" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.form,
+                                  "bailleur",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "1" } }, [
+                              _vm._v("alawa")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.Bailleurs.data, function(b) {
+                              return _c(
+                                "option",
+                                { key: b.name, domProps: { value: b.id } },
+                                [_vm._v(_vm._s(b.name))]
+                              )
+                            })
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "bailleur" }
                         })
                       ],
                       1
@@ -65040,6 +66342,136 @@ var render = function() {
                       })
                     ])
                   ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-12 col-sm-6" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", [_vm._v("plafonds")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.plafonds,
+                            expression: "form.plafonds"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "plafonds", placeholder: "plafonds" },
+                        domProps: { value: _vm.form.plafonds },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "plafonds", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 col-sm-6" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", [_vm._v("cuisine")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.cuisine,
+                            expression: "form.cuisine"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "cuisine", placeholder: "cuisine" },
+                        domProps: { value: _vm.form.cuisine },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "cuisine", $event.target.value)
+                          }
+                        }
+                      })
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-12 col-sm-6" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", [_vm._v("salle de bain")]),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.salledebain,
+                            expression: "form.salledebain"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          name: "salledebain",
+                          placeholder: "salledebain"
+                        },
+                        domProps: { value: _vm.form.salledebain },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "salledebain",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 col-sm-6" }, [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("label", [_vm._v("commentaire")]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.commentaire,
+                            expression: "form.commentaire"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          name: "commentaire",
+                          placeholder: "commentaire"
+                        },
+                        domProps: { value: _vm.form.commentaire },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.form,
+                              "commentaire",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ])
                 ])
               ])
             ]
@@ -65078,7 +66510,7 @@ var render = function() {
                     "tbody",
                     _vm._l(_vm.Biens.data, function(biens) {
                       return _c("tr", { key: biens.id }, [
-                        _c("td", [_vm._v(_vm._s(biens.details))]),
+                        _c("td", [_vm._v(_vm._s(biens.name))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(biens.etat))]),
                         _vm._v(" "),
@@ -65087,6 +66519,8 @@ var render = function() {
                         _c("td", [_vm._v(_vm._s(biens.prix))]),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(biens.adresse))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(biens.details))]),
                         _vm._v(" "),
                         _c("td", [
                           _c(
@@ -65113,19 +66547,6 @@ var render = function() {
                               }
                             },
                             [_c("i", { staticClass: "fa fa-trash red" })]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  return _vm.Detail(biens.bien_id)
-                                }
-                              }
-                            },
-                            [_c("i", { staticClass: "fas fa-snowflake" })]
                           )
                         ]),
                         _vm._v(" "),
@@ -65145,6 +66566,22 @@ var render = function() {
                                 staticClass: "fas fa-user-plus fa fw"
                               }),
                               _vm._v(" Ajouter\n                  ")
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              on: {
+                                click: function($event) {
+                                  return _vm.Detail(biens.bien_id)
+                                }
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "fas fa-snowflake" }),
+                              _vm._v(" lister\n                  ")
                             ]
                           )
                         ])
@@ -65211,7 +66648,7 @@ var render = function() {
                     staticClass: "modal-title",
                     attrs: { id: "addNewLabel" }
                   },
-                  [_vm._v("Add new")]
+                  [_vm._v("ajouter")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -65228,7 +66665,7 @@ var render = function() {
                     staticClass: "modal-title",
                     attrs: { id: "addNewLabel" }
                   },
-                  [_vm._v("Update biens")]
+                  [_vm._v("Modifier")]
                 ),
                 _vm._v(" "),
                 _vm._m(3)
@@ -65471,7 +66908,332 @@ var render = function() {
       ]
     ),
     _vm._v(" "),
-    _vm._m(4)
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "detailModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "addNewLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                !_vm.Emode
+                  ? _c(
+                      "div",
+                      { staticClass: "card-body table-responsive p-0" },
+                      [
+                        _c("table", { staticClass: "table table-hover" }, [
+                          _vm._m(5),
+                          _vm._v(" "),
+                          _c(
+                            "tbody",
+                            _vm._l(_vm.Equipement, function(e) {
+                              return _c("tr", { key: e.id }, [
+                                _c("td", [_vm._v(_vm._s(e.typeEquipement))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(e.nombreEquipement))]),
+                                _vm._v(" "),
+                                _c("td", [_vm._v(_vm._s(e.etatEquipement))]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _vm._v(_vm._s(e.commentaireEquipement))
+                                ]),
+                                _vm._v(" "),
+                                _c("td", [
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: { href: "#" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.Eform(e)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "fa fa-edit blue"
+                                      })
+                                    ]
+                                  ),
+                                  _vm._v(
+                                    "\n                    /\n                    "
+                                  ),
+                                  _c(
+                                    "a",
+                                    {
+                                      attrs: { href: "#" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.deleteEquip(e)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c("i", {
+                                        staticClass: "fa fa-trash red"
+                                      })
+                                    ]
+                                  )
+                                ])
+                              ])
+                            }),
+                            0
+                          )
+                        ])
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.Emode
+                  ? _c("div", [
+                      _c(
+                        "form",
+                        {
+                          on: {
+                            submit: function($event) {
+                              $event.preventDefault()
+                              return _vm.updateEquip()
+                            }
+                          }
+                        },
+                        [
+                          _c("div", { staticClass: "modal-body" }, [
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.formEquip.typeEquipement,
+                                      expression: "formEquip.typeEquipement"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: {
+                                    "is-invalid": _vm.formEquip.errors.has(
+                                      "typeEquipement"
+                                    )
+                                  },
+                                  attrs: {
+                                    type: "text",
+                                    name: "typeEquipement",
+                                    placeholder: "type Equipement"
+                                  },
+                                  domProps: {
+                                    value: _vm.formEquip.typeEquipement
+                                  },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.formEquip,
+                                        "typeEquipement",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("has-error", {
+                                  attrs: {
+                                    form: _vm.formEquip,
+                                    field: "typeEquipement"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.formEquip.nombreEquipement,
+                                      expression: "formEquip.nombreEquipement"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: {
+                                    "is-invalid": _vm.formEquip.errors.has(
+                                      "nombreEquipement"
+                                    )
+                                  },
+                                  attrs: {
+                                    type: "number",
+                                    name: "nombreEquipement",
+                                    placeholder: "nombre"
+                                  },
+                                  domProps: {
+                                    value: _vm.formEquip.nombreEquipement
+                                  },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.formEquip,
+                                        "nombreEquipement",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("has-error", {
+                                  attrs: {
+                                    form: _vm.formEquip,
+                                    field: "nombreEquipement"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.formEquip.etatEquipement,
+                                      expression: "formEquip.etatEquipement"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: {
+                                    "is-invalid": _vm.formEquip.errors.has(
+                                      "etatEquipement"
+                                    )
+                                  },
+                                  attrs: {
+                                    type: "text",
+                                    name: "etatEquipement",
+                                    placeholder: "etat Equipement"
+                                  },
+                                  domProps: {
+                                    value: _vm.formEquip.etatEquipement
+                                  },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.formEquip,
+                                        "etatEquipement",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("has-error", {
+                                  attrs: {
+                                    form: _vm.formEquip,
+                                    field: "etatEquipement"
+                                  }
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("textarea", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value:
+                                        _vm.formEquip.commentaireEquipement,
+                                      expression:
+                                        "formEquip.commentaireEquipement"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: {
+                                    "is-invalid": _vm.formEquip.errors.has(
+                                      "commentaireEquipement"
+                                    )
+                                  },
+                                  attrs: {
+                                    type: "text",
+                                    name: "commentaireEquipement",
+                                    placeholder: "commentaire"
+                                  },
+                                  domProps: {
+                                    value: _vm.formEquip.commentaireEquipement
+                                  },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.formEquip,
+                                        "commentaireEquipement",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("has-error", {
+                                  attrs: {
+                                    form: _vm.formEquip,
+                                    field: "commentaireEquipement"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(6)
+                        ]
+                      )
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _vm._m(7)
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -65506,15 +67268,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("description")]),
+        _c("th", [_vm._v("Propriétaire")]),
         _vm._v(" "),
         _c("th", [_vm._v("etat")]),
         _vm._v(" "),
         _c("th", [_vm._v("type")]),
         _vm._v(" "),
-        _c("th", [_vm._v("prix")]),
+        _c("th", [_vm._v("Valeur")]),
         _vm._v(" "),
         _c("th", [_vm._v("adresse")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("description")]),
         _vm._v(" "),
         _c("th", [_vm._v("action")]),
         _vm._v(" "),
@@ -65543,71 +67307,69 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "detailModal",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "addNewLabel",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "modal-dialog modal-dialog-centered",
-            attrs: { role: "document" }
-          },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _c("div", { staticClass: "modal-header" }, [
-                _c(
-                  "h5",
-                  { staticClass: "modal-title", attrs: { id: "addNewLabel" } },
-                  [_vm._v("Add new")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: {
-                      type: "button",
-                      "data-dismiss": "modal",
-                      "aria-label": "Close"
-                    }
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("p", [_vm._v("xzzzszs")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-danger",
-                    attrs: { type: "button", "data-dismiss": "modal" }
-                  },
-                  [_vm._v("fermer")]
-                )
-              ])
-            ])
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "addNewLabel" } }, [
+        _vm._v("liste des équipements")
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("type")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("nombre")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("etat")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("commentaire")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("action")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-success", attrs: { type: "submit" } },
+        [_vm._v("Modifier")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("fermer")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -66274,41 +68036,6 @@ render._withStripped = true
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
   \*******************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("p", [_vm._v("\n    Bonjour " + _vm._s(_vm.name) + "\n    ")])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [_c("input", { attrs: { type: "text" } })])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LoginComponent.vue?vue&type=template&id=4d2414bf&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/LoginComponent.vue?vue&type=template&id=4d2414bf& ***!
-  \*****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -67248,7 +68975,7 @@ var render = function() {
             _c("div", { staticClass: "card" }, [
               _c("div", { staticClass: "card-header" }, [
                 _c("h3", { staticClass: "card-title" }, [
-                  _vm._v("liste des Typebiens")
+                  _vm._v("liste des Types biens")
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-tools" }, [
@@ -67554,7 +69281,7 @@ var render = function() {
             _c("div", { staticClass: "card" }, [
               _c("div", { staticClass: "card-header" }, [
                 _c("h3", { staticClass: "card-title" }, [
-                  _vm._v("liste des typeclients")
+                  _vm._v("liste des types clients")
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-tools" }, [
@@ -67708,6 +69435,618 @@ var render = function() {
                       _vm.editmode
                         ? _vm.updatetypeclients()
                         : _vm.createtypeclients()
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.libelle,
+                              expression: "form.libelle"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("libelle")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "libelle",
+                            placeholder: "libelle"
+                          },
+                          domProps: { value: _vm.form.libelle },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "libelle", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "details" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("fermer")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.editmode,
+                            expression: "editmode"
+                          }
+                        ],
+                        staticClass: "btn btn-success",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Modifier")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: !_vm.editmode,
+                            expression: "!editmode"
+                          }
+                        ],
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Ajouter")]
+                    )
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [_c("tr", [_c("th", [_vm._v(" type")])])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TypeComptesComponent.vue?vue&type=template&id=0bf591cf&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TypeComptesComponent.vue?vue&type=template&id=0bf591cf& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "conteiner" }, [
+    _vm.$gate.isAdmin()
+      ? _c("div", { staticClass: "row mt-5" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h3", { staticClass: "card-title" }, [
+                  _vm._v("liste des types comptes")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-tools" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      on: { click: _vm.newModal }
+                    },
+                    [
+                      _c("i", { staticClass: "fas fa-user-plus fa fw" }),
+                      _vm._v(" Ajouter\n            ")
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body table-responsive p-0" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-hover", attrs: { id: "table" } },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.typecomptes.data, function(typecomptes) {
+                        return _c("tr", { key: typecomptes.typeclient_id }, [
+                          _c("td", [_vm._v(_vm._s(typecomptes.libelle))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editModal(typecomptes)
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fa fa-edit blue" })]
+                            ),
+                            _vm._v("\n                  /\n                  "),
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deletetypecomptes(
+                                      typecomptes.typecomptes_id
+                                    )
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fa fa-trash red" })]
+                            )
+                          ])
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "card-footer" },
+                [
+                  _c("pagination", {
+                    attrs: { data: _vm.typecomptes },
+                    on: { "pagination-change-page": _vm.getResults }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.$gate.isAdmin() ? _c("div", [_c("not-found")], 1) : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "addNew",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "addNewLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.editmode,
+                        expression: "!editmode"
+                      }
+                    ],
+                    staticClass: "modal-title",
+                    attrs: { id: "addNewLabel" }
+                  },
+                  [_vm._v("Add new")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "h5",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.editmode,
+                        expression: "editmode"
+                      }
+                    ],
+                    staticClass: "modal-title",
+                    attrs: { id: "addNewLabel" }
+                  },
+                  [_vm._v("Update typecomptes")]
+                ),
+                _vm._v(" "),
+                _vm._m(1)
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      _vm.editmode
+                        ? _vm.updatetypecomptes()
+                        : _vm.createtypecomptes()
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.libelle,
+                              expression: "form.libelle"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("libelle")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "libelle",
+                            placeholder: "libelle"
+                          },
+                          domProps: { value: _vm.form.libelle },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "libelle", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "details" }
+                        })
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "modal-footer" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button", "data-dismiss": "modal" }
+                      },
+                      [_vm._v("fermer")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.editmode,
+                            expression: "editmode"
+                          }
+                        ],
+                        staticClass: "btn btn-success",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Modifier")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: !_vm.editmode,
+                            expression: "!editmode"
+                          }
+                        ],
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit" }
+                      },
+                      [_vm._v("Ajouter")]
+                    )
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [_c("tr", [_c("th", [_vm._v(" type")])])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TypeEtatsComponent.vue?vue&type=template&id=920c8e1e&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TypeEtatsComponent.vue?vue&type=template&id=920c8e1e& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "conteiner" }, [
+    _vm.$gate.isAdmin()
+      ? _c("div", { staticClass: "row mt-5" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-header" }, [
+                _c("h3", { staticClass: "card-title" }, [
+                  _vm._v("liste des types etats")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-tools" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-success",
+                      on: { click: _vm.newModal }
+                    },
+                    [
+                      _c("i", { staticClass: "fas fa-user-plus fa fw" }),
+                      _vm._v(" Ajouter\n            ")
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body table-responsive p-0" }, [
+                _c(
+                  "table",
+                  { staticClass: "table table-hover", attrs: { id: "table" } },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.typeetats.data, function(typeetats) {
+                        return _c("tr", { key: typeetats.typeclient_id }, [
+                          _c("td", [_vm._v(_vm._s(typeetats.libelle))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editModal(typeetats)
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fa fa-edit blue" })]
+                            ),
+                            _vm._v("\n                  /\n                  "),
+                            _c(
+                              "a",
+                              {
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deletetypeetats(
+                                      typeetats.typeetats_id
+                                    )
+                                  }
+                                }
+                              },
+                              [_c("i", { staticClass: "fa fa-trash red" })]
+                            )
+                          ])
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "card-footer" },
+                [
+                  _c("pagination", {
+                    attrs: { data: _vm.typeetats },
+                    on: { "pagination-change-page": _vm.getResults }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.$gate.isAdmin() ? _c("div", [_c("not-found")], 1) : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "addNew",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "addNewLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.editmode,
+                        expression: "!editmode"
+                      }
+                    ],
+                    staticClass: "modal-title",
+                    attrs: { id: "addNewLabel" }
+                  },
+                  [_vm._v("Add new")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "h5",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.editmode,
+                        expression: "editmode"
+                      }
+                    ],
+                    staticClass: "modal-title",
+                    attrs: { id: "addNewLabel" }
+                  },
+                  [_vm._v("Update typeetats")]
+                ),
+                _vm._v(" "),
+                _vm._m(1)
+              ]),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      _vm.editmode
+                        ? _vm.updatetypeetats()
+                        : _vm.createtypeetats()
                     }
                   }
                 },
@@ -68022,7 +70361,7 @@ var render = function() {
   return _c("div", { staticClass: "conteiner" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-10 mt-4" }, [
-        _c("h3", [_vm._v(" Not Found What you're looking ")]),
+        _c("h3", [_vm._v(" page introuvable ")]),
         _vm._v(" "),
         _c(
           "svg",
@@ -71764,8 +74103,8 @@ function normalizeComponent (
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /*!
-  * vue-router v3.1.3
-  * (c) 2019 Evan You
+  * vue-router v3.1.6
+  * (c) 2020 Evan You
   * @license MIT
   */
 /*  */
@@ -71831,14 +74170,12 @@ var View = {
     var depth = 0;
     var inactive = false;
     while (parent && parent._routerRoot !== parent) {
-      var vnodeData = parent.$vnode && parent.$vnode.data;
-      if (vnodeData) {
-        if (vnodeData.routerView) {
-          depth++;
-        }
-        if (vnodeData.keepAlive && parent._inactive) {
-          inactive = true;
-        }
+      var vnodeData = parent.$vnode ? parent.$vnode.data : {};
+      if (vnodeData.routerView) {
+        depth++;
+      }
+      if (vnodeData.keepAlive && parent._directInactive && parent._inactive) {
+        inactive = true;
       }
       parent = parent.$parent;
     }
@@ -71846,17 +74183,32 @@ var View = {
 
     // render previous view if the tree is inactive and kept-alive
     if (inactive) {
-      return h(cache[name], data, children)
+      var cachedData = cache[name];
+      var cachedComponent = cachedData && cachedData.component;
+      if (cachedComponent) {
+        // #2301
+        // pass props
+        if (cachedData.configProps) {
+          fillPropsinData(cachedComponent, data, cachedData.route, cachedData.configProps);
+        }
+        return h(cachedComponent, data, children)
+      } else {
+        // render previous empty view
+        return h()
+      }
     }
 
     var matched = route.matched[depth];
-    // render empty node if no matched route
-    if (!matched) {
+    var component = matched && matched.components[name];
+
+    // render empty node if no matched route or no config component
+    if (!matched || !component) {
       cache[name] = null;
       return h()
     }
 
-    var component = cache[name] = matched.components[name];
+    // cache component
+    cache[name] = { component: component };
 
     // attach instance registration hook
     // this will be called in the instance's injected lifecycle hooks
@@ -71888,24 +74240,36 @@ var View = {
       }
     };
 
-    // resolve props
-    var propsToPass = data.props = resolveProps(route, matched.props && matched.props[name]);
-    if (propsToPass) {
-      // clone to prevent mutation
-      propsToPass = data.props = extend({}, propsToPass);
-      // pass non-declared props as attrs
-      var attrs = data.attrs = data.attrs || {};
-      for (var key in propsToPass) {
-        if (!component.props || !(key in component.props)) {
-          attrs[key] = propsToPass[key];
-          delete propsToPass[key];
-        }
-      }
+    var configProps = matched.props && matched.props[name];
+    // save route and configProps in cachce
+    if (configProps) {
+      extend(cache[name], {
+        route: route,
+        configProps: configProps
+      });
+      fillPropsinData(component, data, route, configProps);
     }
 
     return h(component, data, children)
   }
 };
+
+function fillPropsinData (component, data, route, configProps) {
+  // resolve props
+  var propsToPass = data.props = resolveProps(route, configProps);
+  if (propsToPass) {
+    // clone to prevent mutation
+    propsToPass = data.props = extend({}, propsToPass);
+    // pass non-declared props as attrs
+    var attrs = data.attrs = data.attrs || {};
+    for (var key in propsToPass) {
+      if (!component.props || !(key in component.props)) {
+        attrs[key] = propsToPass[key];
+        delete propsToPass[key];
+      }
+    }
+  }
+}
 
 function resolveProps (route, config) {
   switch (typeof config) {
@@ -72682,12 +75046,14 @@ function fillParams (
       (regexpCompileCache[path] = pathToRegexp_1.compile(path));
 
     // Fix #2505 resolving asterisk routes { name: 'not-found', params: { pathMatch: '/not-found' }}
-    if (params.pathMatch) { params[0] = params.pathMatch; }
+    // and fix #3106 so that you can work with location descriptor object having params.pathMatch equal to empty string
+    if (typeof params.pathMatch === 'string') { params[0] = params.pathMatch; }
 
     return filler(params, { pretty: true })
   } catch (e) {
     if (true) {
-      warn(false, ("missing param for " + routeMsg + ": " + (e.message)));
+      // Fix #3072 no warn if `pathMatch` is string
+      warn(typeof params.pathMatch === 'string', ("missing param for " + routeMsg + ": " + (e.message)));
     }
     return ''
   } finally {
@@ -72709,20 +75075,25 @@ function normalizeLocation (
   if (next._normalized) {
     return next
   } else if (next.name) {
-    return extend({}, raw)
+    next = extend({}, raw);
+    var params = next.params;
+    if (params && typeof params === 'object') {
+      next.params = extend({}, params);
+    }
+    return next
   }
 
   // relative params
   if (!next.path && next.params && current) {
     next = extend({}, next);
     next._normalized = true;
-    var params = extend(extend({}, current.params), next.params);
+    var params$1 = extend(extend({}, current.params), next.params);
     if (current.name) {
       next.name = current.name;
-      next.params = params;
+      next.params = params$1;
     } else if (current.matched.length) {
       var rawPath = current.matched[current.matched.length - 1].path;
-      next.path = fillParams(rawPath, params, ("path " + (current.path)));
+      next.path = fillParams(rawPath, params$1, ("path " + (current.path)));
     } else if (true) {
       warn(false, "relative params navigation requires a current route.");
     }
@@ -72862,7 +75233,7 @@ var Link = {
         if (true) {
           warn(
             false,
-            ("RouterLink with to=\"" + (this.props.to) + "\" is trying to use a scoped slot but it didn't provide exactly one child.")
+            ("RouterLink with to=\"" + (this.to) + "\" is trying to use a scoped slot but it didn't provide exactly one child. Wrapping the content with a span element.")
           );
         }
         return scopedSlot.length === 0 ? h() : h('span', {}, scopedSlot)
@@ -73424,7 +75795,10 @@ function setupScroll () {
   // location.host contains the port and location.hostname doesn't
   var protocolAndPath = window.location.protocol + '//' + window.location.host;
   var absolutePath = window.location.href.replace(protocolAndPath, '');
-  window.history.replaceState({ key: getStateKey() }, '', absolutePath);
+  // preserve existing history state as it could be overriden by the user
+  var stateCopy = extend({}, window.history.state);
+  stateCopy.key = getStateKey();
+  window.history.replaceState(stateCopy, '', absolutePath);
   window.addEventListener('popstate', function (e) {
     saveScrollPosition();
     if (e.state && e.state.key) {
@@ -73587,7 +75961,10 @@ function pushState (url, replace) {
   var history = window.history;
   try {
     if (replace) {
-      history.replaceState({ key: getStateKey() }, '', url);
+      // preserve existing history state as it could be overriden by the user
+      var stateCopy = extend({}, history.state);
+      stateCopy.key = getStateKey();
+      history.replaceState(stateCopy, '', url);
     } else {
       history.pushState({ key: setStateKey(genStateKey()) }, '', url);
     }
@@ -74302,9 +76679,7 @@ function getHash () {
       href = decodeURI(href.slice(0, hashIndex)) + href.slice(hashIndex);
     } else { href = decodeURI(href); }
   } else {
-    if (searchIndex > -1) {
-      href = decodeURI(href.slice(0, searchIndex)) + href.slice(searchIndex);
-    }
+    href = decodeURI(href.slice(0, searchIndex)) + href.slice(searchIndex);
   }
 
   return href
@@ -74638,7 +77013,7 @@ function createHref (base, fullPath, mode) {
 }
 
 VueRouter.install = install;
-VueRouter.version = '3.1.3';
+VueRouter.version = '3.1.6';
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
@@ -86822,7 +89197,7 @@ Vue.use(VueSelect,{
  */
 
 var routes = [{
-  path: '/dashboard',
+  path: '/home',
   component: __webpack_require__(/*! ./components/dashboardComponent.vue */ "./resources/js/components/dashboardComponent.vue")["default"]
 }, {
   path: '/profile',
@@ -86855,11 +89230,14 @@ var routes = [{
   path: '/clients',
   component: __webpack_require__(/*! ./components/ClientsComponent.vue */ "./resources/js/components/ClientsComponent.vue")["default"]
 }, {
-  path: '/login',
-  component: __webpack_require__(/*! ./components/LoginComponent.vue */ "./resources/js/components/LoginComponent.vue")["default"]
-}, {
   path: '/louer',
   component: __webpack_require__(/*! ./components/LouersComponent.vue */ "./resources/js/components/LouersComponent.vue")["default"]
+}, {
+  path: '/typecomptes',
+  component: __webpack_require__(/*! ./components/TypeComptesComponent.vue */ "./resources/js/components/TypeComptesComponent.vue")["default"]
+}, {
+  path: '/typeetats',
+  component: __webpack_require__(/*! ./components/TypeEtatsComponent.vue */ "./resources/js/components/TypeEtatsComponent.vue")["default"]
 }, {
   path: '*',
   component: __webpack_require__(/*! ./components/notFoundComponent.vue */ "./resources/js/components/notFoundComponent.vue")["default"]
@@ -87238,75 +89616,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/LoginComponent.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/components/LoginComponent.vue ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _LoginComponent_vue_vue_type_template_id_4d2414bf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoginComponent.vue?vue&type=template&id=4d2414bf& */ "./resources/js/components/LoginComponent.vue?vue&type=template&id=4d2414bf&");
-/* harmony import */ var _LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoginComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/LoginComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _LoginComponent_vue_vue_type_template_id_4d2414bf___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _LoginComponent_vue_vue_type_template_id_4d2414bf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/LoginComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/LoginComponent.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/LoginComponent.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./LoginComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LoginComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/LoginComponent.vue?vue&type=template&id=4d2414bf&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/components/LoginComponent.vue?vue&type=template&id=4d2414bf& ***!
-  \***********************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_template_id_4d2414bf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./LoginComponent.vue?vue&type=template&id=4d2414bf& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/LoginComponent.vue?vue&type=template&id=4d2414bf&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_template_id_4d2414bf___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginComponent_vue_vue_type_template_id_4d2414bf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/js/components/LouersComponent.vue":
 /*!*****************************************************!*\
   !*** ./resources/js/components/LouersComponent.vue ***!
@@ -87578,6 +89887,144 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeClientsComponent_vue_vue_type_template_id_13d2609a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeClientsComponent_vue_vue_type_template_id_13d2609a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TypeComptesComponent.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/TypeComptesComponent.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TypeComptesComponent_vue_vue_type_template_id_0bf591cf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TypeComptesComponent.vue?vue&type=template&id=0bf591cf& */ "./resources/js/components/TypeComptesComponent.vue?vue&type=template&id=0bf591cf&");
+/* harmony import */ var _TypeComptesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TypeComptesComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/TypeComptesComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TypeComptesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TypeComptesComponent_vue_vue_type_template_id_0bf591cf___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TypeComptesComponent_vue_vue_type_template_id_0bf591cf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TypeComptesComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TypeComptesComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/TypeComptesComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeComptesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TypeComptesComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TypeComptesComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeComptesComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TypeComptesComponent.vue?vue&type=template&id=0bf591cf&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/TypeComptesComponent.vue?vue&type=template&id=0bf591cf& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeComptesComponent_vue_vue_type_template_id_0bf591cf___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TypeComptesComponent.vue?vue&type=template&id=0bf591cf& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TypeComptesComponent.vue?vue&type=template&id=0bf591cf&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeComptesComponent_vue_vue_type_template_id_0bf591cf___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeComptesComponent_vue_vue_type_template_id_0bf591cf___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TypeEtatsComponent.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/TypeEtatsComponent.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TypeEtatsComponent_vue_vue_type_template_id_920c8e1e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TypeEtatsComponent.vue?vue&type=template&id=920c8e1e& */ "./resources/js/components/TypeEtatsComponent.vue?vue&type=template&id=920c8e1e&");
+/* harmony import */ var _TypeEtatsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TypeEtatsComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/TypeEtatsComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TypeEtatsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TypeEtatsComponent_vue_vue_type_template_id_920c8e1e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TypeEtatsComponent_vue_vue_type_template_id_920c8e1e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/TypeEtatsComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/TypeEtatsComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/TypeEtatsComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeEtatsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TypeEtatsComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TypeEtatsComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeEtatsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/TypeEtatsComponent.vue?vue&type=template&id=920c8e1e&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/TypeEtatsComponent.vue?vue&type=template&id=920c8e1e& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeEtatsComponent_vue_vue_type_template_id_920c8e1e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./TypeEtatsComponent.vue?vue&type=template&id=920c8e1e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TypeEtatsComponent.vue?vue&type=template&id=920c8e1e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeEtatsComponent_vue_vue_type_template_id_920c8e1e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TypeEtatsComponent_vue_vue_type_template_id_920c8e1e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

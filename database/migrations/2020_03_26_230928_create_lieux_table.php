@@ -22,6 +22,11 @@ class CreateLieuxTable extends Migration
             $table->string('ouverture');
             $table->string('circuit');
             $table->string('divers');
+            $table->string('commentaire');
+            $table->string('plafonds');
+            $table->string('cuisine');
+            $table->string('salledebain');
+
             $table->timestamps();
         });
     }
