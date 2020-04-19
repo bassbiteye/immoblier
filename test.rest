@@ -5,7 +5,7 @@ content-type: application/json
 
 {
     "email":"bassbiteye45@gmail.com",
-    "password":"passer@1"
+    "password":"adminadmin"
 }
 
 ###
@@ -23,5 +23,5 @@ content-type: application/json
 ###
 GET {{url}}/api/user
 ###
-GET {{url}}/api/details
+GET {{url}}/api/findequipement/1
 Authorization : Bearer {{token}}

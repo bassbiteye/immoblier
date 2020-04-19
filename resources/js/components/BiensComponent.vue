@@ -85,10 +85,10 @@
                 <div class="form-group">
                   <label>type de bien</label>
                   <select
-                    v-model="form.type"
-                    name="type"
+                    v-model="form.typebien_id"
+                    name="typebien_id"
                     class="form-control"
-                    :class="{ 'is-invalid': form.errors.has('type') }"
+                    :class="{ 'is-invalid': form.errors.has('typebien_id') }"
                   >
                     <option value>selectionner un type</option>
                     <option
@@ -97,7 +97,25 @@
                       :value="types.typebien_id"
                     >{{types.libelle}}</option>
                   </select>
-                  <has-error :form="form" field="type"></has-error>
+                  <has-error :form="form" field="typebien_id"></has-error>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+              <!-- /.col -->
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Propriétaire</label>
+                  <select
+                    v-model="form.bailleur"
+                    name="bailleur"
+                    class="form-control"
+                    :class="{ 'is-invalid': form.errors.has('bailleur') }"
+                  >
+                    <option value="1">alawa</option>
+                    <option v-for="b in Bailleurs.data" :key="b.name" :value="b.id">{{b.name}}</option>
+                  </select>
+                  <has-error :form="form" field="bailleur"></has-error>
                 </div>
                 <!-- /.form-group -->
               </div>
@@ -191,6 +209,66 @@
               <!-- /.col -->
             </div>
             <!-- /.row -->
+            <!-- /.row -->
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>plafonds</label>
+                  <input
+                    v-model="form.plafonds"
+                    name="plafonds"
+                    placeholder="plafonds"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>cuisine</label>
+                  <input
+                    v-model="form.cuisine"
+                    name="cuisine"
+                    placeholder="cuisine"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <!-- /.row -->
+            <div class="row">
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>salle de bain</label>
+                  <input
+                    v-model="form.salledebain"
+                    name="salledebain"
+                    placeholder="salledebain"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>commentaire</label>
+                  <textarea
+                    v-model="form.commentaire"
+                    name="commentaire"
+                    placeholder="commentaire"
+                    class="form-control"
+                  ></textarea>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
           </div>
           <!-- /.card-body -->
         </div>
@@ -218,22 +296,24 @@
             <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>description</th>
+                  <th>Propriétaire</th>
                   <th>etat</th>
                   <th>type</th>
-                  <th>prix</th>
+                  <th>Valeur</th>
                   <th>adresse</th>
+                  <th>description</th>
                   <th>action</th>
                   <th>Equipement</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="biens in Biens.data" :key="biens.id">
-                  <td>{{biens.details}}</td>
+                  <td>{{biens.name}}</td>
                   <td>{{biens.etat}}</td>
                   <td>{{biens.libelle}}</td>
                   <td>{{biens.prix}}</td>
                   <td>{{biens.adresse}}</td>
+                  <td>{{biens.details}}</td>
 
                   <td>
                     <a href="#" @click="editBien(biens)">
@@ -243,13 +323,13 @@
                     <a href="#" @click="deleteBiens(biens.bien_id)">
                       <i class="fa fa-trash red"></i>
                     </a>
-                    <a href="#" @click="Detail(biens.bien_id)">
-                      <i class="fas fa-snowflake"></i>
-                    </a>
                   </td>
                   <td>
                     <button class="btn btn-success" @click="newModal(biens.bien_id)">
                       <i class="fas fa-user-plus fa fw"></i> Ajouter
+                    </button>
+                    <button class="btn btn-primary" @click="Detail(biens.bien_id)">
+                      <i class="fas fa-snowflake"></i> lister
                     </button>
                   </td>
                 </tr>
@@ -279,8 +359,8 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Add new</h5>
-            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Update biens</h5>
+            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">ajouter</h5>
+            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Modifier</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -353,14 +433,99 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addNewLabel">Add new</h5>
+            <h5 class="modal-title" id="addNewLabel">liste des équipements</h5>
 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <p>xzzzszs</p>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0" v-if="!Emode">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>type</th>
+                    <th>nombre</th>
+                    <th>etat</th>
+                    <th>commentaire</th>
+                    <th>action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="e in Equipement" :key="e.id">
+                    <td>{{e.typeEquipement}}</td>
+                    <td>{{e.nombreEquipement}}</td>
+                    <td>{{e.etatEquipement}}</td>
+                    <td>{{e.commentaireEquipement}}</td>
+
+                    <td>
+                      <a href="#" @click="Eform(e)">
+                        <i class="fa fa-edit blue"></i>
+                      </a>
+                      /
+                      <a href="#" @click="deleteEquip(e)">
+                        <i class="fa fa-trash red"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+            <div v-if="Emode">
+              <form @submit.prevent="updateEquip()">
+                <div class="modal-body">
+                  <div class="form-group">
+                    <input
+                      v-model="formEquip.typeEquipement"
+                      type="text"
+                      name="typeEquipement"
+                      placeholder="type Equipement"
+                      class="form-control"
+                      :class="{ 'is-invalid': formEquip.errors.has('typeEquipement') }"
+                    />
+                    <has-error :form="formEquip" field="typeEquipement"></has-error>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      v-model="formEquip.nombreEquipement"
+                      type="number"
+                      name="nombreEquipement"
+                      placeholder="nombre"
+                      class="form-control"
+                      :class="{ 'is-invalid': formEquip.errors.has('nombreEquipement') }"
+                    />
+                    <has-error :form="formEquip" field="nombreEquipement"></has-error>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      v-model="formEquip.etatEquipement"
+                      type="text"
+                      name="etatEquipement"
+                      placeholder="etat Equipement"
+                      class="form-control"
+                      :class="{ 'is-invalid': formEquip.errors.has('etatEquipement') }"
+                    />
+                    <has-error :form="formEquip" field="etatEquipement"></has-error>
+                  </div>
+                  <div class="form-group">
+                    <textarea
+                      v-model="formEquip.commentaireEquipement"
+                      type="text"
+                      name="commentaireEquipement"
+                      placeholder="commentaire"
+                      class="form-control"
+                      :class="{ 'is-invalid': formEquip.errors.has('commentaireEquipement') }"
+                    ></textarea>
+                    <has-error :form="formEquip" field="commentaireEquipement"></has-error>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-success">Modifier</button>
+                </div>
+              </form>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
@@ -380,6 +545,7 @@ export default {
     this.getResults();
     this.type();
     this.bailleur();
+    this.Equipement;
   },
   components: {
     "not-found": notFoundComponentVue
@@ -388,7 +554,8 @@ export default {
     return {
       editmode: false,
       editbien: false,
-
+      Emode: false,
+      Equipement: {},
       Biens: {},
       // Create a new form instance
       formE: new Form({
@@ -398,6 +565,14 @@ export default {
         etatEquipement: "",
         commentaire: ""
       }),
+      formEquip: new Form({
+        equipements_id: "",
+        typeEquipement: "",
+        nombreEquipement: "",
+        etatEquipement: "",
+        commentaireEquipement: "",
+        bien: ""
+      }),
       form: new Form({
         id: "",
         details: "",
@@ -405,13 +580,17 @@ export default {
         bailleur: "",
         etat: "",
         adresse: "",
-        type: "",
+        typebien_id: "",
         etatLieux: "",
         murs: "",
         sols: "",
         ouverture: "",
         circuit: "",
-        divers: ""
+        divers: "",
+        commentaire: "",
+        plafonds: "",
+        cuisine: "",
+        salledebain: ""
       }),
       Typebiens: {},
       Bailleurs: {}
@@ -437,20 +616,55 @@ export default {
     updateEquip(id) {
       this.$Progress.start();
       // Submit the form via a POST request
-      this.formE
-        .put("/api/biens/" + this.form.id)
+      this.formEquip
+        .put("/api/equipements/" + this.formEquip.equipements_id)
         .then(() => {
           //this will update dom automatically
           //this.loadbiens();
-          $("#addNew").modal("hide");
-          Swal.fire("Deleted!", "le biens bien été modifié.", "success");
+          Swal.fire("Deleted!", "l'équipement a bien été modifié.", "success");
           Fire.$emit("AfterCreate");
           this.$Progress.finish();
-          this.editbien = false;
+          this.Emode = false;
+          this.Detail(this.formEquip.bien);
         })
         .catch(() => {
           this.$Progress.fail();
         });
+    },
+    deleteEquip(e) {
+      Swal.fire({
+        title: "etes vous sur?",
+        text: "Vous ne pourrez pas revenir en arrière!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(result => {
+        //send ajax request to the server
+        if (result.value) {
+          this.formEquip
+            .delete("api/equipements/" + e.equipements_id)
+            .then(() => {
+              Swal.fire(
+                "Suppression!",
+                "l'equipement a bien été supprimé.",
+                "success"
+              );
+              Fire.$emit("AfterCreate");
+              this.Emode = false;
+              this.Detail(e.bien);
+            })
+            .catch(() => {
+              swal("Failed", "Something wronge", "warnig");
+            });
+        }
+      });
+    },
+    Eform(equipement) {
+      console.log(equipement);
+      this.Emode = true;
+      this.formEquip.fill(equipement);
     },
     updateBiens(id) {
       this.$Progress.start();
@@ -487,7 +701,11 @@ export default {
       $("#addNew").modal("show");
       this.formE.bien_id = id;
     },
-    Detail(bien) {
+    Detail(id) {
+      axios.get("/api/biens/" + id).then(response => {
+        this.Equipement = response.data.equipement;
+        console.log(response.data.equipement);
+      });
       $("#detailModal").modal("show");
     },
 

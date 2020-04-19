@@ -15,9 +15,13 @@ class CreateOperationsTable extends Migration
     {
         Schema::create('operations', function (Blueprint $table) {
             $table->bigIncrements('operation_id');
-            $table->string('biens');
+            $table->integer('biens');
             $table->string('clients');
             $table->integer('caution');
+            $table->integer('commission');
+            $table->integer('taxes');
+            $table->integer('durée');
+            $table->integer('dernierelevé');
             $table->integer('montantPaye');
             $table->date('dateEntre');
             $table->integer('ref');

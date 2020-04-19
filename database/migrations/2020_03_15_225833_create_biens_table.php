@@ -21,7 +21,7 @@ class CreateBiensTable extends Migration
             $table->string('etat');
             $table->string('adresse');
             $table->string('bailleur');
-            $table->string('type')->nullable();
+            $table->integer('type');
             $table->boolean('louer')->default(false);
             $table->timestamps();
         });

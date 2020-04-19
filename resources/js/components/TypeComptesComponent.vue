@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">liste des Types biens</h3>
+            <h3 class="card-title">liste des types comptes</h3>
 
             <div class="card-tools">
               <button class="btn btn-success" @click="newModal">
@@ -22,15 +22,15 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="typebiens in Typebiens.data" :key="typebiens.typebien_id">
-                  <td>{{typebiens.libelle}}</td>
+                <tr v-for="typecomptes in typecomptes.data" :key="typecomptes.typeclient_id">
+                  <td>{{typecomptes.libelle}}</td>
                 
                   <td>
-                    <a href="#" @click="editModal(typebiens)">
+                    <a href="#" @click="editModal(typecomptes)">
                       <i class="fa fa-edit blue"></i>
                     </a>
                     /
-                    <a href="#" @click="deleteTypebiens(typebiens.typebien_id)">
+                    <a href="#" @click="deletetypecomptes(typecomptes.typecomptes_id)">
                       <i class="fa fa-trash red"></i>
                     </a>
                   </td>
@@ -40,7 +40,7 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            <pagination :data="Typebiens" @pagination-change-page="getResults"></pagination>
+            <pagination :data="typecomptes" @pagination-change-page="getResults"></pagination>
           </div>
         </div>
         <!-- /.card -->
@@ -62,12 +62,12 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Add new</h5>
-            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Update Typebiens</h5>
+            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Update typecomptes</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form @submit.prevent="editmode ? updateTypebiens() : createTypebiens()">
+          <form @submit.prevent="editmode ? updatetypecomptes() : createtypecomptes()">
             <div class="modal-body">
               <div class="form-group">
                 <input
@@ -109,7 +109,7 @@ export default {
   data() {
     return {
       editmode: false,
-      Typebiens: {},
+      typecomptes: {},
       // Create a new form instance
       form: new Form({
         id:'',
@@ -120,20 +120,20 @@ export default {
   methods: {
     // Our method to GET results from a Laravel endpoint
     getResults(page = 1) {
-      axios.get("api/typebiens?page=" + page).then(response => {
-        this.Typebiens = response.data;
+      axios.get("api/typecomptes?page=" + page).then(response => {
+        this.typecomptes = response.data;
       });
     },
-    updateTypebiens(id) {
+    updatetypecomptes(id) {
       this.$Progress.start();
       // Submit the form via a POST request
       this.form
-        .put("/api/typebiens/" + this.form.id)
+        .put("/api/typecomptes/" + this.form.id)
         .then(() => {
           //this will update dom automatically
-          //this.loadTypebiens();
+          //this.loadtypecomptes();
           $("#addNew").modal("hide");
-          Swal.fire("Deleted!", "le typebiens bien été modifié.", "success");
+          Swal.fire("Deleted!", "le typecomptes bien été modifié.", "success");
           Fire.$emit("AfterCreate");
           this.$Progress.finish();
         })
@@ -141,18 +141,18 @@ export default {
           this.$Progress.fail();
         });
     },
-    editModal(typebiens) {
+    editModal(typecomptes) {
       this.editmode = true;
       this.form.reset();
       $("#addNew").modal("show");
-      this.form.fill(typebiens);
+      this.form.fill(typecomptes);
     },
     newModal() {
       this.editmode = false;
       this.form.reset();
       $("#addNew").modal("show");
     },
-    deleteTypebiens(id) {
+    deletetypecomptes(id) {
       Swal.fire({
         title: "etes vous sur?",
         text: "Vous ne pourrez pas revenir en arrière!",
@@ -165,9 +165,9 @@ export default {
         //send ajax request to the server
         if (result.value) {
           this.form
-            .delete("api/typebiens/" + id)
+            .delete("api/typecomptes/" + id)
             .then(() => {
-              Swal.fire("Suppression!", "le typebiens bien été supprimé.", "success");
+              Swal.fire("Suppression!", "le typecomptes bien été supprimé.", "success");
               Fire.$emit("AfterCreate");
             })
             .catch(() => {
@@ -176,25 +176,25 @@ export default {
         }
       });
     },
-    loadTypebiens() {
+    loadtypecomptes() {
       if (this.$gate.isAdmin()) {
-        axios.get("/api/typebiens").then(({ data }) => (this.Typebiens = data));
+        axios.get("/api/typecomptes").then(({ data }) => (this.typecomptes = data));
       }
     },
-    createTypebiens() {
+    createtypecomptes() {
       this.$Progress.start();
       // Submit the form via a POST request
       this.form
-        .post("/api/typebiens")
+        .post("/api/typecomptes")
         .then(() => {
           //this will update dom automatically
-          //this.loadTypebiens();
+          //this.loadtypecomptes();
           Fire.$emit("AfterCreate");
           $("#addNew").modal("hide");
 
           Toast.fire({
             icon: "success",
-            title: "Typebiens a été créé avec succes"
+            title: "typecomptes a été créé avec succes"
           });
           this.$Progress.finish();
         })
@@ -205,11 +205,11 @@ export default {
   },
   created() {
 
-    this.loadTypebiens();
+    this.loadtypecomptes();
     Fire.$on("AfterCreate", () => {
-      this.loadTypebiens();
+      this.loadtypecomptes();
     });
-    //setInterval(()=>this.loadTypebiens(),10000)
+    //setInterval(()=>this.loadtypecomptes(),10000)
   }
 };
 </script>

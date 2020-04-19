@@ -21,6 +21,10 @@
                   <th>email</th>
                   <th>telephone</th>
                   <th>adresse</th>
+                  <th>profession</th>
+                  <th>nationalite</th>
+                  <th>nombre Bien</th>
+                  <th>Boite postale</th>
                 </tr>
               </thead>
               <tbody>
@@ -29,6 +33,12 @@
                   <td>{{bailleur.email}}</td>
                   <td>{{bailleur.telephone}}</td>
                   <td>{{bailleur.adresse}}</td>
+                  <td>{{bailleur.profession}}</td>
+                  <td>{{bailleur.nationalite}}</td>
+                  <td>{{bailleur.nombreBien}}</td>
+                  <td>{{bailleur.bp}}</td>
+
+  
                   <td>
                     <a href="#" @click="editModal(bailleur)">
                       <i class="fa fa-edit blue"></i>
@@ -117,7 +127,50 @@
                 />
                 <has-error :form="form" field="adresse"></has-error>
               </div>
-
+              <div class="form-group">
+                <input
+                  v-model="form.nombreBien"
+                  type="number"
+                  name="nombreBien"
+                  placeholder="nombre de Bien"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('nombreBien') }"
+                />
+                <has-error :form="form" field="nombreBien"></has-error>
+              </div>
+              <div class="form-group">
+                <input
+                  v-model="form.profession"
+                  type="text"
+                  name="profession"
+                  placeholder="profession"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('profession') }"
+                />
+                <has-error :form="form" field="profession"></has-error>
+              </div>
+              <div class="form-group">
+                <input
+                  v-model="form.nationalite"
+                  type="text"
+                  name="nationalite"
+                  placeholder="nationalite"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('nationalite') }"
+                />
+                <has-error :form="form" field="nationalite"></has-error>
+              </div>
+                    <div class="form-group">
+                <input
+                  v-model="form.bp"
+                  type="text"
+                  name="bp"
+                  placeholder="boite postal"
+                  class="form-control"
+                  :class="{ 'is-invalid': form.errors.has('bp') }"
+                />
+                <has-error :form="form" field="bp"></has-error>
+              </div>
               <div class="form-group">
                 <label>Password</label>
                 <input
@@ -166,7 +219,11 @@ export default {
         email: "",
         type: "bailleurs",
         password: "",
-        photo: ""
+        photo: "",
+        nombreBien: "",
+        profession: "",
+        nationalite: "",
+        bp: ""
       })
     };
   },

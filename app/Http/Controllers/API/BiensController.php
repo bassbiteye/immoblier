@@ -26,14 +26,18 @@ class BiensController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {        $user = auth('api')->user();
+    {
+        $user = auth('api')->user();
 
-        // if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
-        //return Biens::where('bailleur',$user->id)->paginate(10);
         return DB::table('biens')
-        ->where('bailleur',$user->id)
-        ->leftJoin('typebiens', 'biens.type', '=', 'typebiens.typebien_id')
-        ->select('biens.*', 'typebiens.*')->paginate(10);
+            ->join('users', 'biens.bailleur', '=', 'users.id')
+            ->leftJoin('typebiens', 'biens.type', '=', 'typebiens.typebien_id')
+            ->select('biens.*', 'typebiens.*', 'users.*')->paginate(10);
+        // if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
+        // return DB::table('biens')
+        // ->where('bailleur',$user->id)
+        // ->leftJoin('typebiens', 'biens.type', '=', 'typebiens.typebien_id')
+        // ->select('biens.*', 'typebiens.*')->paginate(10);
         //}
     }
 
@@ -49,23 +53,25 @@ class BiensController extends Controller
         $this->validate($request, [
             'details' => 'required|string|max:191',
             'prix' => 'required|string|max:191',
-            'type' => 'required|int|max:191',
+            'typebien_id' => 'required|int|max:191',
             'adresse' => 'required|string|max:191',
-            'etat' => 'required|string|max:191'
+            'etat' => 'required|string|max:191',
+            'bailleur' => 'required|string|max:191'
+
 
         ]);
         // $Typebiens = Typebiens::findOrFail($request->type);
         $Biens = new Biens();
-        $user = auth('api')->user();
 
         $Biens->details = $request['details'];
         $Biens->prix = $request['prix'];
-        $Biens->bailleur = $user->id;
+        $Biens->bailleur = $request['bailleur'];
         $Biens->etat = $request['etat'];
         $Biens->adresse = $request['adresse'];
-        $Biens->type = $request['type'];
+        $Biens->type = $request['typebien_id'];
+        dd($Biens->bien_id);
         $Biens->save();
-        if($request['etatLieux']){
+        if ($request['etatLieux']) {
 
             $lieux = new Lieuxes();
             $lieux->etat = $request['etatLieux'];
@@ -74,9 +80,13 @@ class BiensController extends Controller
             $lieux->ouverture = $request['ouverture'];
             $lieux->circuit = $request['circuit'];
             $lieux->divers = $request['divers'];
-            $lieux->biens=$Biens->bien_id;
-             $lieux->save();  
-        } 
+            $lieux->commentaire = $request['commentaire'];
+            $lieux->plafonds = $request['plafonds'];
+            $lieux->cuisine = $request['cuisine'];
+            $lieux->salledebain = $request['salledebain'];
+            $lieux->biens = $Biens->bien_id;
+            $lieux->save();
+        }
         return $Biens;
     }
 
@@ -89,21 +99,22 @@ class BiensController extends Controller
             'etatEquipement' => 'required|string|max:191',
             'commentaire' => 'required|string|max:191'
 
+
         ]);
         // $Typebiens = Typebiens::findOrFail($request->type);
-        $id=$request['bien_id'];
+        $id = $request['bien_id'];
         $Bien = DB::table('biens')->where('bien_id', $id);
-            if($Bien){
-        $Equipement = new Equipements();
-          
-        $Equipement->typeEquipement = $request['typeEquipement'];
-        $Equipement->nombreEquipement = $request['nombre'];
-        $Equipement->etatEquipement = $request['etatEquipement'];
-        $Equipement->commentaireEquipement = $request['commentaire'];
-        $Equipement->bien = $request['bien_id'];
+        if ($Bien) {
+            $Equipement = new Equipements();
 
-        $Equipement->save();
-    }
+            $Equipement->typeEquipement = $request['typeEquipement'];
+            $Equipement->nombreEquipement = $request['nombre'];
+            $Equipement->etatEquipement = $request['etatEquipement'];
+            $Equipement->commentaireEquipement = $request['commentaire'];
+            $Equipement->bien = $request['bien_id'];
+
+            $Equipement->save();
+        }
         return $Equipement;
     }
 
@@ -116,7 +127,9 @@ class BiensController extends Controller
      */
     public function show($id)
     {
-        //
+      
+        $Equipement = DB::table('equipements')->where('bien', '=', $id)->get();
+        return Response()->json(['equipement' => $Equipement]);
     }
 
     /**
@@ -133,14 +146,28 @@ class BiensController extends Controller
         $this->validate($request, [
             'details' => 'required|string|max:191',
             'prix' => 'required|string|max:191',
-            'etat' => 'required|string|max:191',
+            'type' => 'required|int|max:191',
             'adresse' => 'required|string|max:191',
-            'type' => 'required|string|max:191'
+            'etat' => 'required|string|max:191',
+            'bailleur' => 'required|string|max:191',
+            'commentaire' => 'required|string|max:191',
+            'plafonds' => 'required|string|max:191',
+            'cuisine' => 'required|string|max:191',
+            'salledebain' => 'required|string|max:191'
         ]);
         $Biens->update($request->all());
         return ['message' => 'Biens has been updated'];
     }
-
+      /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updatEquip(Request $request, $id){
+        dd($request);
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -157,4 +184,6 @@ class BiensController extends Controller
     {
         return Biens::count();
     }
+
+
 }

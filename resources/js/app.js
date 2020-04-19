@@ -53,7 +53,7 @@ Vue.use(VueSelect,{
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 let routes = [
-    { path: '/dashboard', component: require('./components/dashboardComponent.vue').default },
+    { path: '/home', component: require('./components/dashboardComponent.vue').default },
     { path: '/profile', component: require('./components/profileComponent.vue').default },
     { path: '/users', component: require('./components/usersComponent.vue').default },
     { path: '/developper', component: require('./components/developperComponent.vue').default },
@@ -64,9 +64,11 @@ let routes = [
     { path: '/typeclients', component: require('./components/TypeClientsComponent.vue').default },
     { path: '/bailleurs', component: require('./components/BailleursComponent.vue').default },
     { path: '/clients', component: require('./components/ClientsComponent.vue').default },
-    { path: '/login', component: require('./components/LoginComponent.vue').default },
     { path: '/louer', component: require('./components/LouersComponent.vue').default },
+    { path: '/typecomptes', component: require('./components/TypeComptesComponent.vue').default },
+    { path: '/typeetats', component: require('./components/TypeEtatsComponent.vue').default },
 
+    
     { path: '*', component: require('./components/notFoundComponent.vue').default }
 
 ]
