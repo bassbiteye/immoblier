@@ -12,7 +12,7 @@ class Typeetats extends Model
      * @var array
      */
     protected $fillable = [
-        'typeetats_id','libelle'
+        'typeetats_id','libelleE'
     ];
        /**
      * Get the biens that owns the comment.
@@ -20,5 +20,13 @@ class Typeetats extends Model
     public function comptes()
     {
         return $this->belongsTo('App\Comptes', 'foreign_key');
+    }
+
+       /**
+     * Get the biens that owns the comment.
+     */
+    public function biens()
+    {
+        return $this->belongsTo('App\Biens', 'foreign_key');
     }
 }

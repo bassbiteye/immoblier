@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Typeetats;
+use App\Lieuxes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
-class TypeetatsController extends Controller
+class EtatsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,9 +25,6 @@ class TypeetatsController extends Controller
      */
     public function index()
     {
-        // if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
-        return Typeetats::latest()->paginate(10);
-        // }
     }
 
     /**
@@ -38,17 +35,23 @@ class TypeetatsController extends Controller
      */
     public function store(Request $request)
     {
+        $id = $request['bien_id'];
+        $lieux = new Lieuxes();
+        $lieux->etat = $request['etat'];
+        $lieux->murs = $request['murs'];
+        $lieux->sols = $request['sols'];
+        $lieux->ouverture = $request['ouverture'];
+        $lieux->circuit = $request['circuit'];
+        $lieux->divers = $request['divers'];
+        $lieux->commentaire = $request['commentaire'];
+        $lieux->plafonds = $request['plafonds'];
+        $lieux->cuisine = $request['cuisine'];
+        $lieux->salledebain = $request['salledebain'];
+        $lieux->biens = $id;
+        $lieux->save();
 
-        $this->validate($request, [
-            'libelleE' => 'required|string|max:191'
-
-        ]);
-
-        return Typeetats::create([
-            'libelleE' => $request['libelleE']
-        ]);
+        return $lieux;
     }
-
 
     /**
      * Display the specified resource.
@@ -58,7 +61,9 @@ class TypeetatsController extends Controller
      */
     public function show($id)
     {
-        //
+
+        return DB::table('lieuxes')->where('biens', '=', $id)->get();
+        
     }
 
     /**
@@ -70,12 +75,11 @@ class TypeetatsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Typeetats = DB::table('typeetats')->where('id', $id);
-        $this->validate($request, [
-            'libelleE' => 'required|string|max:191',
-        ]);
-        $Typeetats->update($request->all());
-        return ['message' => 'Type de Biens has been updated'];
+        $lieux = DB::table('lieuxes')->where('lieux_id', $id);
+
+
+        $lieux->update($request->all());
+        return ['message' => 'lieux has been updated'];
     }
 
     /**
@@ -86,9 +90,8 @@ class TypeetatsController extends Controller
      */
     public function destroy($id)
     {
-        $Typeetats = DB::table('typeetats')->where('id', $id);
-
-        $Typeetats->delete();
-        return ['message' => 'Type  has been deleted'];
+        $lieux = DB::table('lieuxes')->where('lieux_id', $id);
+        $lieux->delete();
+        return ['message' => 'lieux has been deleted'];
     }
 }

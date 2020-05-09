@@ -24,8 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('nombreBien')->nullable();
             $table->string('profession')->nullable();
             $table->string('nationalite')->nullable();
+            $table->integer('solde')->nullable();
+            $table->string('numero')->nullable()->unique();
             $table->string('bp')->nullable();
-            $table->unsignedBigInteger('compte')->unique()->nullable();;
+           // $table->unsignedBigInteger('compte')->unique()->nullable();;
             $table->string('type')->default('admin');
             $table->string('photo')->default('photo.png');
             $table->rememberToken();

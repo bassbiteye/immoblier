@@ -21,4 +21,12 @@ class Typecomptes extends Model
     {
         return $this->belongsTo('App\Comptes', 'foreign_key');
     }
+
+        /**
+     * Get the biens that owns the comment.
+     */
+    public function users()
+    {
+        return $this->belongsTo('App\Users', 'foreign_key');
+    }
 }

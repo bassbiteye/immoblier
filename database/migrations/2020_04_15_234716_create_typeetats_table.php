@@ -15,7 +15,7 @@ class CreateTypeetatsTable extends Migration
     {
         Schema::create('typeetats', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('libelle');
+            $table->string('libelleE');
             $table->timestamps();
         });
     }

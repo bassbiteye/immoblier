@@ -21,6 +21,13 @@ class Biens extends Model
     {
         return $this->hasMany('App\Typebiens');
     }
+     /**
+     * Get the Typebiens for the blog post.
+     */
+    public function etat()
+    {
+        return $this->hasMany('App\Typeetats');
+    }
        /**
      * Get the Bailleurs for the blog post.
      */

@@ -56,26 +56,34 @@ class BailleursController extends Controller
             'nombreBien'=> 'required|int|max:191',
             'profession'=> 'required|string|max:191',
             'nationalite'=> 'required|string|max:191',
+            'typecomptes_id'=> 'required|int',
+
+            
         ]);
         $bailleur = User::where('email', $request->email)->first();
 
         if (isset($bailleur->id)) {
             return response()->json(["error" => "email already exists"], 401);
         }
-        $compte = DB::table('comptes')->insert([
-            'solde'=>0,
-            'numero'=>rand(0,1000000)
-        ]);
+        // $compte = DB::table('comptes')->insert([
+        //     'solde'=>0,
+        //     'numero'=>rand(0,1000000)
+        // ]);
       
-         dump($compte);       
-
+        //  dump($compte);       
+        $date = (154263);
+        $min_epoch = strtotime($date);
+        $var = rand($min_epoch,1000);
+        $strval ='FR_401';
+        $items = ($strval.$var); 
         $bailleur = new User();
         $bailleur->name = $request['name'];
         $bailleur->adresse = $request['adresse'];
         $bailleur->telephone = $request['telephone'];
         $bailleur->email = $request['email'];
         $bailleur->type = $request['type'];
-        $bailleur->compte = $compte->id;
+        $bailleur->numero= $items;
+        $bailleur->solde= 0; 
         $bailleur->nombreBien= $request['nombreBien'];
         $bailleur->profession=$request['profession'];
         $bailleur->bp=$request['bp'];

@@ -23,6 +23,9 @@ Route::get('countuser','API\UserController@countuser');
 
 //equipement
 Route::apiResources(['equipements'=>'API\EquipementsController']);
+//lieux
+Route::apiResources(['lieux'=>'API\EtatsController']);
+
 
 //Biens
 Route::apiResources(['biens'=>'API\BiensController']);
