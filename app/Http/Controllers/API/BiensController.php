@@ -32,7 +32,8 @@ class BiensController extends Controller
         return DB::table('biens')
             ->join('users', 'biens.bailleur', '=', 'users.id')
             ->leftJoin('typebiens', 'biens.type', '=', 'typebiens.typebien_id')
-            ->select('biens.*', 'typebiens.*', 'users.*')->paginate(10);
+            ->Join('typeetats', 'biens.etat', '=', 'typeetats.id')
+            ->select('biens.*', 'typebiens.*', 'users.name','typeetats.*')->paginate(10);
         // if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
         // return DB::table('biens')
         // ->where('bailleur',$user->id)
@@ -53,9 +54,9 @@ class BiensController extends Controller
         $this->validate($request, [
             'details' => 'required|string|max:191',
             'prix' => 'required|string|max:191',
-            'typebien_id' => 'required|int|max:191',
+            'type' => 'required|int|max:191',
             'adresse' => 'required|string|max:191',
-            'etat' => 'required|string|max:191',
+            'etat' => 'required|int|max:191',
             'bailleur' => 'required|string|max:191'
 
 
@@ -68,25 +69,9 @@ class BiensController extends Controller
         $Biens->bailleur = $request['bailleur'];
         $Biens->etat = $request['etat'];
         $Biens->adresse = $request['adresse'];
-        $Biens->type = $request['typebien_id'];
-        dd($Biens->bien_id);
+        $Biens->type = $request['type'];
         $Biens->save();
-        if ($request['etatLieux']) {
-
-            $lieux = new Lieuxes();
-            $lieux->etat = $request['etatLieux'];
-            $lieux->murs = $request['murs'];
-            $lieux->sols = $request['sols'];
-            $lieux->ouverture = $request['ouverture'];
-            $lieux->circuit = $request['circuit'];
-            $lieux->divers = $request['divers'];
-            $lieux->commentaire = $request['commentaire'];
-            $lieux->plafonds = $request['plafonds'];
-            $lieux->cuisine = $request['cuisine'];
-            $lieux->salledebain = $request['salledebain'];
-            $lieux->biens = $Biens->bien_id;
-            $lieux->save();
-        }
+    
         return $Biens;
     }
 
@@ -146,14 +131,11 @@ class BiensController extends Controller
         $this->validate($request, [
             'details' => 'required|string|max:191',
             'prix' => 'required|string|max:191',
-            'type' => 'required|int|max:191',
             'adresse' => 'required|string|max:191',
-            'etat' => 'required|string|max:191',
+            'etat' => 'required|int|max:191',
             'bailleur' => 'required|string|max:191',
-            'commentaire' => 'required|string|max:191',
-            'plafonds' => 'required|string|max:191',
-            'cuisine' => 'required|string|max:191',
-            'salledebain' => 'required|string|max:191'
+            'type' => 'required|int|max:191',
+
         ]);
         $Biens->update($request->all());
         return ['message' => 'Biens has been updated'];
@@ -166,7 +148,6 @@ class BiensController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function updatEquip(Request $request, $id){
-        dd($request);
     }
     /**
      * Remove the specified resource from storage.

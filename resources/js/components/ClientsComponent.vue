@@ -25,6 +25,10 @@
                   <th>profession</th>
                   <th>nationalité</th>
                   <th>type</th>
+                  <th>numero compte</th>
+                  <th>solde</th>
+                  <th>commentaire</th>
+                  <th>entreprise</th>
                   <th>action</th>
                 </tr>
               </thead>
@@ -38,7 +42,10 @@
                   <td>{{client.profession}}</td>
                   <td>{{client.nationalite}}</td>
                   <td>{{client.libelle}}</td>
-
+                  <td>{{client.numero}}</td>
+                  <td>{{client.solde}}</td>
+                  <td>{{client.commentaire}}</td>
+                  <td>{{client.entreprise}}</td>
                   <td>
                     <a href="#" @click="editModal(client)">
                       <i class="fa fa-edit blue"></i>
@@ -165,6 +172,17 @@
                 <has-error :form="form" field="nationalite"></has-error>
               </div>
               <div class="form-group">
+                <input
+                  v-model="form.entreprise"
+                  type="text"
+                  name="entreprise"
+                  class="form-control"
+                  placeholder="entreprise"
+                  :class="{ 'is-invalid': form.errors.has('entreprise') }"
+                />
+                <has-error :form="form" field="entreprise"></has-error>
+              </div>
+              <div class="form-group">
                 <select v-model="form.type" name="type" class="form-control">
                   <option value>type de client</option>
                   <option
@@ -173,6 +191,15 @@
                     :value="typeclient.typeclients_id"
                   >{{typeclient.libelle}}</option>
                 </select>
+              </div>
+              <div class="form-group">
+                <textarea
+                  v-model="form.commentaire"
+                  name="commentaire"
+                  placeholder="commentaire"
+                  class="form-control"
+                ></textarea>
+                <has-error :form="form" field="commentaire"></has-error>
               </div>
             </div>
             <div class="modal-footer">
@@ -214,7 +241,9 @@ export default {
         sexe: "",
         profession: "",
         nationalite: "",
-        type: ""
+        type: "",
+        commentaire: "",
+        entreprise: ""
       })
     };
   },
@@ -239,7 +268,7 @@ export default {
           //this will update dom automatically
           //this.loadclients();
           $("#addNew").modal("hide");
-          Swal.fire("Deleted!", "le client bien été modifié.", "success");
+          Swal.fire("success!", "le client bien été modifié.", "success");
           Fire.$emit("AfterCreate");
           this.$Progress.finish();
         })
@@ -273,7 +302,7 @@ export default {
           this.form
             .delete("api/clients/" + id)
             .then(() => {
-              Swal.fire("Deleted!", "le client bien été supprimé.", "success");
+              Swal.fire("success!", "le client bien été supprimé.", "success");
               Fire.$emit("AfterCreate");
             })
             .catch(() => {

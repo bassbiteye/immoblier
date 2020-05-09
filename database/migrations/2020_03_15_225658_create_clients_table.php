@@ -20,8 +20,12 @@ class CreateClientsTable extends Migration
             $table->string('tel')->unique();
             $table->string('sexe');
             $table->string('adresse');
-            $table->string('profession');
+            $table->string('profession')->nullable();
             $table->string('nationalite');
+            $table->string('commentaire')->nullable();
+            $table->string('entreprise')->nullable();
+            $table->integer('solde')->nullable();
+            $table->string('numero')->nullable()->unique();
             $table->string('type')->nullable();
             $table->timestamps();
         });

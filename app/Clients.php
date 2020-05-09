@@ -13,7 +13,8 @@ class Clients extends Model
      * @var array
      */
     protected $fillable = [
-        'client_id','nom', 'prenom','tel', 'profession','sexe', 'nationalite','adresse','type'
+        'client_id','nom', 'prenom','tel', 'profession','sexe', 'nationalite','adresse','type','solde','numero','commentaire','entreprise'
+                          
     ];
      /**
      * Get the Typecliens for the blog post.

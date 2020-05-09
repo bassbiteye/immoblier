@@ -1,5 +1,6 @@
 <template>
   <div class="conteiner">
+    <!-- bien -->
     <div>
       <form @submit.prevent="editbien ? updateBiens() : createBiens()">
         <div class="card collapsed-card card-warning card-outline">
@@ -34,22 +35,16 @@
                 <!-- /.form-group -->
                 <div class="form-group">
                   <label>etat</label>
-                  <select
+                  <input
                     v-model="form.etat"
+                    type="text"
                     name="etat"
+                    placeholder="etat"
                     class="form-control"
                     :class="{ 'is-invalid': form.errors.has('etat') }"
-                  >
-                    <option value>selectionner un etat</option>
-                    <option
-                      v-for="types in typeetats.data"
-                      :key="types.libelleE"
-                      :value="types.id"
-                    >{{types.libelleE}}</option>
-                  </select>
+                  />
                   <has-error :form="form" field="etat"></has-error>
                 </div>
-
                 <!-- /.form-group -->
               </div>
               <!-- /.col -->
@@ -90,10 +85,10 @@
                 <div class="form-group">
                   <label>type de bien</label>
                   <select
-                    v-model="form.type"
-                    name="type"
+                    v-model="form.typebien_id"
+                    name="typebien_id"
                     class="form-control"
-                    :class="{ 'is-invalid': form.errors.has('type') }"
+                    :class="{ 'is-invalid': form.errors.has('typebien_id') }"
                   >
                     <option value>selectionner un type</option>
                     <option
@@ -117,7 +112,6 @@
                     class="form-control"
                     :class="{ 'is-invalid': form.errors.has('bailleur') }"
                   >
-                    <option value>selectionner le propriétaire</option>
                     <option value="1">alawa</option>
                     <option v-for="b in Bailleurs.data" :key="b.name" :value="b.id">{{b.name}}</option>
                   </select>
@@ -129,14 +123,13 @@
             </div>
             <!-- /.row -->
           </div>
-          <!-- /.card-body -->
-       
+     
+        </div>
+        <!-- /.card -->
+
         <!-- /.card -->
         <button v-if="editbien" type="submit" class="btn btn-success">Modifier</button>
         <button v-if="!editbien" type="submit" class="btn btn-primary">Ajouter</button>
-       </div>
-        <!-- /.card -->
-
       </form>
     </div>
     <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
@@ -163,18 +156,19 @@
                   <th>adresse</th>
                   <th>description</th>
                   <th>action</th>
-                  <td>Etat des lieux</td>
+                  <th>Etat des lieux</th>
                   <th>Equipement</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="biens in Biens.data" :key="biens.bein_id">
+                <tr v-for="biens in Biens.data" :key="biens.id">
                   <td>{{biens.name}}</td>
-                  <td>{{biens.libelleE}}</td>
+                  <td>{{biens.etat}}</td>
                   <td>{{biens.libelle}}</td>
                   <td>{{biens.prix}}</td>
                   <td>{{biens.adresse}}</td>
                   <td>{{biens.details}}</td>
+
                   <td>
                     <a href="#" @click="editBien(biens)">
                       <i class="fa fa-edit blue"></i>
@@ -290,8 +284,6 @@
       </div>
     </div>
     <!-- Modal -->
-
-    <!-- Modal -->
     <div
       class="modal fade"
       id="detailModal"
@@ -402,340 +394,217 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- Modal -->
-    <!-- Modal -->
-    <div
-      class="modal fade bd-example-modal-lg"
-      id="detailModalEtat"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="myLargeModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="addNewLabel">les etats des lieux</h5>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="detailModalEtat"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="addNewLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addNewLabel">les etats des lieux</h5>
 
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <!-- /.card-header -->
-            <div class="card-body table-responsive p-0" v-if="!Etatmode">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <td>etat</td>
-                    <td>murs</td>
-                    <td>sols</td>
-                    <td>ouverture</td>
-                    <td>circuit</td>
-                    <td>divers</td>
-                    <td>commentaire</td>
-                    <td>plafond</td>
-                    <td>cuisine</td>
-                    <td>salle de bain</td>
-                    <th>action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="etat in Etat" :key="etat.id">
-                    <td>{{etat.etat}}</td>
-                    <td>{{etat.murs}}</td>
-                    <td>{{etat.sols}}</td>
-                    <td>{{etat.ouverture}}</td>
-                    <td>{{etat.circuit}}</td>
-                    <td>{{etat.divers}}</td>
-                    <td>{{etat.commentaire}}</td>
-                    <td>{{etat.plafonds}}</td>
-                    <td>{{etat.cuisine}}</td>
-                    <td>{{etat.salledebain}}</td>
-                    <td>
-                      <a href="#" @click="Etatform(etat)">
-                        <i class="fa fa-edit blue"></i>
-                      </a>
-                      /
-                      <a href="#" @click="deleteEtat(etat)">
-                        <i class="fa fa-trash red"></i>
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <!-- /.card-body -->
-            <div v-if="Etatmode">
-              <form @submit.prevent="updateEtat()">
-                <div class="modal-body">
-                  <div class="form-group">
-                    <label>etat</label>
-                    <input
-                      v-model="formEtat.etat"
-                      type="text"
-                      name="etat"
-                      placeholder="etat du Lieux"
-                      class="form-control"
-                    />
-                  </div>
-                  <!-- /.form-group -->
-                  <div class="form-group">
-                    <label>murs</label>
-                    <input
-                      v-model="formEtat.murs"
-                      type="text"
-                      name="murs"
-                      placeholder="murs"
-                      class="form-control"
-                    />
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label>sols</label>
-                    <input
-                      v-model="formEtat.sols"
-                      type="text"
-                      name="sols"
-                      placeholder="sols"
-                      class="form-control"
-                    />
-                  </div>
-                  <!-- /.form-group -->
-                  <div class="form-group">
-                    <label>ouverture</label>
-                    <input
-                      v-model="formEtat.ouverture"
-                      type="text"
-                      name="ouverture"
-                      placeholder="ouverture"
-                      class="form-control"
-                    />
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label>circuit</label>
-                    <input
-                      v-model="formEtat.circuit"
-                      name="circuit"
-                      placeholder="circuit"
-                      class="form-control"
-                    />
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label>divers</label>
-                    <input
-                      v-model="formEtat.divers"
-                      name="divers"
-                      placeholder="divers"
-                      class="form-control"
-                    />
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label>plafonds</label>
-                    <input
-                      v-model="formEtat.plafonds"
-                      name="plafonds"
-                      placeholder="plafonds"
-                      class="form-control"
-                    />
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label>cuisine</label>
-                    <input
-                      v-model="formEtat.cuisine"
-                      name="cuisine"
-                      placeholder="cuisine"
-                      class="form-control"
-                    />
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label>salle de bain</label>
-                    <input
-                      v-model="formEtat.salledebain"
-                      name="salledebain"
-                      placeholder="salledebain"
-                      class="form-control"
-                    />
-                  </div>
-                  <!-- /.form-group -->
-
-                  <div class="form-group">
-                    <label>commentaire</label>
-                    <textarea
-                      v-model="formEtat.commentaire"
-                      name="commentaire"
-                      placeholder="commentaire"
-                      class="form-control"
-                    ></textarea>
-                  </div>
-                  <!-- /.form-group -->
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-success">Modifier</button>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal -->
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="addNewEtat"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="addNewLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">ajouter</h5>
-            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Modifier</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <form @submit.prevent="createEtat()">
             <div class="modal-body">
-              <div class="form-group">
-                <label>etat</label>
-                <input
-                  v-model="formEtat.etat"
-                  type="text"
-                  name="etatLieux"
-                  placeholder="etat du Lieux"
-                  class="form-control"
-                />
-              </div>
-              <!-- /.form-group -->
-              <div class="form-group">
-                <label>murs</label>
-                <input
-                  v-model="formEtat.murs"
-                  type="text"
-                  name="murs"
-                  placeholder="murs"
-                  class="form-control"
-                />
-              </div>
-              <!-- /.form-group -->
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" v-if="!Etatmode">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>type</th>
+                      <th>nombre</th>
+                      <th>etat</th>
+                      <th>commentaire</th>
+                      <th>action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="etat in Etat" :key="etat.id">
+                      <td>{{etat.typetatetatquipetatmetatnt}}</td>
+                      <td>{{etat.nombretatetatquipetatmetatnt}}</td>
+                      <td>{{etat.etattatetatquipetatmetatnt}}</td>
+                      <td>{{etat.commentaireEquipement}}</td>
 
-              <div class="form-group">
-                <label>sols</label>
-                <input
-                  v-model="formEtat.sols"
-                  type="text"
-                  name="sols"
-                  placeholder="sols"
-                  class="form-control"
-                />
+                      <td>
+                        <a href="#" @click="Etatform(etat)">
+                          <i class="fa fa-edit blue"></i>
+                        </a>
+                        /
+                        <a href="#" @click="deleteEtat(etat)">
+                          <i class="fa fa-trash red"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <!-- /.form-group -->
-              <div class="form-group">
-                <label>ouverture</label>
-                <input
-                  v-model="formEtat.ouverture"
-                  type="text"
-                  name="ouverture"
-                  placeholder="ouverture"
-                  class="form-control"
-                />
+              <!-- /.card-body -->
+              <div v-if="Etatmode">
+                <form @submit.prevent="updateEtat()">
+                  <div class="modal-body">
+             
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Modifier</button>
+                  </div>
+                </form>
               </div>
-              <!-- /.form-group -->
-
-              <div class="form-group">
-                <label>circuit</label>
-                <input
-                  v-model="formEtat.circuit"
-                  name="circuit"
-                  placeholder="circuit"
-                  class="form-control"
-                />
-              </div>
-              <!-- /.form-group -->
-
-              <div class="form-group">
-                <label>divers</label>
-                <input
-                  v-model="formEtat.divers"
-                  name="divers"
-                  placeholder="divers"
-                  class="form-control"
-                />
-              </div>
-              <!-- /.form-group -->
-
-              <div class="form-group">
-                <label>plafonds</label>
-                <input
-                  v-model="formEtat.plafonds"
-                  name="plafonds"
-                  placeholder="plafonds"
-                  class="form-control"
-                />
-              </div>
-              <!-- /.form-group -->
-
-              <div class="form-group">
-                <label>cuisine</label>
-                <input
-                  v-model="formEtat.cuisine"
-                  name="cuisine"
-                  placeholder="cuisine"
-                  class="form-control"
-                />
-              </div>
-              <!-- /.form-group -->
-
-              <div class="form-group">
-                <label>salle de bain</label>
-                <input
-                  v-model="formEtat.salledebain"
-                  name="salledebain"
-                  placeholder="salledebain"
-                  class="form-control"
-                />
-              </div>
-              <!-- /.form-group -->
-
-              <div class="form-group">
-                <label>commentaire</label>
-                <textarea
-                  v-model="formEtat.commentaire"
-                  name="commentaire"
-                  placeholder="commentaire"
-                  class="form-control"
-                ></textarea>
-              </div>
-              <!-- /.form-group -->
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
-              <button type="submit" class="btn btn-primary">Ajouter</button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="addNewEtat"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="addNewLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" v-show="!editmode" id="addNewLabel">ajouter</h5>
+              <h5 class="modal-title" v-show="editmode" id="addNewLabel">Modifier</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form @submit.prevent="createEtat()">
+              <div class="modal-body"> 
+                <div class="form-group">
+                  <label>etat</label>
+                  <input
+                    v-model="formEtat.etatLieux"
+                    type="text"
+                    name="etatLieux"
+                    placeholder="etat du Lieux"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                  <label>murs</label>
+                  <input
+                    v-model="formEtat.murs"
+                    type="text"
+                    name="murs"
+                    placeholder="murs"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label>sols</label>
+                  <input
+                    v-model="formEtat.sols"
+                    type="text"
+                    name="sols"
+                    placeholder="sols"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                  <label>ouverture</label>
+                  <input
+                    v-model="formEtat.ouverture"
+                    type="text"
+                    name="ouverture"
+                    placeholder="ouverture"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label>circuit</label>
+                  <input
+                    v-model="formEtat.circuit"
+                    name="circuit"
+                    placeholder="circuit"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label>divers</label>
+                  <input
+                    v-model="formEtat.divers"
+                    name="divers"
+                    placeholder="divers"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label>plafonds</label>
+                  <input
+                    v-model="formEtat.plafonds"
+                    name="plafonds"
+                    placeholder="plafonds"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label>cuisine</label>
+                  <input
+                    v-model="formEtat.cuisine"
+                    name="cuisine"
+                    placeholder="cuisine"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label>salle de bain</label>
+                  <input
+                    v-model="formEtat.salledebain"
+                    name="salledebain"
+                    placeholder="salledebain"
+                    class="form-control"
+                  />
+                </div>
+                <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label>commentaire</label>
+                  <textarea
+                    v-model="formEtat.commentaire"
+                    name="commentaire"
+                    placeholder="commentaire"
+                    class="form-control"
+                  ></textarea>
+                </div>
+                <!-- /.form-group -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
+                <button  type="submit" class="btn btn-primary">Ajouter</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
     </div>
-    <!-- Modal -->
   </div>
 </template>
 
@@ -749,7 +618,6 @@ export default {
     this.type();
     this.bailleur();
     this.Equipement;
-    this.getEtat();
   },
   components: {
     "not-found": notFoundComponentVue
@@ -759,24 +627,10 @@ export default {
       editmode: false,
       editbien: false,
       Emode: false,
-      Etatmode: false,
+      Etatmode:false,
       Equipement: {},
-      Etat: {},
+      Etat:{},
       Biens: {},
-      formEtat: new Form({
-       lieux_id: "",
-        etat: "",
-        murs: "",
-        sols: "",
-        ouverture: "",
-        circuit: "",
-        divers: "",
-        commentaire: "",
-        plafonds: "",
-        cuisine: "",
-        salledebain: "",
-        biens: ""
-      }),
       formE: new Form({
         bien_id: "",
         typeEquipement: "",
@@ -793,17 +647,40 @@ export default {
         bien: ""
       }),
       form: new Form({
-        bien_id: "",
+        id: "",
         details: "",
         prix: "",
         bailleur: "",
         etat: "",
         adresse: "",
-        type: ""
+        typebien_id: "",
+        etatLieux: "",
+        murs: "",
+        sols: "",
+        ouverture: "",
+        circuit: "",
+        divers: "",
+        commentaire: "",
+        plafonds: "",
+        cuisine: "",
+        salledebain: ""
+      }),
+      formEtat: new Form({
+        id: "",
+        etatLieux: "",
+        murs: "",
+        sols: "",
+        ouverture: "",
+        circuit: "",
+        divers: "",
+        commentaire: "",
+        plafonds: "",
+        cuisine: "",
+        salledebain: "",
+        bien_id:""
       }),
       Typebiens: {},
-      Bailleurs: {},
-      typeetats: {}
+      Bailleurs: {}
     };
   },
   methods: {
@@ -811,11 +688,6 @@ export default {
     getResults(page = 1) {
       axios.get("api/biens?page=" + page).then(response => {
         this.Biens = response.data;
-      });
-    },
-    getEtat(page = 1) {
-      axios.get("api/typeetats?page=" + page).then(response => {
-        this.typeetats = response.data;
       });
     },
     bailleur(page = 1) {
@@ -876,10 +748,46 @@ export default {
         }
       });
     },
+      deleteEtat(e) {
+      Swal.fire({
+        title: "etes vous sur?",
+        text: "Vous ne pourrez pas revenir en arrière!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(result => {
+        //send ajax request to the server
+        if (result.value) {
+          this.formEtat
+            .delete("api/lieux/" + e.equipements_id)
+            .then(() => {
+              Swal.fire(
+                "Suppression!",
+                "l'equipement a bien été supprimé.",
+                "success"
+              );
+              Fire.$emit("AfterCreate");
+              this.Emode = false;
+              this.Detail(e.bien);
+            })
+            .catch(() => {
+              swal("Failed", "Something wronge", "warnig");
+            });
+        }
+      });
+    },
     Eform(equipement) {
       console.log(equipement);
       this.Emode = true;
       this.formEquip.fill(equipement);
+    },
+      
+    Etatform(etat) {
+      console.log(etat);
+      this.Etatmode = true;
+      this.formEtat.fill(etat);
     },
     updateBiens(id) {
       this.$Progress.start();
@@ -916,6 +824,19 @@ export default {
       $("#addNew").modal("show");
       this.formE.bien_id = id;
     },
+    newModalEtat(id) {
+      
+      this.formEtat.reset();
+      $("#addNewEtat").modal("show");
+      this.formEtat.bien_id = id;
+    },
+    DetailEtat(id) {
+      axios.get("/api/lieux/" + id).then(response => {
+        this.Etat = response.data.etat;
+        console.log(response.data.etat);
+      });
+      $("#detailModalEtat").modal("show");
+    },
     Detail(id) {
       axios.get("/api/biens/" + id).then(response => {
         this.Equipement = response.data.equipement;
@@ -923,7 +844,6 @@ export default {
       });
       $("#detailModal").modal("show");
     },
-
     deleteBiens(id) {
       Swal.fire({
         title: "etes vous sur?",
@@ -994,56 +914,8 @@ export default {
         .catch(e => {
           console.log(e);
         });
-    },
-
-    deleteEtat(e) {
-      Swal.fire({
-        title: "etes vous sur?",
-        text: "Vous ne pourrez pas revenir en arrière!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then(result => {
-        //send ajax request to the server
-        if (result.value) {
-          this.formEtat
-            .delete("api/lieux/" + e.lieux_id)
-            .then(() => {
-              Swal.fire(
-                "Suppression!",
-                "l'equipement a bien été supprimé.",
-                "success"
-              );
-              Fire.$emit("AfterCreate");
-              this.Emode = false;
-              this.Detail(e.bien);
-            })
-            .catch(() => {
-              swal("Failed", "Something wronge", "warnig");
-            });
-        }
-      });
-    },
-
-    Etatform(etat) {
-      console.log(etat);
-      this.Etatmode = true;
-      this.formEtat.fill(etat);
-    },
-    newModalEtat(id) {
-      this.formEtat.reset();
-      $("#addNewEtat").modal("show");
-      this.formEtat.biens = id;
-    },
-    DetailEtat(id) {
-      axios.get("/api/lieux/" + id).then(response => {
-        this.Etat = response.data;
-        console.log(response.data);
-      });
-      $("#detailModalEtat").modal("show");
-    },
+    }
+    ,
     createEtat() {
       this.$Progress.start();
       // Submit the form via a POST request
@@ -1060,38 +932,18 @@ export default {
             title: "biens a été créé avec succes"
           });
           this.$Progress.finish();
-          this.Etatmode = false;
-          this.DetailEtat(this.formEtat.biens);
         })
         .catch(e => {
           console.log(e);
         });
-    },
-    updateEtat(id) {
-      this.$Progress.start();
-      // Submit the form via a POST request
-      this.formEtat
-        .put("/api/lieux/" + this.formEtat.lieux_id)
-        .then(() => {
-          //this will update dom automatically
-          //this.loadbiens();
-          Swal.fire("Deleted!", "l'équipement a bien été modifié.", "success");
-          Fire.$emit("AfterCreate");
-          this.$Progress.finish();
-          this.Etatmode = false;
-          this.DetailEtat(this.formEtat.biens);
-        })
-        .catch(() => {
-          this.$Progress.fail();
-        });
-    },
-    created() {
-      this.loadbiens();
-      Fire.$on("AfterCreate", () => {
-        this.loadbiens();
-      });
-      //setInterval(()=>this.loadbiens(),10000)
     }
+  },
+  created() {
+    this.loadbiens();
+    Fire.$on("AfterCreate", () => {
+      this.loadbiens();
+    });
+    //setInterval(()=>this.loadbiens(),10000)
   }
 };
 </script>

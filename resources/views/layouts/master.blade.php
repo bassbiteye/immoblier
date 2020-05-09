@@ -85,23 +85,8 @@
 
                         @can('isAdmin')
 
-                        <li class="nav-item">
-                            <router-link to="/bailleurs" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie red" style="color:#0879FA"></i>
-                                <p style="color:black">
-                                    Bailleurs
-                            </router-link>
-
-                        </li>
+                 
               
-                        <li class="nav-item">
-                            <router-link to="/clients" class="nav-link">
-                                <i class="nav-icon fas fa-user blue" style="color:#0879FA"></i>
-                                <p style="color:black">
-                                    Clients
-                            </router-link>
-
-                        </li>
                         <li class="nav-item">
                             <router-link to="/typeclients" class="nav-link">
                                 <i class="nav-icon fas fa-user yellow" style="color:#0879FA"></i>
@@ -131,7 +116,23 @@
                             </router-link>
                         </li>
                         
+                        <li class="nav-item">
+                            <router-link to="/bailleurs" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie red" style="color:#0879FA"></i>
+                                <p style="color:black">
+                                    Bailleurs
+                            </router-link>
 
+                        </li>
+              
+                        <li class="nav-item">
+                            <router-link to="/clients" class="nav-link">
+                                <i class="nav-icon fas fa-user blue" style="color:#0879FA"></i>
+                                <p style="color:black">
+                                    Clients
+                            </router-link>
+
+                        </li>
                         <li class="nav-item">
                             <router-link to="/biens" class="nav-link">
                                 <i class="nav-icon fas fa-building green" style="color:#0879FA"></i>

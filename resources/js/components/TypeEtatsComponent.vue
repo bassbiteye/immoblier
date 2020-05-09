@@ -22,8 +22,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="typeetats in typeetats.data" :key="typeetats.typeclient_id">
-                  <td>{{typeetats.libelle}}</td>
+                <tr v-for="typeetats in typeetats.data" :key="typeetats.id">
+                  <td>{{typeetats.libelleE}}</td>
                 
                   <td>
                     <a href="#" @click="editModal(typeetats)">
@@ -71,14 +71,14 @@
             <div class="modal-body">
               <div class="form-group">
                 <input
-                  v-model="form.libelle"
+                  v-model="form.libelleE"
                   type="text"
-                  name="libelle"
+                  name="libelleE"
                   placeholder="libelle"
                   class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('libelle') }"
+                  :class="{ 'is-invalid': form.errors.has('libelleE') }"
                 />
-                <has-error :form="form" field="details"></has-error>
+                <has-error :form="form" field="libelleE"></has-error>
               </div>
          
           
@@ -113,7 +113,7 @@ export default {
       // Create a new form instance
       form: new Form({
         id:'',
-        libelle: ""
+        libelleE: ""
       })
     };
   },

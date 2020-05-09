@@ -33,9 +33,9 @@ class ClientsController extends Controller
         //if(\Gate::allows('isAdmin')||\Gate::allows('isAuthor')){
         //return Clients::latest()->paginate(10);
         return DB::table('clients')
-        ->leftJoin('typeclients', 'clients.type', '=', 'typeclients.typeclients_id')
-        ->select('clients.*', 'typeclients.libelle', 'typeclients.typeclients_id')->paginate(10);
-        
+            ->leftJoin('typeclients', 'clients.type', '=', 'typeclients.typeclients_id')
+            ->select('clients.*', 'typeclients.libelle', 'typeclients.typeclients_id')->paginate(10);
+
         // }
     }
 
@@ -54,18 +54,24 @@ class ClientsController extends Controller
             'tel' => 'required|string|max:191',
             'sexe' => 'required|string|max:10',
             'nationalite' => 'required|string|max:191',
-            'profession' => 'required|string|max:191',
             'tel' => 'required|string|tel|max:191|unique:clients',
             'tel' => 'required|string|min:6'
+            
         ]);
         $client = Clients::where('tel', $request->tel)->first();
 
         if (isset($client->id)) {
             return response()->json(["error" => "telephone already exists"], 401);
         }
-        $client = Typeclients::where('typeclients_id',$request->type)->first();;
-        
-        if ($client) {
+        $typeclient = Typeclients::where('typeclients_id', $request->type)->first();;
+      
+        $date = (154263);
+        $min_epoch = strtotime($date);
+        $var = rand($min_epoch, 1000);
+        $strval = 'FR_401';
+        $items = ($strval . $var);
+
+        if ($typeclient) {
             return Clients::create([
                 'nom' => $request['nom'],
                 'prenom' => $request['prenom'],
@@ -74,19 +80,17 @@ class ClientsController extends Controller
                 'sexe' => $request['sexe'],
                 'profession' => $request['profession'],
                 'nationalite' => $request['nationalite'],
-                'type' => $client->typeclients_id
+                'commentaire'=> $request['commentaire'],
+                'entreprise'=> $request['entreprise'],
+                'type' => $typeclient->typeclients_id,
+                'numero' => $items,
+                    'solde' => 0
             ]);
         }
 
-        return Clients::create([
-            'nom' => $request['nom'],
-            'prenom' => $request['prenom'],
-            'adresse' => $request['adresse'],
-            'tel' => $request['tel'],
-            'sexe' => $request['sexe'],
-            'profession' => $request['profession'],
-            'nationalite' => $request['nationalite'],
-        ]);
+     
+
+ 
     }
 
 
