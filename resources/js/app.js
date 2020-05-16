@@ -67,6 +67,9 @@ let routes = [
     { path: '/louer', component: require('./components/LouersComponent.vue').default },
     { path: '/typecomptes', component: require('./components/TypeComptesComponent.vue').default },
     { path: '/typeetats', component: require('./components/TypeEtatsComponent.vue').default },
+    { path: '/revoque', component: require('./components/RevoqueComponent.vue').default },
+    { path: '/paiement', component: require('./components/PaiementComponent.vue').default },
+    { path: '/divers', component: require('./components/DiversComponent.vue').default },
 
     
     { path: '*', component: require('./components/notFoundComponent.vue').default }

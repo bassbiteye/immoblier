@@ -53,7 +53,6 @@ class BailleursController extends Controller
             'email' => 'required|string|email|max:191|unique:users,email,',
             'password' => 'sometimes|required|min:6',
             'email' => 'sometimes|min:6',
-            'nombreBien'=> 'required|int|max:191',
             'profession'=> 'required|string|max:191',
             'nationalite'=> 'required|string|max:191',
             'typecomptes_id'=> 'required|int',
@@ -65,12 +64,7 @@ class BailleursController extends Controller
         if (isset($bailleur->id)) {
             return response()->json(["error" => "email already exists"], 401);
         }
-        // $compte = DB::table('comptes')->insert([
-        //     'solde'=>0,
-        //     'numero'=>rand(0,1000000)
-        // ]);
-      
-        //  dump($compte);       
+       
         $date = (154263);
         $min_epoch = strtotime($date);
         $var = rand($min_epoch,1000);
@@ -84,7 +78,6 @@ class BailleursController extends Controller
         $bailleur->type = $request['type'];
         $bailleur->numero= $items;
         $bailleur->solde= 0; 
-        $bailleur->nombreBien= $request['nombreBien'];
         $bailleur->profession=$request['profession'];
         $bailleur->bp=$request['bp'];
         $bailleur->nationalite=$request['nationalite'];
@@ -121,10 +114,8 @@ class BailleursController extends Controller
             'telephone' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users,email,' . $bailleur->id,
             'email' => 'sometimes|min:6',
-            'nombreBien'=> 'required|int|max:191',
             'profession'=> 'required|string|max:191',
             'nationalite'=> 'required|string|max:191',
-            'bp'=> 'required|string|max:191',
         ]);
         $bailleur->update($request->all());
         return ['message' => 'bailleur has been updated'];

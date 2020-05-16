@@ -71,10 +71,12 @@ class TypecomptesController extends Controller
     public function update(Request $request, $id)
     {
         $Typecomptes = DB::table('typecomptes')->where('typecompte_id', $id);
+       var_dump($Typecomptes);
         $this->validate($request, [
             'libelle' => 'required|string|max:191',
         ]);
-        $Typecomptes->update($request->all());
+        $Typecomptes->libelle=$request['libelle'];
+        $Typecomptes->save();
         return ['message' => 'Type de Biens has been updated'];
     }
 

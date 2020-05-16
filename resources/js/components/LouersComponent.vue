@@ -30,7 +30,7 @@
               <tbody>
                 <tr v-for="biens in Biens.data" :key="biens.id">
                   <td>{{biens.details}}</td>
-                  <td>{{biens.etat}}</td>
+                  <td>{{biens.libelleE}}</td>
                   <td>{{biens.libelle}}</td>
                   <td>{{biens.prix}}</td>
                   <td>{{biens.adresse}}</td>
@@ -107,8 +107,7 @@
                           />
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
+
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="form-control-label">caution</label>
@@ -116,6 +115,7 @@
                             v-model="form.caution"
                             type="number"
                             class="form-control"
+                            min="0"
                             placeholder="caution"
                             :class="{ 'is-invalid': form.errors.has('caution') }"
                           />
@@ -131,14 +131,13 @@
                             v-model="form.montantPaye"
                             type="number"
                             class="form-control"
+                            min="0"
                             placeholder="montant payé"
                             :class="{ 'is-invalid': form.errors.has('montantPaye') }"
                           />
                           <has-error :form="form" field="montantPaye"></has-error>
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="form-control-label">Date entrée</label>
@@ -152,8 +151,88 @@
                           <has-error :form="form" field="dateEntre"></has-error>
                         </div>
                       </div>
-                      <!-- <label for=""> Date de Reception</label>
-                      <input type="date" placeholder="Nom du destinataire" v-model="form.destinataire" />-->
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="form-control-label">Commission</label>
+                          <input
+                            v-model="form.commission"
+                            type="number"
+                            class="form-control"
+                            min="0"
+                            placeholder="commission"
+                            :class="{ 'is-invalid': form.errors.has('commission') }"
+                          />
+                          <has-error :form="form" field="commission"></has-error>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="form-control-label">taxe</label>
+                          <input
+                            v-model="form.taxes"
+                            type="number"
+                            class="form-control"
+                            min="0"
+                            placeholder="taxe"
+                            :class="{ 'is-invalid': form.errors.has('taxes') }"
+                          />
+                          <has-error :form="form" field="taxes"></has-error>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="form-control-label">piece d’identité</label>
+                          <input
+                            type="file"
+                            class="form-control"
+                            @change="updatePiece"
+                            name="piece"
+                          />
+                          <has-error :form="form" field="piece"></has-error>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="form-control-label">durée</label>
+                          <input
+                            v-model="form.durée"
+                            type="number"
+                            class="form-control"
+                            placeholder="durée"
+                            :class="{ 'is-invalid': form.errors.has('durée') }"
+                          />
+                          <has-error :form="form" field="durée"></has-error>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="form-control-label">derniere levé</label>
+                          <input
+                            type="file"
+                            class="form-control"
+                            @change="updateDernier"
+                            name="dernierelevé"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label class="form-control-label">commentaire</label>
+                          <textarea
+                            type="text"
+                            class="form-control"
+                            name="commentaire"
+                            :class="{ 'is-invalid': form.errors.has('commentaire') }"
+                          ></textarea>
+                          <has-error :form="form" field="commentaire"></has-error>
+                        </div>
+                      </div>
                     </div>
 
                     <div clas="row">
@@ -248,7 +327,7 @@
     <div v-if="!$gate.isAdminOrBailleurs()">
       <not-found></not-found>
     </div>
-    <section class="content" v-if="detailOperation">
+    <section class="content" v-if="contratL">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -271,14 +350,13 @@
                   <address>
                     <strong>alawa.</strong>
                     <br />alawa
-                    <br />alawa
                     <br />Phone: alawa
                     <br />Email: info@alawa.com
                   </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                  <h3>locataire</h3> 
+                  <h3>locataire</h3>
                   <address>
                     <strong>{{client.prenom}}</strong>
                     <strong>{{client.nom}}</strong>
@@ -288,7 +366,6 @@
                     <br />
                     sexe: {{client.sexe}}
                     <br />
-
                     adresse: {{client.adresse}}
                     <br />
                     profession: {{client.profession}}
@@ -299,13 +376,14 @@
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
                   <h3>Bien</h3>
+                  <b>Bien:</b>
+                  {{bien.details}}
                   <br />
+                  <b>Prix:</b>
+                  {{bien.prix}}
                   <br />
-                  <b>Bien:</b> {{bien.details}}
-                  <br />
-                  <b>Prix:</b> {{bien.prix}}
-                  <br />
-                  <b>Adresse:</b> {{bien.adresse}}
+                  <b>Adresse:</b>
+                  {{bien.adresse}}
                 </div>
                 <!-- /.col -->
               </div>
@@ -372,7 +450,7 @@
               <!-- /.row -->
 
               <!-- this row will not appear when printing -->
-              <div class="row no-print">
+              <div class="row no-print" @click="printDetails()">
                 <div class="col-12">
                   <button type="button" class="btn btn-success float-right">
                     <i class="fas fa-print"></i>
@@ -412,8 +490,9 @@ export default {
       bien: {},
       date: new Date(),
       showTab: true,
+      contratL: false,
       detailOperation: false,
-      showForm : false,
+      showForm: false,
       form: new Form({
         bien_id: "",
         details: "",
@@ -425,7 +504,13 @@ export default {
         montantPaye: "",
         dateEntre: "",
         client: "",
-        numero: ""
+        numero: "",
+        commission: "",
+        taxes: "",
+        durée: "",
+        dernierelevé: "",
+        piece: "",
+        commentaire: ""
       }),
       formT: new Form({
         numero: ""
@@ -439,9 +524,17 @@ export default {
         this.Biens = response.data;
       });
     },
+    printDetails() {
+      window.print();
+      this.contratL = false;
+      this.showTab = true;
+    },
+    print() {
+      this.contratL = true;
+    },
     detail(bien) {
       this.showTab = false;
-      this.showForm= true
+      this.showForm = true;
       this.form.fill(bien);
     },
     finaliser() {
@@ -463,9 +556,10 @@ export default {
             title: "User created successfully"
           });
           this.$Progress.finish();
-          this.detailOperation = true;
-          this.showForm= false;
-          this.showTab=true
+          this.detailOperation = false;
+          this.showForm = false;
+          this.showTab = false;
+          this.contratL = true;
         })
         .catch(e => {
           console.log(e);
@@ -478,9 +572,43 @@ export default {
         this.form.numero = $client.tel;
       });
     },
-        contrat() {
-            this.showTab=true
-      
+    contrat() {
+      this.showTab = true;
+    },
+
+    updateDernier(e) {
+      let file = e.target.files[0];
+      let reader = new FileReader();
+      let limit = 1024 * 1024 * 2;
+      if (file["size"] > limit) {
+        swal({
+          type: "error",
+          title: "Oops...",
+          text: "You are uploading a large file"
+        });
+        return false;
+      }
+      reader.onloadend = file => {
+        this.form.dernierelevé = reader.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    updatePiece(e) {
+      let file = e.target.files[0];
+      let reader = new FileReader();
+      let limit = 1024 * 1024 * 2;
+      if (file["size"] > limit) {
+        swal({
+          type: "error",
+          title: "Oops...",
+          text: "You are uploading a large file"
+        });
+        return false;
+      }
+      reader.onloadend = file => {
+        this.form.piece = reader.result;
+      };
+      reader.readAsDataURL(file);
     },
     created() {
       this.loadbiens();

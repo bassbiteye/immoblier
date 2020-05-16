@@ -19,12 +19,15 @@ class CreateOperationsTable extends Migration
             $table->string('clients');
             $table->integer('caution');
             $table->integer('commission');
-            $table->integer('taxes');
-            $table->integer('durée');
-            $table->integer('dernierelevé');
+            $table->integer('taxes')->nullable();
+            $table->integer('durée')->nullable();
+            $table->string('dernierelevé')->nullable();
             $table->integer('montantPaye');
             $table->date('dateEntre');
-            $table->integer('ref');
+            $table->string('piece')->nullable();
+            $table->string('commentaire')->nullable();
+            $table->string('ref');
+            $table->string('statut')->default('louer');
             $table->timestamps();
         });
     }

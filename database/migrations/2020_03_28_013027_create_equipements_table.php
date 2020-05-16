@@ -16,10 +16,10 @@ class CreateEquipementsTable extends Migration
         Schema::create('equipements', function (Blueprint $table) {
             $table->bigIncrements('equipements_id');
             $table->string('bien');
-            $table->string('typeEquipement');
-            $table->string('nombreEquipement');
-            $table->string('etatEquipement');
-            $table->string('commentaireEquipement');
+            $table->string('typeEquipement')->nullable();
+            $table->string('nombreEquipement')->nullable();
+            $table->string('etatEquipement')->nullable();
+            $table->string('commentaireEquipement')->nullable();
             $table->timestamps();
         });
     }

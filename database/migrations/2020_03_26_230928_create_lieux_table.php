@@ -16,17 +16,16 @@ class CreateLieuxTable extends Migration
         Schema::create('lieuxes', function (Blueprint $table) {
             $table->bigIncrements('lieux_id');
             $table->string('biens');
-            $table->string('etat');
-            $table->string('murs');
-            $table->string('sols');
-            $table->string('ouverture');
-            $table->string('circuit');
-            $table->string('divers');
-            $table->string('commentaire');
-            $table->string('plafonds');
-            $table->string('cuisine');
-            $table->string('salledebain');
-
+            $table->string('etat')->nullable();
+            $table->string('murs')->nullable();
+            $table->string('sols')->nullable();
+            $table->string('ouverture')->nullable();
+            $table->string('circuit')->nullable();
+            $table->string('divers')->nullable();
+            $table->string('commentaire')->nullable();
+            $table->string('plafonds')->nullable();
+            $table->string('cuisine')->nullable();
+            $table->string('salledebain')->nullable();
             $table->timestamps();
         });
     }

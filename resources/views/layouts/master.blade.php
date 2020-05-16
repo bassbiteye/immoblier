@@ -60,7 +60,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-2 pb-3 mb-3 d-flex navbar-blue ">
                     <div class="image mt-2">
-                        <img src="/img/profile//{{ Auth::user()->photo }}" class="img-circle elevation-3" alt="User Image">
+                        <img src="/img//{{ Auth::user()->photo }}" class="img-circle elevation-3" alt="User Image">
                     </div>
                     <div class="info  ">
 
@@ -151,29 +151,29 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <router-link to="louer" class="nav-link">
+                                    <router-link to="/louer" class="nav-link">
                                         <i class="far fa-circle nav-icon" style="color:#0879FA"></i>
 
                                         <p style="color:black">location</p>
                                     </router-link>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <router-link to="/revoque" class="nav-link">
                                         <i class="far fa-circle nav-icon" style="color:#0879FA"></i>
-                                        <p style="color:black">Vente</p>
-                                    </a>
+                                        <p style="color:black">révoque</p>
+                                    </router-link>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <router-link to="/paiement" class="nav-link">
                                         <i class="far fa-circle nav-icon" style="color:#0879FA"></i>
                                         <p style="color:black">comptablité</p>
-                                    </a>
+                                    </router-link>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <router-link to="/divers" class="nav-link">
                                         <i class="far fa-circle nav-icon" style="color:#0879FA"></i>
-                                        <p style="color:black">Gérance</p>
-                                    </a>
+                                        <p style="color:black">Divers</p>
+                                    </router-link>
                                 </li>
                             </ul>
                         </li>

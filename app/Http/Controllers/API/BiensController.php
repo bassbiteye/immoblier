@@ -57,7 +57,7 @@ class BiensController extends Controller
             'type' => 'required|int|max:191',
             'adresse' => 'required|string|max:191',
             'etat' => 'required|int|max:191',
-            'bailleur' => 'required|string|max:191'
+            'bailleur' => 'required'
 
 
         ]);

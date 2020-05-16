@@ -35,7 +35,7 @@ class EtatsController extends Controller
      */
     public function store(Request $request)
     {
-        $id = $request['bien_id'];
+        $id = $request['biens'];
         $lieux = new Lieuxes();
         $lieux->etat = $request['etat'];
         $lieux->murs = $request['murs'];

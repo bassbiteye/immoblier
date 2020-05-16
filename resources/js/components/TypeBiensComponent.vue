@@ -112,7 +112,7 @@ export default {
       Typebiens: {},
       // Create a new form instance
       form: new Form({
-        id:'',
+        typebien_id:'',
         libelle: ""
       })
     };
@@ -124,11 +124,11 @@ export default {
         this.Typebiens = response.data;
       });
     },
-    updateTypebiens(id) {
+    updateTypebiens() {
       this.$Progress.start();
       // Submit the form via a POST request
       this.form
-        .put("/api/typebiens/" + this.form.id)
+        .put("/api/typebiens/" + this.form.typebien_id)
         .then(() => {
           //this will update dom automatically
           //this.loadTypebiens();

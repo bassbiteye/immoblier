@@ -14,9 +14,10 @@ class CreateDiversTable extends Migration
     public function up()
     {
         Schema::create('divers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('Fichier');
-            $table->string('Commentaire');
+            $table->bigIncrements('divers_id');
+            $table->string('fichier');
+            $table->string('commentaire');
+            $table->integer('operations');
             $table->timestamps();
         });
     }
