@@ -126,17 +126,7 @@
                 />
                 <has-error :form="form" field="adresse"></has-error>
               </div>
-              <div class="form-group">
-                <input
-                  v-model="form.nombreBien"
-                  type="number"
-                  name="nombreBien"
-                  placeholder="nombre de Bien"
-                  class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('nombreBien') }"
-                />
-                <has-error :form="form" field="nombreBien"></has-error>
-              </div>
+
               <div class="form-group">
                 <input
                   v-model="form.profession"
@@ -339,7 +329,7 @@ export default {
         type: "bailleurs",
         password: "",
         photo: "",
-        nombreBien: "",
+        sexe: "",
         profession: "",
         nationalite: "",
         bp: "",

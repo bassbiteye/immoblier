@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Operations extends Model
+class Operations  extends Model
 {
       /**
      * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class Operations extends Model
      * @var array
      */
     protected $fillable = [
-        'caution','montantPaye','dateEntre','ref','louer'
+        'operation_id','caution','montantPaye','dateEntre','ref','louer','numero'
     ];
            /**
      * Get the biens for the blog post.
@@ -27,5 +27,20 @@ class Operations extends Model
     public function clients()
     {
         return $this->hasMany('App\Clients');
+    }
+
+       /**
+     * Get the paiements that owns the comment.
+     */
+    public function paiements()
+    {
+        return $this->belongsTo('App\Paiements', 'foreign_key');
+    }
+      /**
+     * Get the divers that owns the comment.
+     */
+    public function divers()
+    {
+        return $this->belongsTo('App\Divers', 'foreign_key');
     }
 }

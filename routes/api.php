@@ -50,4 +50,13 @@ Route::get('countclients','API\ClientsController@countclients');
 Route::get('listebiens','API\OperationsController@listebiens');
 Route::post('louer','API\OperationsController@louer');
 Route::post('findclient','API\OperationsController@findclient');
+Route::get('revoque','API\OperationsController@revoque');
+Route::post('addrevoque','API\OperationsController@addRevoque');
+Route::post('paiement','API\OperationsController@paiement');
+Route::get('divers','API\OperationsController@divers');
+Route::post('findoperation','API\OperationsController@findoperation');
+Route::post('adddivers','API\OperationsController@addDivers');
+
+
+
 

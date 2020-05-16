@@ -128,15 +128,15 @@
               <!-- /.col -->
             </div>
             <!-- /.row -->
-          </div>
-          <!-- /.card-body -->
-       
-        <!-- /.card -->
-        <button v-if="editbien" type="submit" class="btn btn-success">Modifier</button>
-        <button v-if="!editbien" type="submit" class="btn btn-primary">Ajouter</button>
-       </div>
-        <!-- /.card -->
 
+            <!-- /.card-body -->
+
+            <!-- /.card -->
+            <button v-if="editbien" type="submit" class="btn btn-success">Modifier</button>
+            <button v-if="!editbien" type="submit" class="btn btn-primary">Ajouter</button>
+          </div>
+        </div>
+        <!-- /.card -->
       </form>
     </div>
     <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
@@ -257,16 +257,15 @@
                 />
                 <has-error :form="formE" field="nombre"></has-error>
               </div>
+
               <div class="form-group">
-                <input
-                  v-model="formE.etatEquipement"
-                  type="text"
-                  name="etatEquipement"
-                  placeholder="etat Equipement"
-                  class="form-control"
-                  :class="{ 'is-invalid': formE.errors.has('etatEquipement') }"
-                />
-                <has-error :form="formE" field="etatEquipement"></has-error>
+                <label>etat</label>
+
+                <select v-model="formE.etatEquipement" name="etatEquipement" class="form-control">
+                  <option value="Bon Etat">Bon Etat</option>
+                  <option value="Etat moyen">Etat moyen</option>
+                  <option value=" Mauvais etat">Mauvais etat</option>
+                </select>
               </div>
               <div class="form-group">
                 <textarea
@@ -369,16 +368,19 @@
                     <has-error :form="formEquip" field="nombreEquipement"></has-error>
                   </div>
                   <div class="form-group">
-                    <input
+                    <label>etat</label>
+
+                    <select
                       v-model="formEquip.etatEquipement"
-                      type="text"
                       name="etatEquipement"
-                      placeholder="etat Equipement"
                       class="form-control"
-                      :class="{ 'is-invalid': formEquip.errors.has('etatEquipement') }"
-                    />
-                    <has-error :form="formEquip" field="etatEquipement"></has-error>
+                    >
+                      <option value="Bon Etat">Bon Etat</option>
+                      <option value="Etat moyen">Etat moyen</option>
+                      <option value=" Mauvais etat">Mauvais etat</option>
+                    </select>
                   </div>
+
                   <div class="form-group">
                     <textarea
                       v-model="formEquip.commentaireEquipement"
@@ -472,102 +474,90 @@
                 <div class="modal-body">
                   <div class="form-group">
                     <label>etat</label>
-                    <input
-                      v-model="formEtat.etat"
-                      type="text"
-                      name="etat"
-                      placeholder="etat du Lieux"
-                      class="form-control"
-                    />
+
+                    <select v-model="formEtat.etat" name="etat" class="form-control">
+                      <option value="Bon Etat">Bon Etat</option>
+                      <option value="Etat moyen">Etat moyen</option>
+                      <option value=" Mauvais etat">Mauvais etat</option>
+                    </select>
                   </div>
                   <!-- /.form-group -->
                   <div class="form-group">
                     <label>murs</label>
-                    <input
-                      v-model="formEtat.murs"
-                      type="text"
-                      name="murs"
-                      placeholder="murs"
-                      class="form-control"
-                    />
+                    <select v-model="formEtat.murs" name="murs" class="form-control">
+                      <option value="Bon Etat">Bon Etat</option>
+                      <option value="Etat moyen">Etat moyen</option>
+                      <option value=" Mauvais etat">Mauvais etat</option>
+                    </select>
                   </div>
                   <!-- /.form-group -->
 
                   <div class="form-group">
                     <label>sols</label>
-                    <input
-                      v-model="formEtat.sols"
-                      type="text"
-                      name="sols"
-                      placeholder="sols"
-                      class="form-control"
-                    />
+                    <select v-model="formEtat.sols" name="sols" class="form-control">
+                      <option value="Bon Etat">Bon Etat</option>
+                      <option value="Etat moyen">Etat moyen</option>
+                      <option value=" Mauvais etat">Mauvais etat</option>
+                    </select>
                   </div>
                   <!-- /.form-group -->
                   <div class="form-group">
                     <label>ouverture</label>
-                    <input
-                      v-model="formEtat.ouverture"
-                      type="text"
-                      name="ouverture"
-                      placeholder="ouverture"
-                      class="form-control"
-                    />
+                    <select v-model="formEtat.ouverture" name="ouverture" class="form-control">
+                      <option value="Bon Etat">Bon Etat</option>
+                      <option value="Etat moyen">Etat moyen</option>
+                      <option value=" Mauvais etat">Mauvais etat</option>
+                    </select>
                   </div>
                   <!-- /.form-group -->
 
                   <div class="form-group">
                     <label>circuit</label>
-                    <input
-                      v-model="formEtat.circuit"
-                      name="circuit"
-                      placeholder="circuit"
-                      class="form-control"
-                    />
+                    <select v-model="formEtat.circuit" name="circuit" class="form-control">
+                      <option value="Bon Etat">Bon Etat</option>
+                      <option value="Etat moyen">Etat moyen</option>
+                      <option value=" Mauvais etat">Mauvais etat</option>
+                    </select>
                   </div>
                   <!-- /.form-group -->
 
                   <div class="form-group">
                     <label>divers</label>
-                    <input
-                      v-model="formEtat.divers"
-                      name="divers"
-                      placeholder="divers"
-                      class="form-control"
-                    />
+                    <select v-model="formEtat.divers" name="divers" class="form-control">
+                      <option value="Bon Etat">Bon Etat</option>
+                      <option value="Etat moyen">Etat moyen</option>
+                      <option value=" Mauvais etat">Mauvais etat</option>
+                    </select>
                   </div>
                   <!-- /.form-group -->
 
                   <div class="form-group">
                     <label>plafonds</label>
-                    <input
-                      v-model="formEtat.plafonds"
-                      name="plafonds"
-                      placeholder="plafonds"
-                      class="form-control"
-                    />
+                    <select v-model="formEtat.plafonds" name="plafonds" class="form-control">
+                      <option value="Bon Etat">Bon Etat</option>
+                      <option value="Etat moyen">Etat moyen</option>
+                      <option value=" Mauvais etat">Mauvais etat</option>
+                    </select>
                   </div>
                   <!-- /.form-group -->
 
                   <div class="form-group">
                     <label>cuisine</label>
-                    <input
-                      v-model="formEtat.cuisine"
-                      name="cuisine"
-                      placeholder="cuisine"
-                      class="form-control"
-                    />
+                    <select v-model="formEtat.cuisine" name="cuisine" class="form-control">
+                      <option value="Bon Etat">Bon Etat</option>
+                      <option value="Etat moyen">Etat moyen</option>
+                      <option value=" Mauvais etat">Mauvais etat</option>
+                    </select>
                   </div>
                   <!-- /.form-group -->
 
                   <div class="form-group">
                     <label>salle de bain</label>
-                    <input
-                      v-model="formEtat.salledebain"
-                      name="salledebain"
-                      placeholder="salledebain"
-                      class="form-control"
-                    />
+                    <select v-model="formEtat.salledebain" name="salledebain" class="form-control">
+                      <option value="Bon Etat">Bon Etat</option>
+                      <option value="Etat moyen">Etat moyen</option>
+                      <option value=" Mauvais etat">Mauvais etat</option>
+                    </select>
                   </div>
                   <!-- /.form-group -->
 
@@ -617,13 +607,12 @@
             <div class="modal-body">
               <div class="form-group">
                 <label>etat</label>
-                <input
-                  v-model="formEtat.etat"
-                  type="text"
-                  name="etatLieux"
-                  placeholder="etat du Lieux"
-                  class="form-control"
-                />
+
+                <select v-model="formEtat.etat" name="etatLieux" class="form-control">
+                  <option value="Bon Etat">Bon Etat</option>
+                  <option value="Etat moyen">Etat moyen</option>
+                  <option value=" Mauvais etat">Mauvais etat</option>
+                </select>
               </div>
               <!-- /.form-group -->
               <div class="form-group">
@@ -764,7 +753,7 @@ export default {
       Etat: {},
       Biens: {},
       formEtat: new Form({
-       lieux_id: "",
+        lieux_id: "",
         etat: "",
         murs: "",
         sols: "",
@@ -894,6 +883,7 @@ export default {
           Fire.$emit("AfterCreate");
           this.$Progress.finish();
           this.editbien = false;
+          this.form.reset();
         })
         .catch(() => {
           this.$Progress.fail();
@@ -909,6 +899,7 @@ export default {
       this.editbien = true;
       this.form.reset();
       this.form.fill(bien);
+      $("[data-card-widget='collapse']").click();
     },
     newModal(id) {
       this.editmode = false;
@@ -960,15 +951,15 @@ export default {
         .post("/api/biens")
         .then(() => {
           //this will update dom automatically
-          //this.loadbiens();
-          Fire.$emit("AfterCreate");
-          $("#addNew").modal("hide");
+          this.loadbiens();
+          //Fire.$emit("AfterCreate");
 
           Toast.fire({
             icon: "success",
             title: "biens a été créé avec succes"
           });
           this.$Progress.finish();
+          this.form.reset();
         })
         .catch(e => {
           console.log(e);
@@ -1053,7 +1044,7 @@ export default {
           //this will update dom automatically
           //this.loadbiens();
           Fire.$emit("AfterCreate");
-          $("#addNew").modal("hide");
+          $("#addNewEtat").modal("hide");
 
           Toast.fire({
             icon: "success",
