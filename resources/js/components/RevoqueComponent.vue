@@ -16,7 +16,7 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body table-responsive p-0">
-            <table class="table table-hover">
+            <table id="table2" class="table table-hover">
               <thead>
                 <tr>
                   <th>Nom complet</th>
@@ -25,18 +25,34 @@
                   <th>prix</th>
                   <th>Caution</th>
                   <th>numero</th>
+
+                  <th>statut</th>
                   <th>action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr v-for="operation in Operation.data" :key="operation.id">
+              <tbody v-for="operation in Operation.data" :key="operation.id">
+                <tr v-if="operation.statut=='louer'" style="background-color:#5ad09e">
                   <td>{{operation.prenom}} {{operation.nom}}</td>
                   <td>{{operation.adresse}}</td>
                   <td>{{operation.details}}</td>
                   <td>{{operation.prix}}</td>
                   <td>{{operation.caution}}</td>
-                  <td>{{operation.numero}}</td>
-
+                  <td>{{operation.ref}}</td>
+                  <td>{{operation.statut}}</td>
+                  <td>
+                    <button class="btn btn-success" @click="detail(operation)">
+                      <i class="fas fa-rent-plus fa fw"></i> detail
+                    </button>
+                  </td>
+                </tr>
+                <tr v-if="operation.statut=='revoquer'" style="background-color:#f21d59">
+                  <td>{{operation.prenom}} {{operation.nom}}</td>
+                  <td>{{operation.adresse}}</td>
+                  <td>{{operation.details}}</td>
+                  <td>{{operation.prix}}</td>
+                  <td>{{operation.caution}}</td>
+                  <td>{{operation.ref}}</td>
+                  <td>{{operation.statut}}</td>
                   <td>
                     <button class="btn btn-success" @click="detail(operation)">
                       <i class="fas fa-rent-plus fa fw"></i> detail
@@ -118,35 +134,31 @@
                   <b>Adresse:</b>
                   {{details.adresse}}
                   <br />
-                  <b>référence:</b>
-                  {{details.numero}}
+                  <b>référence location:</b>
+                  {{details.ref}}
                 </div>
                 <!-- /.col -->
               </div>
               <!-- /.row -->
 
-              <div class="row no-print" @click="piece(details.piece)" v-if="details.piece">
-                <div class="col-12">
-                  <button type="button" class="btn btn-primary float-right">
-                    <i class="fas fa-print"></i>
-                    piece
-                  </button>
-                </div>
-              </div>
-              <div
-                class="row no-print"
-                @click="dernier(details.dernierelevé)"
-                v-if="details.dernierelevé"
-              >
-                <div class="col-12">
+              <div class="form-row">
+                <div
+                  class="col row no-print"
+                  @click="dernier(details.dernierelevé)"
+                  v-if="details.dernierelevé"
+                >
                   <button type="button" class="btn btn-success float-right">
                     <i class="fas fa-download"></i>
                     dernier relevé
                   </button>
                 </div>
-              </div>
-              <div class="row no-print" @click="Revoquer(details)">
-                <div class="col-12">
+                <div class="col row no-print" @click="piece(details.piece)" v-if="details.piece">
+                  <button type="button" class="btn btn-primary float-right">
+                    <i class="fas fa-print"></i>
+                    piece
+                  </button>
+                </div>
+                <div class="col row no-print" v-if="statut=='louer'" @click="Revoquer(details)">
                   <button type="button" class="btn btn-danger float-right">
                     <i class="fas fa-trash"></i>
                     Revoquer
@@ -173,6 +185,13 @@ export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
+    setTimeout(function() {
+      $("#table2").DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
   },
   components: {
     "not-found": notFoundComponentVue
@@ -183,11 +202,12 @@ export default {
       details: {},
       detailShow: false,
       showTab: true,
+      statut: "",
       date: new Date(),
       form: new Form({
         numero: "",
         operation_id: "",
-        biens: ""
+        bien_id: ""
       })
     };
   },
@@ -222,7 +242,7 @@ export default {
             .post("/api/addrevoque")
             .then(() => {
               Swal.fire("success!", "Révocation avec success.", "success");
-              Fire.$emit("AfterCreate");
+              this.getResults();
             })
             .catch(() => {
               swal("Failed", "Something wronge", "warnig");
@@ -235,12 +255,15 @@ export default {
     detail(e) {
       this.detailShow = true;
       this.details = e;
+      this.statut = e.statut;
+      this.form.operation_id = e.operation_id;
+      this.form.bien_id = e.bien_id;
     },
 
     created() {
-      this.loadOperation();
+      this.getResults();
       Fire.$on("AfterCreate", () => {
-        this.loadOperation();
+        this.getResults();
       });
       //setInterval(()=>this.loadOperation(),10000)
     }

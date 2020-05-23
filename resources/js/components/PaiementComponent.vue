@@ -16,7 +16,7 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body table-responsive p-0">
-            <table class="table table-hover">
+            <table id="table" class="table table-hover">
               <thead>
                 <tr>
                   <th>Nom complet</th>
@@ -37,7 +37,7 @@
                   <td>{{operation.details}}</td>
                   <td>{{operation.prix}}</td>
                   <td>{{operation.caution}}</td>
-                  <td>{{operation.numero}}</td>
+                  <td>{{operation.ref}}</td>
                   <td>
                     <button class="btn btn-success" @click="detail(operation)">
                       <i class="fas fa-rent-plus fa fw"></i> detail
@@ -119,78 +119,27 @@
                   <b>Adresse:</b>
                   {{details.adresse}}
                   <br />
-                  <b>référence:</b>
-                  {{details.numero}}
+                  <b>référence location:</b>
+                  {{details.ref}}
                 </div>
                 <!-- /.col -->
               </div>
               <!-- /.row -->
-
-              <div class="row">
-                <form @submit.prevent="Paiement">
-                  <div class="form-row align-items-center">
-                    <div class="col-auto">
-                      <label class="sr-only" for="inlineFormInput">mois</label>
-                      <div class="input-group mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">mois</div>
-                        </div>
-                        <input
-                          v-model="form.date"
-                          type="month"
-                          class="form-control"
-                          name="date"
-                          id="inlineFormInputGroup"
-                          placeholder="mois"
-                          :class="{ 'is-invalid': form.errors.has('date') }"
-                        />
-                        <has-error :form="form" field="date"></has-error>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <label class="sr-only" for="inlineFormInputGroup">montant</label>
-                      <div class="input-montantgroup mb-2">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">fcfa</div>
-                        </div>
-                        <input
-                          v-model="form.montant"
-                          type="text"
-                          class="form-control"
-                          name="montant"
-                          id="inlineFormInputGroup"
-                          placeholder="montant"
-                          :class="{ 'is-invalid': form.errors.has('montant') }"
-                        />
-                        <has-error :form="form" field="montant"></has-error>
-                      </div>
-                    </div>
-
-                    <div class="col-auto">
-                      <button type="submit" class="btn btn-primary mb-2">Paiement</button>
-                    </div>
-                  </div>
-                </form>
-
-                <!-- /.col -->
-              </div>
-              <div class="row no-print" @click="piece(details.piece)" v-if="details.piece">
-                <div class="col-12">
-                  <button type="button" class="btn btn-primary float-right">
-                    <i class="fas fa-print"></i>
-                    piece
-                  </button>
-                </div>
-              </div>
-              <div
-                class="row no-print"
-                @click="dernier(details.dernierelevé)"
-                v-if="details.dernierelevé"
-              >
-                <div class="col-12">
+              <div class="form-row">
+                <div
+                  class="col row no-print"
+                  @click="dernier(details.dernierelevé)"
+                  v-if="details.dernierelevé"
+                >
                   <button type="button" class="btn btn-success float-right">
                     <i class="fas fa-download"></i>
                     dernier relevé
+                  </button>
+                </div>
+                <div class="col row no-print" @click="piece(details.piece)" v-if="details.piece">
+                  <button type="button" class="btn btn-primary float-right">
+                    <i class="fas fa-print"></i>
+                    piece
                   </button>
                 </div>
               </div>
@@ -202,6 +151,50 @@
         <!-- /.row -->
       </div>
       <!-- /.container-fluid -->
+    </section>
+
+    <section class="row no-print" v-if="detailShow">
+      <form @submit.prevent="Paiement">
+        <div class="form-row">
+          <div class="col">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">mois</div>
+              </div>
+              <input
+                v-model="form.date"
+                type="month"
+                class="form-control"
+                name="date"
+                id="inlineFormInputGroup"
+                placeholder="mois"
+                :class="{ 'is-invalid': form.errors.has('date') }"
+              />
+              <has-error :form="form" field="date"></has-error>
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">fcfa</div>
+              </div>
+              <input
+                v-model="form.montant"
+                type="text"
+                class="form-control"
+                name="montant"
+                id="inlineFormInputGroup"
+                placeholder="montant"
+                :class="{ 'is-invalid': form.errors.has('montant') }"
+              />
+              <has-error :form="form" field="date"></has-error>
+            </div>
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary mb-2">Paiement</button>
+          </div>
+        </div>
+      </form>
     </section>
     <!-- /.content -->
     <section class="content" v-if="recu">
@@ -264,8 +257,8 @@
                   <b>Adresse:</b>
                   {{details.adresse}}
                   <br />
-                  <b>référence:</b>
-                  {{details.numero}}
+                  <b>référence location:</b>
+                  {{details.ref}}
                 </div>
                 <!-- /.col -->
               </div>
@@ -326,6 +319,13 @@ export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
+    setTimeout(function() {
+      $("#table").DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
   },
   components: {
     "not-found": notFoundComponentVue
@@ -343,14 +343,20 @@ export default {
         operation_id: "",
         biens: "",
         montantPaye: "",
-        date: ""
+        date: "",
+        bien_id: "",
+        bailleur: "",
+        commission: "",
+        prix: "",
+        montant:"",
+        tel:""
       })
     };
   },
   methods: {
     // Our method to GET results from a Laravel endpoint
     getResults(page = 1) {
-      axios.get("api/revoque?page=" + page).then(response => {
+      axios.get("api/paiementactif?page=" + page).then(response => {
         this.Operation = response.data;
       });
     },
@@ -363,39 +369,50 @@ export default {
     print() {
       this.recu = true;
     },
+    dernier(e) {
+      window.open("img/profile/" + e);
+    },
+    piece(e) {
+      window.open("img/profile/" + e);
+    },
     Paiement() {
       this.$Progress.start();
       // Submit the form via a POST request
-      (this.form.numero = this.details.numero),
-        (this.form.operation_id = this.details.operation_id),
-        (this.form.biens = this.details.biens),
-        (this.form.montantPaye = this.details.montantPaye);
+      this.form.numero = this.details.numero;
+      this.form.operation_id = this.details.operation_id;
+      this.form.biens = this.details.biens;
+      this.form.montantPaye = this.details.montantPaye;
+      this.form.bien_id = this.details.bien_id;
+      this.form.bailleur = this.details.bailleur;
+      this.form.commission = this.details.commission;
+      this.form.prix = this.details.prix;
+      this.form.tel=this.details.tel
       this.form
         .post("/api/paiement")
         .then(response => {
-                        let message = response.data.message;
-                        let status = response.data.status;
+          let message = response.data.message;
+          let status = response.data.status;
 
-         if (status==500) {
-         
-           Swal.fire({
-                  icon: "error",
-                  title: "Oops...",
-                  text: message
-                });
-         }
-          if (status==200) {
-              Toast.fire({
-            icon: "success",
-            title: message
-          });
+          if (status == 500) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: message
+            });
           }
-           this.getResults();
+          if (status == 200) {
+            Toast.fire({
+              icon: "success",
+              title: message
+            });
+             this.getResults();
           Fire.$emit("AfterCreate");
           this.$Progress.finish();
           this.showTab = false;
           this.recu = true;
-          this.detailShow=false;
+          this.detailShow = false;
+          }
+         
         })
         .catch(e => {
           console.log(e);
@@ -416,3 +433,11 @@ export default {
   }
 };
 </script>
+<style >
+.form-row {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 50px;
+}
+</style>

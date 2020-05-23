@@ -1,12 +1,146 @@
 <template>
+ 
   <div class="conteiner">
+    <!-- Button trigger modal-->
+
+    <!-- Modal: modalbien -->
+    <div
+      class="modal fade"
+      id="modalCart"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Header-->
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Bien</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <!--Body-->
+          <div class="modal-body">
+            <table class="table table-hover">
+              <tbody>
+                <tr>
+                  <th scope="row">Propriétaire</th>
+                  <td>{{detailBien.name}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Type</th>
+                  <td>{{detailBien.libelle}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Valeur</th>
+                  <td>{{detailBien.prix}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Adresse</th>
+                  <td>{{detailBien.adresse}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">Etat</th>
+                  <td>{{detailBien.libelleE}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">Description</th>
+                  <td>{{detailBien.details}}</td>
+                </tr>
+                  <tr class="total">
+                  <th scope="row">solde</th>
+                  <td>{{detailBien.solde}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Footer-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Fermer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal: modalbien -->
+    <!-- Modal: modalEtat -->
+    <div
+      class="modal fade"
+      id="modalEtat"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Header-->
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Bien</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <!--Body-->
+          <div class="modal-body">
+            <table class="table table-hover">
+              <tbody>
+                <tr>
+                  <th scope="row">Etat</th>
+                  <td>{{dtEtat.etat}}</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Murs</th>
+                  <td>{{dtEtat.murs}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ouverture</th>
+                  <td>{{dtEtat.ouverture}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Circuit</th>
+                  <td>{{dtEtat.circuit}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Divers</th>
+                  <td>{{dtEtat.divers}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Plafonds</th>
+                  <td>{{dtEtat.plafonds}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Cuisine</th>
+                  <td>{{dtEtat.cuisine}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Salle de bain</th>
+                  <td>{{dtEtat.salledebain}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Commentaire</th>
+                  <td>{{dtEtat.commentaire}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Footer-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Fermer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal: modalEtat -->
     <div>
       <form @submit.prevent="editbien ? updateBiens() : createBiens()">
         <div class="card collapsed-card card-warning card-outline">
           <div class="card-header border-transparent">
             <h3 class="card-title">
               <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">Biens</font>
+                <font style="vertical-align: inherit;">Ajouter Biens</font>
               </font>
             </h3>
             <div class="card-tools">
@@ -139,78 +273,100 @@
         <!-- /.card -->
       </form>
     </div>
-    <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">liste des biens</h3>
+    <div class="card collapsed-card card-warning card-outline">
+      <div class="card-header border-transparent">
+        <h3 class="card-title">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Liste Biens</font>
+          </font>
+        </h3>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">liste des biens</h3>
 
-            <div class="card-tools">
-              <!-- <button class="btn btn-success" @click="newModal">
-                <i class="fas fa-user-plus fa fw"></i> Ajouter Equipement
-              </button>-->
+                <div class="card-tools">
+
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table id="table" class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Propriétaire</th>
+                      <th>type</th>
+                      <th>Valeur</th>
+                      <th>adresse</th>
+                      <th>action</th>
+                      <td>Etat des lieux</td>
+                      <th>Equipement</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="biens in Biens.data" :key="biens.bein_id">
+                      <td>{{biens.name}}</td>
+                      <td>{{biens.libelle}}</td>
+                      <td>{{biens.prix}}</td>
+                      <td>{{biens.adresse}}</td>
+                      <td>
+                        <a href="#" @click="editBien(biens)">
+                          <i class="fa fa-edit blue"></i>
+                        </a>
+                        /
+                        <a href="#" @click="deleteBiens(biens.bien_id)">
+                          <i class="fa fa-trash red"></i>
+                        </a>
+                        /
+                        <a @click="DetailBien(biens)">
+                          <i class="fa fa-eye blue"></i>
+                        </a>
+                      </td>
+                      <td>
+                        <button class="btn btn-success" @click="newModalEtat(biens.bien_id)">
+                          <i class="fas fa-user-plus fa fw"></i> Ajouter
+                        </button>
+                        <button class="btn btn-primary" @click="DetailEtat(biens.bien_id)">
+                          <i class="fas fa-snowflake"></i> lister
+                        </button>
+                      </td>
+                      <td>
+                        <button class="btn btn-success" @click="newModal(biens.bien_id)">
+                          <i class="fas fa-user-plus fa fw"></i> Ajouter
+                        </button>
+                        <button class="btn btn-primary" @click="Detail(biens.bien_id)">
+                          <i class="fas fa-snowflake"></i> lister
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <pagination :data="Biens" @pagination-change-page="getResults"></pagination>
+              </div>
             </div>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body table-responsive p-0">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Propriétaire</th>
-                  <th>etat</th>
-                  <th>type</th>
-                  <th>Valeur</th>
-                  <th>adresse</th>
-                  <th>description</th>
-                  <th>action</th>
-                  <td>Etat des lieux</td>
-                  <th>Equipement</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="biens in Biens.data" :key="biens.bein_id">
-                  <td>{{biens.name}}</td>
-                  <td>{{biens.libelleE}}</td>
-                  <td>{{biens.libelle}}</td>
-                  <td>{{biens.prix}}</td>
-                  <td>{{biens.adresse}}</td>
-                  <td>{{biens.details}}</td>
-                  <td>
-                    <a href="#" @click="editBien(biens)">
-                      <i class="fa fa-edit blue"></i>
-                    </a>
-                    /
-                    <a href="#" @click="deleteBiens(biens.bien_id)">
-                      <i class="fa fa-trash red"></i>
-                    </a>
-                  </td>
-                  <td>
-                    <button class="btn btn-success" @click="newModalEtat(biens.bien_id)">
-                      <i class="fas fa-user-plus fa fw"></i> Ajouter
-                    </button>
-                    <button class="btn btn-primary" @click="DetailEtat(biens.bien_id)">
-                      <i class="fas fa-snowflake"></i> lister
-                    </button>
-                  </td>
-                  <td>
-                    <button class="btn btn-success" @click="newModal(biens.bien_id)">
-                      <i class="fas fa-user-plus fa fw"></i> Ajouter
-                    </button>
-                    <button class="btn btn-primary" @click="Detail(biens.bien_id)">
-                      <i class="fas fa-snowflake"></i> lister
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            <pagination :data="Biens" @pagination-change-page="getResults"></pagination>
+            <!-- /.card -->
           </div>
         </div>
         <!-- /.card -->
       </div>
+    </div>
+    <div>
+      <biens-louer></biens-louer>
+    </div>
+    <div>
+      <biens-non-louer></biens-non-louer>
     </div>
     <div v-if="!$gate.isAdminOrBailleurs()">
       <not-found></not-found>
@@ -311,7 +467,7 @@
           <div class="modal-body">
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0" v-if="!Emode">
-              <table class="table table-hover">
+              <table id="table" class="table table-hover">
                 <thead>
                   <tr>
                     <th>type</th>
@@ -427,19 +583,14 @@
           <div class="modal-body">
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0" v-if="!Etatmode">
-              <table class="table table-hover">
+              <table id="table" class="table table-hover">
                 <thead>
                   <tr>
                     <td>etat</td>
                     <td>murs</td>
                     <td>sols</td>
                     <td>ouverture</td>
-                    <td>circuit</td>
-                    <td>divers</td>
                     <td>commentaire</td>
-                    <td>plafond</td>
-                    <td>cuisine</td>
-                    <td>salle de bain</td>
                     <th>action</th>
                   </tr>
                 </thead>
@@ -449,12 +600,7 @@
                     <td>{{etat.murs}}</td>
                     <td>{{etat.sols}}</td>
                     <td>{{etat.ouverture}}</td>
-                    <td>{{etat.circuit}}</td>
-                    <td>{{etat.divers}}</td>
                     <td>{{etat.commentaire}}</td>
-                    <td>{{etat.plafonds}}</td>
-                    <td>{{etat.cuisine}}</td>
-                    <td>{{etat.salledebain}}</td>
                     <td>
                       <a href="#" @click="Etatform(etat)">
                         <i class="fa fa-edit blue"></i>
@@ -462,6 +608,9 @@
                       /
                       <a href="#" @click="deleteEtat(etat)">
                         <i class="fa fa-trash red"></i>
+                      </a>/
+                      <a href="#" @click="DTEtat(etat)">
+                        <i class="fa fa-eye blue"></i>
                       </a>
                     </td>
                   </tr>
@@ -617,91 +766,80 @@
               <!-- /.form-group -->
               <div class="form-group">
                 <label>murs</label>
-                <input
-                  v-model="formEtat.murs"
-                  type="text"
-                  name="murs"
-                  placeholder="murs"
-                  class="form-control"
-                />
+                <select v-model="formEtat.murs" name="murs" class="form-control">
+                  <option value="Bon Etat">Bon Etat</option>
+                  <option value="Etat moyen">Etat moyen</option>
+                  <option value=" Mauvais etat">Mauvais etat</option>
+                </select>
               </div>
               <!-- /.form-group -->
 
               <div class="form-group">
                 <label>sols</label>
-                <input
-                  v-model="formEtat.sols"
-                  type="text"
-                  name="sols"
-                  placeholder="sols"
-                  class="form-control"
-                />
+                <select v-model="formEtat.sols" name="sols" class="form-control">
+                  <option value="Bon Etat">Bon Etat</option>
+                  <option value="Etat moyen">Etat moyen</option>
+                  <option value=" Mauvais etat">Mauvais etat</option>
+                </select>
               </div>
               <!-- /.form-group -->
               <div class="form-group">
                 <label>ouverture</label>
-                <input
-                  v-model="formEtat.ouverture"
-                  type="text"
-                  name="ouverture"
-                  placeholder="ouverture"
-                  class="form-control"
-                />
+                <select v-model="formEtat.ouverture" name="ouverture" class="form-control">
+                  <option value="Bon Etat">Bon Etat</option>
+                  <option value="Etat moyen">Etat moyen</option>
+                  <option value=" Mauvais etat">Mauvais etat</option>
+                </select>
               </div>
               <!-- /.form-group -->
 
               <div class="form-group">
                 <label>circuit</label>
-                <input
-                  v-model="formEtat.circuit"
-                  name="circuit"
-                  placeholder="circuit"
-                  class="form-control"
-                />
+                <select v-model="formEtat.circuit" name="circuit" class="form-control">
+                  <option value="Bon Etat">Bon Etat</option>
+                  <option value="Etat moyen">Etat moyen</option>
+                  <option value=" Mauvais etat">Mauvais etat</option>
+                </select>
               </div>
               <!-- /.form-group -->
 
               <div class="form-group">
                 <label>divers</label>
-                <input
-                  v-model="formEtat.divers"
-                  name="divers"
-                  placeholder="divers"
-                  class="form-control"
-                />
+                <select v-model="formEtat.divers" name="divers" class="form-control">
+                  <option value="Bon Etat">Bon Etat</option>
+                  <option value="Etat moyen">Etat moyen</option>
+                  <option value=" Mauvais etat">Mauvais etat</option>
+                </select>
               </div>
               <!-- /.form-group -->
 
               <div class="form-group">
                 <label>plafonds</label>
-                <input
-                  v-model="formEtat.plafonds"
-                  name="plafonds"
-                  placeholder="plafonds"
-                  class="form-control"
-                />
+                <select v-model="formEtat.plafonds" name="plafonds" class="form-control">
+                  <option value="Bon Etat">Bon Etat</option>
+                  <option value="Etat moyen">Etat moyen</option>
+                  <option value=" Mauvais etat">Mauvais etat</option>
+                </select>
               </div>
               <!-- /.form-group -->
 
               <div class="form-group">
                 <label>cuisine</label>
-                <input
-                  v-model="formEtat.cuisine"
-                  name="cuisine"
-                  placeholder="cuisine"
-                  class="form-control"
-                />
+                <select v-model="formEtat.cuisine" name="cuisine" class="form-control">
+                  <option value="Bon Etat">Bon Etat</option>
+                  <option value="Etat moyen">Etat moyen</option>
+                  <option value=" Mauvais etat">Mauvais etat</option>
+                </select>
               </div>
               <!-- /.form-group -->
 
               <div class="form-group">
                 <label>salle de bain</label>
-                <input
-                  v-model="formEtat.salledebain"
-                  name="salledebain"
-                  placeholder="salledebain"
-                  class="form-control"
-                />
+                <select v-model="formEtat.salledebain" name="salledebain" class="form-control">
+                  <option value="Bon Etat">Bon Etat</option>
+                  <option value="Etat moyen">Etat moyen</option>
+                  <option value=" Mauvais etat">Mauvais etat</option>
+                </select>
               </div>
               <!-- /.form-group -->
 
@@ -730,7 +868,8 @@
 
 <script>
 import notFoundComponentVue from "./notFoundComponent.vue";
-
+import BiensLouerComponent from "./BiensLouerComponent.vue";
+import BiensNonLouerComponent from "./BiensNonLouerComponent.vue";
 export default {
   mounted() {
     console.log("Component mounted.");
@@ -739,9 +878,19 @@ export default {
     this.bailleur();
     this.Equipement;
     this.getEtat();
+      setTimeout(function() {
+      $("#table").DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
   },
   components: {
-    "not-found": notFoundComponentVue
+    "not-found": notFoundComponentVue,
+    "biens-louer": BiensLouerComponent,
+
+    "biens-non-louer": BiensNonLouerComponent
   },
   data() {
     return {
@@ -752,6 +901,8 @@ export default {
       Equipement: {},
       Etat: {},
       Biens: {},
+      detailBien: {},
+      dtEtat: {},
       formEtat: new Form({
         lieux_id: "",
         etat: "",
@@ -1027,6 +1178,15 @@ export default {
       this.formEtat.reset();
       $("#addNewEtat").modal("show");
       this.formEtat.biens = id;
+    },
+    DetailBien(b) {
+      $("#modalCart").modal("show");
+      this.detailBien = b;
+    },
+    DTEtat(e) {
+      $("#detailModalEtat").modal("hide");
+      $("#modalEtat").modal("show");
+      this.dtEtat = e;
     },
     DetailEtat(id) {
       axios.get("/api/lieux/" + id).then(response => {

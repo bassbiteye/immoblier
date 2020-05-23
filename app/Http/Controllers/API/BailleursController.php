@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Biens;
 use App\User;
-use App\Comptes;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use phpDocumentor\Reflection\Types\Integer;
-use Symfony\Component\Console\Helper\Table;
+
 
 class BailleursController extends Controller
 {
@@ -31,10 +29,11 @@ class BailleursController extends Controller
      */
     public function index()
     {
-            //return User::latest()->paginate(10);
-
-            return User::where('type','bailleurs')->paginate(10);
-    
+        //return User::latest()->paginate(10);
+        return DB::table('users')
+        ->where('type', 'bailleurs')
+        ->leftJoin('typebailleurs', 'typebailleurs.typebailleurs_id', '=', 'users.typebailleur')
+        ->select('users.*', 'typebailleurs.*')->paginate(10);
     }
 
     /**
@@ -53,40 +52,40 @@ class BailleursController extends Controller
             'email' => 'required|string|email|max:191|unique:users,email,',
             'password' => 'sometimes|required|min:6',
             'email' => 'sometimes|min:6',
-            'profession'=> 'required|string|max:191',
-            'nationalite'=> 'required|string|max:191',
-            'typecomptes_id'=> 'required|int',
+            'profession' => 'required|string|max:191',
+            'nationalite' => 'required|string|max:191',
+            'typebailleurs_id' => 'required',
 
-            
+
         ]);
         $bailleur = User::where('email', $request->email)->first();
 
         if (isset($bailleur->id)) {
             return response()->json(["error" => "email already exists"], 401);
         }
-       
+
         $date = (154263);
         $min_epoch = strtotime($date);
-        $var = rand($min_epoch,1000);
-        $strval ='FR_401';
-        $items = ($strval.$var); 
+        $var = rand($min_epoch, 1000);
+        $strval = 'FR_401';
+        $items = ($strval . $var);
         $bailleur = new User();
         $bailleur->name = $request['name'];
         $bailleur->adresse = $request['adresse'];
         $bailleur->telephone = $request['telephone'];
         $bailleur->email = $request['email'];
         $bailleur->type = $request['type'];
-        $bailleur->numero= $items;
-        $bailleur->solde= 0; 
-        $bailleur->profession=$request['profession'];
-        $bailleur->bp=$request['bp'];
-        $bailleur->nationalite=$request['nationalite'];
+        $bailleur->numero = $items;
+        $bailleur->solde = 0;
+        $bailleur->profession = $request['profession'];
+        $bailleur->bp = $request['bp'];
+        $bailleur->typebailleur = $request['typebailleurs_id'];
+        $bailleur->nationalite = $request['nationalite'];
         $bailleur->password = Hash::make($request['password']);
         $bailleur->save();
         return $bailleur;
-
     }
-   
+
     /**
      * Display the specified resource.
      *
@@ -114,8 +113,8 @@ class BailleursController extends Controller
             'telephone' => 'required|string|max:191',
             'email' => 'required|string|email|max:191|unique:users,email,' . $bailleur->id,
             'email' => 'sometimes|min:6',
-            'profession'=> 'required|string|max:191',
-            'nationalite'=> 'required|string|max:191',
+            'profession' => 'required|string|max:191',
+            'nationalite' => 'required|string|max:191',
         ]);
         $bailleur->update($request->all());
         return ['message' => 'bailleur has been updated'];
@@ -133,7 +132,15 @@ class BailleursController extends Controller
         $bailleur->delete();
         return ['message' => 'bailleur has been deleted'];
     }
-    public function countbailleurs(){
+    public function countbailleurs()
+    {
         return User::where('type', 'bailleurs')->count();
+    }
+    public function countbiensbailleurs(Request $request)
+    {
+        $id= strval( $request['id'] );
+        return Biens::where('bailleur', $id)->count();
+
+    
     }
 }

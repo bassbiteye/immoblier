@@ -3,11 +3,27 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+require('jquery');
 
 require('./bootstrap');
 
 window.Vue = require('vue');
 import moment from 'moment';
+import 'admin-lte/plugins/jquery/jquery.min.js';
+import 'admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js';
+import 'admin-lte/plugins/datatables/jquery.dataTables.js';
+import 'admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.js';
+import 'admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js';
+import 'admin-lte/plugins/jquery-mousewheel/jquery.mousewheel.js';
+import 'admin-lte/plugins/raphael/raphael.min.js';
+import 'admin-lte/plugins/jquery-mapael/jquery.mapael.min.js';
+import 'admin-lte/plugins/jquery-mapael/maps/usa_states.min.js';
+
+import 'admin-lte/plugins/bootstrap-switch/js/bootstrap-switch.min.js';
+//ChartJS
+import 'admin-lte/plugins/chart.js/Chart.min.js';
+
+
 
 // import VueSelect from 'vue-cool-select';
 
@@ -65,12 +81,17 @@ let routes = [
     { path: '/bailleurs', component: require('./components/BailleursComponent.vue').default },
     { path: '/clients', component: require('./components/ClientsComponent.vue').default },
     { path: '/louer', component: require('./components/LouersComponent.vue').default },
-    { path: '/typecomptes', component: require('./components/TypeComptesComponent.vue').default },
+    { path: '/typebaiileur', component: require('./components/TypebaiileursComponent.vue').default },
     { path: '/typeetats', component: require('./components/TypeEtatsComponent.vue').default },
     { path: '/revoque', component: require('./components/RevoqueComponent.vue').default },
     { path: '/paiement', component: require('./components/PaiementComponent.vue').default },
     { path: '/divers', component: require('./components/DiversComponent.vue').default },
+    { path: '/biens-louer', component: require('./components/BiensLouerComponent.vue').default },
+    { path: '/biens-non-louer', component: require('./components/BiensNonLouerComponent.vue').default },
+    { path: '/clients-on-paye', component: require('./components/ClientsNonPayeComponent.vue').default },
+    { path: '/clients-paye', component: require('./components/ClientsPayeComponent.vue').default },
 
+    
     
     { path: '*', component: require('./components/notFoundComponent.vue').default }
 

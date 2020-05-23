@@ -35,13 +35,13 @@
                   <td>{{divers.montantPaye}}</td>
                   <td>{{divers.adresse}}</td>
                   <td>{{divers.comentaire}}</td>
-                  <td class="btn btn-success" @click="fichier(divers.fichier)">fichier</td>
+                  <td class="btn btn-success" @click="telecharger(divers.fichier)">fichier</td>
 
                   <!-- <td>
                     <a href="#" @click="editModal(divers)">
                       <i class="fa fa-edit blue"></i>
                     </a>
-                  </td> -->
+                  </td>-->
                 </tr>
               </tbody>
             </table>
@@ -89,7 +89,8 @@
                 />
                 <has-error :form="form" field="details"></has-error>
               </div>
-              <div class="row">
+              <div>
+              <div class="row" v-if="locataire">
                 <div class="col-md-4">
                   <label for>locataire: {{locataire}}</label>
                 </div>
@@ -100,7 +101,8 @@
                   <label v-if="montantPaye">montant: {{montantPaye}}</label>
                 </div>
               </div>
-
+              <div v-else-if="locataire==null"></div>
+              </div>  
               <div class="form-group">
                 <label class="form-control-label">Fichier</label>
                 <input
@@ -142,6 +144,13 @@ export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
+    setTimeout(function() {
+      $("#table").DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
   },
   components: {
     "not-found": notFoundComponentVue
@@ -160,7 +169,8 @@ export default {
         commentaire: "",
         fichier: "",
         operations: ""
-      })
+      }),
+      fichier: ""
     };
   },
   methods: {
@@ -173,6 +183,7 @@ export default {
     updatedivers(id) {
       this.$Progress.start();
       // Submit the form via a POST request
+   
       this.form
         .put("/api/divers/" + this.form.id)
         .then(() => {
@@ -198,25 +209,31 @@ export default {
       this.form.reset();
       $("#addNew").modal("show");
     },
-    fichier(e) {
+    telecharger(e) {
       window.open("img/profile/" + e);
     },
     updateFichier(e) {
-      let file = e.target.files[0];
-      let reader = new FileReader();
-      let limit = 1024 * 1024 * 2;
-      if (file["size"] > limit) {
-        swal({
+      console.log(e);
+      this.fichier = e.target.files[0];
+
+      this.ext_image2 = [
+        "image/jpeg",
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "image/png",
+        "application/vnd.oasis.opendocument.text"
+      ];
+
+      if (this.ext_image2.indexOf(this.fichier.type) < 0) {
+        Swal.fire({
           type: "error",
           title: "Oops...",
-          text: "You are uploading a large file"
+          text:
+            "Vous devez choisir soit fichier pdf, soit un fichier word, soit une image "
         });
-        return false;
+        document.getElementById("derniereleve").value = "";
+        return;
       }
-      reader.onloadend = file => {
-        this.form.fichier = reader.result;
-      };
-      reader.readAsDataURL(file);
     },
     loaddivers() {
       if (this.$gate.isAdmin()) {
@@ -230,15 +247,21 @@ export default {
           this.montantPaye = operation[i].montantPaye;
           this.bien = operation[i].details;
           this.locataire = operation[i].nom;
-          this.form.operations=operation[i].operation_id;
+          this.form.operations = operation[i].operation_id;
         }
       });
     },
     createdivers() {
       this.$Progress.start();
       // Submit the form via a POST request
-      this.form
-        .post("/api/adddivers")
+         var fichier = new FormData();
+      fichier.append("id", this.form.id);
+      fichier.append("fichier", this.fichier);
+      fichier.append("commentaire", this.form.commentaire);
+      fichier.append("operations", this.form.operations);
+
+      axios
+        .post("/api/adddivers",fichier)
         .then(() => {
           //this will update dom automatically
           //this.loaddivers();

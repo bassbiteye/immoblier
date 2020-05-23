@@ -1,20 +1,89 @@
 <template>
   <div class="conteiner">
+    <!-- Modal: modalBailleur -->
+    <div
+      class="modal fade"
+      id="modalCart"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Header-->
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Bailleur</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <!--Body-->
+          <div class="modal-body">
+            <table class="table table-hover">
+              <tbody>
+                <tr>
+                  <th scope="row">Nom Complet</th>
+                  <td>{{DetailBailleur.name}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Email</th>
+                  <td>{{DetailBailleur.email}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Telephone</th>
+                  <td>{{DetailBailleur.telephone}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Adresse</th>
+                  <td>{{DetailBailleur.adresse}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">Profession</th>
+                  <td>{{DetailBailleur.profession}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">Nationalite</th>
+                  <td>{{DetailBailleur.nationalite}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">Type de Bailleur</th>
+                  <td>{{DetailBailleur.typebailleur}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">NombreBien</th>
+                  <td>{{nombreBien}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">Boite Postale</th>
+                  <td>{{DetailBailleur.bp}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--Footer-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Fermer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal: modalBailleur -->
     <div class="row mt-5" v-if="$gate.isAdmin()" v-show="!detail">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Responsive Hover Table</h3>
+            <h3 class="card-title">liste des Bailleurs</h3>
 
             <div class="card-tools">
               <button class="btn btn-success" @click="newModal">
-                <i class="fas fa-user-plus fa fw"></i> Add new
+                <i class="fas fa-user-plus fa fw"></i> Ajouter
               </button>
             </div>
           </div>
           <!-- /.card-header -->
           <div class="card-body table-responsive p-0">
-            <table class="table table-hover">
+            <table id="table" class="table table-hover">
               <thead>
                 <tr>
                   <th>nom Complet</th>
@@ -22,9 +91,7 @@
                   <th>telephone</th>
                   <th>adresse</th>
                   <th>profession</th>
-                  <th>nationalite</th>
-                  <th>nombre Bien</th>
-                  <th>Boite postale</th>
+                  <th>action</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,9 +101,6 @@
                   <td>{{bailleur.telephone}}</td>
                   <td>{{bailleur.adresse}}</td>
                   <td>{{bailleur.profession}}</td>
-                  <td>{{bailleur.nationalite}}</td>
-                  <td>{{bailleur.nombreBien}}</td>
-                  <td>{{bailleur.bp}}</td>
 
                   <td>
                     <a href="#" @click="editModal(bailleur)">
@@ -45,6 +109,9 @@
                     /
                     <a href="#" @click="deleteBailleur(bailleur.id)">
                       <i class="fa fa-trash red"></i>
+                    </a>
+                    <a @click="detailBailleur(bailleur)">
+                      <i class="fa fa-eye blue"></i>
                     </a>
                   </td>
                 </tr>
@@ -74,8 +141,8 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Add new</h5>
-            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Update bailleur</h5>
+            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Ajouter</h5>
+            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Modifier bailleur</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -161,21 +228,21 @@
                 <has-error :form="form" field="bp"></has-error>
               </div>
               <div class="form-group">
-                <label>type de compte</label>
+                <label>type de Bailleur</label>
                 <select
-                  v-model="form.typecomptes_id"
-                  name="typecomptes_id"
+                  v-model="form.typebailleurs_id"
+                  name="typebailleurs_id"
                   class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('typecomptes_id') }"
+                  :class="{ 'is-invalid': form.errors.has('typebailleurs_id') }"
                 >
                   <option>selectionner le compte</option>
                   <option
-                    v-for="types in typecomptes.data"
-                    :key="types.typecompte_id"
-                    :value="types.typecompte_id"
+                    v-for="types in typebailleurs.data"
+                    :key="types.typebailleurs_id"
+                    :value="types.libelle"
                   >{{types.libelle}}</option>
                 </select>
-                <has-error :form="form" field="typecomptes_id"></has-error>
+                <has-error :form="form" field="typebailleurs"></has-error>
               </div>
               <div class="form-group">
                 <label>Password</label>
@@ -190,9 +257,9 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              <button v-show="editmode" type="submit" class="btn btn-success">update</button>
-              <button v-show="!editmode" type="submit" class="btn btn-primary">Create</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+              <button v-show="editmode" type="submit" class="btn btn-success">Modifier</button>
+              <button v-show="!editmode" type="submit" class="btn btn-primary">Ajouter</button>
             </div>
           </form>
         </div>
@@ -305,7 +372,14 @@ export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
-    this.getTypeCompte();
+    this.getTypebailleurs();
+    setTimeout(function() {
+      $("#table").DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
   },
   components: {
     "not-found": notFoundComponentVue
@@ -315,9 +389,11 @@ export default {
       detail: false,
       editmode: false,
       bailleurs: {},
-      typecomptes: {},
+      typebailleurs: {},
       bailleurC: {},
       date: new Date(),
+      DetailBailleur: {},
+      nombreBien: {},
 
       // Create a new form instance
       form: new Form({
@@ -333,7 +409,10 @@ export default {
         profession: "",
         nationalite: "",
         bp: "",
-        typecomptes_id: ""
+        typebailleur: ""
+      }),
+      formB: new Form({
+        id: ""
       })
     };
   },
@@ -351,10 +430,18 @@ export default {
         this.bailleurs = response.data;
       });
     },
-    getTypeCompte() {
-      axios.get("api/typecomptes").then(response => {
-        this.typecomptes = response.data;
+    getTypebailleurs() {
+      axios.get("api/typeballieurs").then(response => {
+        this.typebailleurs = response.data;
       });
+    },
+    detailBailleur(b) {
+      this.formB.id = b.id;
+      this.formB.post("api/countbiensbailleurs").then(response => {
+        this.nombreBien = response.data;
+      });
+      $("#modalCart").modal("show");
+      this.DetailBailleur = b;
     },
     updateBailleur(id) {
       this.$Progress.start();
@@ -365,7 +452,7 @@ export default {
           //this will update dom automatically
           //this.loadBailleurs();
           $("#addNew").modal("hide");
-          Swal.fire("Deleted!", "Your file has been updated.", "success");
+          Swal.fire("Deleted!", "La bailleur a été modifié avec success.", "success");
           Fire.$emit("AfterCreate");
           this.$Progress.finish();
         })
@@ -386,8 +473,8 @@ export default {
     },
     deleteBailleur(id) {
       Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: "Etes vous sure?",
+        text: "Cette action est réversible!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -399,7 +486,7 @@ export default {
           this.form
             .delete("api/bailleurs/" + id)
             .then(() => {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", "Le bailleur a été supprimé.", "success");
               Fire.$emit("AfterCreate");
             })
             .catch(() => {
@@ -424,7 +511,7 @@ export default {
 
           Toast.fire({
             icon: "success",
-            title: "Bailleur created successfully"
+            title: "Bailleur créé avec success"
           });
           this.$Progress.finish();
           this.bailleurC = response.data;

@@ -17,20 +17,23 @@
             <table id="table" class="table table-hover">
               <thead>
                 <tr>
-                  <th> type</th>
-               
+                  <th>type</th>
+                  <th>action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="typeetats in typeetats.data" :key="typeetats.id">
                   <td>{{typeetats.libelleE}}</td>
-                
+
                   <td>
                     <a href="#" @click="editModal(typeetats)">
                       <i class="fa fa-edit blue"></i>
                     </a>
                     /
-                    <a href="#" @click="deletetypeetats(typeetats.typeetats_id)">
+                    <a
+                      href="#"
+                      @click="deletetypeetats(typeetats.typeetats_id)"
+                    >
                       <i class="fa fa-trash red"></i>
                     </a>
                   </td>
@@ -61,8 +64,8 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Add new</h5>
-            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Update typeetats</h5>
+            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Ajouter</h5>
+            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Modifier</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -80,8 +83,6 @@
                 />
                 <has-error :form="form" field="libelleE"></has-error>
               </div>
-         
-          
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">fermer</button>
@@ -96,23 +97,29 @@
 </template>
 
 <script>
-import notFoundComponentVue from './notFoundComponent.vue';
+import notFoundComponentVue from "./notFoundComponent.vue";
 export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
-  
+    setTimeout(function() {
+      $("#table").DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
   },
   components: {
-  'not-found': notFoundComponentVue
-},
+    "not-found": notFoundComponentVue
+  },
   data() {
     return {
       editmode: false,
       typeetats: {},
       // Create a new form instance
       form: new Form({
-        id:'',
+        id: "",
         libelleE: ""
       })
     };
@@ -167,7 +174,11 @@ export default {
           this.form
             .delete("api/typeetats/" + id)
             .then(() => {
-              Swal.fire("Suppression!", "le typeetats bien été supprimé.", "success");
+              Swal.fire(
+                "Suppression!",
+                "le typeetats bien été supprimé.",
+                "success"
+              );
               Fire.$emit("AfterCreate");
             })
             .catch(() => {
@@ -204,7 +215,6 @@ export default {
     }
   },
   created() {
-
     this.loadtypeetats();
     Fire.$on("AfterCreate", () => {
       this.loadtypeetats();

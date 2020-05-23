@@ -146,7 +146,7 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body table-responsive p-0">
-            <table class="table table-hover">
+            <table id="table" class="table table-hover">
               <thead>
                 <tr>
                   <th>Propriétaire</th>
@@ -618,6 +618,13 @@ export default {
     this.type();
     this.bailleur();
     this.Equipement;
+      setTimeout(function() {
+      $("#table").DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
   },
   components: {
     "not-found": notFoundComponentVue

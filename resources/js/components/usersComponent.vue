@@ -1,29 +1,38 @@
 <template>
   <div class="conteiner">
     <div class="row mt-5" v-if="$gate.isAdmin()">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Responsive Hover Table</h3>
 
-            <div class="card-tools">
-              <button class="btn btn-success" @click="newModal">
-                <i class="fas fa-user-plus fa fw"></i> Add new
+        <!-- row responsive table -->
+    <section class="container">
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <div class="card card-warning card-outline">
+            <div class="card-header">
+              <h3 class="card-title">utilisateur</h3>
+
+              <div class="card-tools">
+               <button class="btn btn-success" @click="newModal">
+                <i class="fas fa-user-plus fa fw"></i> Ajouter
               </button>
+              </div>
             </div>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body table-responsive p-0">
-            <table class="table table-hover">
-              <thead>
-                <tr>
+
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-1">
+              <table
+                id="table"
+                class="table table-striped table-bordered"
+                style="width:100%"
+              >
+                <thead>
+                  <tr>
                   <th>nom complet</th>
                   <th>Email</th>
                   <th>role</th>
                   <th>action</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr v-for="user in users.data" :key="user.id">
                   <td>{{user.name}}</td>
                   <td>{{user.email}}</td>
@@ -39,15 +48,18 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
+              </table>
+            </div>
+            <!-- /.card-body -->
           </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            <pagination :data="users" @pagination-change-page="getResults"></pagination>
-          </div>
+          <!-- /.card -->
         </div>
-        <!-- /.card -->
       </div>
+      <!-- /row responsive table -->
+    </section>
+
+
+    
     </div>
     <div v-if="!$gate.isAdmin()">
       <not-found></not-found>
@@ -64,8 +76,8 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Add new</h5>
-            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Update User</h5>
+            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Ajouter</h5>
+            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Modifier</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -105,7 +117,6 @@
                   <option value>selectionner un role</option>
                   <option value="admin">Admin</option>
                   <option value="user">user</option>
-                  <option value="bailleur">bailleur</option>
                 </select>
                 <has-error :form="form" field="type"></has-error>
               </div>
@@ -122,9 +133,9 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              <button v-show="editmode" type="submit" class="btn btn-success">update</button>
-              <button v-show="!editmode" type="submit" class="btn btn-primary">Create</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+              <button v-show="editmode" type="submit" class="btn btn-success">Modifier</button>
+              <button v-show="!editmode" type="submit" class="btn btn-primary">Ajouter</button>
             </div>
           </form>
         </div>
@@ -140,6 +151,14 @@ export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
+    setTimeout(function() {
+      $("#table").DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
+
   },
    components: {
   'not-found': notFoundComponentVue
