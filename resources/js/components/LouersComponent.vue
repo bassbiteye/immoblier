@@ -16,7 +16,7 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body table-responsive p-0">
-            <table class="table table-hover">
+            <table id="table" class="table table-hover">
               <thead>
                 <tr>
                   <th>description</th>
@@ -95,19 +95,12 @@
                   </form>
                   <form @submit.prevent="finaliser">
                     <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-6" v-if="form.client">
                         <div class="form-group">
-                          <label class="form-control-label">nom client</label>
-                          <input
-                            v-model="form.client"
-                            type="text"
-                            class="form-control"
-                            placeholder="nom client"
-                            readonly
-                          />
+                          <label>nom complet client</label>
+                          <p>{{clientD.prenom}}_{{form.client}}</p>
                         </div>
                       </div>
-
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="form-control-label">caution</label>
@@ -274,7 +267,7 @@
                         <td>
                           etat
                           <input
-                            :placeholder="form.etat"
+                            :placeholder="form.libelleE"
                             readonly
                             style="border:hidden;background:none;"
                           />
@@ -448,7 +441,15 @@
                 <!-- /.col -->
               </div>
               <!-- /.row -->
-
+              <!-- this row will not appear when printing -->
+              <div class="row no-print" @click="annuler()">
+                <div>
+                  <button type="button" class="btn btn-danger float-left">
+                    <i class="fas fa-trash"></i>
+                    annuler
+                  </button>
+                </div>
+              </div>
               <!-- this row will not appear when printing -->
               <div class="row no-print" @click="printDetails()">
                 <div class="col-12">
@@ -478,6 +479,14 @@ export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
+    this.clientD;
+    setTimeout(function() {
+      $("#table").DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
   },
   components: {
     "not-found": notFoundComponentVue
@@ -488,11 +497,14 @@ export default {
       client: {},
       operation: {},
       bien: {},
+      clientD: {},
       date: new Date(),
       showTab: true,
       contratL: false,
       detailOperation: false,
       showForm: false,
+      piece:"",
+      derniereleve:"",
       form: new Form({
         bien_id: "",
         details: "",
@@ -504,6 +516,7 @@ export default {
         montantPaye: "",
         dateEntre: "",
         client: "",
+        libelleE: "",
         numero: "",
         commission: "",
         taxes: "",
@@ -540,26 +553,63 @@ export default {
     finaliser() {
       this.$Progress.start();
       // Submit the form via a POST request
-      this.form
-        .post("/api/louer")
+      if (this.form.libelleE == "indisponible") {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "message"
+        });
+      }
+      var fichier = new FormData();
+      fichier.append("bien_id", this.form.bien_id);
+      fichier.append("details", this.form.details);
+      fichier.append("etat", this.form.etat);
+      fichier.append("libelle", this.form.libelle);
+      fichier.append("prix", this.form.prix);
+      fichier.append("adresse", this.form.adresse);
+      fichier.append("caution", this.form.caution);
+      fichier.append("montantPaye", this.form.montantPaye);
+      fichier.append("dateEntre", this.form.dateEntre);
+      fichier.append("client", this.form.client);
+      fichier.append("libelleE", this.form.libelleE);
+      fichier.append("numero", this.form.numero);
+      fichier.append("commission", this.form.commission);
+      fichier.append("taxes", this.form.taxes);
+      fichier.append("durée", this.form.durée);
+      fichier.append("dernierelevé", this.derniereleve);
+      fichier.append("piece", this.piece);
+      fichier.append("commentaire", this.form.commentaire);
+
+      axios
+        .post("/api/louer", fichier)
         .then(response => {
           //this will update dom automatically
           //this.loadUsers();
-          this.operation = response.data.Operation;
-          this.client = response.data.client;
-          this.bien = response.data.bien;
-          Fire.$emit("AfterCreate");
-          $("#addNew").modal("hide");
-
-          Toast.fire({
-            icon: "success",
-            title: "User created successfully"
-          });
-          this.$Progress.finish();
-          this.detailOperation = false;
-          this.showForm = false;
-          this.showTab = false;
-          this.contratL = true;
+          let message = response.data.message;
+          let status = response.data.status;
+          console.log(message);
+          if (status == 500) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: message
+            });
+            this.$Progress.finish();
+          } else {
+            this.operation = response.data.Operation;
+            this.client = response.data.client;
+            this.bien = response.data.bien;
+            this.getResults();
+            Toast.fire({
+              icon: "success",
+              title: "User created successfully"
+            });
+            this.$Progress.finish();
+            this.detailOperation = false;
+            this.showForm = false;
+            this.showTab = false;
+            this.contratL = true;
+          }
         })
         .catch(e => {
           console.log(e);
@@ -567,53 +617,71 @@ export default {
     },
     findClient() {
       this.formT.post("/api/findclient").then(response => {
-        let $client = response.data;
-        this.form.client = $client.nom;
-        this.form.numero = $client.tel;
+        let client = response.data;
+        this.form.client = client.nom;
+        this.form.numero = client.tel;
+        this.clientD.nom = client.nom;
+        this.clientD.prenom = client.prenom;
       });
+    },
+    annuler() {
+      location.reload();
     },
     contrat() {
       this.showTab = true;
     },
 
     updateDernier(e) {
-      let file = e.target.files[0];
-      let reader = new FileReader();
-      let limit = 1024 * 1024 * 2;
-      if (file["size"] > limit) {
-        swal({
+ console.log(e);
+      this.derniereleve = e.target.files[0];
+
+      this.ext_image2 = [
+        "image/jpeg",
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "image/png",
+        "application/vnd.oasis.opendocument.text"
+      ];
+
+      if (this.ext_image2.indexOf(this.derniereleve.type) < 0) {
+        Swal.fire({
           type: "error",
           title: "Oops...",
-          text: "You are uploading a large file"
+          text:
+            "Vous devez choisir soit fichier pdf, soit un fichier word, soit une image "
         });
-        return false;
-      }
-      reader.onloadend = file => {
-        this.form.dernierelevé = reader.result;
-      };
-      reader.readAsDataURL(file);
+        document.getElementById("derniereleve").value = "";
+        return;
+    }
     },
     updatePiece(e) {
-      let file = e.target.files[0];
-      let reader = new FileReader();
-      let limit = 1024 * 1024 * 2;
-      if (file["size"] > limit) {
-        swal({
+        console.log(e);
+      this.piece = e.target.files[0];
+
+      this.ext_image2 = [
+        "image/jpeg",
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "image/png",
+        "application/vnd.oasis.opendocument.text"
+      ];
+
+      if (this.ext_image2.indexOf(this.piece.type) < 0) {
+        Swal.fire({
           type: "error",
           title: "Oops...",
-          text: "You are uploading a large file"
+          text:
+            "Vous devez choisir soit fichier pdf, soit un fichier word, soit une image "
         });
-        return false;
+        document.getElementById("piece").value = "";
+        return;
       }
-      reader.onloadend = file => {
-        this.form.piece = reader.result;
-      };
-      reader.readAsDataURL(file);
+
+      
     },
     created() {
-      this.loadbiens();
       Fire.$on("AfterCreate", () => {
-        this.loadbiens();
+        this.getResults();
       });
       //setInterval(()=>this.loadbiens(),10000)
     }

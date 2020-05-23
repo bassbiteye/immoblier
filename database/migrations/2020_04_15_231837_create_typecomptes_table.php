@@ -13,8 +13,8 @@ class CreateTypecomptesTable extends Migration
      */
     public function up()
     {
-        Schema::create('typecomptes', function (Blueprint $table) {
-            $table->bigIncrements('typecompte_id');
+        Schema::create('typebailleurs', function (Blueprint $table) {
+            $table->bigIncrements('typebailleurs_id');
             $table->string('libelle');
             $table->timestamps();
         });

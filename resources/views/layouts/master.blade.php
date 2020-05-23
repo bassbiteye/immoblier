@@ -50,7 +50,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-info-info elevation-4 navbar-white ">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="/home" class="brand-link">
                 <img src="./img/logo.png" alt="laravue Logo" class="brand-image img-circle elevation-3" style="opacity: 8">
                 <span class="brand-text font-weight-light">ALAWA</span>
             </a>
@@ -60,7 +60,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-2 pb-3 mb-3 d-flex navbar-blue ">
                     <div class="image mt-2">
-                        <img src="/img//{{ Auth::user()->photo }}" class="img-circle elevation-3" alt="User Image">
+                        <img src="/img/profile/{{ Auth::user()->photo }}" class="img-circle elevation-3" alt="User Image">
                     </div>
                     <div class="info  ">
 
@@ -109,10 +109,10 @@
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/typecomptes" class="nav-link">
+                            <router-link to="/typebaiileur" class="nav-link">
                                 <i class="nav-icon fas fa-file-invoice-dollar" style="color:#0879FA"></i>
                                 <p style="color:black">
-                                    Type Comptes
+                                Type Baiileur
                             </router-link>
                         </li>
                         
@@ -250,7 +250,10 @@
         window.user = @json(auth()->user())
     </script>
     @endauth
-    <script src="/js/app.js"></script>
+    <script src="/js/app.js">
+
+</script>
+
 </body>
 
 </html>

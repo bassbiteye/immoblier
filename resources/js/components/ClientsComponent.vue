@@ -1,72 +1,169 @@
 <template>
   <div class="conteiner">
-    <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">liste des clients</h3>
-
-            <div class="card-tools">
-              <button class="btn btn-success" @click="newModal">
-                <i class="fas fa-user-plus fa fw"></i> Ajouter
-              </button>
-            </div>
+    <!-- Modal: modalbien -->
+    <div
+      class="modal fade"
+      id="modaldetailCient"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!--Header-->
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Bien</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
           </div>
-          <!-- /.card-header -->
-          <div class="card-body table-responsive p-0">
+          <!--Body-->
+          <div class="modal-body">
             <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>nom</th>
-                  <th>prenom</th>
-                  <th>adresse</th>
-                  <th>telephone</th>
-                  <th>sexe</th>
-                  <th>profession</th>
-                  <th>nationalité</th>
-                  <th>type</th>
-                  <th>numero compte</th>
-                  <th>solde</th>
-                  <th>commentaire</th>
-                  <th>entreprise</th>
-                  <th>action</th>
-                </tr>
-              </thead>
               <tbody>
-                <tr v-for="client in clients.data" :key="client.id">
-                  <td>{{client.nom}}</td>
-                  <td>{{client.prenom}}</td>
-                  <td>{{client.adresse}}</td>
-                  <td>{{client.tel}}</td>
-                  <td>{{client.sexe}}</td>
-                  <td>{{client.profession}}</td>
-                  <td>{{client.nationalite}}</td>
-                  <td>{{client.libelle}}</td>
-                  <td>{{client.numero}}</td>
-                  <td>{{client.solde}}</td>
-                  <td>{{client.commentaire}}</td>
-                  <td>{{client.entreprise}}</td>
-                  <td>
-                    <a href="#" @click="editModal(client)">
-                      <i class="fa fa-edit blue"></i>
-                    </a>
-                    /
-                    <a href="#" @click="deleteclient(client.client_id)">
-                      <i class="fa fa-trash red"></i>
-                    </a>
-                  </td>
+                <tr>
+                  <th scope="row">nom</th>
+                  <td>{{detailClient.nom}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">prenom</th>
+                  <td>{{detailClient.prenom}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">adresse</th>
+                  <td>{{detailClient.adresse}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">telephone</th>
+                  <td>{{detailClient.tel}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">sexe</th>
+                  <td>{{detailClient.sexe}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">profession</th>
+                  <td>{{detailClient.profession}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">nationalite</th>
+                  <td>{{detailClient.nationalite}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">type</th>
+                  <td>{{detailClient.libelle}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">réglement</th>
+                  <td>{{detailClient.solde}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">entreprise</th>
+                  <td>{{detailClient.entreprise}}</td>
+                </tr>
+                <tr class="total">
+                  <th scope="row">commentaire</th>
+                  <td>{{detailClient.commentaire}}</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            <pagination :data="clients" @pagination-change-page="getResults"></pagination>
+          <!--Footer-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Fermer</button>
           </div>
         </div>
-        <!-- /.card -->
       </div>
     </div>
+    <!-- Modal: modalbien -->
+    <div class="card collapsed-card card-warning card-outline">
+      <div class="card-header border-transparent">
+        <h3 class="card-title">
+          <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Client</font>
+          </font>
+        </h3>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-card-widget="collapse">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">liste des clients</h3>
+
+                <div class="card-tools">
+                  <button class="btn btn-success" @click="newModal">
+                    <i class="fas fa-user-plus fa fw"></i> Ajouter
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table id="table" class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>nom</th>
+                      <th>prenom</th>
+                      <th>adresse</th>
+                      <th>telephone</th>
+                      <th>profession</th>
+                      <th>type</th>
+
+                      <th>action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="client in clients.data" :key="client.id">
+                      <td>{{client.nom}}</td>
+                      <td>{{client.prenom}}</td>
+                      <td>{{client.adresse}}</td>
+                      <td>{{client.tel}}</td>
+                      <td>{{client.profession}}</td>
+                      <td>{{client.libelle}}</td>
+                      <td>
+                        <a href="#" @click="editModal(client)">
+                          <i class="fa fa-edit blue"></i>
+                        </a>
+                        /
+                        <a
+                          href="#"
+                          @click="deleteclient(client.client_id)"
+                        >
+                          <i class="fa fa-trash red"></i>
+                        </a>
+                        /
+                        <a href="#" @click="detailclient(client)">
+                          <i class="fa fa-eye blue"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <pagination :data="clients" @pagination-change-page="getResults"></pagination>
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <client-paye></client-paye>
+    </div>
+  <div>
+      <client-non-pays></client-non-pays>
+    </div>
+    
     <div v-if="!$gate.isAdminOrBailleurs()">
       <not-found></not-found>
     </div>
@@ -82,8 +179,8 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Add new</h5>
-            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Update client</h5>
+            <h5 class="modal-title" v-show="!editmode" id="addNewLabel">Ajouter</h5>
+            <h5 class="modal-title" v-show="editmode" id="addNewLabel">Modifier</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -216,21 +313,33 @@
 
 <script>
 import notFoundComponentVue from "./notFoundComponent.vue";
+import ClientsPayeComponent from "./ClientsPayeComponent.vue";
+import ClientsNonPayeComponent from "./ClientsNonPayeComponent.vue";
 
 export default {
   mounted() {
     console.log("Component mounted.");
     this.getResults();
+      setTimeout(function() {
+      $("#table").DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
+        }
+      });
+    }, 2000);
     this.type();
   },
   components: {
-    "not-found": notFoundComponentVue
+    "not-found": notFoundComponentVue,
+    "client-paye": ClientsPayeComponent,
+    "client-non-pays":ClientsNonPayeComponent
   },
   data() {
     return {
       editmode: false,
       clients: {},
       Typeclient: {},
+      detailClient: {},
       // Create a new form instance
       form: new Form({
         id: "",
@@ -258,6 +367,10 @@ export default {
       axios.get("api/typeclients?page=" + page).then(response => {
         this.Typeclient = response.data;
       });
+    },
+    detailclient(c) {
+      $("#modaldetailCient").modal("show");
+      this.detailClient = c;
     },
     updateclient(id) {
       this.$Progress.start();

@@ -34,8 +34,8 @@ Route::post('addequip','API\BiensController@addEquip');
 
 //Typeetats
 Route::apiResources(['typeetats'=>'API\TypeetatsController']);
-//TypeComptes
-Route::apiResources(['typecomptes'=>'API\TypecomptesController']);
+//Type Bailleur
+Route::apiResources(['typeballieurs'=>'API\TypebailleursController']);
 //TypeBiens
 Route::apiResources(['typebiens'=>'API\TypebiensController']);
 //TypeBiens
@@ -43,6 +43,9 @@ Route::apiResources(['typeclients'=>'API\TypeclientsController']);
 //Bailleurs
 Route::apiResources(['bailleurs'=>'API\BailleursController']);
 Route::get('countbailleurs','API\BailleursController@countbailleurs');
+Route::post('countbiensbailleurs','API\BailleursController@countbiensbailleurs');
+
+
 //clients
 Route::apiResources(['clients'=>'API\ClientsController']);
 Route::get('countclients','API\ClientsController@countclients');
@@ -56,6 +59,17 @@ Route::post('paiement','API\OperationsController@paiement');
 Route::get('divers','API\OperationsController@divers');
 Route::post('findoperation','API\OperationsController@findoperation');
 Route::post('adddivers','API\OperationsController@addDivers');
+Route::get('biensnonlouer','API\ListesController@biensnonlouer');
+Route::get('bienslouer','API\ListesController@bienslouer');
+Route::post('clientpaye','API\ListesController@clientpaye');
+Route::post('clientnonpaye','API\ListesController@clientnonpaye');
+Route::get('soldebailleur','API\ListesController@soldebailleur');
+Route::get('soldealawa','API\ListesController@soldealawa');
+Route::get('commission','API\ListesController@commission');
+Route::get('paiementactif','API\OperationsController@paiementactif');
+
+
+
 
 
 
