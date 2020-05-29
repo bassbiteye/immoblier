@@ -86,10 +86,13 @@ class ListesController extends Controller
     }
 
     public function commission(){
+        return DB::select('SELECT commission FROM `users` WHERE id= 1');
+
+        
 
     }
     public function soldealawa(){
-
+        return DB::select('SELECT solde FROM `users` WHERE id=1');
     }
      /**
      * Display a listing of the resource.
@@ -97,7 +100,20 @@ class ListesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function soldebailleur(){
-        return User::where('type','bailleurs');
+        return DB::select('SELECT sum(solde) as solde FROM `users` WHERE type=  "bailleurs"');
+
+        
       
     }
+
+
+    public function sommeclient()
+    {
+       
+           return DB::select('SELECT SUM(solde) as solde FROM `clients`');
+      
+           
+
+    }
+    
 }

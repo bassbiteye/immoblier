@@ -1,73 +1,6 @@
 <template>
   <div>
-    <!-- Info boxes -->
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="info-box">
-          <span class="info-box-icon bg-info elevation-1">
-            <i class="fas fa-building"></i>
-          </span>
 
-          <div class="info-box-content">
-            <span class="info-box-text">Biens</span>
-            <span class="info-box-number" v-if="bien">{{bien}}</span>
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-      </div>
-      <!-- /.col -->
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="info-box mb-3">
-          <span class="info-box-icon bg-danger elevation-1">
-            <i class="fas fa-user"></i>
-          </span>
-
-          <div class="info-box-content">
-            <span class="info-box-text">Clients</span>
-            <span class="info-box-number" v-if="client">{{client}}</span>
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-      </div>
-      <!-- /.col -->
-
-      <!-- fix for small devices only -->
-      <div class="clearfix hidden-md-up"></div>
-
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="info-box mb-3">
-          <span class="info-box-icon bg-success elevation-1">
-            <i class="fas fa-chart-pie"></i>
-          </span>
-
-          <div class="info-box-content">
-            <span class="info-box-text">Bailleurs</span>
-            <span class="info-box-number" v-if="bailleur">{{bailleur}}</span>
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-      </div>
-      <!-- /.col -->
-      <div class="col-12 col-sm-6 col-md-3">
-        <div class="info-box mb-3">
-          <span class="info-box-icon bg-warning elevation-1">
-            <i class="fas fa-users"></i>
-          </span>
-
-          <div class="info-box-content">
-            <span class="info-box-text">Utilsateurs</span>
-            <span class="info-box-number" v-if="user">{{user}}</span>
-          </div>
-          <!-- /.info-box-content -->
-        </div>
-        <!-- /.info-box -->
-      </div>
-      <!-- /.col -->
-    </div>
-    <!-- /.row -->
     <div class="row">
       <!-- ============================================================== -->
       <!-- sales  -->
@@ -79,11 +12,7 @@
             <div class="metric-value d-inline-block">
               <h1 class="mb-1" v-if="bien">{{bien}}</h1>
             </div>
-            <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-              <span class="icon-circle-small icon-box-xs text-success bg-success-light">
-                <i class="fa fa-fw fa-arrow-up"></i>
-              </span>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -100,11 +29,7 @@
             <div class="metric-value d-inline-block">
               <h1 class="mb-1" v-if="client">{{client}}</h1>
             </div>
-            <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-              <span class="icon-circle-small icon-box-xs text-success bg-success-light">
-                <i class="fa fa-fw fa-arrow-up"></i>
-              </span>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -121,12 +46,7 @@
             <div class="metric-value d-inline-block">
               <h1 class="mb-1" v-if="bailleur">{{bailleur}}</h1>
             </div>
-            <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-              <span class="icon-circle-small icon-box-xs text-success bg-success-light">
-                <i class="fa fa-fw fa-arrow-up"></i>
-              </span>
-              <span class="ml-1"></span>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -143,14 +63,7 @@
             <div class="metric-value d-inline-block">
               <h1 class="mb-1" v-if="user">{{user}}</h1>
             </div>
-            <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
-              <span
-                class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light"
-              >
-                <i class="fa fa-fw fa-arrow-down"></i>
-              </span>
-              <span class="ml-1">4%</span>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -160,43 +73,35 @@
     </div>
      <div class="row">
       <!-- ============================================================== -->
-      <!-- sales  -->
+     
+      <!-- ============================================================== -->
+     <!-- total orders  -->
       <!-- ============================================================== -->
       <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
-            <h5 class="text-muted">Sales</h5>
+            <h5 class="text-muted">Solde Alawa</h5>
             <div class="metric-value d-inline-block">
-              <h1 class="mb-1">$12099</h1>
+              <h1 class="mb-1">{{Soldealawa[0].solde}}</h1>
             </div>
-            <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-              <span class="icon-circle-small icon-box-xs text-success bg-success-light">
-                <i class="fa fa-fw fa-arrow-up"></i>
-              </span>
-              <span class="ml-1">5.86%</span>
-            </div>
+            
           </div>
         </div>
       </div>
       <!-- ============================================================== -->
-      <!-- end sales  -->
-      <!-- ============================================================== -->
+      <!-- end total orders  -->
+   
       <!-- ============================================================== -->
       <!-- new customer  -->
       <!-- ============================================================== -->
       <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
-            <h5 class="text-muted">New Customer</h5>
+            <h5 class="text-muted">Commission</h5>
             <div class="metric-value d-inline-block">
-              <h1 class="mb-1">1245</h1>
+              <h1 class="mb-1">{{Commission[0].commission}} fcfa</h1>
             </div>
-            <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-              <span class="icon-circle-small icon-box-xs text-success bg-success-light">
-                <i class="fa fa-fw fa-arrow-up"></i>
-              </span>
-              <span class="ml-1">10%</span>
-            </div>
+          
           </div>
         </div>
       </div>
@@ -209,46 +114,34 @@
       <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
-            <h5 class="text-muted">Visitor</h5>
+            <h5 class="text-muted">      solde Bailleurs</h5>
             <div class="metric-value d-inline-block">
-              <h1 class="mb-1">13000</h1>
+              <h1 class="mb-1">{{soldeBailleur[0].solde}} fcfa</h1>
             </div>
-            <div class="metric-label d-inline-block float-right text-success font-weight-bold">
-              <span class="icon-circle-small icon-box-xs text-success bg-success-light">
-                <i class="fa fa-fw fa-arrow-up"></i>
-              </span>
-              <span class="ml-1">5%</span>
-            </div>
+           
           </div>
         </div>
       </div>
       <!-- ============================================================== -->
       <!-- end visitor  -->
       <!-- ============================================================== -->
-      <!-- ============================================================== -->
-      <!-- total orders  -->
+      <!-- sales  -->
       <!-- ============================================================== -->
       <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
-            <h5 class="text-muted">Total Orders</h5>
+            <h5 class="text-muted">solde Clients</h5>
             <div class="metric-value d-inline-block">
-              <h1 class="mb-1">1340</h1>
+              <h1 class="mb-1">{{sommeClient[0].solde}} fcfa</h1>
             </div>
-            <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
-              <span
-                class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light"
-              >
-                <i class="fa fa-fw fa-arrow-down"></i>
-              </span>
-              <span class="ml-1">4%</span>
-            </div>
+         
           </div>
         </div>
       </div>
       <!-- ============================================================== -->
-      <!-- end total orders  -->
+      <!-- end sales  -->
       <!-- ============================================================== -->
+        <!-- ============================================================== -->
     </div>
   </div>
 </template>
@@ -266,6 +159,9 @@ export default {
     this.countbiens();
     this.countbailleurs();
     this.soldebailleur();
+    this.sommeclient();
+    this.commission();
+    this.soldealawa();
   },
 
   data() {
@@ -274,7 +170,10 @@ export default {
       bailleur: "",
       client: "",
       bien: "",
-      soldeBailleur:""
+      soldeBailleur:"",
+      sommeClient:"",
+      Commission:"",
+      Soldealawa:''
     };
   },
   methods: {
@@ -302,7 +201,23 @@ export default {
           axios.get("api/soldebailleur").then(response => {
         this.soldeBailleur = response.data;
       });
-    }
+    },
+    sommeclient(){
+         axios.get("api/sommeclient").then(response => {
+        this.sommeClient = response.data;
+      });
+       
+  },commission(){
+        axios.get("api/commission").then(response => {
+        this.Commission = response.data;
+      });
+  },
+  soldealawa(){
+     axios.get("api/soldealawa").then(response => {
+        this.Soldealawa = response.data;
+      });
+  }
+
   }
 };
 </script>

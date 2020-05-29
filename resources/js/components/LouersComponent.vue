@@ -2,7 +2,7 @@
   <div class="conteiner">
     <!-- bien -->
 
-    <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
+    <div class="row mt-5 no-print" v-if="$gate.isAdminOrBailleurs()">
       <div class="col-md-12" v-if="showTab">
         <div class="card">
           <div class="card-header">
@@ -101,7 +101,7 @@
                           <p>{{clientD.prenom}}_{{form.client}}</p>
                         </div>
                       </div>
-                      <div class="col-sm-6">
+                      <div class="col-sm-6" v-if="showForm2">
                         <div class="form-group">
                           <label class="form-control-label">caution</label>
                           <input
@@ -116,7 +116,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row" v-if="showForm2">
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="form-control-label">montant payé</label>
@@ -145,7 +145,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row" v-if="showForm2">
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="form-control-label">Commission</label>
@@ -175,7 +175,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row" v-if="showForm2">
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="form-control-label">piece d’identité</label>
@@ -202,7 +202,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row" v-if="showForm2">
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="form-control-label">derniere levé</label>
@@ -228,7 +228,7 @@
                       </div>
                     </div>
 
-                    <div clas="row">
+                    <div clas="row" v-if="showForm2">
                       <button class="btn btn-primary" type="submit">finaliser</button>
                     </div>
                     <!--  ===================================================End table d'acces=======================================================   -->
@@ -330,7 +330,7 @@
               <div class="row">
                 <div class="col-12">
                   <h4>
-                    <i class="fas fa-globe"></i> ALAWA.
+                  
                     <small class="float-right">Date: {{date|myDate}}</small>
                   </h4>
                 </div>
@@ -339,18 +339,15 @@
               <!-- info row -->
               <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                  <h3>propriétaire</h3>
+             
                   <address>
-                    <strong>alawa.</strong>
-                    <br />alawa
-                    <br />Phone: alawa
-                    <br />Email: info@alawa.com
+                     <img src="/img/logo2.png" alt="">
                   </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                  <h3>locataire</h3>
-                  <address>
+                 
+                  <!-- <address>
                     <strong>{{client.prenom}}</strong>
                     <strong>{{client.nom}}</strong>
 
@@ -364,19 +361,18 @@
                     profession: {{client.profession}}
                     <br />
                     nationalité: {{client.nationalite}}
-                  </address>
+                  </address> -->
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                  <h3>Bien</h3>
-                  <b>Bien:</b>
-                  {{bien.details}}
-                  <br />
-                  <b>Prix:</b>
-                  {{bien.prix}}
-                  <br />
-                  <b>Adresse:</b>
-                  {{bien.adresse}}
+                    <img src="/img/gestion.png" alt="">
+                  <p>
+                    OUEST FOIRE DERRIERE St. SHELL
+                    BP. 11 744 Dakar - Peytavin
+                    Tél : (221) 33 820 71 90 / 33 820 71 21
+                    Portable : (221)77 635 93 16
+                    Email: mbolyama1@hotmail.com
+                  </p>
                 </div>
                 <!-- /.col -->
               </div>
@@ -385,75 +381,119 @@
               <!-- Table row -->
               <div class="row">
                 <div class="col-12 table-responsive">
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>Qty</th>
-                        <th>Product</th>
-                        <th>Serial #</th>
-                        <th>Description</th>
-                        <th>Subtotal</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Call of Duty</td>
-                        <td>455-981-221</td>
-                        <td>El snort testosterone trophy driving gloves handsome</td>
-                        <td>$64.50</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <p> <strong>  Loyer HT: ................... FCFA <br>
+                  TOM 3.6%: ……………… FCFA <br>
+                  D.E 2%: ……………. FCFA <br>
+                  TOTAL: ……………… F CFA </strong> </p>
+                 <h3 style="text-align:center"><strong> BAIL A USAGE D’HABITATION
+                  A durée determinée (01 AN RENOUVELABLE) </strong> </h3>
+                 <p><strong> Entre : </strong><br>
+                  Le bailleur, Monsieur ………………………… Représenté par le CABINET IMMOBILIER MBOL YAMA, </p>
+                 <p> Et 
+                  Le preneur,<strong> ………………………………………… CNI N° : ……………………….. délivrée le ……………….. à Dakar, </strong><br> qui s’engage à prendre en location les locaux dont la désignation suit : ……………………………………………….. - <strong>Dakar. </strong><br>
+                  Sans qu’il soit nécessaire de désigner les lieux plus amplement, les connaissant pour les avoir visités. </p>
+                <p>  Cette location qui prendra effet le ………………………………..est à usage d’habitation. <br>
+                  • Vu la loi N° 2014-03 portant baisse des loyers, <br>
+                  • Vu le décret 2014-143 du 06 Février 2014,<br>
+                  • Vu le décret 2014-144 du 06 Février 2014, <br>
+                  • Vu la surface corrigée (voir copie et décompte par courrier séparé) et d’un commun accord, nous avons convenu ce qui suit :</p>
+                 <p> Elle est consentie au prix de <strong> soixante treize mille six cents F CFA (73 600) FRANCS CFA TTC </strong> payable par terme mensuel <br> 
+                 et d’avance au plus tard le 05 de chaque mois en cours. Tout mois entamé est dû. <br>
+                  Le présent contrat est renouvelable annuellement par tacite reconduction<br>
+                  Le loyer est portable et non quérable dans les bureaux du Cabinet Immobilier MBOL YAMA, Ouest Foire derrière la Station <br>
+                   SHELL – B.P. 11 744 – Dakar. <br>
+                  Le preneur reconnaît par la présente, prendre les lieux loués en bon état de réparations locatives et s’engage en conséquence à <br>
+                   le rendre au moment de son départ, en parfait état d’entretien. <br>
+                  Il s’engage formellement à acquitter exactement, pendant toute la durée de son occupation, les taxes d’égouts, d’eau,<br>
+                   d’électricité, ses contributions personnelles et mobilières, le débouchage des égouts et la vidange des fosses sceptiques.<br>
+                  Le locataire s’engage formellement à enregistrer ce contrat de location de manière à ce qu’aucun recours ne puisse être exercé <br>
+                  à cet égard contre le propriétaire ou contre l’AGENCE IMMOBILIERE. <br>
+                  Il s’engage à satisfaire toutes les charges de voirie de police et d’hygiène qui incombent aux locataires, y compris l’entretien et le remplacement des grillages moustiquaires endommagés, 
+                  afin qu’aucun recours ne puisse être exercé à cet égard contre le propriétaire ou l’AGENCE IMMOBILIERE.</p>
+                <strong>  CAUTION : le preneur verse à titre de caution la somme de ……………………………………. F CFA (………..) FCFA <br> équivalent à ……. (……..) mois de loyer . <br> </strong>
+                 <p> Cette somme non productive d’intérêt, sera remboursée systématiquement après avoir rempli les cinq (05) conditions ci-après : <br>
+                  a) Avoir restitué les lieux loués en parfait état locatif (notamment révision installation de plomberie, électricité, réfection <br>
+                   des peintures & dans tous les cas la remise des clefs).<br>
+                  b) Avoir obtenu de la SENEGALAISE DES EAUX (SDE) un quitus attestant le paiement des factures pendant la période d’occupation et <br>
+                   jusqu’au jour du constat de départ.
+                  c) Avoir rapporté la feuille de résiliation de son contrat d’électricité.<br>
+                  d) Avoir payé son loyer jusqu’à la date échue du préavis ou du mois de la remise des clefs si celle-ci est postérieure au préavis.<br>
+                  e) Avoir repris la peinture (la villa ou l’appartement que vous venez de louer a été entièrement repeinte).<br>
+                  A défaut il sera prélevé sur la dite caution les sommes correspondantes aux frais de remise en état des lieux, ainsi que montant <br> des factures d’eau, d’électricité et de téléphone non réglé. Il demeure bien entendu que ces formalités de remise en état <br> 
+                  et réalisation des travaux devront être effectués pendant la période du préavis.
+                  Il est entendu que la présente location est régie par les Dispositions Civiles et Commerciales de la République du Sénégal relatives aux baux. L’attention du ou des preneurs, a été particulièrement attirée sur la teneur des articles ci-dessous cités : </p>
+                 <p> ARTICLE 1 :
+                  Le preneur est tenu à trois (03) obligations principales : <br>
+                  1) D’user sur la chose louée en bon père de famille et suivant la destination qui lui a été donnée par le bail ou suivant <br>
+                  celle présumée d’après les circonstances à défaut de convention.<br>
+                  2) De payer le terme du bail aux termes convenus.<br>
+                  3) De veiller à ne pas troubler la jouissance paisible des voisins par le bruit, les odeurs, la fumée ou autrement de son fait <br>
+                   ou du fait de ses ayants-droits ou de ses préposés</p>
+                 <p> ARTICLE 2 :
+                  S’il n’a pas été fait d’état des lieux, le preneur est présumé les avoir reçu en bon état de réparations locatives et doit les rendre <br>
+                   tels qu’il les a trouvés au moment de la prise des clés, sauf la preuve du contraire.</p>
+                 <p> ARTICLE 3 :
+                  Il répond à l’incendie à moins qu’il ne prouve que l’incendie est arrivé par cas fortuit ou force majeure ou par vice <br>
+                   de construction ou que le feu a été communiqué par une maison voisine. </p>
+                 <p> ARTICLE 4 :
+                  Il répond des dégradations ou pertes qui arrivent pendant sa jouissance à moins qu’il prouve qu’elles ont eu lieu sans sa faute. <br>
+                  En conséquence des articles ci-dessus, le preneur accepte toutes détériorations quelles qu’elles soient et notamment carreaux <br>
+                  cassés, clefs perdues, murs tachés, grillages moustiquaires cassées ou déchirées, etc., soient à sa charge. Un état des lieux <br>
+                   sera dressé avant son départ. Il devra verser une provision suffisante pour couvrir les réparations qui seront jugés nécessaires et qui lui seront imputables. <br>
+                  Il est rappelé que les frais de débouchage de toutes les canalisations notamment celle du « tout à l’égout » sont toujours à la charge du locataire.<br>
+                  Pour garantir le recours du preneur contre le propriétaire en cas d’incendie, de vol ou de dégâts des eaux,<br> le preneur s’engage à assurer ses risques locatifs ainsi que les objets garnissant les lieux loués à une Compagnie d’Assurances Notoirement solvable au moment de son entrée en jouissance.
+                  Le preneur s’interdit de sous-louer ou de céder son droit au présent contrat sans en référer au propriétaire ou son représentant suivant <br>
+                  les dispositions de la loi n°66-70 du 13 juillet 1966. </p>
+                 <p> ARTICLE 5 :
+                  Chacune des deux parties a la faculté de dénoncer le présent engagement, à tout moment par lettre recommandée 06 (six) mois <br>
+                  à l’avance pour le bailleur ou par exploit d’huissier et 02 (deux) mois pour le preneur. <br>
+                  Lorsque le preneur aura reçu ou donné congé, le bailleur pourra faire mettre un écriteau à l’emplacement de son choix <br> 
+                  indiquant que les lieux sont à louer. Le preneur devra laisser visiter les jours ouvrables sur rendez-vous au moins 3 fois par <br>
+                   semaine. Il en serait de même en cas de mise en vente des locaux.<br>
+                  <strong> CLAUSE RESOLUTOIRE </strong>
+                  A défaut de paiement à son échéance d’un seul terme de loyer ou d’inexécution de l’une des conditions qui précédent,<br>
+                   le présent contrat sera résilié de plein droit trente jours après un simple commandement de payer ou de mise en demeure <br>
+                    d’exécuter resté sans effet sans qu’il soit besoin de remplir d’autres formalités judiciaires. Une simple ordonnance de référé <br>
+                     autorisant l’expulsion et nonobstant toutes offres ou consignes ultérieures et attributions est donnée au Président du tribunal <br>
+                      statuant en référé pour ordonner dans ce cas l’expulsion du locataire.<br>
+                  En cas de procédure, les frais de celle-ci et les honoraires de l’avocat sont à la charge du locataire.</p>
+                  <p> <strong> FAIT à DAKAR, </strong>
+                  <strong>Le ……/…../………. </strong>
+                  En Trois (03) exemplaires
+                 <strong> LE PRENEUR LE BAILLEUR </strong> </p>
+
+                 <h3> <strong> Liste Nominative des Réparations et Entretiens Courant aux Charges des Locataires </strong> </h3>
+                  <p>   - Tous les travaux ayant pour objet de rendre plus agréable l’occupation du logement, pose des consoles et étagères, confection de placards et panneaux, etc.……. <br>
+                  - L’entretien des cuisinières, fourneaux et des tuyaux ou colonnes à fumée (ramonage).<br>
+                  - Dégorgement des baignoires, lavabos, éviers, WC, douches, tout appareils sanitaires et tuyaux de descente particuliers y compris ceux de balcon.<br>
+                  - L’entretien des appareils d’éclairage et de distribution d’eau et d’électricité, le remplacement des robinets commutateurs et prise de courant.<br>
+                  - L’entretien et le remplacement des tablettes, porte-éponge, porte-savon et porte-serviette, triangle à rideaux de douche.<br>
+                  - L’entretien des fermetures, des barrières serrures, bec de canne, targettes, verrous et crémones.<br>
+                  - Le remplacement des crochets d’arrêt, des portes, fenêtres et autres ouvertures perdues ou faussées.<br>
+                  - L’entretien des taquets, loqueteaux, arrêts et fléaux des croisés.<br>
+                  - La réparation des dégâts causés en plantant des clous, pilons et autres dispositifs d’accrochage tant dans les murs que les boiseries, parquets ou plafonds.<br>
+                  - Le remplacement des vitres.<br>
+                  - La réparation des trous faits par l’occupant dans les mûrs, planchers et cloisons du fait de la pose et de l’enlèvement d’objets scellés appartenant à l’occupant.<br></p>
+                <strong>  LE LOCATAIRE 
+                  ………………………………………. </strong>
+                <p>  Lu et approuvé </p>
                 </div>
                 <!-- /.col -->
               </div>
               <!-- /.row -->
 
-              <div class="row">
-                <!-- accepted payments column -->
-                <div class="col-6">
-                  <p class="lead">Payment Methods:</p>
-
-                  <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                    Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-                    plugg
-                    dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra.
-                  </p>
-                </div>
-                <!-- /.col -->
-                <div class="col-6">
-                  <p class="lead">Amount Due 2/22/2014</p>
-
-                  <div class="table-responsive">
-                    <table class="table">
-                      <tr>
-                        <th style="width:50%">Subtotal:</th>
-                        <td>$250.30</td>
-                      </tr>
-                      <tr>
-                        <th>Tax (9.3%)</th>
-                        <td>$10.34</td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-                <!-- /.col -->
-              </div>
+     
               <!-- /.row -->
               <!-- this row will not appear when printing -->
-              <div class="row no-print" @click="annuler()">
-                <div>
-                  <button type="button" class="btn btn-danger float-left">
+              
+              <!-- this row will not appear when printing -->
+              <div class="row no-print" >
+                <div class="col-12">
+                   <button  @click="annuler()" type="button" class="btn btn-danger float-left">
                     <i class="fas fa-trash"></i>
                     annuler
                   </button>
-                </div>
-              </div>
-              <!-- this row will not appear when printing -->
-              <div class="row no-print" @click="printDetails()">
-                <div class="col-12">
-                  <button type="button" class="btn btn-success float-right">
+                  <button @click="printDetails()" type="button" class="btn btn-success float-right">
                     <i class="fas fa-print"></i>
                     contrat
                   </button>
@@ -503,8 +543,9 @@ export default {
       contratL: false,
       detailOperation: false,
       showForm: false,
-      piece:"",
-      derniereleve:"",
+      showForm2: "",
+      piece: "",
+      derniereleve: "",
       form: new Form({
         bien_id: "",
         details: "",
@@ -622,6 +663,9 @@ export default {
         this.form.numero = client.tel;
         this.clientD.nom = client.nom;
         this.clientD.prenom = client.prenom;
+        if (this.clientD.prenom) {
+          this.showForm2 = true;
+        }
       });
     },
     annuler() {
@@ -632,7 +676,7 @@ export default {
     },
 
     updateDernier(e) {
- console.log(e);
+      console.log(e);
       this.derniereleve = e.target.files[0];
 
       this.ext_image2 = [
@@ -652,10 +696,10 @@ export default {
         });
         document.getElementById("derniereleve").value = "";
         return;
-    }
+      }
     },
     updatePiece(e) {
-        console.log(e);
+      console.log(e);
       this.piece = e.target.files[0];
 
       this.ext_image2 = [
@@ -676,8 +720,6 @@ export default {
         document.getElementById("piece").value = "";
         return;
       }
-
-      
     },
     created() {
       Fire.$on("AfterCreate", () => {

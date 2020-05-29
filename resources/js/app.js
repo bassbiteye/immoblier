@@ -105,9 +105,10 @@ const router = new VueRouter({
 Vue.filter('upText',function(text){
 return text.charAt(0).toUpperCase()+text.slice(1)
 });
+import 'moment/locale/pt-br';
 
 Vue.filter('myDate',function(created){
-return moment(created).format('MMMM Do YYYY');
+return moment().format("L"); 
 });
 Vue.use(VueProgressBar, {
     color: 'rgb(143, 255, 199)',

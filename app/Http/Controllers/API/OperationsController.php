@@ -230,6 +230,17 @@ class OperationsController extends Controller
             'date' => 'required',
 
         ]);
+        $paie = DB::table('paiements')->where([
+            ['operations', '=', $request['operation_id']],
+            ['date', '=', $request['date']],
+        ])->first();
+            
+        if ($paie) {
+            return Response()->json([
+                "status" => 500,
+                'message' => "paiement déja enregistré"
+            ]);
+        }
 
         $client =  DB::table('clients')->where('tel', $request['tel'])->first();
         $bien = DB::table('biens')->where('bien_id', $request['bien_id'])->first();
@@ -284,17 +295,7 @@ class OperationsController extends Controller
             $Operation = DB::table('operations')
                 ->where('operation_id', $request['operation_id'])->first();
 
-            $paie = DB::table('paiements')->where([
-                ['operations', '=', $request['operation_id']],
-                ['date', '=', $request['date']],
-            ])->get();
-
-            if ($paie == []) {
-                return Response()->json([
-                    "status" => 500,
-                    'message' => "paiement déja enregistré"
-                ]);
-            }
+         
             $paiement = new Paiements();
             $paiement->montant = $request['montant'];
             $paiement->date = $request['date'];

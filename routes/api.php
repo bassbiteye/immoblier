@@ -66,6 +66,8 @@ Route::post('clientnonpaye','API\ListesController@clientnonpaye');
 Route::get('soldebailleur','API\ListesController@soldebailleur');
 Route::get('soldealawa','API\ListesController@soldealawa');
 Route::get('commission','API\ListesController@commission');
+Route::get('sommeclient','API\ListesController@sommeclient');
+
 Route::get('paiementactif','API\OperationsController@paiementactif');
 
 
