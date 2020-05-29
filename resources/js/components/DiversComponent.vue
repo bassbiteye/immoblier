@@ -90,7 +90,7 @@
                 <has-error :form="form" field="details"></has-error>
               </div>
               <div>
-              <div class="row" v-if="locataire">
+              <div class="row" v-if="showLoc">
                 <div class="col-md-4">
                   <label for>locataire: {{locataire}}</label>
                 </div>
@@ -103,7 +103,7 @@
               </div>
               <div v-else-if="locataire==null"></div>
               </div>  
-              <div class="form-group">
+              <div class="form-group"  v-if="showLoc">
                 <label class="form-control-label">Fichier</label>
                 <input
                   type="file"
@@ -114,7 +114,7 @@
                 />
                 <has-error :form="form" field="fichier"></has-error>
               </div>
-              <div class="form-group">
+              <div class="form-group" v-if="showLoc">
                 <textarea
                   v-model="form.commentaire"
                   type="text"
@@ -160,6 +160,7 @@ export default {
       editmode: false,
       divers: {},
       montantPaye: {},
+      showLoc:false,
       bien: {},
       locataire: {},
       d: {},
@@ -248,6 +249,8 @@ export default {
           this.bien = operation[i].details;
           this.locataire = operation[i].nom;
           this.form.operations = operation[i].operation_id;
+                  this.showLoc=true
+
         }
       });
     },

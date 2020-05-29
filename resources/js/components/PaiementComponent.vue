@@ -292,11 +292,15 @@
               </div>
               <!-- /.col -->
 
-              <div class="row no-print" @click="printDetails()">
+              <div class="row no-print">
                 <div class="col-12">
-                  <button type="button" class="btn btn-success float-right">
+                  <button type="button" class="btn btn-success float-right" @click="printDetails()">
                     <i class="fas fa-download"></i>
                     imprimer
+                  </button>&nbsp;
+                  <button type="button" class="btn btn-danger float-right" @click="Annuler()">
+                    <i class="fas fa-trash"></i>
+                    Annuler
                   </button>
                 </div>
               </div>
@@ -348,8 +352,8 @@ export default {
         bailleur: "",
         commission: "",
         prix: "",
-        montant:"",
-        tel:""
+        montant: "",
+        tel: ""
       })
     };
   },
@@ -360,7 +364,7 @@ export default {
         this.Operation = response.data;
       });
     },
-
+    Annuler() {location.reload();},
     printDetails() {
       window.print();
       this.recu = false;
@@ -386,7 +390,7 @@ export default {
       this.form.bailleur = this.details.bailleur;
       this.form.commission = this.details.commission;
       this.form.prix = this.details.prix;
-      this.form.tel=this.details.tel
+      this.form.tel = this.details.tel;
       this.form
         .post("/api/paiement")
         .then(response => {
@@ -405,14 +409,13 @@ export default {
               icon: "success",
               title: message
             });
-             this.getResults();
-          Fire.$emit("AfterCreate");
-          this.$Progress.finish();
-          this.showTab = false;
-          this.recu = true;
-          this.detailShow = false;
+            this.getResults();
+            Fire.$emit("AfterCreate");
+            this.$Progress.finish();
+            this.showTab = false;
+            this.recu = true;
+            this.detailShow = false;
           }
-         
         })
         .catch(e => {
           console.log(e);

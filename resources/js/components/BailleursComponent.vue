@@ -269,7 +269,7 @@
     <!-- /.content -->
 
     <section class="content">
-      <div class="container-fluid" v-show="detail">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-12">
             <!-- Main content -->
@@ -278,8 +278,7 @@
               <div class="row">
                 <div class="col-12">
                   <h4>
-                    <i class="fas fa-globe"></i> ALAWA.
-                    <small class="float-right">Date: {{date|myDate}}</small>
+                   
                   </h4>
                 </div>
                 <!-- /.col -->
@@ -287,18 +286,14 @@
               <!-- info row -->
               <div class="row invoice-info">
                 <div class="col-sm-4 invoice-col">
-                  <h3>propriétaire</h3>
+                
                   <address>
-                    <strong>alawa.</strong>
-                    <br />alawa
-                    <br />alawa
-                    <br />Phone: alawa
-                    <br />Email: info@alawa.com
+                    <img src="/img/logo2.png" alt="">
                   </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                  <h3>Bailleur</h3>
+                  <!-- <h3>Bailleur</h3>
                   <address>
                     <strong>{{bailleurC.name}}</strong>
                     <br />
@@ -311,17 +306,24 @@
                     profession: {{bailleurC.profession}}
                     <br />
                     nationalité: {{bailleurC.nationalite}}
-                  </address>
+                  </address> -->
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                  <h3>compte</h3>
+                  <!-- <h3>compte</h3>
                   <address>
                     <br />
                     numéro: {{bailleurC.numero}}
                     <br />
                     solde: {{bailleurC.solde}}
-                  </address>
+                  </address> -->
+                  <p>
+                    OUEST FOIRE DERRIERE St. SHELL
+                    BP. 11 744 Dakar - Peytavin
+                    Tél : (221) 33 820 71 90 / 33 820 71 21
+                    Portable : (221)77 635 93 16
+                    Email: mbolyama1@hotmail.com
+                  </p>
                 </div>
               </div>
               <!-- /.row -->
@@ -329,14 +331,131 @@
               <!-- Table row -->
               <div class="row">
                 <div class="col-12 table-responsive">
-                  <p>
-                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-                    1914 translation by H. Rackham
-                    "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-                    1914 translation by H. Rackham
-                    "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-                  </p>
+                  <div style="margin-left:20px">
+                    <H1 style="text-align:center">MANDAT DE GERANCE</H1>
+
+                    <P>
+                      <br>
+                      <strong>Entre …………………………….</strong> CNI N° ……………………… délivrée le {{date|myDate}} à Dakar
+                      <br />
+                      <strong>Demeurant {{bailleurC.adresse}}</strong>
+                      <br />
+                      <strong>Tél : {{bailleurC.telephone}}</strong>
+                    </P>
+
+                    <strong style="float:right">(Propriétaire) d’une part</strong>
+                    <strong>Et</strong>
+                    <strong>MBOLYAMA CABINET IMMOBILIER représenté par son Administrateur, Madame MBAYE.</strong>
+                    <p>
+                      Sis à Ouest Foire, derrière la Station SHELL / BP. 11 744 Dakar – SENEGAL
+                      <br />Tél : 33 820 71 21 Portable (221) 77 635 93 16
+                      <br />Ayant satisfait aux obligations de la loi n° 71-47 du 28 juillet 1971 et à son décret d’application n° 711103 DU 11 OCTOBRE 1971, titulaire de l’autorisation d’exercer n° 0095 du 15 Février 2001.
+                    </p>
+                    <strong>(Mandataire) d’autre part,</strong>
+
+                    <p>
+                      Il a été convenu et arrêté ce qui suit :
+                      <strong>{{bailleurC.name}} (Propriétaire)</strong>
+                      <br />donne par les présentes, pouvoir au CABINET IMMOBILIER MBOLYAMA
+                      <br />(Administrateur de biens), qui accepte de gérer et d’administrer le local à usage commercial ou professionnel ci-dessous désigné.
+                      <br />Le présent contrat est régi par les dispositions des Articles 457 à 472 du C.O.C.C. et, prend effet à compter du …………………………….. pour une durée ………….. renouvelable.
+                    </p>
+
+                    <strong>DESIGNATION DE ……………………………</strong>
+
+                    <table style="border: 2px">
+                      <tr>
+                        <th colspan="4">Immeuble ………… FAISANT OBJET DU PRESENT MANDAT</th>
+                      </tr>
+
+                      <tr>
+                        <td>DESIGNATION</td>
+                        <td>NOMBRE</td>
+                        <td>Montant du loyer Mensuel</td>
+                        <td>TOTAL LOYER</td>
+                      </tr>
+                      <tr>
+                        <td>Ernst Handel</td>
+                        <td>Roland Mendel</td>
+                        <td>Austria</td>
+                        <td>Mexico</td>
+                      </tr>
+                      <tr>
+                        <td>Island Trading</td>
+                        <td>Helen Bennett</td>
+                        <td>UK</td>
+                        <td>Mexico</td>
+                      </tr>
+                      <tr>
+                        <td>Laughing Bacchus Winecellars</td>
+                        <td>Yoshi Tannamuri</td>
+                        <td>Canada</td>
+                      </tr>
+                      <tr>
+                        <td colspan="3">TOTAL RAPPORT MENSUEL</td>
+                        <td>200000</td>
+                      </tr>
+                    </table>
+                    <p>
+                      Chacune des parties pourra résilier le contrat par acte extra judiciaire avec accusé de réception,
+                      <br />au moins six (06) mois avant l’expiration de chaque période.
+                      <br />En cas de résiliation par anticipation du présent contrat et sans observation des six (06) mois de préavis,
+                      une indemnité compensatrice équivalente au taux de gérance calculé sur les six (06)
+                      <br />mois sera versée à l’autre partie.
+                    </p>
+                    <p>
+                      En outre, le présent mandat est donné au CABINET IMMOBILIER MBOLYAMA
+                      <br />(Administrateur de biens), selon les conditions suivantes :
+                    </p>
+                    <p>
+                      1. Obligation de faire parvenir à …………………………. (propriétaire),
+                      <br />le compte détaillé de sa gestion, au moins deux fois par an.
+                      <br />2. Obligation de percevoir à titre d’honoraires le taux de …………. (………)% + T.V.A, sur les sommes encaissées (mensuellement, trimestriellement, semestriellement,
+                      ou annuellement) avec un bordereau de reversement a l’appui établi en faveur du propriétaire ……………………………………
+                      <br />3. En cas de non paiement des loyers par le locataire, tous les frais judiciaires et
+                      <br />extrajudiciaires appropriés seront pré financés par le propriétaire.
+                      <br />
+                    </p>
+
+                    <p>
+                      Pour permettre à MBOLYAMA CABINET IMMOBILIER (Administrateur de biens)
+                      <br />de remplir la mission qui lui est confiée par les présentes, ………………………. (Propriétaire),
+                      <br />lui donne également pouvoir en son nom et pour son compte :
+                    </p>
+                    <p>
+                      • De louer pour la durée et aux conditions qu’il déterminera
+                      • De renouveler ou de résilier les locations avec ou sans indemnité
+                      <br />• De donner et d’accepter tous congés
+                      <br />• De percevoir des loyers, dépôts de garantie, pas de porte
+                      <br />• D’exercer contre les défaillants toutes les actions judiciaires ou extra judiciaires appropriées, transiger, assigner, défendre ou de choisir tout défenseur, de faire exécuter
+                      <br />les décisions rendues, d’exercer toutes voies de recours et de s’en désister
+                      <br />• De délivrer toutes quittances, décharges, mains levées et, plus généralement, faire le nécessaire au titre des intérêts du propriétaire.
+                    </p>
+
+                    <p>
+                      Le propriétaire qui désire que le mandataire fasse sa déclaration fiscale, doit faire une lettre écrite comprenant les noms et prénoms des personnes qui sont à sa charge.
+                      <br />Nous vous rappelons que la déclaration annuelle des revenus est obligatoire et doit être versée à
+                      <br />la fin de l’année échue et au plus tard le 28 février de l’année qui suit.
+                      <br />
+                    </p>
+                    <p>Le propriétaire s’engage à assurer la sécurité de son bien dès que celui-ci sera vacant.</p>.
+                    <p>
+                      Le CABINET IMMOBILIER MBOLYAMA accepte de prendre en gérance le bien qui lui est
+                      <br />confié par ………………………………………. (propriétaire) dans son état actuel, tant dans
+                      <br />son ensemble que dans les détails, les erreurs ou malfaçons qui seront constatés pendant la
+                      <br />gérance ne saurait engager la responsabilité du CABINET MBOLYAMA.
+                      Certains travaux sont à la charge ………………………………….. (propriétaire) à savoir :
+                      <br />• La peinture extérieure du bien
+                      <br />• L’usure de la tuyauterie du bâtiment due à la vétusté du matériel.
+                      <br />
+                    </p>CLAUSES PARTICULIERES :
+                    ……………………………….. M. MBAYE
+                    (Propriétaire)
+                    Lu et Approuvé le
+                    (Signature)
+                    Fait à Dakar, le ………………………………………
+                    (En trois exemplaires)
+                  </div>
                 </div>
                 <!-- /.col -->
               </div>
@@ -452,7 +571,11 @@ export default {
           //this will update dom automatically
           //this.loadBailleurs();
           $("#addNew").modal("hide");
-          Swal.fire("Deleted!", "La bailleur a été modifié avec success.", "success");
+          Swal.fire(
+            "Deleted!",
+            "La bailleur a été modifié avec success.",
+            "success"
+          );
           Fire.$emit("AfterCreate");
           this.$Progress.finish();
         })
