@@ -3,17 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\User;
-use App\Biens;
 use App\Divers;
 use App\Clients;
-use App\Lieuxes;
 use App\Paiements;
 use App\Operations;
-use App\Equipements;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 
 class OperationsController extends Controller
 {
@@ -101,9 +97,9 @@ class OperationsController extends Controller
             'dateEntre' => 'required|string|max:191',
             'client' => 'required|string|max:191',
             'numero' => 'required|string|max:191',
-            'commission' => 'required',
+            // 'commission' => 'required',
             //'taxes' => 'required',
-            'durée' => 'required',
+            //'durée' => 'required',
 
 
         ]);
@@ -121,14 +117,22 @@ class OperationsController extends Controller
                 'message' => "la caution ne doit etre supérieur 5 fois au prix du location"
             ]);
         }
-        if ($request['montantPaye'] > $caution) {
-            return Response()->json([
-                "status" => 500,
-                'message' => "le montant payé ne doit etre supérieur 5 fois au prix du location"
-            ]);
+        // if ($request['montantPaye'] > $caution) {
+        //     return Response()->json([
+        //         "status" => 500,
+        //         'message' => "le montant payé ne doit etre supérieur 5 fois au prix du location"
+        //     ]);
+        // }
+        if ($request['taxes'] != 0) {
+
+            $montant =    $request['caution'] * $request['taxes'] / 100;
+
+            $montantttc = $montant - $request['commission'];
+        } else {
+            $montantttc = $request['caution'] - $request['commission'];
+            $montant = $request['caution'];
         }
-        $montant =    $request['montantPaye'] * $request['taxes'] / 100;
-        $montantttc = $montant - $request['commission'];
+
 
         $Operation = new Operations();
 
@@ -142,25 +146,31 @@ class OperationsController extends Controller
         }
 
         $Operation->caution = $request['caution'];
-        $Operation->montantPaye = $montantttc;
+        $Operation->montantPaye = 0;
         $Operation->dateEntre = date("H:i:s", strtotime(request('dateEntre')));
-        $Operation->commission = $request['commission'];
-        $Operation->taxes = $request['taxes'];
-        $Operation->durée = $request['durée'];
-        $Operation->dateEntre = $request['dateEntre'];
+        if ($request['taxes']) {
+            $Operation->durée = $request['taxes'];
+        }
+        if ($request['durée']) {
+            $Operation->durée = $request['durée'];
+        }
+      
         $Operation->commentaire = $request['commentaire'];
+        $Operation->commission = $request['commission'];
+
+        $Operation->dateEntre = $request['dateEntre'];
 
         $Operation->clients = $client->client_id;
         $Operation->biens = $bien->bien_id;
         $Operation->ref = rand(0, 1000000);
         //update bien
-        $soleBien = $bien->solde + $request['montantPaye'];
+        $soleBien = $bien->solde + $request['caution'];
 
         DB::table('biens')
             ->where('bien_id', $bien->bien_id)
             ->update(['louer' => true, 'solde' => $soleBien]);
         //update client
-        $soldeCli = $request['montantPaye'] + $client->solde;
+        $soldeCli = $request['caution'] + $client->solde;
         DB::table('clients')
             ->where('client_id', $client->client_id)
             ->update(['solde' => $soldeCli]);
@@ -234,7 +244,7 @@ class OperationsController extends Controller
             ['operations', '=', $request['operation_id']],
             ['date', '=', $request['date']],
         ])->first();
-            
+
         if ($paie) {
             return Response()->json([
                 "status" => 500,
@@ -295,7 +305,7 @@ class OperationsController extends Controller
             $Operation = DB::table('operations')
                 ->where('operation_id', $request['operation_id'])->first();
 
-         
+
             $paiement = new Paiements();
             $paiement->montant = $request['montant'];
             $paiement->date = $request['date'];
@@ -340,16 +350,9 @@ class OperationsController extends Controller
 
             //'fichier'  => 'required|mimes:doc,docx,pdf,txt|max:2048',
             'commentaire' => 'required',
-
-
         ]);
         $fichier = $this->upload($request->fichier);
-
         $divers = new Divers();
-
-
-
-
         $divers->commentaire = $request['commentaire'];
         $divers->operations = $request['operations'];
         $divers->fichier = $fichier;
@@ -357,7 +360,37 @@ class OperationsController extends Controller
 
         return Response()->json(["status" => 200, 'message' => "succes"]);
     }
+        /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updatedivers(Request $request)
+    {
 
+        $this->validate($request, [
+            'commentaire' => 'required',
+        ]);
+        if($request->fichier){
+            $fichier = $this->upload($request->fichier);
+            DB::table('divers')
+            ->where('divers_id',  $request['id'])
+            ->update(['commentaire' => $request['commentaire'],
+                      'operations' => $request['operations'],
+                      'fichier' => $fichier]);
+        }else{
+            DB::table('divers')
+            ->where('divers_id',  $request['id'])
+            ->update(['commentaire' => $request['commentaire'],
+                      'operations' => $request['operations']]);
+        }
+   
+     
+        return Response()->json(["status" => 200, 'message' => "succes"]);
+    }
+
+        
     public function upload($var)
     {
 

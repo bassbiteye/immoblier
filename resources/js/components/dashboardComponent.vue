@@ -5,7 +5,7 @@
       <!-- ============================================================== -->
       <!-- sales  -->
       <!-- ============================================================== -->
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12" v-if="$gate.isAdminOrUser()">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
             <h5 class="text-muted">Biens</h5>
@@ -22,7 +22,7 @@
       <!-- ============================================================== -->
       <!-- new customer  -->
       <!-- ============================================================== -->
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12" v-if="$gate.isAdminOrUser()">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
             <h5 class="text-muted">Clients</h5>
@@ -39,7 +39,7 @@
       <!-- ============================================================== -->
       <!-- visitor  -->
       <!-- ============================================================== -->
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12" v-if="$gate.isAdminOrUser()">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
             <h5 class="text-muted">Bailleurs</h5>
@@ -56,7 +56,7 @@
       <!-- ============================================================== -->
       <!-- total orders  -->
       <!-- ============================================================== -->
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12" v-if="$gate.isAdminOrUser()">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
             <h5 class="text-muted">Utilsateurs</h5>
@@ -77,12 +77,12 @@
       <!-- ============================================================== -->
      <!-- total orders  -->
       <!-- ============================================================== -->
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12" v-if="$gate.isAdmin()">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
             <h5 class="text-muted">Solde Alawa</h5>
             <div class="metric-value d-inline-block">
-              <h1 class="mb-1">{{Soldealawa[0].solde}}</h1>
+              <h1 class="mb-1" v-if="Soldealawa">{{Soldealawa[0].solde}}</h1>
             </div>
             
           </div>
@@ -94,12 +94,12 @@
       <!-- ============================================================== -->
       <!-- new customer  -->
       <!-- ============================================================== -->
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12"  v-if="$gate.isAdmin()">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
             <h5 class="text-muted">Commission</h5>
             <div class="metric-value d-inline-block">
-              <h1 class="mb-1">{{Commission[0].commission}} fcfa</h1>
+              <h1 class="mb-1" v-if="Commission">{{Commission[0].commission}} fcfa</h1>
             </div>
           
           </div>
@@ -111,12 +111,12 @@
       <!-- ============================================================== -->
       <!-- visitor  -->
       <!-- ============================================================== -->
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12" v-if="$gate.isAdmin()">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
             <h5 class="text-muted">      solde Bailleurs</h5>
             <div class="metric-value d-inline-block">
-              <h1 class="mb-1">{{soldeBailleur[0].solde}} fcfa</h1>
+              <h1 class="mb-1"  v-if="soldeBailleur">{{soldeBailleur[0].solde}} fcfa</h1>
             </div>
            
           </div>
@@ -127,12 +127,12 @@
       <!-- ============================================================== -->
       <!-- sales  -->
       <!-- ============================================================== -->
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12" v-if="$gate.isAdmin()">
         <div class="card border-3 border-top border-top-primary">
           <div class="card-body">
             <h5 class="text-muted">solde Clients</h5>
             <div class="metric-value d-inline-block">
-              <h1 class="mb-1">{{sommeClient[0].solde}} fcfa</h1>
+              <h1 class="mb-1" v-if="sommeClient" >{{sommeClient[0].solde}} fcfa</h1>
             </div>
          
           </div>
@@ -143,6 +143,8 @@
       <!-- ============================================================== -->
         <!-- ============================================================== -->
     </div>
+ 
+
   </div>
 </template>
 

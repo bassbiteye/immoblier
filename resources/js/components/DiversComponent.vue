@@ -1,6 +1,6 @@
 <template>
   <div class="conteiner">
-    <div class="row mt-5" v-if="$gate.isAdmin()">
+    <div class="row mt-5" v-if="$gate.isAdminOrUser()">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -24,7 +24,7 @@
                   <th>adresse</th>
                   <th>commentaire</th>
                   <th>fichier</th>
-                  <!-- <th>action</th> -->
+                  <th>action</th>
                 </tr>
               </thead>
               <tbody>
@@ -34,14 +34,14 @@
                   <td>{{divers.ref}}</td>
                   <td>{{divers.montantPaye}}</td>
                   <td>{{divers.adresse}}</td>
-                  <td>{{divers.comentaire}}</td>
+                  <td>{{divers.commentaire}}</td>
                   <td class="btn btn-success" @click="telecharger(divers.fichier)">fichier</td>
 
-                  <!-- <td>
+                  <td>
                     <a href="#" @click="editModal(divers)">
                       <i class="fa fa-edit blue"></i>
                     </a>
-                  </td>-->
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -54,7 +54,7 @@
         <!-- /.card -->
       </div>
     </div>
-    <div v-if="!$gate.isAdmin()">
+    <div v-if="!$gate.isAdminOrUser()">
       <not-found></not-found>
     </div>
     <!-- Modal -->
@@ -90,20 +90,20 @@
                 <has-error :form="form" field="details"></has-error>
               </div>
               <div>
-              <div class="row" v-if="showLoc">
-                <div class="col-md-4">
-                  <label for>locataire: {{locataire}}</label>
+                <div class="row" v-if="showLoc">
+                  <div class="col-md-4">
+                    <label for>locataire: {{locataire}}</label>
+                  </div>
+                  <div class="col-md-4">
+                    <label for>Bien: {{bien}}</label>
+                  </div>
+                  <div class="col-md-4">
+                    <label v-if="montantPaye">montant: {{montantPaye}}</label>
+                  </div>
                 </div>
-                <div class="col-md-4">
-                  <label for>Bien: {{bien}}</label>
-                </div>
-                <div class="col-md-4">
-                  <label v-if="montantPaye">montant: {{montantPaye}}</label>
-                </div>
+                <div v-else-if="locataire==null"></div>
               </div>
-              <div v-else-if="locataire==null"></div>
-              </div>  
-              <div class="form-group"  v-if="showLoc">
+              <div class="form-group" v-if="showLoc">
                 <label class="form-control-label">Fichier</label>
                 <input
                   type="file"
@@ -160,7 +160,7 @@ export default {
       editmode: false,
       divers: {},
       montantPaye: {},
-      showLoc:false,
+      showLoc: false,
       bien: {},
       locataire: {},
       d: {},
@@ -169,7 +169,8 @@ export default {
         id: "",
         commentaire: "",
         fichier: "",
-        operations: ""
+        operations: "",
+        ref: ""
       }),
       fichier: ""
     };
@@ -181,15 +182,17 @@ export default {
         this.divers = response.data;
       });
     },
-    updatedivers(id) {
+    updatedivers() {
       this.$Progress.start();
       // Submit the form via a POST request
-   
-      this.form
-        .put("/api/divers/" + this.form.id)
+      var fichier = new FormData();
+      fichier.append("id", this.form.id);
+      fichier.append("fichier", this.fichier);
+      fichier.append("commentaire", this.form.commentaire);
+      fichier.append("operations", this.form.operations);
+      axios
+        .post("/api/updatedivers/" , fichier)
         .then(() => {
-          //this will update dom automatically
-          //this.loaddivers();
           $("#addNew").modal("hide");
           Swal.fire("Deleted!", "le divers bien été modifié.", "success");
           Fire.$emit("AfterCreate");
@@ -200,10 +203,19 @@ export default {
         });
     },
     editModal(divers) {
+      this.showLoc = true;
+
       this.editmode = true;
       this.form.reset();
       $("#addNew").modal("show");
-      this.form.fill(divers);
+      this.montantPaye = divers.montantPaye;
+      this.bien = divers.details;
+      this.locataire = divers.nom;
+      this.form.operations = divers.operation_id;
+      this.form.commentaire = divers.commentaire;
+      this.form.ref = divers.ref;
+      this.form.id = divers.divers_id;
+      this.showLoc = true;
     },
     newModal() {
       this.editmode = false;
@@ -237,7 +249,7 @@ export default {
       }
     },
     loaddivers() {
-      if (this.$gate.isAdmin()) {
+      if (this.$gate.isAdminOrUser()) {
         axios.get("/api/divers").then(({ data }) => (this.divers = data));
       }
     },
@@ -249,22 +261,21 @@ export default {
           this.bien = operation[i].details;
           this.locataire = operation[i].nom;
           this.form.operations = operation[i].operation_id;
-                  this.showLoc=true
-
+          this.showLoc = true;
         }
       });
     },
     createdivers() {
       this.$Progress.start();
       // Submit the form via a POST request
-         var fichier = new FormData();
+      var fichier = new FormData();
       fichier.append("id", this.form.id);
       fichier.append("fichier", this.fichier);
       fichier.append("commentaire", this.form.commentaire);
       fichier.append("operations", this.form.operations);
 
       axios
-        .post("/api/adddivers",fichier)
+        .post("/api/adddivers", fichier)
         .then(() => {
           //this will update dom automatically
           //this.loaddivers();

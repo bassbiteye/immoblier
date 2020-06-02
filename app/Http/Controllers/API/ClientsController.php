@@ -64,13 +64,7 @@ class ClientsController extends Controller
             return response()->json(["error" => "telephone already exists"], 401);
         }
         $typeclient = Typeclients::where('typeclients_id', $request->type)->first();;
-      
-        $date = (154263);
-        $min_epoch = strtotime($date);
-        $var = rand($min_epoch, 1000);
-        $strval = 'FR_401';
-        $items = ($strval . $var);
-
+     
         if ($typeclient) {
             return Clients::create([
                 'nom' => $request['nom'],
@@ -83,8 +77,7 @@ class ClientsController extends Controller
                 'commentaire'=> $request['commentaire'],
                 'entreprise'=> $request['entreprise'],
                 'type' => $typeclient->typeclients_id,
-                'numero' => $items,
-                    'solde' => 0
+                'solde' => 0
             ]);
         }
 

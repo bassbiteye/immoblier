@@ -18,7 +18,7 @@ class CreateOperationsTable extends Migration
             $table->integer('biens');
             $table->string('clients');
             $table->integer('caution');
-            $table->integer('commission');
+            $table->integer('commission')->nullable();
             $table->integer('taxes')->nullable();
             $table->integer('durée')->nullable();
             $table->string('dernierelevé')->nullable();

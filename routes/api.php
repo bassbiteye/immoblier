@@ -57,6 +57,7 @@ Route::get('revoque','API\OperationsController@revoque');
 Route::post('addrevoque','API\OperationsController@addRevoque');
 Route::post('paiement','API\OperationsController@paiement');
 Route::get('divers','API\OperationsController@divers');
+Route::post('updatedivers','API\OperationsController@updatedivers');
 Route::post('findoperation','API\OperationsController@findoperation');
 Route::post('adddivers','API\OperationsController@addDivers');
 Route::get('biensnonlouer','API\ListesController@biensnonlouer');

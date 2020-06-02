@@ -39,7 +39,7 @@
       </div>
       <!-- /.card-header -->
       <div class="card-body">
-        <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
+        <div class="row mt-5" v-if="$gate.isAdminOrUser()">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
@@ -85,7 +85,7 @@
     </div>
 
 
-    <div v-if="!$gate.isAdminOrBailleurs()">
+    <div v-if="!$gate.isAdminOrUser()">
       <not-found></not-found>
     </div>
  

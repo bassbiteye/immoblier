@@ -25,7 +25,6 @@ class CreateClientsTable extends Migration
             $table->string('commentaire')->nullable();
             $table->string('entreprise')->nullable();
             $table->integer('solde')->nullable();
-            $table->string('numero')->nullable()->unique();
             $table->string('type')->nullable();
             $table->timestamps();
         });

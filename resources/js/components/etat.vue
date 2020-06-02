@@ -132,7 +132,7 @@
         <button v-if="!editbien" type="submit" class="btn btn-primary">Ajouter</button>
       </form>
     </div>
-    <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
+    <div class="row mt-5" v-if="$gate.isAdminOrUser()">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -206,7 +206,7 @@
         <!-- /.card -->
       </div>
     </div>
-    <div v-if="!$gate.isAdminOrBailleurs()">
+    <div v-if="!$gate.isAdminOrUser()">
       <not-found></not-found>
     </div>
     <!-- Modal -->
@@ -876,7 +876,7 @@ export default {
       });
     },
     loadbiens() {
-      if (this.$gate.isAdminOrBailleurs()) {
+      if (this.$gate.isAdminOrUser()) {
         axios.get("/api/biens").then(({ data }) => (this.Biens = data));
       }
     },

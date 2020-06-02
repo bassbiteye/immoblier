@@ -35,9 +35,7 @@ class ListesController extends Controller
             ->join('users', 'biens.bailleur', '=', 'users.id')
             ->leftJoin('typebiens', 'biens.type', '=', 'typebiens.typebien_id')
             ->Join('typeetats', 'biens.etat', '=', 'typeetats.id')
-            ->Join('operations', 'biens.bien_id', '=', 'operations.biens')
-            ->Join('clients', 'clients.client_id', '=', 'operations.clients')
-            ->select('biens.*', 'typebiens.*', 'users.name', 'typeetats.*','clients.nom')->paginate(10);
+            ->select('biens.*', 'typebiens.*', 'users.name', 'typeetats.*')->paginate(10);
     }
 
 
@@ -61,7 +59,7 @@ class ListesController extends Controller
     public function clientpaye(Request $request)
     {
 
-            $date= $request->date;
+        $date = $request->date;
         return DB::select("SELECT * FROM `clients`,`operations`,`biens`,`paiements`
         WHERE clients.client_id=operations.clients
          AND biens.bien_id=operations.biens
@@ -72,48 +70,38 @@ class ListesController extends Controller
     }
     public function clientnonpaye(Request $request)
     {
-        $date= $request->date;
-           return DB::select("SELECT * FROM `clients`,`operations`,`biens`
+        $date = $request->date;
+        return DB::select("SELECT * FROM `clients`,`operations`,`biens`
             WHERE clients.client_id=operations.clients
              AND biens.bien_id=operations.biens
              AND operations.statut='louer'
               AND operations.operation_id not IN 
               (SELECT paiements.operations FROM`paiements`
                WHERE paiements.date= '{$date}')");
-      
-           
-
     }
 
-    public function commission(){
+    public function commission()
+    {
         return DB::select('SELECT commission FROM `users` WHERE id= 1');
-
-        
-
     }
-    public function soldealawa(){
+    public function soldealawa()
+    {
         return DB::select('SELECT solde FROM `users` WHERE id=1');
     }
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function soldebailleur(){
+    public function soldebailleur()
+    {
         return DB::select('SELECT sum(solde) as solde FROM `users` WHERE type=  "bailleurs"');
-
-        
-      
     }
 
 
     public function sommeclient()
     {
-       
-           return DB::select('SELECT SUM(solde) as solde FROM `clients`');
-      
-           
 
+        return DB::select('SELECT SUM(solde) as solde FROM `clients`');
     }
-    
 }

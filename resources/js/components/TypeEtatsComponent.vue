@@ -1,6 +1,6 @@
 <template>
   <div class="conteiner">
-    <div class="row mt-5" v-if="$gate.isAdmin()">
+    <div class="row mt-5" v-if="$gate.isAdminOrUser()">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -49,7 +49,7 @@
         <!-- /.card -->
       </div>
     </div>
-    <div v-if="!$gate.isAdmin()">
+    <div v-if="!$gate.isAdminOrUser()">
       <not-found></not-found>
     </div>
     <!-- Modal -->
@@ -188,7 +188,7 @@ export default {
       });
     },
     loadtypeetats() {
-      if (this.$gate.isAdmin()) {
+      if (this.$gate.isAdminOrUser()) {
         axios.get("/api/typeetats").then(({ data }) => (this.typeetats = data));
       }
     },

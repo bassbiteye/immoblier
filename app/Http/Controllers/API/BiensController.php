@@ -34,12 +34,7 @@ class BiensController extends Controller
             ->leftJoin('typebiens', 'biens.type', '=', 'typebiens.typebien_id')
             ->Join('typeetats', 'biens.etat', '=', 'typeetats.id')
             ->select('biens.*', 'typebiens.*', 'users.name','typeetats.*')->paginate(10);
-        // if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor')) {
-        // return DB::table('biens')
-        // ->where('bailleur',$user->id)
-        // ->leftJoin('typebiens', 'biens.type', '=', 'typebiens.typebien_id')
-        // ->select('biens.*', 'typebiens.*')->paginate(10);
-        //}
+
     }
 
     /**
@@ -61,7 +56,6 @@ class BiensController extends Controller
 
 
         ]);
-        // $Typebiens = Typebiens::findOrFail($request->type);
         $Biens = new Biens();
 
         $Biens->details = $request['details'];
@@ -70,6 +64,7 @@ class BiensController extends Controller
         $Biens->etat = $request['etat'];
         $Biens->adresse = $request['adresse'];
         $Biens->type = $request['type'];
+        $Biens->louer = false;
         $Biens->save();
     
         return $Biens;

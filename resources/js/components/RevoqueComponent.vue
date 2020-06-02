@@ -2,7 +2,7 @@
   <div class="conteiner">
     <!-- bien -->
 
-    <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
+    <div class="row mt-5" v-if="$gate.isAdmin()">
       <div class="col-md-12" v-if="showTab">
         <div class="card">
           <div class="card-header">
@@ -71,7 +71,7 @@
       </div>
     </div>
 
-    <div v-if="!$gate.isAdminOrBailleurs()">
+    <div v-if="!$gate.isAdmin()">
       <not-found></not-found>
     </div>
     <section class="content" v-if="detailShow">

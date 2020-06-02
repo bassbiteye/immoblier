@@ -64,18 +64,12 @@ class BailleursController extends Controller
             return response()->json(["error" => "email already exists"], 401);
         }
 
-        $date = (154263);
-        $min_epoch = strtotime($date);
-        $var = rand($min_epoch, 1000);
-        $strval = 'FR_401';
-        $items = ($strval . $var);
         $bailleur = new User();
         $bailleur->name = $request['name'];
         $bailleur->adresse = $request['adresse'];
         $bailleur->telephone = $request['telephone'];
         $bailleur->email = $request['email'];
         $bailleur->type = $request['type'];
-        $bailleur->numero = $items;
         $bailleur->solde = 0;
         $bailleur->profession = $request['profession'];
         $bailleur->bp = $request['bp'];

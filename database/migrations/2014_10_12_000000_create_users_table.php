@@ -26,7 +26,6 @@ class CreateUsersTable extends Migration
             $table->string('nationalite')->nullable();
             $table->integer('solde')->nullable();
             $table->integer('commission')->nullable();
-            $table->string('numero')->nullable()->unique();
             $table->string('bp')->nullable();
             $table->string('type')->default('admin');
             $table->string('typebailleur')->nullable();
