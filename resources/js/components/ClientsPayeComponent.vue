@@ -15,7 +15,7 @@
       </div>
 
       <div class="card-body">
-        <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
+        <div class="row mt-5" v-if="$gate.isAdminOrUser()">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
@@ -28,8 +28,8 @@
                     v-model="form.date"
                   />
                 </label>
-                <label for="">
-                <button class="btn btn-secondary" @click="getResults()">rechercher</button>
+                <label for>
+                  <button class="btn btn-secondary" @click="getResults()">rechercher</button>
                 </label>
 
                 <div class="card-tools"></div>
@@ -43,8 +43,8 @@
                       <th>prenom</th>
                       <th>telephone</th>
                       <th>profession</th>
-                      <th>date de paiement</th>
                       <th>montant Payé</th>
+                      <th>date de paiement</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-    <div v-if="!$gate.isAdminOrBailleurs()">
+    <div v-if="!$gate.isAdminOrUser()">
       <not-found></not-found>
     </div>
   </div>

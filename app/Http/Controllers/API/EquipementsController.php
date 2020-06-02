@@ -46,7 +46,6 @@ class EquipementsController extends Controller
             'typeEquipement' => 'required|string|max:191',
             'nombre' => 'required|string|max:191',
             'etatEquipement' => 'required|string|max:191',
-            'commentaire' => 'required|string|max:191'
 
 
         ]);
@@ -96,7 +95,6 @@ class EquipementsController extends Controller
             'typeEquipement' => 'required|string|max:191',
             'nombreEquipement' => 'required|string|max:191',
             'etatEquipement' => 'required|string|max:191',
-            'commentaireEquipement' => 'required|string|max:191'
 
         ]);
         $Equipement->update($request->all());

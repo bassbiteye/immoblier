@@ -2,7 +2,7 @@
   <div class="conteiner">
     <!-- bien -->
 
-    <div class="row mt-5 no-print" v-if="$gate.isAdminOrBailleurs()">
+    <div class="row mt-5 no-print" v-if="$gate.isAdminOrUser()">
       <div class="col-md-12" v-if="showTab">
         <div class="card">
           <div class="card-header">
@@ -101,7 +101,10 @@
                           <p>{{clientD.prenom}}_{{form.client}}</p>
                         </div>
                       </div>
-                      <div class="col-sm-6" v-if="showForm2">
+
+                    </div>
+                    <div class="row" v-if="showForm2">
+                                            <div class="col-sm-6" v-if="showForm2">
                         <div class="form-group">
                           <label class="form-control-label">caution</label>
                           <input
@@ -115,9 +118,7 @@
                           <has-error :form="form" field="caution"></has-error>
                         </div>
                       </div>
-                    </div>
-                    <div class="row" v-if="showForm2">
-                      <div class="col-sm-6">
+                      <!-- <div class="col-sm-6">
                         <div class="form-group">
                           <label class="form-control-label">montant payé</label>
                           <input
@@ -130,7 +131,7 @@
                           />
                           <has-error :form="form" field="montantPaye"></has-error>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="col-sm-6">
                         <div class="form-group">
                           <label class="form-control-label">Date entrée</label>
@@ -317,7 +318,7 @@
       </div>
     </section>
 
-    <div v-if="!$gate.isAdminOrBailleurs()">
+    <div v-if="!$gate.isAdminOrUser()">
       <not-found></not-found>
     </div>
     <section class="content" v-if="contratL">
@@ -559,9 +560,9 @@ export default {
         client: "",
         libelleE: "",
         numero: "",
-        commission: "",
-        taxes: "",
-        durée: "",
+        commission: 0,
+        taxes: 0,
+        durée: 0,
         dernierelevé: "",
         piece: "",
         commentaire: ""

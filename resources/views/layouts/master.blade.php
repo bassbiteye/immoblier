@@ -51,7 +51,7 @@
         <aside class="main-sidebar sidebar-info-info elevation-4 navbar-white ">
             <!-- Brand Logo -->
             <a href="/home" class="brand-link">
-                <img src="./img/logo.png" alt="laravue Logo" class="brand-image img-circle elevation-3" style="opacity: 8">
+                <img src="./img/logo.jpeg" alt="laravue Logo" class="brand-image img-circle elevation-3" style="opacity: 5">
                 <span class="brand-text font-weight-light">ALAWA</span>
             </a>
 
@@ -83,7 +83,9 @@
 
                         </li>
 
-                        @can('isAdmin')
+                       
+                        @canany (['isAdmin','isUser'])
+    <!-- The Current User Can Update The Post -->
 
                  
               
@@ -157,12 +159,14 @@
                                         <p style="color:black">location</p>
                                     </router-link>
                                 </li>
+                                @can('isAdmin')
                                 <li class="nav-item">
                                     <router-link to="/revoque" class="nav-link">
                                         <i class="far fa-circle nav-icon" style="color:#0879FA"></i>
                                         <p style="color:black">révoque</p>
                                     </router-link>
                                 </li>
+                                @endcan
                                 <li class="nav-item">
                                     <router-link to="/paiement" class="nav-link">
                                         <i class="far fa-circle nav-icon" style="color:#0879FA"></i>
@@ -185,7 +189,7 @@
                                 </p>
                             </router-link>
                         </li>
-                        @endcan
+                        @endcanany
                         <li class="nav-item">
                             <router-link to="/profile" class="nav-link">
                                 <i class="nav-icon fas fa-user orange" style="color:#0879FA"></i>

@@ -123,6 +123,10 @@
                   <th scope="row">Commentaire</th>
                   <td>{{dtEtat.commentaire}}</td>
                 </tr>
+                  <tr>
+                  <th scope="row">date</th>
+                  <td>{{dtEtat.created_at | myDate}}</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -288,7 +292,7 @@
       </div>
       <!-- /.card-header -->
       <div class="card-body">
-        <div class="row mt-5" v-if="$gate.isAdminOrBailleurs()">
+        <div class="row mt-5" v-if="$gate.isAdminOrUser()">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
@@ -368,7 +372,7 @@
     <div>
       <biens-non-louer></biens-non-louer>
     </div>
-    <div v-if="!$gate.isAdminOrBailleurs()">
+    <div v-if="!$gate.isAdminOrUser()">
       <not-found></not-found>
     </div>
     <!-- Modal -->
@@ -474,6 +478,7 @@
                     <th>nombre</th>
                     <th>etat</th>
                     <th>commentaire</th>
+                    <th>date</th>
                     <th>action</th>
                   </tr>
                 </thead>
@@ -483,7 +488,9 @@
                     <td>{{e.nombreEquipement}}</td>
                     <td>{{e.etatEquipement}}</td>
                     <td>{{e.commentaireEquipement}}</td>
+                    <td>{{e.created_at | myDate}}</td>
 
+                        
                     <td>
                       <a href="#" @click="Eform(e)">
                         <i class="fa fa-edit blue"></i>
@@ -590,7 +597,7 @@
                     <td>murs</td>
                     <td>sols</td>
                     <td>ouverture</td>
-                    <td>commentaire</td>
+                    <td>date</td>
                     <th>action</th>
                   </tr>
                 </thead>
@@ -600,7 +607,7 @@
                     <td>{{etat.murs}}</td>
                     <td>{{etat.sols}}</td>
                     <td>{{etat.ouverture}}</td>
-                    <td>{{etat.commentaire}}</td>
+                    <td>{{etat.created_at | myDate}}</td>
                     <td>
                       <a href="#" @click="Etatform(etat)">
                         <i class="fa fa-edit blue"></i>
@@ -1091,7 +1098,7 @@ export default {
       });
     },
     loadbiens() {
-      if (this.$gate.isAdminOrBailleurs()) {
+      if (this.$gate.isAdminOrUser()) {
         axios.get("/api/biens").then(({ data }) => (this.Biens = data));
       }
     },

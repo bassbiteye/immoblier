@@ -11,9 +11,14 @@ export default class  Gate{
     isBailleur(){
         return this.user.type === 'bailleurs';
     }
+    isAdminOrUser(){
+        if(this.user.type === 'admin'|| this.user.type === 'user'){
+            return true;
+        }
+    }
     isAdminOrBailleurs(){
         if(this.user.type === 'admin'|| this.user.type === 'bailleurs'){
             return true;
-        }
+        }  
     }
 }

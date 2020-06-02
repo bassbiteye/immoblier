@@ -69,7 +69,7 @@
       </div>
     </div>
     <!-- Modal: modalBailleur -->
-    <div class="row mt-5" v-if="$gate.isAdmin()" v-show="!detail">
+    <div class="row mt-5" v-if="$gate.isAdminOrUser()" v-show="!detail">
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -126,7 +126,7 @@
         <!-- /.card -->
       </div>
     </div>
-    <div v-if="!$gate.isAdmin()">
+    <div v-if="!$gate.isAdminOrUser()">
       <not-found></not-found>
     </div>
     <!-- Modal -->
@@ -619,7 +619,7 @@ export default {
       });
     },
     loadBailleurs() {
-      if (this.$gate.isAdmin()) {
+      if (this.$gate.isAdminOrUser()) {
         axios.get("/api/bailleurs").then(({ data }) => (this.bailleurs = data));
       }
     },
