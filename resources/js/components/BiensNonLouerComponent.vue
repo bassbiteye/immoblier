@@ -28,7 +28,7 @@
       <div class="card-header border-transparent">
         <h3 class="card-title">
           <font style="vertical-align: inherit;">
-            <font style="vertical-align: inherit;">liste des biens non Loués</font>
+            <font style="vertical-align: inherit;">Liste des biens non loués</font>
           </font>
         </h3>
         <div class="card-tools">
@@ -43,7 +43,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">liste des biens Loués</h3>
+                <h3 class="card-title">Liste des biens non loués</h3>
 
                 <div class="card-tools">
                   <!-- <button class="btn btn-success" @click="newModal">
