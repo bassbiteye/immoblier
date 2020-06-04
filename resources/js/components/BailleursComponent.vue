@@ -54,6 +54,10 @@
                   <th scope="row">NombreBien</th>
                   <td>{{nombreBien}}</td>
                 </tr>
+                   <tr class="total">
+                  <th scope="row">Solde</th>
+                  <td>{{DetailBailleur.solde}}</td>
+                </tr>
                 <tr class="total">
                   <th scope="row">Boite Postale</th>
                   <td>{{DetailBailleur.bp}}</td>
@@ -268,7 +272,7 @@
 
     <!-- /.content -->
 
-    <section class="content">
+    <section class="content" v-show="detail">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -288,7 +292,7 @@
                 <div class="col-sm-4 invoice-col">
                 
                   <address>
-                    <img src="/img/logo2.png" alt="">
+                    <img src="/img/logo.jpeg" style="width:100px;height:100px" alt="">
                   </address>
                 </div>
                 <!-- /.col -->
@@ -331,7 +335,7 @@
               <!-- Table row -->
               <div class="row">
                 <div class="col-12 table-responsive">
-                  <div style="margin-left:20px">
+                  <div style="margin-left:20px"><br><br><br>
                     <H1 style="text-align:center">MANDAT DE GERANCE</H1>
 
                     <P>

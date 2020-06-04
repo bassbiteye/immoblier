@@ -139,7 +139,7 @@ export default {
           //this will update dom automatically
           //this.loadtypeclients();
           $("#addNew").modal("hide");
-          Swal.fire("Deleted!", "le typeclients bien été modifié.", "success");
+          Swal.fire("Modification!", "le type de client a été modifié.", "success");
           Fire.$emit("AfterCreate");
           this.$Progress.finish();
         })
@@ -160,13 +160,14 @@ export default {
     },
     deletetypeclients(id) {
       Swal.fire({
-        title: "etes vous sur?",
+        title: "Etes vous sur?",
         text: "Vous ne pourrez pas revenir en arrière!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
+        confirmButtonText: "Oui!",
+        cancelButtonText: 'Non'
       }).then(result => {
         //send ajax request to the server
         if (result.value) {
@@ -175,7 +176,7 @@ export default {
             .then(() => {
               Swal.fire(
                 "Suppression!",
-                "le typeclients bien été supprimé.",
+                "le type de client est supprimé.",
                 "success"
               );
               Fire.$emit("AfterCreate");
@@ -206,7 +207,7 @@ export default {
 
           Toast.fire({
             icon: "success",
-            title: "typeclients a été créé avec succes"
+            title: "Type de client  créé avec succes"
           });
           this.$Progress.finish();
         })
